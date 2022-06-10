@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+}
+main {
+  max-width: 480px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+}
+body {
+  margin: 40px;
+  background: #eee;
+  font-family: sans-serif;
+}
+button {
+  padding: 8px 15px;
+  background: white;
+  border: solid orange 2px;
+  border-radius: 4px;
+  margin: 5px;
+  cursor: pointer;
+  min-height: 38px;
+}
+.justified button {
+  white-space: nowrap;
+  width: calc((100% / 3) - 10px);
+}
+button:last-child {
+  margin-left: auto;
+}
+.primary {
+  background: orange;
+}
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+strong {
+  background: yellow;
+}
+label {
+  font-weight: bold;
+}
+.question {
+  list-style: none;
+  padding-left: 1.2em;
+  margin-top: 0.2em;
+  margin-bottom: 2em;
+}
+.question li + li {
+  margin-top: 0.5em;
+}
+.question li:before {
+  content: '';
+  display: inline-block;
+  vertical-align: baseline;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  border: 1px solid gray;
+  margin-right: 0.3em;
+}
+.question .selected:before {
+  background: gray;
+  box-shadow: inset 0 0 0 2px white;
+}
+h1 {
+  margin: 0;
+}
+.instructions {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+button.primary:hover {
+  background: rgba(194, 75, 35, 1);
+  color: white;
+}
+.split-button__container {
+  position: relative;
+}
+.popper {
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  border: 1px solid #aaa;
+  width: 150px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .15);
+}
+.popper button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  background: white;
+  border: 0;
+  text-align: left;
+}
+.popper button:hover {
+  background: #eee;
+  color: black;
+}
+.split-button button:first-child {
+  margin-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 1px solid white;
+}
+.split-button button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+.icon {
+  width: 15px;
+  vertical-align: middle;
+}
+.chevron {
+  stroke: currentColor;
+  stroke-width: 2px;
+  fill: transparent;
+}

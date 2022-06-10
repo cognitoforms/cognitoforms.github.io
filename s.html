@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    
+<main>  
+  <h1>Student Screening</h1>
+    
+    <div class="instructions">
+      <p>Please screen this student based on the results of his or her test.</p>
+      <strong>Only accept students who have gotten all of the questions correct.</strong>
+    </div>
+    
+    <hr>
+    
+      <small style="display: block; margin-bottom: 15px;">
+        Student Name: Christine Shannon
+      </small>
+  
+    <div>
+  
+    <label>1. What is 5 x 5?</label>
+    <ul class="question">
+      <li>15</li>
+      <li>20</li>
+      <li class="selected">25</li>
+      <li>30</li>
+    </ul>
+      
+    <label>2. What is 3 x 7?</label>
+     <ul class="question">
+      <li class="selected">20</li>
+      <li>21</li>
+      <li>22</li>
+      <li>23</li>
+    </ul>
+      
+    <label>3. What is 8 x 6?</label>
+    <ul class="question">
+      <li>38</li>
+      <li class="selected">48</li>
+      <li>58</li>
+      <li>68</li>
+    </ul>
+     
+  </div>
+  <div class="button-container">
+    <button class="back">Back</button>
+    
+    <div class="split-button__container">
+      <div id="popper" class="popper" hidden>
+        <button class="primary" data-button="2">Accept</button>
+        <button class="primary" data-button="0">Reject</button>
+      </div>
+      <div class="split-button">
+        <button class="primary" data-button="1">Accept</button><button id="toggle-popper" class="primary"><svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"><g class="chevron"><polyline points="3 7 9 13 15 7"/></g></svg></button>
+      </div>
+    </div>
+  
+    <button class="save">Save</button>
+  </div>
+  </main>
+  <script src="./scripts.js"></script>
+  <script>
+    document.getElementById('toggle-popper').addEventListener('click', function() {
+      console.log(document.getElementById('popper').getAttribute('hidden') === '')
+      document.getElementById('popper').hidden = !document.getElementById('popper').hidden
+    });
+    
+    document.querySelector('[data-button="1"]').addEventListener('click', function() {
+      alert('Thank you for completing the task. Your submission code is: ' + generateCode('01'))
+    });
+
+    document.querySelector('[data-button="2"]').addEventListener('click', function() {
+      alert('Thank you for completing the task. Your submission code is: ' + generateCode('02'))
+    });
+
+    document.querySelector('[data-button="0"]').addEventListener('click', function() {
+      alert('Thank you for completing the task. Your submission code is: ' + generateCode('00'))
+    });
+  </script>
+  </body>
+</html>
