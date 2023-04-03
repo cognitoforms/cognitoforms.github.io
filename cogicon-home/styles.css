@@ -23,6 +23,11 @@ body {
     height: 63px;
 }
 
+.add-line.add-line {
+    border-right: 1px #DFEAEA solid;
+    margin-right: 10px;
+}
+
 .header__left {
     display: flex;
     height: 100%;
@@ -37,6 +42,16 @@ body {
     height: 100%;
     width: auto;
     margin-right: 0;
+}
+
+.header__left-forg {
+    display: flex;
+    align-items: center;
+    width: 375px;
+}
+
+.forg.forg {
+    height: 43px;
 }
 
 .secondary-header {
@@ -68,6 +83,7 @@ body {
     width: 375px;
     border-right: #DFEAEA 1px solid;
     padding: 25px;
+    flex-shrink: 0;
 }
 
 .canvas {
