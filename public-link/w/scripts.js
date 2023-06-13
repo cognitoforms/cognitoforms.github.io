@@ -12,9 +12,9 @@ function handleClick(event) {
     var elapsedTime = (endTime - startTime) / 1000;
 
     if (xPos >= 0 && xPos <= 800 && yPos >= 990 && yPos <= 1070) {
-        alert('Public Links Was Selected \n Clicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
+        alert('Public Links Was Selected \nClicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
     } else
-        alert('Public Links Was Not Selected \n Clicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
+        alert('Public Links Was Not Selected \nClicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
 }
 
 document.addEventListener('DOMContentLoaded', function () {
