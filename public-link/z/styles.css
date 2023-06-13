@@ -1,4 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CCCDC6;
+}
+
+#container {
+    max-width: 80%;
+    max-height: auto;
+    /* Adjust the percentage as desired */
+}
+
 #settings {
-    max-width: 100%;
+    width: 100%;
     height: auto;
 }

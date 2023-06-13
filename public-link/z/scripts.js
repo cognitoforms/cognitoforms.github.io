@@ -11,11 +11,11 @@ function handleClick(event) {
     var endTime = Date.now();
     var elapsedTime = (endTime - startTime) / 1000;
 
-    if (xPos >= 1 && xPos <= 208 && yPos >= 136 && yPos <= 219) {
+    if (xPos <= 210 && yPos >= 133 && yPos <= 220) { //Settings is selected
         alert('Settings Was Selected \n Clicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
-    } else if (xPos >= 435 && xPos <= 667 && yPos >= 136 && yPos <= 219) {
+    } else if (xPos >= 435 && xPos <= 667 && yPos >= 133 && yPos <= 220) { // Workflow is selected
         alert('Workflow Was Selected \n Clicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
-    } else
+    } else //Neither were selected
         alert('Neither Were Selected \n Clicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
 }
 
