@@ -8,7 +8,9 @@ function handleClick(event) {
 
     var elapsedTime = (Date.now() - startTime) / 1000;
 
-    var code = xPos + 'C' + yPos + 'T' + elapsedTime;
+    var code = xPos + 'C' + yPos + 'T' + elapsedTime; // X & Y positions of the user's click, + Time spent on page.
+    // var code = code + 'x' + window.innerWidth + 'X' + window.innerHeight; // Activate to add users window size.
+
     alert('Thank you, your code is: ' + code);
 
     /* We can infer correctness when we parse the data
