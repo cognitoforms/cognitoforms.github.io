@@ -13,7 +13,7 @@ function handleClick(event) {
 
     alert('Thank you, your code is: ' + code);
 
-    /* We can infer correctness when we parse the data
+    /* Activate to add whether or not user clicked the correct area.
         if (xPos >= 0 && xPos <= 800 && yPos >= 1000 && yPos <= 1080) {
             alert('Thank you, your code is: ' + code + 'A');
         } else
