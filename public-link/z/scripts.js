@@ -3,20 +3,24 @@ var startTime = Date.now();
 function handleClick(event) {
     var image = event.target;
     var rect = image.getBoundingClientRect();
-    var naturalWidth = image.naturalWidth;
-    var naturalHeight = image.naturalHeight;
-    var xPos = (event.clientX - rect.left) * (naturalWidth / rect.width);
-    var yPos = (event.clientY - rect.top) * (naturalHeight / rect.height);
+    var xPos = Math.floor((event.clientX - rect.left) * (image.naturalWidth / rect.width));
+    var yPos = Math.floor((event.clientY - rect.top) * (image.naturalHeight / rect.height));
 
-    var endTime = Date.now();
-    var elapsedTime = (endTime - startTime) / 1000;
+    var elapsedTime = (Date.now() - startTime) / 1000;
 
+    var code = xPos + 'C' + yPos + 'T' + elapsedTime; // X & Y positions of the user's click, + Time spent on page.
+    // var code = code + 'x' + window.innerWidth + 'X' + window.innerHeight; // Activate to add users window size.
+
+    alert('Thank you, your code is: ' + code);
+
+    /*
     if (xPos <= 210 && yPos >= 133 && yPos <= 220) { //Settings is selected
-        alert('Settings Was Selected \nClicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
+        alert('Thank you, your code is: ' + code + 'A');
     } else if (xPos >= 435 && xPos <= 667 && yPos >= 133 && yPos <= 220) { // Workflow is selected
-        alert('Workflow Was Selected \nClicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
+        alert('Thank you, your code is: ' + code + 'B');
     } else //Neither were selected
-        alert('Neither Were Selected \nClicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
+        alert('Thank you, your code is: ' + code + 'C');
+    */
 }
 
 document.addEventListener('DOMContentLoaded', function () {

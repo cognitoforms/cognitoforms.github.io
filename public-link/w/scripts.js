@@ -3,18 +3,22 @@ var startTime = Date.now();
 function handleClick(event) {
     var image = event.target;
     var rect = image.getBoundingClientRect();
-    var naturalWidth = image.naturalWidth;
-    var naturalHeight = image.naturalHeight;
-    var xPos = (event.clientX - rect.left) * (naturalWidth / rect.width);
-    var yPos = (event.clientY - rect.top) * (naturalHeight / rect.height);
+    var xPos = Math.floor((event.clientX - rect.left) * (image.naturalWidth / rect.width));
+    var yPos = Math.floor((event.clientY - rect.top) * (image.naturalHeight / rect.height));
 
-    var endTime = Date.now();
-    var elapsedTime = (endTime - startTime) / 1000;
+    var elapsedTime = (Date.now() - startTime) / 1000;
 
-    if (xPos >= 0 && xPos <= 800 && yPos >= 990 && yPos <= 1070) {
-        alert('Public Links Was Selected \nClicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
+    var code = xPos + 'C' + yPos + 'T' + elapsedTime; // X & Y positions of the user's click, + Time spent on page.
+    // var code = code + 'x' + window.innerWidth + 'X' + window.innerHeight; // Activate to add users window size.
+
+    alert('Thank you, your code is: ' + code);
+
+    /* Activate to add whether or not user clicked the correct area.
+    if (xPos >= 0 && xPos <= 800 && yPos >= 1000 && yPos <= 1080) {
+        alert('Thank you, your code is: ' + code + 'A');
     } else
-        alert('Public Links Was Not Selected \nClicked at coordinates: X = ' + xPos + ', Y = ' + yPos + '\nTotal time spent: ' + elapsedTime + ' seconds');
+        alert('Thank you, your code is: ' + code + 'B');
+    */
 }
 
 document.addEventListener('DOMContentLoaded', function () {
