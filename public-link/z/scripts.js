@@ -9,18 +9,16 @@ function handleClick(event) {
     var elapsedTime = (Date.now() - startTime) / 1000;
 
     var code = xPos + 'C' + yPos + 'T' + elapsedTime; // X & Y positions of the user's click, + Time spent on page.
-    // var code = code + 'x' + window.innerWidth + 'X' + window.innerHeight; // Activate to add users window size.
+    var code = code + 'x' + window.innerWidth + 'X' + window.innerHeight; // Users window size.
 
-    alert('Thank you, your code is: ' + code);
 
-    /*
     if (xPos <= 210 && yPos >= 133 && yPos <= 220) { //Settings is selected
         alert('Thank you, your code is: ' + code + 'A');
     } else if (xPos >= 435 && xPos <= 667 && yPos >= 133 && yPos <= 220) { // Workflow is selected
         alert('Thank you, your code is: ' + code + 'B');
     } else //Neither were selected
         alert('Thank you, your code is: ' + code + 'C');
-    */
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {
