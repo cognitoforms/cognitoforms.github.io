@@ -1,4 +1,5 @@
 var startTime = Date.now();
+var code = window.innerWidth + 'X' + window.innerHeight;
 
 function handleClick(event) {
     var image = event.target;
@@ -6,15 +7,11 @@ function handleClick(event) {
     var xPos = Math.floor((event.clientX - rect.left) * (image.naturalWidth / rect.width));
     var yPos = Math.floor((event.clientY - rect.top) * (image.naturalHeight / rect.height));
 
-    var elapsedTime = (Date.now() - startTime) / 1000;
-
-    var code = xPos + 'C' + yPos + 'T' + Math.floor(elapsedTime); // X & Y positions of the user's click, + Time spent on page.
-    var code = code + 'x' + window.innerWidth + 'X' + window.innerHeight; // Activate to add users window size.
-
-    if (xPos >= 0 && xPos <= 800 && yPos >= 1000 && yPos <= 1080) {
-        alert('Thank you, your code is: ' + code + 'A');
-    } else
-        alert('Thank you, your code is: ' + code + 'B');
+    if (xPos >= 0 && xPos <= 800 && yPos >= 1000 && yPos <= 1080) { // Public Links
+        alert('Thank you, your code is: ' + code + 'CST' + Math.round((Date.now() - startTime) / 1000));
+    } else { // Anywhere Else
+        alert('Thank you, your code is: ' + code + 'C' + xPos + 'X' + yPos + "T" + Math.round((Date.now() - startTime) / 1000));
+    }
 
 }
 
