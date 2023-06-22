@@ -9,16 +9,13 @@ function handleClick(event) {
     var elapsedTime = (Date.now() - startTime) / 1000;
 
     var code = xPos + 'C' + yPos + 'T' + elapsedTime; // X & Y positions of the user's click, + Time spent on page.
-    // var code = code + 'x' + window.innerWidth + 'X' + window.innerHeight; // Activate to add users window size.
+    var code = code + 'x' + window.innerWidth + 'X' + window.innerHeight; // Activate to add users window size.
 
-    alert('Thank you, your code is: ' + code);
-
-    /* Activate to add whether or not user clicked the correct area.
     if (xPos >= 0 && xPos <= 800 && yPos >= 1000 && yPos <= 1080) {
         alert('Thank you, your code is: ' + code + 'A');
     } else
         alert('Thank you, your code is: ' + code + 'B');
-    */
+
 }
 
 document.addEventListener('DOMContentLoaded', function () {
