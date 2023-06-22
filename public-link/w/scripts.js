@@ -8,7 +8,7 @@ function handleClick(event) {
 
     var elapsedTime = (Date.now() - startTime) / 1000;
 
-    var code = xPos + 'C' + yPos + 'T' + elapsedTime; // X & Y positions of the user's click, + Time spent on page.
+    var code = xPos + 'C' + yPos + 'T' + Math.floor(elapsedTime); // X & Y positions of the user's click, + Time spent on page.
     var code = code + 'x' + window.innerWidth + 'X' + window.innerHeight; // Activate to add users window size.
 
     if (xPos >= 0 && xPos <= 800 && yPos >= 1000 && yPos <= 1080) {
