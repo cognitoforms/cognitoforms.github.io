@@ -2,19 +2,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #BDCCCC;
+  background-color: #92B8B8;
 }
 
 #container {
   position: relative;
   max-width: 80%;
   max-height: auto;
-  /* Adjust the percentage as desired */
 }
 
 #settings {
   width: 100%;
   height: auto;
+  user-select: none;
 }
 
 #modal {
