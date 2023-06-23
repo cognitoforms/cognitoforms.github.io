@@ -18,6 +18,7 @@ function handleClick(event) {
 
     modal.style.display = 'block';
     image.style.filter = 'blur(5px)';
+    image.style.opacity = '0.5';
     image.style.pointerEvents = 'none';
 }
 
