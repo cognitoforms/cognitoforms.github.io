@@ -32,7 +32,7 @@ function handleClick(event) {
         code += 'O' + selectedCheckboxValues;
 
         modalContent.textContent = code;
-        modalContent.style.marginTop = '80px';
+        modalContent.style.marginTop = '150px';
     });
 
 }
