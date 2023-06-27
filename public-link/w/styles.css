@@ -3,17 +3,11 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #55727B;
-}
-
-#container {
-    max-width: 80%;
-    max-height: auto;
-    /* Adjust the percentage as desired */
+    margin: 0;
 }
 
 #settings {
-    width: 100%;
-    height: auto;
+    width: inherit;
 }
 
 #modal {

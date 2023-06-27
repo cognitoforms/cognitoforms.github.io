@@ -11,9 +11,9 @@ function handleClick(event) {
     var modalContent = document.getElementById('modal-content');
 
     if (xPos >= 0 && xPos <= 800 && yPos >= 1000 && yPos <= 1080) { // Public Links
-        modalContent.textContent = 'Thank you, your code is: ' + code + 'CST' + Math.round((Date.now() - startTime) / 1000);
+        modalContent.textContent = 'Thank you, your code is: ' + code + 'CST' + (Date.now() - startTime) / 1000;
     } else { // Anywhere Else
-        modalContent.textContent = 'Thank you, your code is: ' + code + 'C' + xPos + 'X' + yPos + "T" + Math.round((Date.now() - startTime) / 1000);
+        modalContent.textContent = 'Thank you, your code is: ' + code + 'C' + xPos + 'X' + yPos + "T" + (Date.now() - startTime) / 1000;
     }
 
     modal.style.display = 'block';
