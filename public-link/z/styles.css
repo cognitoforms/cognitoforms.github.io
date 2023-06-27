@@ -2,17 +2,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: 55727B;
-}
-
-#container {
-    max-width: 80%;
-    max-height: auto;
-    /* Adjust the percentage as desired */
+    background-color: #55727B;
+    margin: 0;
 }
 
 #settings {
-    width: 100%;
+    width: inherit;
     height: auto;
 }
 

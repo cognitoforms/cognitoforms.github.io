@@ -8,6 +8,7 @@ body {
 
 #settings {
     width: inherit;
+    height: auto;
 }
 
 #modal {
