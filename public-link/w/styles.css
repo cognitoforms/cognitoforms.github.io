@@ -9,6 +9,7 @@ body {
 #settings {
     width: inherit;
     height: auto;
+    user-select: none;
 }
 
 #modal {
