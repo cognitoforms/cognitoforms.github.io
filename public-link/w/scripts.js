@@ -50,4 +50,3 @@ document.addEventListener('DOMContentLoaded', function () {
     var settingsImage = document.getElementById('settings');
     settingsImage.addEventListener('click', handleClick);
 });
-
