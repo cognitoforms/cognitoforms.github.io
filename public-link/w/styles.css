@@ -59,7 +59,7 @@ p {
 #checkbox-container {
     padding-bottom: 10px;
     text-align: left;
-    margin-left: 232px;
+    margin-left: 25px;
 
 }
 
@@ -70,5 +70,5 @@ p {
 hr {
     margin: 0 auto;
     border: 1px solid #DFEAEA;
-    width: 33%;
+    width: 75%;
 }
