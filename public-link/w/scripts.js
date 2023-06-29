@@ -32,7 +32,7 @@ function handleClick(event) {
         code += 'O' + selectedCheckboxValues;
 
         modalContent.textContent = code;
-        modalContent.style.marginTop = '135px';
+        modalContent.style.marginTop = '150px';
     });
 
 }
@@ -43,17 +43,26 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const rawData = [
-    "748X871C75X89T1.981O2356",
-    "1500X881CST1.195O123456",
-    "1500X881C391X106T1.615O4",
-    "1500X881C725X257T1.239O456",
-    "1500X881CST0.933O56"
+    "748X871C75X89T1.981O233",
+    "1500X881CST1.195O92",
+    "1500X881C391X106T1.615O23",
+    "1500X881C725X257T1.239O1",
+    "1500X881CST0.933O3"
 ]
 
 const processedData = rawData.map((raw) => {
-    const time = raw.toLowerCase().split('t');
-    const res = time[0].split('c')[0].split('x');
-    const click = time[0].split('c')[1].split('x');
+
+    const score = raw.toLowerCase().split('o');
+
+    const time = score[0].split('t')[1];
+    const res = score[0].split('c')[0].split('x');
+    const click = score[0].split('c')[1].split('x');
+    console.log(time, res, click);
+
+    //  const time = raw.toLowerCase().split('t'); /* orginally time was the last thing, but now we have O123456 after it! */
+    //  const res = time[0].split('c')[0].split('x');
+    //  const click = time[0].split('c')[1].split('x'); 
+
 
     const x = res[0];
     const y = res[1];
@@ -71,14 +80,14 @@ const processedData = rawData.map((raw) => {
             x: click[0] ? Math.round((100 * click[0].replace("-", "")) / x) + '%' : null,
             y: click[1] ? Math.round((100 * click[1].replace("-", "")) / y) + '%' : null
         },
-        s: parseFloat(time[1])
+        s: parseFloat(time)
     };
 }).filter((data) => data.isSuccess);
 
-const average = processedData.map((data) => data.s)
+const averagetime = processedData.map((data) => data.s)
     .reduce((a, b) => a + b) / processedData.length;
 
-console.log(average);
+console.log("Average time for Success: " + averagetime);
 
 const successCount = processedData.length;
 
