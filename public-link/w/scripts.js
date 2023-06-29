@@ -44,10 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const rawData = [
     "1250X1000C20X72T5.741O3",
-    "2309X1321C87X104T2.168O17",
+    "2309X1321C87X104T2.168O1",
     "2309X1321C31X95T6.682O57",
-
-
 ]
 
 const processedData = rawData.map((raw) => {
@@ -55,6 +53,29 @@ const processedData = rawData.map((raw) => {
     const score = raw.toLowerCase().split('o')[1]; //console.log(score);
     let totalscore = 0;
 
+    if (score.includes(1)) {
+        totalscore += 4;
+    }
+    if (score.includes(2)) {
+        totalscore += 1;
+    }
+    if (score.includes(3)) {
+        totalscore += 4;
+    }
+    if (score.includes(4)) {
+        totalscore += 2;
+    }
+    if (score.includes(5)) {
+        totalscore += 1;
+    }
+    if (score.includes(6)) {
+        totalscore += 1;
+    }
+    if (score.includes(7)) { //TODO if we dont have 7 then we get angry
+        totalscore += 0;
+    }
+
+    console.log(totalscore);
 
     const time = (raw.toLowerCase().split('t')[1]).split('o')[0]; // console.log(time);
 
@@ -79,8 +100,8 @@ const processedData = rawData.map((raw) => {
             x: click[0] ? click[0] + 'px' : null,
             y: click[1] ? click[1] + 'px' : null
         },
-
-        s: parseFloat(time)
+        s: parseFloat(time),
+        totalscore
     };
 }).filter((data) => data.isSuccess); //comment this line if you want to see the heatmap!
 
