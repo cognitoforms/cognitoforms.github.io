@@ -43,25 +43,24 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 const rawData = [
-    "748X871C75X89T1.981O233",
-    "1500X881CST1.195O92",
-    "1500X881C391X106T1.615O23",
-    "1500X881C725X257T1.239O1",
-    "1500X881CST0.933O3"
+    "1250X1000C20X72T5.741O3",
+    "2309X1321C87X104T2.168O17",
+    "2309X1321C31X95T6.682O57",
+
+
 ]
 
 const processedData = rawData.map((raw) => {
 
-    const score = raw.toLowerCase().split('o');
+    const score = raw.toLowerCase().split('o')[1]; //console.log(score);
+    let totalscore = 0;
 
-    const time = score[0].split('t')[1];
-    const res = score[0].split('c')[0].split('x');
-    const click = score[0].split('c')[1].split('x');
-    console.log(time, res, click);
 
-    //  const time = raw.toLowerCase().split('t'); /* orginally time was the last thing, but now we have O123456 after it! */
-    //  const res = time[0].split('c')[0].split('x');
-    //  const click = time[0].split('c')[1].split('x'); 
+    const time = (raw.toLowerCase().split('t')[1]).split('o')[0]; // console.log(time);
+
+    const res = (raw.toLowerCase().split('c')[0]).split('x'); // console.log(res);
+
+    const click = ((raw.toLowerCase().split('c')[1]).split('t')[0]).split('x'); // console.log(click);
 
 
     const x = res[0];
@@ -77,12 +76,14 @@ const processedData = rawData.map((raw) => {
             y
         },
         click: isSuccess ? null : {
-            x: click[0] ? Math.round((100 * click[0].replace("-", "")) / x) + '%' : null,
-            y: click[1] ? Math.round((100 * click[1].replace("-", "")) / y) + '%' : null
+            x: click[0] ? click[0] + 'px' : null,
+            y: click[1] ? click[1] + 'px' : null
         },
+
         s: parseFloat(time)
     };
-}).filter((data) => data.isSuccess);
+}).filter((data) => data.isSuccess); //comment this line if you want to see the heatmap!
+
 
 const averagetime = processedData.map((data) => data.s)
     .reduce((a, b) => a + b) / processedData.length;
@@ -100,7 +101,7 @@ processedData.forEach(data => {
     el.style.top = data.click.y;
     el.style.left = data.click.x;
     el.className = 'heatmap';
-    document.body.appendChild(el);
+    document.querySelector('#container').appendChild(el);
 });
 
 console.log(processedData);
