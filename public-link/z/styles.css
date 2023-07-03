@@ -77,7 +77,7 @@ hr {
     position: absolute;
     border-radius: 50%;
     box-shadow: 0px 0px 19px 10px red;
-    opacity: .5;
+    opacity: .1;
 }
 
 #container {
