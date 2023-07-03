@@ -533,6 +533,7 @@ const rawData = [
 const processedData = rawData.map((raw) => {
 
     const score = raw.toLowerCase().split('o')[1]; //console.log(score);
+    //let totalscore = -100;
     let totalscore = 0;
 
     if (score.includes(1)) {
@@ -554,11 +555,9 @@ const processedData = rawData.map((raw) => {
         totalscore += 1;
     }
     if (score.includes(7)) { //TODO if we dont have 7 then we get angry
+        //totalscore += 100;
         totalscore += 0;
     }
-
-
-    console.log(totalscore);
 
     const time = (raw.toLowerCase().split('t')[1]).split('o')[0]; // console.log(time);
 
@@ -609,13 +608,23 @@ processedData.forEach(data => {
 
 });
 let settingsclick = 0;
+let averagebrain = 0;
+let sustest = 0;
 processedData.forEach(data => {
     if (!data.click) return;
-    if (data.click.x.split('p')[0] >= 443 && data.click.x.split('p')[0] <= 809 && data.click.y.split('p')[0] >= 239 && data.click.y.split('p')[0] <= 280) {
+    // if (data.click.x.split('p')[0] >= 443 && data.click.x.split('p')[0] <= 809 && data.click.y.split('p')[0] >= 239 && data.click.y.split('p')[0] <= 280) { //Brandname
+    //if (data.click.x.split('p')[0] >= 0 && data.click.x.split('p')[0] <= 110 && data.click.y.split('p')[0] >= 60 && data.click.y.split('p')[0] <= 110) { // Settings
+    if (data.click.x.split('p')[0] >= 37 && data.click.x.split('p')[0] <= 189 && data.click.y.split('p')[0] >= 387 && data.click.y.split('p')[0] <= 419) { //Date
         settingsclick++;
+        averagebrain += data.totalscore;
     }
+    /*if (data.totalscore < 0) {
+        sustest++;
+    } */
 });
 console.log("Settings was clicked " + settingsclick + " times.");
+console.log("Average Smarts " + averagebrain / settingsclick);
+//console.log("sus tests " + sustest)
 
 console.log(processedData);
 console.log('Total:', rawData.length, 'Successful:', successCount, 'Percent Correct:', Math.round((100 * successCount) / rawData.length) + '%', 'Failure Count:', failureCount);
