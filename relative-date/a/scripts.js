@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var userInputValue = userInput.value; // Get the value from the textarea
             code = code + "_" + btoa(userInputValue);
             modalContent.textContent = code;
+            modalContent.style.marginTop = '25px';
         });
 
     });
