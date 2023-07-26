@@ -1,8 +1,13 @@
 var startTime = Date.now();
 
+function insertLineBreaks(str, n) {
+    const regex = new RegExp(`.{1,${n}}`, 'g');
+    return str.match(regex).join('\n');
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const emailbar = document.getElementById("emailbar");
-    const datePicker = document.getElementById("datePicker");
+    const datePicker = document.getElementById("relativedates");
     var modal = document.getElementById('modal');
     var modalContent = document.getElementById('modalContent');
     var userInput = document.getElementById('userInput');
@@ -24,8 +29,17 @@ document.addEventListener("DOMContentLoaded", function () {
         submitButton.addEventListener("click", function () {
             var userInputValue = userInput.value; // Get the value from the textarea
             code = code + "_" + btoa(userInputValue);
-            modalContent.textContent = code;
-            modalContent.style.marginTop = '25px';
+            var checkboxes = document.querySelectorAll("#checkbox-container input[type='checkbox']:checked");
+            var selectedCheckboxValues = Array.from(checkboxes).reduce(function (result, checkbox) {
+                return result + checkbox.value;
+
+            }, "");
+            code += 'O' + selectedCheckboxValues;
+
+            modalContent.textContent = insertLineBreaks(code, 20);
+
+            modalContent.style.fontSize = "20px";
+            modalContent.style.marginTop = '220px';
         });
 
     });
