@@ -16,8 +16,7 @@ body {
 
 #datePicker {
     position: absolute;
-    left: 54%;
-    /*Would be better if position could be based off position of the emailbar*/
+    left: 50%;
     top: 52%;
     cursor: pointer;
 }
