@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
             code = insertLineBreaks(code, 20);
             modalContent.innerHTML = '<p class="thanks">' + thanksVar + '</p><p class="code">' + code + '</p>';
 
-            modalContent.style.fontSize = "20px";
+            thanksVar.style.fontSize = "20px";
         });
 
     });
