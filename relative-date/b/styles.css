@@ -12,12 +12,14 @@ body {
     user-select: none;
     cursor: pointer;
     position: relative;
+
 }
 
 #datePicker {
-    position: absolute;
+    position: fixed;
     left: 50%;
-    top: 52%;
+    top: 75%;
+    transform: translate(-50%, -50%);
     cursor: pointer;
 }
 
