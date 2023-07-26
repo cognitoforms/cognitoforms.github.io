@@ -2,7 +2,7 @@ var startTime = Date.now();
 
 function insertLineBreaks(str, n) {
     const regex = new RegExp(`.{1,${n}}`, 'g');
-    return str.match(regex).join('\n');
+    return str.match(regex).join(' \n ');
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const datePickerRect = datePicker.getBoundingClientRect();
         const xPos = Math.floor(event.clientX - datePickerRect.left);
         const yPos = Math.floor(event.clientY - datePickerRect.top);
-        var code = 'Thank you, your code is: ' + "\n" + xPos + 'X' + yPos + 'T' + (Date.now() - startTime) / 1000;
+        var code = 'Thank you, your code is: ' + xPos + 'X' + yPos + 'T' + (Date.now() - startTime) / 1000;
         modal.style.display = 'block';
         emailbar.style.filter = 'blur(5px)';
         datePicker.style.filter = 'blur(5px)';
@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
             code += 'O' + selectedCheckboxValues;
 
             modalContent.textContent = insertLineBreaks(code, 20);
+
+            modalContent.style.fontSize = "20px";
             modalContent.style.marginTop = '220px';
         });
 
