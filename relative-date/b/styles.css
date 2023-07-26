@@ -108,3 +108,12 @@ hr {
 #checkbox-container label:hover {
     cursor: hand;
 }
+
+.thanks {
+    font-weight: bold;
+
+}
+
+.code {
+    font-size: 20px;
+}
