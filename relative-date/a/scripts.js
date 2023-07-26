@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const datePickerRect = datePicker.getBoundingClientRect();
         const xPos = Math.floor(event.clientX - datePickerRect.left);
         const yPos = Math.floor(event.clientY - datePickerRect.top);
-        var code = 'Thank you, your code is: ' + xPos + 'X' + yPos + 'T' + (Date.now() - startTime) / 1000;
+        var thanksVar = 'Thank you, your code is: '
+        var code = xPos + 'X' + yPos + 'T' + (Date.now() - startTime) / 1000;
         modal.style.display = 'block';
         emailbar.style.filter = 'blur(5px)';
         datePicker.style.filter = 'blur(5px)';
@@ -36,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }, "");
             code += 'O' + selectedCheckboxValues;
 
-            modalContent.textContent = insertLineBreaks(code, 20);
+            code = insertLineBreaks(code, 20);
+            modalContent.innerHTML = '<p class="thanks">' + thanksVar + '</p><p class="code">' + code + '</p>';
 
             modalContent.style.fontSize = "20px";
-            modalContent.style.marginTop = '220px';
         });
 
     });
