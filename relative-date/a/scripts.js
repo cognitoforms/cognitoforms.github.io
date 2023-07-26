@@ -2,7 +2,7 @@ var startTime = Date.now();
 
 function insertLineBreaks(str, n) {
     const regex = new RegExp(`.{1,${n}}`, 'g');
-    return str.match(regex).join(' \n ');
+    return str.match(regex).join('\n');
 }
 
 document.addEventListener("DOMContentLoaded", function () {
