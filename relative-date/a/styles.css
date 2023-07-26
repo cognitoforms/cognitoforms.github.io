@@ -7,19 +7,24 @@ body {
 }
 
 #emailbar {
-    width: inherit;
     height: auto;
     user-select: none;
     cursor: pointer;
-    position: relative;
+    width: 50%;
+    justify-content: center;
+
 }
 
-#datePicker {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+#relativedates {
+    position: absolute;
+    top: 68px;
+    left: 11px;
     cursor: pointer;
+    width: 50%;
+}
+
+#container {
+    position: relative;
 }
 
 #modal {

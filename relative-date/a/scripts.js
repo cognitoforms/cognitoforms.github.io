@@ -2,7 +2,7 @@ var startTime = Date.now();
 
 document.addEventListener("DOMContentLoaded", function () {
     const emailbar = document.getElementById("emailbar");
-    const datePicker = document.getElementById("datePicker");
+    const datePicker = document.getElementById("relativedates");
     var modal = document.getElementById('modal');
     var modalContent = document.getElementById('modalContent');
     var userInput = document.getElementById('userInput');
