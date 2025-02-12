@@ -1,0 +1,96 @@
+(window["cfWebpackJsonp"] = window["cfWebpackJsonp"] || []).push([["CheckboxDiff~CheckboxGroup~RadioGroup"],{
+
+/***/ "./src/mixins/columnized-options.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data() {
+    return {
+      optionOrder: [],
+      calculatedColumns: this.columns,
+      minimumColWidth: 130,
+      useCssColumns: false,
+      elementWidth: 0
+    };
+  },
+  props: {
+    columns: {
+      type: Number,
+      default: 0
+    },
+    options: {
+      type: Array,
+      default: null
+    }
+  },
+  mounted() {
+    if (this.columns > 0) {
+      this.sortIntoColumns();
+      window.addEventListener('resize', this.sortIntoColumns);
+      this.addResetDataCallback(this.sortIntoColumns);
+    }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.sortIntoColumns);
+  },
+  computed: {
+    hasColumns() {
+      return this.calculatedColumns >= 1 && this.calculatedColumns <= 4;
+    },
+    columnClasses() {
+      return 'cog-inner-col cog-inner-col--' + (this.useCssColumns ? 'css-columns' : 'no-css-columns') + ' cog-inner-col--' + this.calculatedColumns;
+    }
+  },
+  watch: {
+    options() {
+      if (this.columns > 0) this.sortIntoColumns();
+    }
+  },
+  methods: {
+    sortIntoColumns() {
+      this.calculatedColumns = Math.max(1, Math.min(Math.floor(this.$el.clientWidth / this.minimumColWidth), this.columns));
+      const numberOfColumns = this.calculatedColumns;
+      const numberOfItems = this.allowOther ? this.options.length + 1 : this.options.length;
+      const itemsPerColumn = numberOfItems / numberOfColumns;
+      // Use CSS columns whenever possible.
+      // By default CSS columns fill columns on an as-needed basis. When there are very few items it will favor visual balance
+      // over column number specified. So if it doesn't feel like it needs all the columns allocated, it won't use them.absolute
+      // The column-fill property can be used to override this behavior but it has very poor browser support.
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill
+      // If (numberOfItems / numberOfColumns) is 3 or more, CSS columns is always safe to use, but if there are fewer items the
+      // number of items on the last "row" need to be checked.
+      this.useCssColumns = itemsPerColumn > 2.5 || itemsPerColumn > 1.5 && itemsPerColumn < 2;
+      if (this.useCssColumns) return false;
+      let itemsPerColumnRounded = Math.ceil(itemsPerColumn);
+      const partialColumns = numberOfColumns - numberOfItems % numberOfColumns;
+      let hasPartialColumns = partialColumns !== numberOfColumns;
+      const columns = [];
+      let col = 0;
+      let row = -1;
+      for (let i = 0; i < numberOfItems; i++) {
+        row++;
+        if (row >= itemsPerColumnRounded) {
+          row = 0;
+          col++;
+        }
+        columns[row * numberOfColumns + col] = i;
+        if (hasPartialColumns && i + 1 === numberOfItems - partialColumns * (itemsPerColumnRounded - 1)) {
+          itemsPerColumnRounded--;
+          hasPartialColumns = false;
+        }
+      }
+      const options = [];
+      for (let j = 0; j < numberOfItems; j++) {
+        options[columns[j]] = j;
+      }
+      this.optionOrder = options;
+    }
+  }
+});
+
+/***/ })
+
+}]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvbWl4aW5zL2NvbHVtbml6ZWQtb3B0aW9ucy50cyJdLCJuYW1lcyI6WyJkYXRhIiwib3B0aW9uT3JkZXIiLCJjYWxjdWxhdGVkQ29sdW1ucyIsImNvbHVtbnMiLCJtaW5pbXVtQ29sV2lkdGgiLCJ1c2VDc3NDb2x1bW5zIiwiZWxlbWVudFdpZHRoIiwicHJvcHMiLCJ0eXBlIiwiTnVtYmVyIiwiZGVmYXVsdCIsIm9wdGlvbnMiLCJBcnJheSIsIm1vdW50ZWQiLCJzb3J0SW50b0NvbHVtbnMiLCJ3aW5kb3ciLCJhZGRFdmVudExpc3RlbmVyIiwiYWRkUmVzZXREYXRhQ2FsbGJhY2siLCJiZWZvcmVEZXN0cm95IiwicmVtb3ZlRXZlbnRMaXN0ZW5lciIsImNvbXB1dGVkIiwiaGFzQ29sdW1ucyIsImNvbHVtbkNsYXNzZXMiLCJ3YXRjaCIsIm1ldGhvZHMiLCJNYXRoIiwibWF4IiwibWluIiwiZmxvb3IiLCIkZWwiLCJjbGllbnRXaWR0aCIsIm51bWJlck9mQ29sdW1ucyIsIm51bWJlck9mSXRlbXMiLCJhbGxvd090aGVyIiwibGVuZ3RoIiwiaXRlbXNQZXJDb2x1bW4iLCJpdGVtc1BlckNvbHVtblJvdW5kZWQiLCJjZWlsIiwicGFydGlhbENvbHVtbnMiLCJoYXNQYXJ0aWFsQ29sdW1ucyIsImNvbCIsInJvdyIsImkiLCJqIl0sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQTtBQUFlO0VBQ2RBLElBQUlBLENBQUEsRUFBRztJQUNOLE9BQU87TUFDTkMsV0FBVyxFQUFFLEVBQUU7TUFDZkMsaUJBQWlCLEVBQUUsSUFBSSxDQUFDQyxPQUFPO01BQy9CQyxlQUFlLEVBQUUsR0FBRztNQUNwQkMsYUFBYSxFQUFFLEtBQUs7TUFDcEJDLFlBQVksRUFBRTtJQUNmLENBQUM7RUFDRixDQUFDO0VBQ0RDLEtBQUssRUFBRTtJQUNOSixPQUFPLEVBQUU7TUFBRUssSUFBSSxFQUFFQyxNQUFNO01BQUVDLE9BQU8sRUFBRTtJQUFFLENBQUM7SUFDckND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R1MsR0FBRyxDQUFDLEdBQUdFLENBQUM7UUFDeEMsSUFBSUgsaUJBQWlCLElBQUlHLENBQUMsR0FBRyxDQUFDLEtBQUtWLGFBQWEsR0FBSU0sY0FBYyxJQUFJRixxQkFBcUIsR0FBRyxDQUFDLENBQUUsRUFBRTtVQUNsR0EscUJBQXFCLEVBQUU7VUFDdkJHLGlCQUFpQixHQUFHLEtBQUs7UUFDMUI7TUFDRDtNQUVBLE1BQU01QixPQUFPLEdBQUcsRUFBRTtNQUNsQixLQUFLLElBQUlnQyxDQUFDLEdBQUcsQ0FBQyxFQUFFQSxDQUFDLEdBQUdYLGFBQWEsRUFBRVcsQ0FBQyxFQUFFLEVBQUU7UUFDdkNoQyxPQUFPLENBQUNSLE9BQU8sQ0FBQ3dDLENBQUMsQ0FBQyxDQUFDLEdBQUdBLENBQUM7TUFDeEI7TUFFQSxJQUFJLENBQUMxQyxXQUFXLEdBQUdVLE9BQU87SUFDM0I7RUFDRDtBQUNELENBQUMsRSIsImZpbGUiOiJDaGVja2JveERpZmZ+Q2hlY2tib3hHcm91cH5SYWRpb0dyb3VwLjQwMTJmMmU2MTFmMGY5MzI3ZGY3LmpzIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQge1xyXG5cdGRhdGEoKSB7XHJcblx0XHRyZXR1cm4ge1xyXG5cdFx0XHRvcHRpb25PcmRlcjogW10sXHJcblx0XHRcdGNhbGN1bGF0ZWRDb2x1bW5zOiB0aGlzLmNvbHVtbnMsXHJcblx0XHRcdG1pbmltdW1Db2xXaWR0aDogMTMwLFxyXG5cdFx0XHR1c2VDc3NDb2x1bW5zOiBmYWxzZSxcclxuXHRcdFx0ZWxlbWVudFdpZHRoOiAwXHJcblx0XHR9O1xyXG5cdH0sXHJcblx0cHJvcHM6IHtcclxuXHRcdGNvbHVtbnM6IHsgdHlwZTogTnVtYmVyLCBkZWZhdWx0OiAwIH0sXHJcblx0XHRvcHRpb25zOiB7IHR5cGU6IEFycmF5LCBkZWZhdWx0OiBudWxsIH1cclxuXHR9LFxyXG5cdG1vdW50ZWQoKSB7XHJcblx0XHRpZiAodGhpcy5jb2x1bW5zID4gMCkge1xyXG5cdFx0XHR0aGlzLnNvcnRJbnRvQ29sdW1ucygpO1xyXG5cdFx0XHR3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcigncmVzaXplJywgdGhpcy5zb3J0SW50b0NvbHVtbnMpO1xyXG5cdFx0XHR0aGlzLmFkZFJlc2V0RGF0YUNhbGxiYWNrKHRoaXMuc29ydEludG9Db2x1bW5zKTtcclxuXHRcdH1cclxuXHR9LFxyXG5cdGJlZm9yZURlc3Ryb3koKSB7XHJcblx0XHR3aW5kb3cucmVtb3ZlRXZlbnRMaXN0ZW5lcigncmVzaXplJywgdGhpcy5zb3J0SW50b0NvbHVtbnMpO1xyXG5cdH0sXHJcblx0Y29tcHV0ZWQ6IHtcclxuXHRcdGhhc0NvbHVtbnMoKSB7XHJcblx0XHRcdHJldHVybiB0aGlzLmNhbGN1bGF0ZWRDb2x1bW5zID49IDEgJiYgdGhpcy5jYWxjdWxhdGVkQ29sdW1ucyA8PSA0O1xyXG5cdFx0fSxcclxuXHRcdGNvbHVtbkNsYXNzZXMoKSB7XHJcblx0XHRcdHJldHVybiAnY29nLWlubmVyLWNvbCBjb2ctaW5uZXItY29sLS0nICsgKHRoaXMudXNlQ3NzQ29sdW1ucyA/ICdjc3MtY29sdW1ucycgOiAnbm8tY3NzLWNvbHVtbnMnKSArICcgY29nLWlubmVyLWNvbC0tJyArIHRoaXMuY2FsY3VsYXRlZENvbHVtbnM7XHJcblx0XHR9XHJcblx0fSxcclxuXHR3YXRjaDoge1xyXG5cdFx0b3B0aW9ucygpIHtcclxuXHRcdFx0aWYgKHRoaXMuY29sdW1ucyA+IDApXHJcblx0XHRcdFx0dGhpcy5zb3J0SW50b0NvbHVtbnMoKTtcclxuXHRcdH1cclxuXHR9LFxyXG5cdG1ldGhvZHM6IHtcclxuXHRcdHNvcnRJbnRvQ29sdW1ucygpIHtcclxuXHRcdFx0dGhpcy5jYWxjdWxhdGVkQ29sdW1ucyA9IE1hdGgubWF4KDEsIE1hdGgubWluKE1hdGguZmxvb3IodGhpcy4kZWwuY2xpZW50V2lkdGggLyB0aGlzLm1pbmltdW1Db2xXaWR0aCksIHRoaXMuY29sdW1ucykpO1xyXG5cdFx0XHRjb25zdCBudW1iZXJPZkNvbHVtbnMgPSB0aGlzLmNhbGN1bGF0ZWRDb2x1bW5zO1xyXG5cdFx0XHRjb25zdCBudW1iZXJPZkl0ZW1zID0gdGhpcy5hbGxvd090aGVyID8gdGhpcy5vcHRpb25zLmxlbmd0aCArIDEgOiB0aGlzLm9wdGlvbnMubGVuZ3RoO1xyXG5cdFx0XHRjb25zdCBpdGVtc1BlckNvbHVtbiA9IG51bWJlck9mSXRlbXMgLyBudW1iZXJPZkNvbHVtbnM7XHJcblx0XHRcdC8vIFVzZSBDU1MgY29sdW1ucyB3aGVuZXZlciBwb3NzaWJsZS5cclxuXHRcdFx0Ly8gQnkgZGVmYXVsdCBDU1MgY29sdW1ucyBmaWxsIGNvbHVtbnMgb24gYW4gYXMtbmVlZGVkIGJhc2lzLiBXaGVuIHRoZXJlIGFyZSB2ZXJ5IGZldyBpdGVtcyBpdCB3aWxsIGZhdm9yIHZpc3VhbCBiYWxhbmNlXHJcblx0XHRcdC8vIG92ZXIgY29sdW1uIG51bWJlciBzcGVjaWZpZWQuIFNvIGlmIGl0IGRvZXNuJ3QgZmVlbCBsaWtlIGl0IG5lZWRzIGFsbCB0aGUgY29sdW1ucyBhbGxvY2F0ZWQsIGl0IHdvbid0IHVzZSB0aGVtLmFic29sdXRlXHJcblx0XHRcdC8vIFRoZSBjb2x1bW4tZmlsbCBwcm9wZXJ0eSBjYW4gYmUgdXNlZCB0byBvdmVycmlkZSB0aGlzIGJlaGF2aW9yIGJ1dCBpdCBoYXMgdmVyeSBwb29yIGJyb3dzZXIgc3VwcG9ydC5cclxuXHRcdFx0Ly8gaHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvZW4tVVMvZG9jcy9XZWIvQ1NTL2NvbHVtbi1maWxsXHJcblx0XHRcdC8vIElmIChudW1iZXJPZkl0ZW1zIC8gbnVtYmVyT2ZDb2x1bW5zKSBpcyAzIG9yIG1vcmUsIENTUyBjb2x1bW5zIGlzIGFsd2F5cyBzYWZlIHRvIHVzZSwgYnV0IGlmIHRoZXJlIGFyZSBmZXdlciBpdGVtcyB0aGVcclxuXHRcdFx0Ly8gbnVtYmVyIG9mIGl0ZW1zIG9uIHRoZSBsYXN0IFwicm93XCIgbmVlZCB0byBiZSBjaGVja2VkLlxyXG5cdFx0XHR0aGlzLnVzZUNzc0NvbHVtbnMgPSBpdGVtc1BlckNvbHVtbiA+IDIuNSB8fCAoaXRlbXNQZXJDb2x1bW4gPiAxLjUgJiYgaXRlbXNQZXJDb2x1bW4gPCAyKTtcclxuXHRcdFx0aWYgKHRoaXMudXNlQ3NzQ29sdW1ucylcclxuXHRcdFx0XHRyZXR1cm4gZmFsc2U7XHJcblxyXG5cdFx0XHRsZXQgaXRlbXNQZXJDb2x1bW5Sb3VuZGVkID0gTWF0aC5jZWlsKGl0ZW1zUGVyQ29sdW1uKTtcclxuXHRcdFx0Y29uc3QgcGFydGlhbENvbHVtbnMgPSBudW1iZXJPZkNvbHVtbnMgLSAobnVtYmVyT2ZJdGVtcyAlIG51bWJlck9mQ29sdW1ucyk7XHJcblx0XHRcdGxldCBoYXNQYXJ0aWFsQ29sdW1ucyA9IHBhcnRpYWxDb2x1bW5zICE9PSBudW1iZXJPZkNvbHVtbnM7XHJcblx0XHRcdGNvbnN0IGNvbHVtbnMgPSBbXTtcclxuXHRcdFx0bGV0IGNvbCA9IDA7IGxldCByb3cgPSAtMTtcclxuXHRcdFx0Zm9yIChsZXQgaSA9IDA7IGkgPCBudW1iZXJPZkl0ZW1zOyBpKyspIHtcclxuXHRcdFx0XHRyb3crKztcclxuXHRcdFx0XHRpZiAocm93ID49IGl0ZW1zUGVyQ29sdW1uUm91bmRlZCkge1xyXG5cdFx0XHRcdFx0cm93ID0gMDtcclxuXHRcdFx0XHRcdGNvbCsrO1xyXG5cdFx0XHRcdH1cclxuXHRcdFx0XHRjb2x1bW5zW3JvdyAqIG51bWJlck9mQ29sdW1ucyArIGNvbF0gPSBpO1xyXG5cdFx0XHRcdGlmIChoYXNQYXJ0aWFsQ29sdW1ucyAmJiBpICsgMSA9PT0gbnVtYmVyT2ZJdGVtcyAtIChwYXJ0aWFsQ29sdW1ucyAqIChpdGVtc1BlckNvbHVtblJvdW5kZWQgLSAxKSkpIHtcclxuXHRcdFx0XHRcdGl0ZW1zUGVyQ29sdW1uUm91bmRlZC0tO1xyXG5cdFx0XHRcdFx0aGFzUGFydGlhbENvbHVtbnMgPSBmYWxzZTtcclxuXHRcdFx0XHR9XHJcblx0XHRcdH1cclxuXHJcblx0XHRcdGNvbnN0IG9wdGlvbnMgPSBbXTtcclxuXHRcdFx0Zm9yIChsZXQgaiA9IDA7IGogPCBudW1iZXJPZkl0ZW1zOyBqKyspIHtcclxuXHRcdFx0XHRvcHRpb25zW2NvbHVtbnNbal1dID0gajtcclxuXHRcdFx0fVxyXG5cclxuXHRcdFx0dGhpcy5vcHRpb25PcmRlciA9IG9wdGlvbnM7XHJcblx0XHR9XHJcblx0fVxyXG59OyJdLCJzb3VyY2VSb290IjoiIn0=

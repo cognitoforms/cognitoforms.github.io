@@ -1,0 +1,259 @@
+(window["cfWebpackJsonp"] = window["cfWebpackJsonp"] || []).push([["Content"],{
+
+/***/ "../../node_modules/.pnpm/babel-loader@8.0.5_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js?!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/index.js?!./src/components/Content.vue?vue&type=script&lang=js&":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _cognitoforms_vuemodel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../../libs/vuemodel/lib/index.js");
+/* harmony import */ var _cognitoforms_vuemodel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cognitoforms_vuemodel__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var src_util_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/util/helpers.ts");
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'CContent',
+  inject: ['$resource'],
+  props: {
+    content: {
+      type: String,
+      required: true
+    },
+    raw: {
+      type: Boolean,
+      default: false
+    },
+    forceShown: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    entity() {
+      for (let parent = this.$parent, parentLevel = 1; parent != null; parent = parent.$parent, parentLevel += 1) if (Object(_cognitoforms_vuemodel__WEBPACK_IMPORTED_MODULE_0__["isSourceAdapter"])(parent.$source)) return parent.$source.value;
+      return null;
+    },
+    markup() {
+      return this.formatText(this.raw || !this.entity ? this.content : this.entity.toString(this.content, value => this.wrapDataUriWithImg(value)));
+    }
+  },
+  methods: {
+    formatText(value) {
+      // Note: Equivalent of `Cognito.formatText` in v1 forms
+      return value ? value.replace(/\r\n/g, '<br/>').replace(/\n/g, '<br/>').replace(/\r/g, '<br/>') : value;
+    },
+    wrapDataUriWithImg(value) {
+      if (!value || typeof value !== 'string') return value;else if (value.startsWith('data:image')) return "<img src=\"".concat(Object(src_util_helpers__WEBPACK_IMPORTED_MODULE_1__["escapeHtml"])(value), "\" alt=\"").concat(this.$resource('element-label-signature'), "\" />");else return Object(src_util_helpers__WEBPACK_IMPORTED_MODULE_1__["escapeHtml"])(value);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/css-loader@3.2.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/index.js?!./src/components/Content.vue?vue&type=style&index=0&id=7eab81f9&lang=scss&":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../node_modules/.pnpm/css-loader@3.2.0_webpack@4.46.0/node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, "html .cog-content pre, :root:root:root:root:root .cog-content pre {\n  white-space: pre-wrap;\n}", ""]);
+
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/style-loader@2.0.0_webpack@4.46.0/node_modules/style-loader/dist/cjs.js?!../../node_modules/.pnpm/css-loader@3.2.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/index.js?!./src/components/Content.vue?vue&type=style&index=0&id=7eab81f9&lang=scss&":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_style_loader_2_0_0_webpack_4_46_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../../node_modules/.pnpm/style-loader@2.0.0_webpack@4.46.0/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_pnpm_style_loader_2_0_0_webpack_4_46_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_style_loader_2_0_0_webpack_4_46_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../../node_modules/.pnpm/css-loader@3.2.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/index.js?!./src/components/Content.vue?vue&type=style&index=0&id=7eab81f9&lang=scss&");
+/* harmony import */ var _node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1__);
+
+            
+
+var options = {"attributes":{"class":"cog-style"}};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_pnpm_style_loader_2_0_0_webpack_4_46_0_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1___default.a, options);
+
+
+if (true) {
+  if (!_node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1___default.a.locals || module.hot.invalidate) {
+    var isEqualLocals = function isEqualLocals(a, b, isNamedExport) {
+  if (!a && b || a && !b) {
+    return false;
+  }
+
+  var p;
+
+  for (p in a) {
+    if (isNamedExport && p === 'default') {
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
+    if (a[p] !== b[p]) {
+      return false;
+    }
+  }
+
+  for (p in b) {
+    if (isNamedExport && p === 'default') {
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
+    if (!a[p]) {
+      return false;
+    }
+  }
+
+  return true;
+};
+    var oldLocals = _node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1___default.a.locals;
+
+    module.hot.accept(
+      "../../node_modules/.pnpm/css-loader@3.2.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/index.js?!./src/components/Content.vue?vue&type=style&index=0&id=7eab81f9&lang=scss&",
+      function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ _node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../../node_modules/.pnpm/css-loader@3.2.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/index.js?!./src/components/Content.vue?vue&type=style&index=0&id=7eab81f9&lang=scss&");
+/* harmony import */ _node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1__);
+(function () {
+        if (!isEqualLocals(oldLocals, _node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1___default.a.locals, undefined)) {
+                module.hot.invalidate();
+
+                return;
+              }
+
+              oldLocals = _node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1___default.a.locals;
+
+              update(_node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1___default.a);
+      })(__WEBPACK_OUTDATED_DEPENDENCIES__); }.bind(this)
+    )
+  }
+
+  module.hot.dispose(function() {
+    update();
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (_node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_1___default.a.locals || {});
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/loaders/templateLoader.js?!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/index.js?!./src/components/Content.vue?vue&type=template&id=7eab81f9&":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c
+  return _c("div", {
+    class: [
+      "cog-content",
+      "cog-html",
+      "cog-input",
+      { "cog-force-shown": _vm.forceShown }
+    ],
+    domProps: { innerHTML: _vm._s(_vm.markup) }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./src/components/Content.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Content_vue_vue_type_template_id_7eab81f9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/components/Content.vue?vue&type=template&id=7eab81f9&");
+/* harmony import */ var _Content_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./src/components/Content.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./src/components/Content.vue?vue&type=style&index=0&id=7eab81f9&lang=scss&");
+/* harmony import */ var _node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Content_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Content_vue_vue_type_template_id_7eab81f9___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Content_vue_vue_type_template_id_7eab81f9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (true) {
+  var api = __webpack_require__("../../node_modules/.pnpm/vue-hot-reload-api@2.3.4/node_modules/vue-hot-reload-api/dist/index.js")
+  api.install(__webpack_require__("vue"))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!api.isRecorded('7eab81f9')) {
+      api.createRecord('7eab81f9', component.options)
+    } else {
+      api.reload('7eab81f9', component.options)
+    }
+    module.hot.accept("./src/components/Content.vue?vue&type=template&id=7eab81f9&", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ _Content_vue_vue_type_template_id_7eab81f9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./src/components/Content.vue?vue&type=template&id=7eab81f9&");
+(function () {
+      api.rerender('7eab81f9', {
+        render: _Content_vue_vue_type_template_id_7eab81f9___WEBPACK_IMPORTED_MODULE_0__["render"],
+        staticRenderFns: _Content_vue_vue_type_template_id_7eab81f9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]
+      })
+    })(__WEBPACK_OUTDATED_DEPENDENCIES__); }.bind(this))
+  }
+}
+component.options.__file = "src/components/Content.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./src/components/Content.vue?vue&type=script&lang=js&":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_babel_loader_8_0_5_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_ref_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../../node_modules/.pnpm/babel-loader@8.0.5_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js?!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/index.js?!./src/components/Content.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_pnpm_babel_loader_8_0_5_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_ref_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./src/components/Content.vue?vue&type=style&index=0&id=7eab81f9&lang=scss&":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_style_loader_2_0_0_webpack_4_46_0_node_modules_style_loader_dist_cjs_js_ref_5_oneOf_1_0_node_modules_pnpm_css_loader_3_2_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_5_oneOf_1_3_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_style_index_0_id_7eab81f9_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../../node_modules/.pnpm/style-loader@2.0.0_webpack@4.46.0/node_modules/style-loader/dist/cjs.js?!../../node_modules/.pnpm/css-loader@3.2.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/index.js?!./src/components/Content.vue?vue&type=style&index=0&id=7eab81f9&lang=scss&");
+/* empty/unused harmony star reexport */
+
+/***/ }),
+
+/***/ "./src/components/Content.vue?vue&type=template&id=7eab81f9&":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_5_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_template_id_7eab81f9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/loaders/templateLoader.js?!../../node_modules/.pnpm/vue-loader@15.10.0_css-loader@3.2.0_lodash@4.17.21_vue-template-compiler@2.7.15_webpack@4.46.0/node_modules/vue-loader/lib/index.js?!./src/components/Content.vue?vue&type=template&id=7eab81f9&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_5_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_template_id_7eab81f9___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_5_node_modules_pnpm_vue_loader_15_10_0_css_loader_3_2_0_lodash_4_17_21_vue_template_compiler_2_7_15_webpack_4_46_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Content_vue_vue_type_template_id_7eab81f9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vc3JjL2NvbXBvbmVudHMvQ29udGVudC52dWUiLCJ3ZWJwYWNrOi8vLy4vc3JjL2NvbXBvbmVudHMvQ29udGVudC52dWU/ZGJmZCIsIndlYnBhY2s6Ly8vLi9zcmMvY29tcG9uZW50cy9Db250ZW50LnZ1ZT9kN2I4Iiwid2VicGFjazovLy8uL3NyYy9jb21wb25lbnRzL0NvbnRlbnQudnVlP2E1YmUiLCJ3ZWJwYWNrOi8vLy4vc3JjL2NvbXBvbmVudHMvQ29udGVudC52dWUiLCJ3ZWJwYWNrOi8vLy4vc3JjL2NvbXBvbmVudHMvQ29udGVudC52dWU/NTZjNiIsIndlYnBhY2s6Ly8vLi9zcmMvY29tcG9uZW50cy9Db250ZW50LnZ1ZT85NjY3Iiwid2VicGFjazovLy8uL3NyYy9jb21wb25lbnRzL0NvbnRlbnQudnVlPzVjNTYiXSwibmFtZXMiOlsibmFtZSIsImluamVjdCIsInByb3BzIiwiY29udGVudCIsInR5cGUiLCJTdHJpbmciLCJyZXF1aXJlZCIsInJhdyIsIkJvb2xlYW4iLCJkZWZhdWx0IiwiZm9yY2VTaG93biIsImNvbXB1dGVkIiwiZW50aXR5IiwicGFyZW50IiwiJHBhcmVudCIsInBhcmVudExldmVsIiwiaXNTb3VyY2VBZGFwdGVyIiwiJHNvdXJjZSIsInZhbHVlIiwibWFya3VwIiwiZm9ybWF0VGV4dCIsInRvU3RyaW5nIiwid3JhcERhdGFVcmlXaXRoSW1nIiwibWV0aG9kcyIsInJlcGxhY2UiLCJzdGFydHNXaXRoIiwiY29uY2F0IiwiZXNjYXBlSHRtbCIsIiRyZXNvdXJjZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBTUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUNBO0FBRUE7RUFDQUEsSUFBQTtFQUNBQyxNQUFBO0VBQ0FDLEtBQUE7SUFDQUMsT0FBQTtNQUFBQyxJQUFBLEVBQUFDLE1BQUE7TUFBQUMsUUFBQTtJQUFBO0lBQ0FDLEdBQUE7TUFBQUgsSUFBQSxFQUFBSSxPQUFBO01BQUFDLE9BQUE7SUFBQTtJQUNBQyxV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Q0FBcVgsQ0FBZ0Isd2FBQUcsRUFBQyxDOzs7Ozs7OztBQ0F6WTtBQUFBO0FBQUEsd0M7Ozs7Ozs7O0FDQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBIiwiZmlsZSI6IkNvbnRlbnQuYTE0NjMxYmFjNzY1MWZiNTc3NWEuanMiLCJzb3VyY2VzQ29udGVudCI6WyI8dGVtcGxhdGU+XHJcblx0PCEtLSBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgdnVlL25vLXYtaHRtbCAtLT5cclxuXHQ8ZGl2IDpjbGFzcz1cIlsnY29nLWNvbnRlbnQnLCAnY29nLWh0bWwnLCAnY29nLWlucHV0JywgeyAnY29nLWZvcmNlLXNob3duJzogZm9yY2VTaG93bn1dXCIgdi1odG1sPVwibWFya3VwXCI+PC9kaXY+XHJcbjwvdGVtcGxhdGU+XHJcblxyXG48c2NyaXB0PlxyXG5cdGltcG9ydCB7IGlzU291cmNlQWRhcHRlciB9IGZyb20gJ0Bjb2duaXRvZm9ybXMvdnVlbW9kZWwnO1xyXG5cdGltcG9ydCB7IGVzY2FwZUh0bWwgfSBmcm9tICdzcmMvdXRpbC9oZWxwZXJzJztcclxuXHJcblx0ZXhwb3J0IGRlZmF1bHQge1xyXG5cdFx0bmFtZTogJ0NDb250ZW50JyxcclxuXHRcdGluamVjdDogWyckcmVzb3VyY2UnXSxcclxuXHRcdHByb3BzOiB7XHJcblx0XHRcdGNvbnRlbnQ6IHsgdHlwZTogU3RyaW5nLCByZXF1aXJlZDogdHJ1ZSB9LFxyXG5cdFx0XHRyYXc6IHsgdHlwZTogQm9vbGVhbiwgZGVmYXVsdDogZmFsc2UgfSxcclxuXHRcdFx0Zm9yY2VTaG93bjogeyB0eXBlOiBCb29sZWFuLCBkZWZhdWx0OiBmYWxzZSB9XHJcblx0XHR9LFxyXG5cdFx0Y29tcHV0ZWQ6IHtcclxuXHRcdFx0ZW50aXR5KCkge1xyXG5cdFx0XHRcdGZvciAobGV0IHBhcmVudCA9IHRoaXMuJHBhcmVudCwgcGFyZW50TGV2ZWwgPSAxOyBwYXJlbnQgIT0gbnVsbDsgcGFyZW50ID0gcGFyZW50LiRwYXJlbnQsIHBhcmVudExldmVsICs9IDEpXHJcblx0XHRcdFx0XHRpZiAoaXNTb3VyY2VBZGFwdGVyKHBhcmVudC4kc291cmNlKSlcclxuXHRcdFx0XHRcdFx0cmV0dXJuIHBhcmVudC4kc291cmNlLnZhbHVlO1xyXG5cdFx0XHRcdHJldHVybiBudWxsO1xyXG5cdFx0XHR9LFxyXG5cdFx0XHRtYXJrdXAoKSB7XHJcblx0XHRcdFx0cmV0dXJuIHRoaXMuZm9ybWF0VGV4dCh0aGlzLnJhdyB8fCAhdGhpcy5lbnRpdHkgPyB0aGlzLmNvbnRlbnQgOiB0aGlzLmVudGl0eS50b1N0cmluZyh0aGlzLmNvbnRlbnQsIHZhbHVlID0+IHRoaXMud3JhcERhdGFVcmlXaXRoSW1nKHZhbHVlKSkpO1xyXG5cdFx0XHR9XHJcblx0XHR9LFxyXG5cdFx0bWV0aG9kczoge1xyXG5cdFx0XHRmb3JtYXRUZXh0KHZhbHVlKSB7XHJcblx0XHRcdFx0Ly8gTm90ZTogRXF1aXZhbGVudCBvZiBgQ29nbml0by5mb3JtYXRUZXh0YCBpbiB2MSBmb3Jtc1xyXG5cdFx0XHRcdHJldHVybiB2YWx1ZSA/IHZhbHVlLnJlcGxhY2UoL1xcclxcbi9nLCAnPGJyLz4nKS5yZXBsYWNlKC9cXG4vZywgJzxici8+JykucmVwbGFjZSgvXFxyL2csICc8YnIvPicpIDogdmFsdWU7XHJcblx0XHRcdH0sXHJcblx0XHRcdHdyYXBEYXRhVXJpV2l0aEltZyh2YWx1ZSkge1xyXG5cdFx0XHRcdGlmICghdmFsdWUgfHwgdHlwZW9mIHZhbHVlICE9PSAnc3RyaW5nJylcclxuXHRcdFx0XHRcdHJldHVybiB2YWx1ZTtcclxuXHRcdFx0XHRlbHNlIGlmICh2YWx1ZS5zdGFydHNXaXRoKCdkYXRhOmltYWdlJykpXHJcblx0XHRcdFx0XHRyZXR1cm4gYDxpbWcgc3JjPVwiJHtlc2NhcGVIdG1sKHZhbHVlKX1cIiBhbHQ9XCIke3RoaXMuJHJlc291cmNlKCdlbGVtZW50LWxhYmVsLXNpZ25hdHVyZScpfVwiIC8+YDtcclxuXHRcdFx0XHRlbHNlXHJcblx0XHRcdFx0XHRyZXR1cm4gZXNjYXBlSHRtbCh2YWx1ZSk7XHJcblx0XHRcdH1cclxuXHRcdH1cclxuXHR9O1xyXG48L3NjcmlwdD5cclxuXHJcbjxzdHlsZSBsYW5nPVwic2Nzc1wiPlxyXG4jeyRzcGVjaWZpY2l0eS1iYXNlfSB7XHJcblxyXG5cdC5jb2ctY29udGVudCBwcmUge1xyXG5cdFx0d2hpdGUtc3BhY2U6IHByZS13cmFwO1xyXG5cdH1cclxufVxyXG48L3N0eWxlPiIsImV4cG9ydHMgPSBtb2R1bGUuZXhwb3J0cyA9IHJlcXVpcmUoXCIuLi8uLi8uLi8uLi9ub2RlX21vZHVsZXMvLnBucG0vY3NzLWxvYWRlckAzLjIuMF93ZWJwYWNrQDQuNDYuMC9ub2RlX21vZHVsZXMvY3NzLWxvYWRlci9kaXN0L3J1bnRpbWUvYXBpLmpzXCIpKGZhbHNlKTtcbi8vIE1vZHVsZVxuZXhwb3J0cy5wdXNoKFttb2R1bGUuaWQsIFwiaHRtbCAuY29nLWNvbnRlbnQgcHJlLCA6cm9vdDpyb290OnJvb3Q6cm9vdDpyb290IC5jb2ctY29udGVudCBwcmUge1xcbiAgd2hpdGUtc3BhY2U6IHByZS13cmFwO1xcbn1cIiwgXCJcIl0pO1xuIiwiaW1wb3J0IGFwaSBmcm9tIFwiIS4uLy4uLy4uLy4uL25vZGVfbW9kdWxlcy8ucG5wbS9zdHlsZS1sb2FkZXJAMi4wLjBfd2VicGFja0A0LjQ2LjAvbm9kZV9tb2R1bGVzL3N0eWxlLWxvYWRlci9kaXN0L3J1bnRpbWUvaW5qZWN0U3R5bGVzSW50b1N0eWxlVGFnLmpzXCI7XG4gICAgICAgICAgICBpbXBvcnQgY29udGVudCBmcm9tIFwiISEuLi8uLi8uLi8uLi9ub2RlX21vZHVsZXMvLnBucG0vY3NzLWxvYWRlckAzLjIuMF93ZWJwYWNrQDQuNDYuMC9ub2RlX21vZHVsZXMvY3NzLWxvYWRlci9kaXN0L2Nqcy5qcyEuLi8uLi8uLi8uLi9ub2RlX21vZHVsZXMvLnBucG0vdnVlLWxvYWRlckAxNS4xMC4wX2Nzcy1sb2FkZXJAMy4yLjBfbG9kYXNoQDQuMTcuMjFfdnVlLXRlbXBsYXRlLWNvbXBpbGVyQDIuNy4xNV93ZWJwYWNrQDQuNDYuMC9ub2RlX21vZHVsZXMvdnVlLWxvYWRlci9saWIvbG9hZGVycy9zdHlsZVBvc3RMb2FkZXIuanMhLi4vLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL3Nhc3MtbG9hZGVyQDEwLjEuMV9zYXNzQDEuNDQuMF93ZWJwYWNrQDQuNDYuMC9ub2RlX21vZHVsZXMvc2Fzcy1sb2FkZXIvZGlzdC9janMuanMhLi4vLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL3Nhc3MtcmVzb3VyY2VzLWxvYWRlckAyLjAuMS9ub2RlX21vZHVsZXMvc2Fzcy1yZXNvdXJjZXMtbG9hZGVyL2xpYi9sb2FkZXIuanM/P3JlZi0tNS1vbmVPZi0xLTMhLi4vLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL3Z1ZS1sb2FkZXJAMTUuMTAuMF9jc3MtbG9hZGVyQDMuMi4wX2xvZGFzaEA0LjE3LjIxX3Z1ZS10ZW1wbGF0ZS1jb21waWxlckAyLjcuMTVfd2VicGFja0A0LjQ2LjAvbm9kZV9tb2R1bGVzL3Z1ZS1sb2FkZXIvbGliL2luZGV4LmpzPz92dWUtbG9hZGVyLW9wdGlvbnMhLi9Db250ZW50LnZ1ZT92dWUmdHlwZT1zdHlsZSZpbmRleD0wJmlkPTdlYWI4MWY5Jmxhbmc9c2NzcyZcIjtcblxudmFyIG9wdGlvbnMgPSB7XCJhdHRyaWJ1dGVzXCI6e1wiY2xhc3NcIjpcImNvZy1zdHlsZVwifX07XG5cbm9wdGlvbnMuaW5zZXJ0ID0gXCJoZWFkXCI7XG5vcHRpb25zLnNpbmdsZXRvbiA9IGZhbHNlO1xuXG52YXIgdXBkYXRlID0gYXBpKGNvbnRlbnQsIG9wdGlvbnMpO1xuXG5cbmlmIChtb2R1bGUuaG90KSB7XG4gIGlmICghY29udGVudC5sb2NhbHMgfHwgbW9kdWxlLmhvdC5pbnZhbGlkYXRlKSB7XG4gICAgdmFyIGlzRXF1YWxMb2NhbHMgPSBmdW5jdGlvbiBpc0VxdWFsTG9jYWxzKGEsIGIsIGlzTmFtZWRFeHBvcnQpIHtcbiAgaWYgKCFhICYmIGIgfHwgYSAmJiAhYikge1xuICAgIHJldHVybiBmYWxzZTtcbiAgfVxuXG4gIHZhciBwO1xuXG4gIGZvciAocCBpbiBhKSB7XG4gICAgaWYgKGlzTmFtZWRFeHBvcnQgJiYgcCA9PT0gJ2RlZmF1bHQnKSB7XG4gICAgICAvLyBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgbm8tY29udGludWVcbiAgICAgIGNvbnRpbnVlO1xuICAgIH1cblxuICAgIGlmIChhW3BdICE9PSBiW3BdKSB7XG4gICAgICByZXR1cm4gZmFsc2U7XG4gICAgfVxuICB9XG5cbiAgZm9yIChwIGluIGIpIHtcbiAgICBpZiAoaXNOYW1lZEV4cG9ydCAmJiBwID09PSAnZGVmYXVsdCcpIHtcbiAgICAgIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBuby1jb250aW51ZVxuICAgICAgY29udGludWU7XG4gICAgfVxuXG4gICAgaWYgKCFhW3BdKSB7XG4gICAgICByZXR1cm4gZmFsc2U7XG4gICAgfVxuICB9XG5cbiAgcmV0dXJuIHRydWU7XG59O1xuICAgIHZhciBvbGRMb2NhbHMgPSBjb250ZW50LmxvY2FscztcblxuICAgIG1vZHVsZS5ob3QuYWNjZXB0KFxuICAgICAgXCIhIS4uLy4uLy4uLy4uL25vZGVfbW9kdWxlcy8ucG5wbS9jc3MtbG9hZGVyQDMuMi4wX3dlYnBhY2tANC40Ni4wL25vZGVfbW9kdWxlcy9jc3MtbG9hZGVyL2Rpc3QvY2pzLmpzIS4uLy4uLy4uLy4uL25vZGVfbW9kdWxlcy8ucG5wbS92dWUtbG9hZGVyQDE1LjEwLjBfY3NzLWxvYWRlckAzLjIuMF9sb2Rhc2hANC4xNy4yMV92dWUtdGVtcGxhdGUtY29tcGlsZXJAMi43LjE1X3dlYnBhY2tANC40Ni4wL25vZGVfbW9kdWxlcy92dWUtbG9hZGVyL2xpYi9sb2FkZXJzL3N0eWxlUG9zdExvYWRlci5qcyEuLi8uLi8uLi8uLi9ub2RlX21vZHVsZXMvLnBucG0vc2Fzcy1sb2FkZXJAMTAuMS4xX3Nhc3NAMS40NC4wX3dlYnBhY2tANC40Ni4wL25vZGVfbW9kdWxlcy9zYXNzLWxvYWRlci9kaXN0L2Nqcy5qcyEuLi8uLi8uLi8uLi9ub2RlX21vZHVsZXMvLnBucG0vc2Fzcy1yZXNvdXJjZXMtbG9hZGVyQDIuMC4xL25vZGVfbW9kdWxlcy9zYXNzLXJlc291cmNlcy1sb2FkZXIvbGliL2xvYWRlci5qcz8/cmVmLS01LW9uZU9mLTEtMyEuLi8uLi8uLi8uLi9ub2RlX21vZHVsZXMvLnBucG0vdnVlLWxvYWRlckAxNS4xMC4wX2Nzcy1sb2FkZXJAMy4yLjBfbG9kYXNoQDQuMTcuMjFfdnVlLXRlbXBsYXRlLWNvbXBpbGVyQDIuNy4xNV93ZWJwYWNrQDQuNDYuMC9ub2RlX21vZHVsZXMvdnVlLWxvYWRlci9saWIvaW5kZXguanM/P3Z1ZS1sb2FkZXItb3B0aW9ucyEuL0NvbnRlbnQudnVlP3Z1ZSZ0eXBlPXN0eWxlJmluZGV4PTAmaWQ9N2VhYjgxZjkmbGFuZz1zY3NzJlwiLFxuICAgICAgZnVuY3Rpb24gKCkge1xuICAgICAgICBpZiAoIWlzRXF1YWxMb2NhbHMob2xkTG9jYWxzLCBjb250ZW50LmxvY2FscywgdW5kZWZpbmVkKSkge1xuICAgICAgICAgICAgICAgIG1vZHVsZS5ob3QuaW52YWxpZGF0ZSgpO1xuXG4gICAgICAgICAgICAgICAgcmV0dXJuO1xuICAgICAgICAgICAgICB9XG5cbiAgICAgICAgICAgICAgb2xkTG9jYWxzID0gY29udGVudC5sb2NhbHM7XG5cbiAgICAgICAgICAgICAgdXBkYXRlKGNvbnRlbnQpO1xuICAgICAgfVxuICAgIClcbiAgfVxuXG4gIG1vZHVsZS5ob3QuZGlzcG9zZShmdW5jdGlvbigpIHtcbiAgICB1cGRhdGUoKTtcbiAgfSk7XG59XG5cbmV4cG9ydCBkZWZhdWx0IGNvbnRlbnQubG9jYWxzIHx8IHt9OyIsInZhciByZW5kZXIgPSBmdW5jdGlvbiByZW5kZXIoKSB7XG4gIHZhciBfdm0gPSB0aGlzLFxuICAgIF9jID0gX3ZtLl9zZWxmLl9jXG4gIHJldHVybiBfYyhcImRpdlwiLCB7XG4gICAgY2xhc3M6IFtcbiAgICAgIFwiY29nLWNvbnRlbnRcIixcbiAgICAgIFwiY29nLWh0bWxcIixcbiAgICAgIFwiY29nLWlucHV0XCIsXG4gICAgICB7IFwiY29nLWZvcmNlLXNob3duXCI6IF92bS5mb3JjZVNob3duIH1cbiAgICBdLFxuICAgIGRvbVByb3BzOiB7IGlubmVySFRNTDogX3ZtLl9zKF92bS5tYXJrdXApIH1cbiAgfSlcbn1cbnZhciBzdGF0aWNSZW5kZXJGbnMgPSBbXVxucmVuZGVyLl93aXRoU3RyaXBwZWQgPSB0cnVlXG5cbmV4cG9ydCB7IHJlbmRlciwgc3RhdGljUmVuZGVyRm5zIH0iLCJpbXBvcnQgeyByZW5kZXIsIHN0YXRpY1JlbmRlckZucyB9IGZyb20gXCIuL0NvbnRlbnQudnVlP3Z1ZSZ0eXBlPXRlbXBsYXRlJmlkPTdlYWI4MWY5JlwiXG5pbXBvcnQgc2NyaXB0IGZyb20gXCIuL0NvbnRlbnQudnVlP3Z1ZSZ0eXBlPXNjcmlwdCZsYW5nPWpzJlwiXG5leHBvcnQgKiBmcm9tIFwiLi9Db250ZW50LnZ1ZT92dWUmdHlwZT1zY3JpcHQmbGFuZz1qcyZcIlxuaW1wb3J0IHN0eWxlMCBmcm9tIFwiLi9Db250ZW50LnZ1ZT92dWUmdHlwZT1zdHlsZSZpbmRleD0wJmlkPTdlYWI4MWY5Jmxhbmc9c2NzcyZcIlxuXG5cbi8qIG5vcm1hbGl6ZSBjb21wb25lbnQgKi9cbmltcG9ydCBub3JtYWxpemVyIGZyb20gXCIhLi4vLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL3Z1ZS1sb2FkZXJAMTUuMTAuMF9jc3MtbG9hZGVyQDMuMi4wX2xvZGFzaEA0LjE3LjIxX3Z1ZS10ZW1wbGF0ZS1jb21waWxlckAyLjcuMTVfd2VicGFja0A0LjQ2LjAvbm9kZV9tb2R1bGVzL3Z1ZS1sb2FkZXIvbGliL3J1bnRpbWUvY29tcG9uZW50Tm9ybWFsaXplci5qc1wiXG52YXIgY29tcG9uZW50ID0gbm9ybWFsaXplcihcbiAgc2NyaXB0LFxuICByZW5kZXIsXG4gIHN0YXRpY1JlbmRlckZucyxcbiAgZmFsc2UsXG4gIG51bGwsXG4gIG51bGwsXG4gIG51bGxcbiAgXG4pXG5cbi8qIGhvdCByZWxvYWQgKi9cbmlmIChtb2R1bGUuaG90KSB7XG4gIHZhciBhcGkgPSByZXF1aXJlKFwiQzpcXFxcVXNlcnNcXFxcVHlsZXJUcm90dGVyXFxcXHJlcG9zXFxcXENvZ25pdG8gRm9ybXNcXFxcQ29nbml0by5XZWIuQ2xpZW50XFxcXG5vZGVfbW9kdWxlc1xcXFwucG5wbVxcXFx2dWUtaG90LXJlbG9hZC1hcGlAMi4zLjRcXFxcbm9kZV9tb2R1bGVzXFxcXHZ1ZS1ob3QtcmVsb2FkLWFwaVxcXFxkaXN0XFxcXGluZGV4LmpzXCIpXG4gIGFwaS5pbnN0YWxsKHJlcXVpcmUoJ3Z1ZScpKVxuICBpZiAoYXBpLmNvbXBhdGlibGUpIHtcbiAgICBtb2R1bGUuaG90LmFjY2VwdCgpXG4gICAgaWYgKCFhcGkuaXNSZWNvcmRlZCgnN2VhYjgxZjknKSkge1xuICAgICAgYXBpLmNyZWF0ZVJlY29yZCgnN2VhYjgxZjknLCBjb21wb25lbnQub3B0aW9ucylcbiAgICB9IGVsc2Uge1xuICAgICAgYXBpLnJlbG9hZCgnN2VhYjgxZjknLCBjb21wb25lbnQub3B0aW9ucylcbiAgICB9XG4gICAgbW9kdWxlLmhvdC5hY2NlcHQoXCIuL0NvbnRlbnQudnVlP3Z1ZSZ0eXBlPXRlbXBsYXRlJmlkPTdlYWI4MWY5JlwiLCBmdW5jdGlvbiAoKSB7XG4gICAgICBhcGkucmVyZW5kZXIoJzdlYWI4MWY5Jywge1xuICAgICAgICByZW5kZXI6IHJlbmRlcixcbiAgICAgICAgc3RhdGljUmVuZGVyRm5zOiBzdGF0aWNSZW5kZXJGbnNcbiAgICAgIH0pXG4gICAgfSlcbiAgfVxufVxuY29tcG9uZW50Lm9wdGlvbnMuX19maWxlID0gXCJzcmMvY29tcG9uZW50cy9Db250ZW50LnZ1ZVwiXG5leHBvcnQgZGVmYXVsdCBjb21wb25lbnQuZXhwb3J0cyIsImltcG9ydCBtb2QgZnJvbSBcIi0hLi4vLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL2JhYmVsLWxvYWRlckA4LjAuNV9AYmFiZWwrY29yZUA3LjIyLjZfd2VicGFja0A0LjQ2LjAvbm9kZV9tb2R1bGVzL2JhYmVsLWxvYWRlci9saWIvaW5kZXguanM/P3JlZi0tMyEuLi8uLi8uLi8uLi9ub2RlX21vZHVsZXMvLnBucG0vdnVlLWxvYWRlckAxNS4xMC4wX2Nzcy1sb2FkZXJAMy4yLjBfbG9kYXNoQDQuMTcuMjFfdnVlLXRlbXBsYXRlLWNvbXBpbGVyQDIuNy4xNV93ZWJwYWNrQDQuNDYuMC9ub2RlX21vZHVsZXMvdnVlLWxvYWRlci9saWIvaW5kZXguanM/P3Z1ZS1sb2FkZXItb3B0aW9ucyEuL0NvbnRlbnQudnVlP3Z1ZSZ0eXBlPXNjcmlwdCZsYW5nPWpzJlwiOyBleHBvcnQgZGVmYXVsdCBtb2Q7IGV4cG9ydCAqIGZyb20gXCItIS4uLy4uLy4uLy4uL25vZGVfbW9kdWxlcy8ucG5wbS9iYWJlbC1sb2FkZXJAOC4wLjVfQGJhYmVsK2NvcmVANy4yMi42X3dlYnBhY2tANC40Ni4wL25vZGVfbW9kdWxlcy9iYWJlbC1sb2FkZXIvbGliL2luZGV4LmpzPz9yZWYtLTMhLi4vLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL3Z1ZS1sb2FkZXJAMTUuMTAuMF9jc3MtbG9hZGVyQDMuMi4wX2xvZGFzaEA0LjE3LjIxX3Z1ZS10ZW1wbGF0ZS1jb21waWxlckAyLjcuMTVfd2VicGFja0A0LjQ2LjAvbm9kZV9tb2R1bGVzL3Z1ZS1sb2FkZXIvbGliL2luZGV4LmpzPz92dWUtbG9hZGVyLW9wdGlvbnMhLi9Db250ZW50LnZ1ZT92dWUmdHlwZT1zY3JpcHQmbGFuZz1qcyZcIiIsImV4cG9ydCAqIGZyb20gXCItIS4uLy4uLy4uLy4uL25vZGVfbW9kdWxlcy8ucG5wbS9zdHlsZS1sb2FkZXJAMi4wLjBfd2VicGFja0A0LjQ2LjAvbm9kZV9tb2R1bGVzL3N0eWxlLWxvYWRlci9kaXN0L2Nqcy5qcz8/cmVmLS01LW9uZU9mLTEtMCEuLi8uLi8uLi8uLi9ub2RlX21vZHVsZXMvLnBucG0vY3NzLWxvYWRlckAzLjIuMF93ZWJwYWNrQDQuNDYuMC9ub2RlX21vZHVsZXMvY3NzLWxvYWRlci9kaXN0L2Nqcy5qcyEuLi8uLi8uLi8uLi9ub2RlX21vZHVsZXMvLnBucG0vdnVlLWxvYWRlckAxNS4xMC4wX2Nzcy1sb2FkZXJAMy4yLjBfbG9kYXNoQDQuMTcuMjFfdnVlLXRlbXBsYXRlLWNvbXBpbGVyQDIuNy4xNV93ZWJwYWNrQDQuNDYuMC9ub2RlX21vZHVsZXMvdnVlLWxvYWRlci9saWIvbG9hZGVycy9zdHlsZVBvc3RMb2FkZXIuanMhLi4vLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL3Nhc3MtbG9hZGVyQDEwLjEuMV9zYXNzQDEuNDQuMF93ZWJwYWNrQDQuNDYuMC9ub2RlX21vZHVsZXMvc2Fzcy1sb2FkZXIvZGlzdC9janMuanMhLi4vLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL3Nhc3MtcmVzb3VyY2VzLWxvYWRlckAyLjAuMS9ub2RlX21vZHVsZXMvc2Fzcy1yZXNvdXJjZXMtbG9hZGVyL2xpYi9sb2FkZXIuanM/P3JlZi0tNS1vbmVPZi0xLTMhLi4vLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL3Z1ZS1sb2FkZXJAMTUuMTAuMF9jc3MtbG9hZGVyQDMuMi4wX2xvZGFzaEA0LjE3LjIxX3Z1ZS10ZW1wbGF0ZS1jb21waWxlckAyLjcuMTVfd2VicGFja0A0LjQ2LjAvbm9kZV9tb2R1bGVzL3Z1ZS1sb2FkZXIvbGliL2luZGV4LmpzPz92dWUtbG9hZGVyLW9wdGlvbnMhLi9Db250ZW50LnZ1ZT92dWUmdHlwZT1zdHlsZSZpbmRleD0wJmlkPTdlYWI4MWY5Jmxhbmc9c2NzcyZcIiIsImV4cG9ydCAqIGZyb20gXCItIS4uLy4uLy4uLy4uL25vZGVfbW9kdWxlcy8ucG5wbS92dWUtbG9hZGVyQDE1LjEwLjBfY3NzLWxvYWRlckAzLjIuMF9sb2Rhc2hANC4xNy4yMV92dWUtdGVtcGxhdGUtY29tcGlsZXJAMi43LjE1X3dlYnBhY2tANC40Ni4wL25vZGVfbW9kdWxlcy92dWUtbG9hZGVyL2xpYi9sb2FkZXJzL3RlbXBsYXRlTG9hZGVyLmpzPz9yZWYtLTUhLi4vLi4vLi4vLi4vbm9kZV9tb2R1bGVzLy5wbnBtL3Z1ZS1sb2FkZXJAMTUuMTAuMF9jc3MtbG9hZGVyQDMuMi4wX2xvZGFzaEA0LjE3LjIxX3Z1ZS10ZW1wbGF0ZS1jb21waWxlckAyLjcuMTVfd2VicGFja0A0LjQ2LjAvbm9kZV9tb2R1bGVzL3Z1ZS1sb2FkZXIvbGliL2luZGV4LmpzPz92dWUtbG9hZGVyLW9wdGlvbnMhLi9Db250ZW50LnZ1ZT92dWUmdHlwZT10ZW1wbGF0ZSZpZD03ZWFiODFmOSZcIiJdLCJzb3VyY2VSb290IjoiIn0=

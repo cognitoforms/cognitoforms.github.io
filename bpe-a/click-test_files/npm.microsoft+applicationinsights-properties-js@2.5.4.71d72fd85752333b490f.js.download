@@ -1,0 +1,774 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["npm.microsoft+applicationinsights-properties-js@2.5.4"],{
+
+/***/ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Application.js":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Application.js ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: Application */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Application", function() { return Application; });
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+var Application = /** @class */ (function () {
+    function Application() {
+    }
+    return Application;
+}());
+
+//# sourceMappingURL=Application.js.map
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Device.js":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Device.js ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: Device */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Device", function() { return Device; });
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+var Device = /** @class */ (function () {
+    /**
+     * Constructs a new instance of the Device class
+     */
+    function Device() {
+        // don't attempt to fingerprint browsers
+        this.id = "browser";
+        // Device type is a dimension in our data platform
+        // Setting it to 'Browser' allows to separate client and server dependencies/exceptions
+        this.deviceClass = "Browser";
+    }
+    return Device;
+}());
+
+//# sourceMappingURL=Device.js.map
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Internal.js":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Internal.js ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: Internal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Internal", function() { return Internal; });
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+var Version = "2.5.4";
+var Internal = /** @class */ (function () {
+    /**
+     * Constructs a new instance of the internal telemetry data class.
+     */
+    function Internal(config) {
+        this.sdkVersion = (config.sdkExtension && config.sdkExtension() ? config.sdkExtension() + "_" : "") + "javascript:" + Version;
+    }
+    return Internal;
+}());
+
+//# sourceMappingURL=Internal.js.map
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Location.js":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Location.js ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: Location */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Location", function() { return Location; });
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+var Location = /** @class */ (function () {
+    function Location() {
+    }
+    return Location;
+}());
+
+//# sourceMappingURL=Location.js.map
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Session.js":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Session.js ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: Session, _SessionManager */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Session", function() { return Session; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "_SessionManager", function() { return _SessionManager; });
+/* harmony import */ var _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @microsoft/applicationinsights-common */ "../../node_modules/.pnpm/@microsoft+applicationinsights-common@2.5.4/node_modules/@microsoft/applicationinsights-common/dist-esm/applicationinsights-common.js");
+/* harmony import */ var _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @microsoft/applicationinsights-core-js */ "../../node_modules/.pnpm/@microsoft+applicationinsights-core-js@2.5.4/node_modules/@microsoft/applicationinsights-core-js/dist-esm/applicationinsights-core-js.js");
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
+
+var Session = /** @class */ (function () {
+    function Session() {
+    }
+    return Session;
+}());
+
+var _SessionManager = /** @class */ (function () {
+    function _SessionManager(config, logger) {
+        var _this = this;
+        if (_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["CoreUtils"].isNullOrUndefined(logger)) {
+            this._logger = new _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["DiagnosticLogger"]();
+        }
+        else {
+            this._logger = logger;
+        }
+        if (!config) {
+            config = {};
+        }
+        if (!(typeof config.sessionExpirationMs === "function")) {
+            config.sessionExpirationMs = function () { return _SessionManager.acquisitionSpan; };
+        }
+        if (!(typeof config.sessionRenewalMs === "function")) {
+            config.sessionRenewalMs = function () { return _SessionManager.renewalSpan; };
+        }
+        this.config = config;
+        this._storageNamePrefix = function () { return _this.config.namePrefix && _this.config.namePrefix() ? _SessionManager.cookieNameConst + _this.config.namePrefix() : _SessionManager.cookieNameConst; };
+        this.automaticSession = new Session();
+    }
+    _SessionManager.prototype.update = function () {
+        if (!this.automaticSession.id) {
+            this.initializeAutomaticSession();
+        }
+        var now = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["DateTimeUtils"].Now();
+        var acquisitionExpired = this.config.sessionExpirationMs() === 0 ? false : now - this.automaticSession.acquisitionDate > this.config.sessionExpirationMs();
+        var renewalExpired = this.config.sessionExpirationMs() === 0 ? false : now - this.automaticSession.renewalDate > this.config.sessionRenewalMs();
+        // renew if acquisitionSpan or renewalSpan has ellapsed
+        if (acquisitionExpired || renewalExpired) {
+            // update automaticSession so session state has correct id
+            this.renew();
+        }
+        else {
+            // do not update the cookie more often than cookieUpdateInterval
+            if (!this.cookieUpdatedTimestamp || now - this.cookieUpdatedTimestamp > _SessionManager.cookieUpdateInterval) {
+                this.automaticSession.renewalDate = now;
+                this.setCookie(this.automaticSession.id, this.automaticSession.acquisitionDate, this.automaticSession.renewalDate);
+            }
+        }
+    };
+    /**
+     *  Record the current state of the automatic session and store it in our cookie string format
+     *  into the browser's local storage. This is used to restore the session data when the cookie
+     *  expires.
+     */
+    _SessionManager.prototype.backup = function () {
+        this.setStorage(this.automaticSession.id, this.automaticSession.acquisitionDate, this.automaticSession.renewalDate);
+    };
+    /**
+     *  Use config.namePrefix + ai_session cookie data or local storage data (when the cookie is unavailable) to
+     *  initialize the automatic session.
+     */
+    _SessionManager.prototype.initializeAutomaticSession = function () {
+        var cookie = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].getCookie(this._logger, this._storageNamePrefix());
+        if (cookie && typeof cookie.split === "function") {
+            this.initializeAutomaticSessionWithData(cookie);
+        }
+        else {
+            // There's no cookie, but we might have session data in local storage
+            // This can happen if the session expired or the user actively deleted the cookie
+            // We only want to recover data if the cookie is missing from expiry. We should respect the user's wishes if the cookie was deleted actively.
+            // The User class handles this for us and deletes our local storage object if the persistent user cookie was removed.
+            var storage = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].getStorage(this._logger, this._storageNamePrefix());
+            if (storage) {
+                this.initializeAutomaticSessionWithData(storage);
+            }
+        }
+        if (!this.automaticSession.id) {
+            this.renew();
+        }
+    };
+    /**
+     *  Extract id, aquisitionDate, and renewalDate from an ai_session payload string and
+     *  use this data to initialize automaticSession.
+     *
+     *  @param {string} sessionData - The string stored in an ai_session cookie or local storage backup
+     */
+    _SessionManager.prototype.initializeAutomaticSessionWithData = function (sessionData) {
+        var params = sessionData.split("|");
+        if (params.length > 0) {
+            this.automaticSession.id = params[0];
+        }
+        try {
+            if (params.length > 1) {
+                var acq = +params[1];
+                this.automaticSession.acquisitionDate = +new Date(acq);
+                this.automaticSession.acquisitionDate = this.automaticSession.acquisitionDate > 0 ? this.automaticSession.acquisitionDate : 0;
+            }
+            if (params.length > 2) {
+                var renewal = +params[2];
+                this.automaticSession.renewalDate = +new Date(renewal);
+                this.automaticSession.renewalDate = this.automaticSession.renewalDate > 0 ? this.automaticSession.renewalDate : 0;
+            }
+        }
+        catch (e) {
+            this._logger.throwInternal(_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["LoggingSeverity"].CRITICAL, _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["_InternalMessageId"].ErrorParsingAISessionCookie, "Error parsing ai_session cookie, session will be reset: " + _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].getExceptionName(e), { exception: _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].dump(e) });
+        }
+        if (this.automaticSession.renewalDate === 0) {
+            this._logger.throwInternal(_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["LoggingSeverity"].WARNING, _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["_InternalMessageId"].SessionRenewalDateIsZero, "AI session renewal date is 0, session will be reset.");
+        }
+    };
+    _SessionManager.prototype.renew = function () {
+        var now = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["DateTimeUtils"].Now();
+        this.automaticSession.id = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].newId();
+        this.automaticSession.acquisitionDate = now;
+        this.automaticSession.renewalDate = now;
+        this.setCookie(this.automaticSession.id, this.automaticSession.acquisitionDate, this.automaticSession.renewalDate);
+        // If this browser does not support local storage, fire an internal log to keep track of it at this point
+        if (!_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].canUseLocalStorage()) {
+            this._logger.throwInternal(_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["LoggingSeverity"].WARNING, _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["_InternalMessageId"].BrowserDoesNotSupportLocalStorage, "Browser does not support local storage. Session durations will be inaccurate.");
+        }
+    };
+    _SessionManager.prototype.setCookie = function (guid, acq, renewal) {
+        // Set cookie to expire after the session expiry time passes or the session renewal deadline, whichever is sooner
+        // Expiring the cookie will cause the session to expire even if the user isn't on the page
+        var acquisitionExpiry = acq + this.config.sessionExpirationMs();
+        var renewalExpiry = renewal + this.config.sessionRenewalMs();
+        var cookieExpiry = new Date();
+        var cookie = [guid, acq, renewal];
+        if (acquisitionExpiry < renewalExpiry) {
+            cookieExpiry.setTime(acquisitionExpiry);
+        }
+        else {
+            cookieExpiry.setTime(renewalExpiry);
+        }
+        var cookieDomnain = this.config.cookieDomain ? this.config.cookieDomain() : null;
+        // if sessionExpirationMs is set to 0, it means the expiry is set to 0 for this session cookie
+        // A cookie with 0 expiry in the session cookie will never expire for that browser session.  If the browser is closed the cookie expires.  
+        // Another browser instance does not inherit this cookie.
+        var UTCString = this.config.sessionExpirationMs() === 0 ? '0' : cookieExpiry.toUTCString();
+        _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].setCookie(this._logger, this._storageNamePrefix(), cookie.join('|') + ';expires=' + UTCString, cookieDomnain);
+        this.cookieUpdatedTimestamp = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["DateTimeUtils"].Now();
+    };
+    _SessionManager.prototype.setStorage = function (guid, acq, renewal) {
+        // Keep data in local storage to retain the last session id, allowing us to cleanly end the session when it expires
+        // Browsers that don't support local storage won't be able to end sessions cleanly from the client
+        // The server will notice this and end the sessions itself, with loss of accurate session duration
+        _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].setStorage(this._logger, this._storageNamePrefix(), [guid, acq, renewal].join('|'));
+    };
+    _SessionManager.acquisitionSpan = 86400000; // 24 hours in ms
+    _SessionManager.renewalSpan = 1800000; // 30 minutes in ms
+    _SessionManager.cookieUpdateInterval = 60000; // 1 minute in ms
+    _SessionManager.cookieNameConst = 'ai_session';
+    return _SessionManager;
+}());
+
+//# sourceMappingURL=Session.js.map
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/TelemetryTrace.js":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/TelemetryTrace.js ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: TelemetryTrace */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TelemetryTrace", function() { return TelemetryTrace; });
+/* harmony import */ var _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @microsoft/applicationinsights-common */ "../../node_modules/.pnpm/@microsoft+applicationinsights-common@2.5.4/node_modules/@microsoft/applicationinsights-common/dist-esm/applicationinsights-common.js");
+/* harmony import */ var _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @microsoft/applicationinsights-core-js */ "../../node_modules/.pnpm/@microsoft+applicationinsights-core-js@2.5.4/node_modules/@microsoft/applicationinsights-core-js/dist-esm/applicationinsights-core-js.js");
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
+
+var TelemetryTrace = /** @class */ (function () {
+    function TelemetryTrace(id, parentId, name, logger) {
+        this.traceID = id || _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].generateW3CId();
+        this.parentID = parentId;
+        this.name = name;
+        var location = Object(_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["getLocation"])();
+        if (!name && location && location.pathname) {
+            this.name = location.pathname;
+        }
+        this.name = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["DataSanitizer"].sanitizeString(logger, this.name);
+    }
+    return TelemetryTrace;
+}());
+
+//# sourceMappingURL=TelemetryTrace.js.map
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/User.js":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/User.js ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+/* harmony import */ var _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @microsoft/applicationinsights-common */ "../../node_modules/.pnpm/@microsoft+applicationinsights-common@2.5.4/node_modules/@microsoft/applicationinsights-common/dist-esm/applicationinsights-common.js");
+/* harmony import */ var _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @microsoft/applicationinsights-core-js */ "../../node_modules/.pnpm/@microsoft+applicationinsights-core-js@2.5.4/node_modules/@microsoft/applicationinsights-core-js/dist-esm/applicationinsights-core-js.js");
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
+
+var User = /** @class */ (function () {
+    function User(config, logger) {
+        this.isNewUser = false;
+        this._logger = logger;
+        // get userId or create new one if none exists
+        var cookie = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].getCookie(this._logger, User.userCookieName);
+        if (cookie) {
+            this.isNewUser = false;
+            var params = cookie.split(User.cookieSeparator);
+            if (params.length > 0) {
+                this.id = params[0];
+            }
+        }
+        this.config = config;
+        if (!this.id) {
+            this.id = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].newId();
+            var date = new Date();
+            var acqStr = _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["CoreUtils"].toISOString(date);
+            this.accountAcquisitionDate = acqStr;
+            this.isNewUser = true;
+            // without expiration, cookies expire at the end of the session
+            // set it to 365 days from now
+            // 365 * 24 * 60 * 60 * 1000 = 31536000000 
+            date.setTime(date.getTime() + 31536000000);
+            var newCookie = [this.id, acqStr];
+            var cookieDomain = this.config.cookieDomain ? this.config.cookieDomain() : undefined;
+            _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].setCookie(this._logger, User.userCookieName, newCookie.join(User.cookieSeparator) + ';expires=' + date.toUTCString(), cookieDomain);
+            // If we have an config.namePrefix() + ai_session in local storage this means the user actively removed our cookies.
+            // We should respect their wishes and clear ourselves from local storage
+            var name_1 = config.namePrefix && config.namePrefix() ? config.namePrefix() + 'ai_session' : 'ai_session';
+            _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].removeStorage(this._logger, name_1);
+        }
+        // We still take the account id from the ctor param for backward compatibility. 
+        // But if the the customer set the accountId through the newer setAuthenticatedUserContext API, we will override it.
+        this.accountId = config.accountId ? config.accountId() : undefined;
+        // Get the auth user id and account id from the cookie if exists
+        // Cookie is in the pattern: <authenticatedId>|<accountId>
+        var authCookie = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].getCookie(this._logger, User.authUserCookieName);
+        if (authCookie) {
+            authCookie = decodeURI(authCookie);
+            var authCookieString = authCookie.split(User.cookieSeparator);
+            if (authCookieString[0]) {
+                this.authenticatedId = authCookieString[0];
+            }
+            if (authCookieString.length > 1 && authCookieString[1]) {
+                this.accountId = authCookieString[1];
+            }
+        }
+    }
+    /**
+     * Sets the authenticated user id and the account id in this session.
+     *
+     * @param authenticatedUserId {string} - The authenticated user id. A unique and persistent string that represents each authenticated user in the service.
+     * @param accountId {string} - An optional string to represent the account associated with the authenticated user.
+     */
+    User.prototype.setAuthenticatedUserContext = function (authenticatedUserId, accountId, storeInCookie) {
+        if (storeInCookie === void 0) { storeInCookie = false; }
+        // Validate inputs to ensure no cookie control characters.
+        var isInvalidInput = !this.validateUserInput(authenticatedUserId) || (accountId && !this.validateUserInput(accountId));
+        if (isInvalidInput) {
+            this._logger.throwInternal(_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["LoggingSeverity"].WARNING, _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["_InternalMessageId"].SetAuthContextFailedAccountName, "Setting auth user context failed. " +
+                "User auth/account id should be of type string, and not contain commas, semi-colons, equal signs, spaces, or vertical-bars.", true);
+            return;
+        }
+        // Create cookie string.
+        this.authenticatedId = authenticatedUserId;
+        var authCookie = this.authenticatedId;
+        if (accountId) {
+            this.accountId = accountId;
+            authCookie = [this.authenticatedId, this.accountId].join(User.cookieSeparator);
+        }
+        if (storeInCookie) {
+            // Set the cookie. No expiration date because this is a session cookie (expires when browser closed).
+            // Encoding the cookie to handle unexpected unicode characters.
+            _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].setCookie(this._logger, User.authUserCookieName, encodeURI(authCookie), this.config.cookieDomain());
+        }
+    };
+    /**
+     * Clears the authenticated user id and the account id from the user context.
+     * @returns {}
+     */
+    User.prototype.clearAuthenticatedUserContext = function () {
+        this.authenticatedId = null;
+        this.accountId = null;
+        _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_0__["Util"].deleteCookie(this._logger, User.authUserCookieName);
+    };
+    User.prototype.validateUserInput = function (id) {
+        // Validate:
+        // 1. Id is a non-empty string.
+        // 2. It does not contain special characters for cookies.
+        if (typeof id !== 'string' ||
+            !id ||
+            id.match(/,|;|=| |\|/)) {
+            return false;
+        }
+        return true;
+    };
+    User.cookieSeparator = '|';
+    User.userCookieName = 'ai_user';
+    User.authUserCookieName = 'ai_authUser';
+    return User;
+}());
+
+//# sourceMappingURL=User.js.map
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/PropertiesPlugin.js":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/PropertiesPlugin.js ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../../node_modules/.pnpm/tslib@1.14.1/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @microsoft/applicationinsights-core-js */ "../../node_modules/.pnpm/@microsoft+applicationinsights-core-js@2.5.4/node_modules/@microsoft/applicationinsights-core-js/dist-esm/applicationinsights-core-js.js");
+/* harmony import */ var _TelemetryContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TelemetryContext */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/TelemetryContext.js");
+/* harmony import */ var _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @microsoft/applicationinsights-common */ "../../node_modules/.pnpm/@microsoft+applicationinsights-common@2.5.4/node_modules/@microsoft/applicationinsights-common/dist-esm/applicationinsights-common.js");
+/**
+ * PropertiesPlugin.ts
+ * @copyright Microsoft 2018
+ */
+
+
+
+
+var PropertiesPlugin = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](PropertiesPlugin, _super);
+    function PropertiesPlugin() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.priority = 110;
+        _this.identifier = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["PropertiesPluginIdentifier"];
+        return _this;
+    }
+    PropertiesPlugin.getDefaultConfig = function () {
+        var defaultConfig = {
+            instrumentationKey: function () { return undefined; },
+            accountId: function () { return null; },
+            sessionRenewalMs: function () { return 30 * 60 * 1000; },
+            samplingPercentage: function () { return 100; },
+            sessionExpirationMs: function () { return 24 * 60 * 60 * 1000; },
+            cookieDomain: function () { return null; },
+            sdkExtension: function () { return null; },
+            isBrowserLinkTrackingEnabled: function () { return false; },
+            appId: function () { return null; },
+            namePrefix: function () { return undefined; }
+        };
+        return defaultConfig;
+    };
+    PropertiesPlugin.prototype.initialize = function (config, core, extensions, pluginChain) {
+        var _this = this;
+        _super.prototype.initialize.call(this, config, core, extensions, pluginChain);
+        var ctx = this._getTelCtx();
+        var identifier = this.identifier;
+        var defaultConfig = PropertiesPlugin.getDefaultConfig();
+        this._extensionConfig = this._extensionConfig || PropertiesPlugin.getDefaultConfig();
+        var _loop_1 = function (field) {
+            this_1._extensionConfig[field] = function () { return ctx.getConfig(identifier, field, defaultConfig[field]()); };
+        };
+        var this_1 = this;
+        for (var field in defaultConfig) {
+            _loop_1(field);
+        }
+        this.context = new _TelemetryContext__WEBPACK_IMPORTED_MODULE_2__["TelemetryContext"](core.logger, this._extensionConfig);
+        this._breezeChannel = _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Util"].getExtension(extensions, _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["BreezeChannelIdentifier"]);
+        this.context.appId = function () { return _this._breezeChannel ? _this._breezeChannel["_appId"] : null; };
+    };
+    /**
+     * Add Part A fields to the event
+     * @param event The event that needs to be processed
+     */
+    PropertiesPlugin.prototype.processTelemetry = function (event, itemCtx) {
+        if (_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["CoreUtils"].isNullOrUndefined(event)) {
+            // TODO(barustum): throw an internal event once we have support for internal logging
+        }
+        else {
+            itemCtx = this._getTelCtx(itemCtx);
+            // If the envelope is PageView, reset the internal message count so that we can send internal telemetry for the new page.
+            if (event.name === _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["PageView"].envelopeType) {
+                itemCtx.diagLog().resetInternalMessageCount();
+            }
+            if (this.context.session) {
+                // If customer did not provide custom session id update the session manager
+                if (typeof this.context.session.id !== "string") {
+                    this.context.sessionManager.update();
+                }
+            }
+            this._processTelemetryInternal(event, itemCtx);
+            if (this.context && this.context.user && this.context.user.isNewUser) {
+                this.context.user.isNewUser = false;
+                var message = new _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["_InternalLogMessage"](_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["_InternalMessageId"].SendBrowserInfoOnUserInit, ((Object(_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["getNavigator"])() || {}).userAgent || ""));
+                itemCtx.diagLog().logInternalMessage(_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["LoggingSeverity"].CRITICAL, message);
+            }
+            this.processNext(event, itemCtx);
+        }
+    };
+    PropertiesPlugin.prototype._processTelemetryInternal = function (event, itemCtx) {
+        // set part A  fields
+        if (!event.tags) {
+            event.tags = [];
+        }
+        if (!event.ext) {
+            event.ext = {};
+        }
+        var ext = event.ext;
+        ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].DeviceExt] = ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].DeviceExt] || {};
+        ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].WebExt] = ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].WebExt] || {};
+        ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].UserExt] = ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].UserExt] || {};
+        ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].OSExt] = ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].OSExt] || {};
+        ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].AppExt] = ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].AppExt] || {};
+        ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].TraceExt] = ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_3__["Extensions"].TraceExt] || {};
+        var context = this.context;
+        context.applySessionContext(event, itemCtx);
+        context.applyApplicationContext(event, itemCtx);
+        context.applyDeviceContext(event, itemCtx);
+        context.applyOperationContext(event, itemCtx);
+        context.applyUserContext(event, itemCtx);
+        context.applyOperatingSystemContxt(event, itemCtx);
+        context.applyWebContext(event, itemCtx);
+        context.applyLocationContext(event, itemCtx); // legacy tags
+        context.applyInternalContext(event, itemCtx); // legacy tags
+        context.cleanUp(event, itemCtx);
+    };
+    return PropertiesPlugin;
+}(_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_1__["BaseTelemetryPlugin"]));
+/* harmony default export */ __webpack_exports__["default"] = (PropertiesPlugin);
+//# sourceMappingURL=PropertiesPlugin.js.map
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/TelemetryContext.js":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/TelemetryContext.js ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: TelemetryContext */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TelemetryContext", function() { return TelemetryContext; });
+/* harmony import */ var _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @microsoft/applicationinsights-core-js */ "../../node_modules/.pnpm/@microsoft+applicationinsights-core-js@2.5.4/node_modules/@microsoft/applicationinsights-core-js/dist-esm/applicationinsights-core-js.js");
+/* harmony import */ var _Context_Session__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Context/Session */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Session.js");
+/* harmony import */ var _microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @microsoft/applicationinsights-common */ "../../node_modules/.pnpm/@microsoft+applicationinsights-common@2.5.4/node_modules/@microsoft/applicationinsights-common/dist-esm/applicationinsights-common.js");
+/* harmony import */ var _Context_Application__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Context/Application */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Application.js");
+/* harmony import */ var _Context_Device__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Context/Device */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Device.js");
+/* harmony import */ var _Context_Internal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Context/Internal */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Internal.js");
+/* harmony import */ var _Context_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Context/User */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/User.js");
+/* harmony import */ var _Context_Location__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Context/Location */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Location.js");
+/* harmony import */ var _Context_TelemetryTrace__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Context/TelemetryTrace */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/TelemetryTrace.js");
+/**
+ * PropertiesPlugin.ts
+ * @copyright Microsoft 2018
+ */
+
+
+
+
+
+
+
+
+
+var TelemetryContext = /** @class */ (function () {
+    function TelemetryContext(logger, defaultConfig) {
+        if (Object(_microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_0__["hasWindow"])()) {
+            this.sessionManager = new _Context_Session__WEBPACK_IMPORTED_MODULE_1__["_SessionManager"](defaultConfig, logger);
+            this.application = new _Context_Application__WEBPACK_IMPORTED_MODULE_3__["Application"]();
+            this.device = new _Context_Device__WEBPACK_IMPORTED_MODULE_4__["Device"]();
+            this.internal = new _Context_Internal__WEBPACK_IMPORTED_MODULE_5__["Internal"](defaultConfig);
+            this.location = new _Context_Location__WEBPACK_IMPORTED_MODULE_7__["Location"]();
+            this.user = new _Context_User__WEBPACK_IMPORTED_MODULE_6__["User"](defaultConfig, logger);
+            this.telemetryTrace = new _Context_TelemetryTrace__WEBPACK_IMPORTED_MODULE_8__["TelemetryTrace"](undefined, undefined, undefined, logger);
+            this.session = new _Context_Session__WEBPACK_IMPORTED_MODULE_1__["Session"]();
+        }
+        this.appId = function () { return null; };
+    }
+    TelemetryContext.prototype.applySessionContext = function (event, itemCtx) {
+        var sessionContext = this.session || (this.sessionManager && this.sessionManager.automaticSession);
+        if (sessionContext) {
+            if (typeof sessionContext.id === "string") {
+                event.ext.app.sesId = sessionContext.id;
+            }
+        }
+        if (this.session) {
+            // If customer set session info, apply his context; otherwise apply context automatically generated
+            if (typeof this.session.id === "string") {
+                event.ext.app.sesId = this.session.id;
+            }
+            else {
+                event.ext.app.sesId = this.sessionManager.automaticSession.id;
+            }
+        }
+    };
+    TelemetryContext.prototype.applyOperatingSystemContxt = function (event, itemCtx) {
+        if (this.os && this.os.name) {
+            event.ext.os = this.os;
+        }
+    };
+    TelemetryContext.prototype.applyApplicationContext = function (event, itemCtx) {
+        if (this.application) {
+            if (typeof this.application.ver === "string") {
+                event.tags[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["CtxTagKeys"].applicationVersion] = this.application.ver;
+            }
+            if (typeof this.application.build === "string") {
+                event.tags[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["CtxTagKeys"].applicationBuild] = this.application.build;
+            }
+        }
+    };
+    TelemetryContext.prototype.applyDeviceContext = function (event, itemCtx) {
+        if (this.device) {
+            if (typeof this.device.id === "string") {
+                event.ext.device.localId = this.device.id;
+            }
+            if (typeof this.device.ip === "string") {
+                event.ext.device.ip = this.device.ip;
+            }
+            if (typeof this.device.model === "string") {
+                event.ext.device.model = this.device.model;
+            }
+            if (typeof this.device.deviceClass === "string") {
+                event.ext.device.deviceClass = this.device.deviceClass;
+            }
+        }
+    };
+    TelemetryContext.prototype.applyInternalContext = function (event, itemCtx) {
+        if (this.internal) {
+            if (typeof this.internal.agentVersion === "string") {
+                event.tags[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["CtxTagKeys"].internalAgentVersion] = this.internal.agentVersion; // not mapped in CS 4.0
+            }
+            if (typeof this.internal.sdkVersion === "string") {
+                event.tags[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["CtxTagKeys"].internalSdkVersion] = this.internal.sdkVersion;
+            }
+        }
+    };
+    TelemetryContext.prototype.applyLocationContext = function (event, itemCtx) {
+        if (this.location) {
+            if (typeof this.location.ip === "string") {
+                event.tags[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["CtxTagKeys"].locationIp] = this.location.ip;
+            }
+        }
+    };
+    TelemetryContext.prototype.applyOperationContext = function (event, itemCtx) {
+        if (this.telemetryTrace) {
+            var trace = event.ext.trace || { traceID: undefined, parentID: undefined };
+            if (typeof this.telemetryTrace.traceID === "string") {
+                trace.traceID = this.telemetryTrace.traceID;
+            }
+            if (typeof this.telemetryTrace.name === "string") {
+                trace.name = this.telemetryTrace.name;
+            }
+            if (typeof this.telemetryTrace.parentID === "string") {
+                trace.parentID = this.telemetryTrace.parentID;
+            }
+            event.ext.trace = trace;
+        }
+    };
+    TelemetryContext.prototype.applyWebContext = function (event, itemCtx) {
+        if (this.web) {
+            event.ext.web = event.ext.web || {};
+            event.ext.web = this.web;
+        }
+    };
+    TelemetryContext.prototype.applyUserContext = function (event, itemCtx) {
+        if (this.user) {
+            if (!event.tags) {
+                event.tags = [];
+            }
+            // stays in tags
+            if (typeof this.user.accountId === "string") {
+                var item = {};
+                event.tags[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["CtxTagKeys"].userAccountId] = this.user.accountId;
+            }
+            // CS 4.0
+            if (typeof this.user.id === "string") {
+                event.ext.user.id = this.user.id;
+            }
+            if (typeof this.user.authenticatedId === "string") {
+                event.ext.user.authId = this.user.authenticatedId;
+            }
+        }
+    };
+    TelemetryContext.prototype.cleanUp = function (event, itemCtx) {
+        if (event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].DeviceExt] && _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_0__["CoreUtils"].objKeys(event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].DeviceExt]).length === 0) {
+            delete event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].DeviceExt];
+        }
+        if (event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].UserExt] && _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_0__["CoreUtils"].objKeys(event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].UserExt]).length === 0) {
+            delete event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].UserExt];
+        }
+        if (event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].WebExt] && _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_0__["CoreUtils"].objKeys(event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].WebExt]).length === 0) {
+            delete event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].WebExt];
+        }
+        if (event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].OSExt] && _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_0__["CoreUtils"].objKeys(event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].OSExt]).length === 0) {
+            delete event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].OSExt];
+        }
+        if (event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].AppExt] && _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_0__["CoreUtils"].objKeys(event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].AppExt]).length === 0) {
+            delete event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].AppExt];
+        }
+        if (event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].TraceExt] && _microsoft_applicationinsights_core_js__WEBPACK_IMPORTED_MODULE_0__["CoreUtils"].objKeys(event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].TraceExt]).length === 0) {
+            delete event.ext[_microsoft_applicationinsights_common__WEBPACK_IMPORTED_MODULE_2__["Extensions"].TraceExt];
+        }
+    };
+    return TelemetryContext;
+}());
+
+//# sourceMappingURL=TelemetryContext.js.map
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/applicationinsights-properties-js.js":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/applicationinsights-properties-js.js ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: PropertiesPlugin, TelemetryTrace, TelemetryContext, Session, SessionManager */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PropertiesPlugin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PropertiesPlugin */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/PropertiesPlugin.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PropertiesPlugin", function() { return _PropertiesPlugin__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _Context_TelemetryTrace__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Context/TelemetryTrace */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/TelemetryTrace.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TelemetryTrace", function() { return _Context_TelemetryTrace__WEBPACK_IMPORTED_MODULE_1__["TelemetryTrace"]; });
+
+/* harmony import */ var _TelemetryContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TelemetryContext */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/TelemetryContext.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TelemetryContext", function() { return _TelemetryContext__WEBPACK_IMPORTED_MODULE_2__["TelemetryContext"]; });
+
+/* harmony import */ var _Context_Session__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Context/Session */ "../../node_modules/.pnpm/@microsoft+applicationinsights-properties-js@2.5.4/node_modules/@microsoft/applicationinsights-properties-js/dist-esm/Context/Session.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Session", function() { return _Context_Session__WEBPACK_IMPORTED_MODULE_3__["Session"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SessionManager", function() { return _Context_Session__WEBPACK_IMPORTED_MODULE_3__["_SessionManager"]; });
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
+
+
+
+
+//# sourceMappingURL=applicationinsights-properties-js.js.map
+
+/***/ })
+
+}]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9DOi9Vc2Vycy9UeWxlclRyb3R0ZXIvcmVwb3MvQ29nbml0byBGb3Jtcy9Db2duaXRvLldlYi5DbGllbnQvbm9kZV9tb2R1bGVzLy5wbnBtL0BtaWNyb3NvZnQrYXBwbGljYXRpb25pbnNpZ2h0cy1wcm9wZXJ0aWVzLWpzQDIuNS40L25vZGVfbW9kdWxlcy9AbWljcm9zb2Z0L2FwcGxpY2F0aW9uaW5zaWdodHMtcHJvcGVydGllcy1qcy9kaXN0LWVzbS9Db250ZXh0L0FwcGxpY2F0aW9uLmpzIiwid2VicGFjazovLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL0M6L1VzZXJzL1R5bGVyVHJvdHRlci9yZXBvcy9Db2duaXRvIEZvcm1zL0NvZ25pdG8uV2ViLkNsaWVudC9ub2RlX21vZHVsZXMvLnBucG0vQG1pY3Jvc29mdCthcHBsaWNhdGlvbmluc2lnaHRzLXByb3BlcnRpZXMtanNAMi41LjQvbm9kZV9tb2R1bGVzL0BtaWNyb3NvZnQvYXBwbGljYXRpb25pbnNpZ2h0cy1wcm9wZXJ0aWVzLWpzL2Rpc3QtZXNtL0NvbnRleHQvRGV2aWNlLmpzIiwid2VicGFjazovLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL0M6L1VzZXJzL1R5bGVyVHJvdHRlci9yZXBvcy9Db2duaXRvIEZvcm1zL0NvZ25pdG8uV2ViLkNsaWVudC9ub2RlX21vZHVsZXMvLnBucG0vQG1pY3Jvc29mdCthcHBsaWNhdGlvbmluc2lnaHRzLXByb3BlcnRpZXMtanNAMi41LjQvbm9kZV9tb2R1bGVzL0BtaWNyb3NvZnQvYXBwbGljYXRpb25pbnNpZ2h0cy1wcm9wZXJ0aWVzLWpzL2Rpc3QtZXNtL0NvbnRleHQvSW50ZXJuYWwuanMiLCJ3ZWJwYWNrOi8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vQzovVXNlcnMvVHlsZXJUcm90dGVyL3JlcG9zL0NvZ25pdG8gRm9ybXMvQ29nbml0by5XZWIuQ2xpZW50L25vZGVfbW9kdWxlcy8ucG5wbS9AbWljcm9zb2Z0K2FwcGxpY2F0aW9uaW5zaWdodHMtcHJvcGVydGllcy1qc0AyLjUuNC9ub2RlX21vZHVsZXMvQG1pY3Jvc29mdC9hcHBsaWNhdGlvbmluc2lnaHRzLXByb3BlcnRpZXMtanMvZGlzdC1lc20vQ29udGV4dC9Mb2NhdGlvbi5qcyIsIndlYnBhY2s6Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9DOi9Vc2Vycy9UeWxlclRyb3R0ZXIvcmVwb3MvQ29nbml0byBGb3Jtcy9Db2duaXRvLldlYi5DbGllbnQvbm9kZV9tb2R1bGVzLy5wbnBtL0BtaWNyb3NvZnQrYXBwbGljYXRpb25pbnNpZ2h0cy1wcm9wZXJ0aWVzLWpzQDIuNS40L25vZGVfbW9kdWxlcy9AbWljcm9zb2Z0L2FwcGxpY2F0aW9uaW5zaWdodHMtcHJvcGVydGllcy1qcy9kaXN0LWVzbS9Db250ZXh0L1Nlc3Npb24uanMiLCJ3ZWJwYWNrOi8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vQzovVXNlcnMvVHlsZXJUcm90dGVyL3JlcG9zL0NvZ25pdG8gRm9ybXMvQ29nbml0by5XZWIuQ2xpZW50L25vZGVfbW9kdWxlcy8ucG5wbS9AbWljcm9zb2Z0K2FwcGxpY2F0aW9uaW5zaWdodHMtcHJvcGVydGllcy1qc0AyLjUuNC9ub2RlX21vZHVsZXMvQG1pY3Jvc29mdC9hcHBsaWNhdGlvbmluc2lnaHRzLXByb3BlcnRpZXMtanMvZGlzdC1lc20vQ29udGV4dC9UZWxlbWV0cnlUcmFjZS5qcyIsIndlYnBhY2s6Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9DOi9Vc2Vycy9UeWxlclRyb3R0ZXIvcmVwb3MvQ29nbml0byBGb3Jtcy9Db2duaXRvLldlYi5DbGllbnQvbm9kZV9tb2R1bGVzLy5wbnBtL0BtaWNyb3NvZnQrYXBwbGljYXRpb25pbnNpZ2h0cy1wcm9wZXJ0aWVzLWpzQDIuNS40L25vZGVfbW9kdWxlcy9AbWljcm9zb2Z0L2FwcGxpY2F0aW9uaW5zaWdodHMtcHJvcGVydGllcy1qcy9kaXN0LWVzbS9Db250ZXh0L1VzZXIuanMiLCJ3ZWJwYWNrOi8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vQzovVXNlcnMvVHlsZXJUcm90dGVyL3JlcG9zL0NvZ25pdG8gRm9ybXMvQ29nbml0by5XZWIuQ2xpZW50L25vZGVfbW9kdWxlcy8ucG5wbS9AbWljcm9zb2Z0K2FwcGxpY2F0aW9uaW5zaWdodHMtcHJvcGVydGllcy1qc0AyLjUuNC9ub2RlX21vZHVsZXMvQG1pY3Jvc29mdC9hcHBsaWNhdGlvbmluc2lnaHRzLXByb3BlcnRpZXMtanMvZGlzdC1lc20vUHJvcGVydGllc1BsdWdpbi5qcyIsIndlYnBhY2s6Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9DOi9Vc2Vycy9UeWxlclRyb3R0ZXIvcmVwb3MvQ29nbml0byBGb3Jtcy9Db2duaXRvLldlYi5DbGllbnQvbm9kZV9tb2R1bGVzLy5wbnBtL0BtaWNyb3NvZnQrYXBwbGljYXRpb25pbnNpZ2h0cy1wcm9wZXJ0aWVzLWpzQDIuNS40L25vZGVfbW9kdWxlcy9AbWljcm9zb2Z0L2FwcGxpY2F0aW9uaW5zaWdodHMtcHJvcGVydGllcy1qcy9kaXN0LWVzbS9UZWxlbWV0cnlDb250ZXh0LmpzIiwid2VicGFjazovLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL0M6L1VzZXJzL1R5bGVyVHJvdHRlci9yZXBvcy9Db2duaXRvIEZvcm1zL0NvZ25pdG8uV2ViLkNsaWVudC9ub2RlX21vZHVsZXMvLnBucG0vQG1pY3Jvc29mdCthcHBsaWNhdGlvbmluc2lnaHRzLXByb3BlcnRpZXMtanNAMi41LjQvbm9kZV9tb2R1bGVzL0BtaWNyb3NvZnQvYXBwbGljYXRpb25pbnNpZ2h0cy1wcm9wZXJ0aWVzLWpzL2Rpc3QtZXNtL2FwcGxpY2F0aW9uaW5zaWdodHMtcHJvcGVydGllcy1qcy5q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QTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSwyQkFBMkIsZ0ZBQVU7QUFDckM7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLHNCQUFzQixnRkFBVSxlQUFlLGdGQUFTLG1CQUFtQixnRkFBVTtBQUNyRiw2QkFBNkIsZ0ZBQVU7QUFDdkM7QUFDQSxzQkFBc0IsZ0ZBQVUsYUFBYSxnRkFBUyxtQkFBbUIsZ0ZBQVU7QUFDbkYsNkJBQTZCLGdGQUFVO0FBQ3ZDO0FBQ0Esc0JBQXNCLGdGQUFVLFlBQVksZ0ZBQVMsbUJBQW1CLGdGQUFVO0FBQ2xGLDZCQUE2QixnRkFBVTtBQUN2QztBQUNBLHNCQUFzQixnRkFBVSxXQUFXLGdGQUFTLG1CQUFtQixnRkFBVTtBQUNqRiw2QkFBNkIsZ0ZBQVU7QUFDdkM7QUFDQSxzQkFBc0IsZ0ZBQVUsWUFBWSxnRkFBUyxtQkFBbUIsZ0ZBQVU7QUFDbEYsNkJBQTZCLGdGQUFVO0FBQ3ZDO0FBQ0Esc0JBQXNCLGdGQUFVLGNBQWMsZ0ZBQVMsbUJBQW1CLGdGQUFVO0FBQ3BGLDZCQUE2QixnRkFBVTtBQUN2QztBQUNBO0FBQ0E7QUFDQSxDQUFDO0FBQzJCO0FBQzVCLDRDOzs7Ozs7Ozs7Ozs7QUMzSkE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFDQTtBQUNrRDtBQUNRO0FBQ0o7QUFDTztBQUM2QztBQUMxRyw2RCIsImZpbGUiOiJucG0ubWljcm9zb2Z0K2FwcGxpY2F0aW9uaW5zaWdodHMtcHJvcGVydGllcy1qc0AyLjUuNC43MWQ3MmZkODU3NTIzMzNiNDkwZi5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAoYykgTWljcm9zb2Z0IENvcnBvcmF0aW9uLiBBbGwgcmlnaHRzIHJlc2VydmVkLlxyXG4vLyBMaWNlbnNlZCB1bmRlciB0aGUgTUlUIExpY2Vuc2UuXHJcbnZhciBBcHBsaWNhdGlvbiA9IC8qKiBAY2xhc3MgKi8gKGZ1bmN0aW9uICgpIHtcclxuICAgIGZ1bmN0aW9uIEFwcGxpY2F0aW9uKCkge1xyXG4gICAgfVxyXG4gICAgcmV0dXJuIEFwcGxpY2F0aW9uO1xyXG59KCkpO1xyXG5leHBvcnQgeyBBcHBsaWNhdGlvbiB9O1xyXG4vLyMgc291cmNlTWFwcGluZ1VSTD1BcHBsaWNhdGlvbi5qcy5tYXAiLCIvLyBDb3B5cmlnaHQgKGMpIE1pY3Jvc29mdCBDb3Jwb3JhdGlvbi4gQWxsIHJpZ2h0cyByZXNlcnZlZC5cclxuLy8gTGljZW5zZWQgdW5kZXIgdGhlIE1JVCBMaWNlbnNlLlxyXG52YXIgRGV2aWNlID0gLyoqIEBjbGFzcyAqLyAoZnVuY3Rpb24gKCkge1xyXG4gICAgLyoqXHJcbiAgICAgKiBDb25zdHJ1Y3RzIGEgbmV3IGluc3RhbmNlIG9mIHRoZSBEZXZpY2UgY2xhc3NcclxuICAgICAqL1xyXG4gICAgZnVuY3Rpb24gRGV2aWNlKCkge1xyXG4gICAgICAgIC8vIGRvbid0IGF0dGVtcHQgdG8gZmluZ2VycHJpbnQgYnJvd3NlcnNcclxuICAgICAgICB0aGlzLmlkID0gXCJicm93c2VyXCI7XHJcbiAgICAgICAgLy8gRGV2aWNlIHR5cGUgaXMgYSBkaW1lbnNpb24gaW4gb3VyIGRhdGEgcGxhdGZvcm1cclxuICAgICAgICAvLyBTZXR0aW5nIGl0IHRvICdCcm93c2VyJyBhbGxvd3MgdG8gc2VwYXJhdGUgY2xpZW50IGFuZCBzZXJ2ZXIgZGVwZW5kZW5jaWVzL2V4Y2VwdGlvbnNcclxuICAgICAgICB0aGlzLmRldmljZUNsYXNzID0gXCJCcm93c2VyXCI7XHJcbiAgICB9XHJcbiAgICByZXR1cm4gRGV2aWNlO1xyXG59KCkpO1xyXG5leHBvcnQgeyBEZXZpY2UgfTtcclxuLy8jIHNvdXJjZU1hcHBpbmdVUkw9RGV2aWNlLmpzLm1hcCIsIi8vIENvcHlyaWdodCAoYykgTWljcm9zb2Z0IENvcnBvcmF0aW9uLiBBbGwgcmlnaHRzIHJlc2VydmVkLlxyXG4vLyBMaWNlbnNlZCB1bmRlciB0aGUgTUlUIExpY2Vuc2UuXHJcbnZhciBWZXJzaW9uID0gXCIyLjUuNFwiO1xyXG52YXIgSW50ZXJuYWwgPSAvKiogQGNsYXNzICovIChmdW5jdGlvbiAoKSB7XHJcbiAgICAvKipcclxuICAgICAqIENvbnN0cnVjdHMgYSBuZXcgaW5zdGFuY2Ugb2YgdGhlIGludGVybmFsIHRlbGVtZXRyeSBkYXRhIGNsYXNzLlxyXG4gICAgICovXHJcbiAgICBmdW5jdGlvbiBJbnRlcm5hbChjb25maWcpIHtcclxuICAgICAgICB0aGlzLnNka1ZlcnNpb24gPSAoY29uZmlnLnNka0V4dGVuc2lvbiAmJiBjb25maWcuc2RrRXh0ZW5zaW9uKCkgPyBjb25maWcuc2RrRXh0ZW5zaW9uKCkgKyBcIl9cIiA6IFwiXCIpICsgXCJqYXZhc2NyaXB0OlwiICsgVmVyc2lvbjtcclxuICAgIH1cclxuICAgIHJldHVybiBJbnRlcm5hbDtcclxufSgpKTtcclxuZXhwb3J0IHsgSW50ZXJuYWwgfTtcclxuLy8jIHNvdXJjZU1hcHBpbmdVUkw9SW50ZXJuYWwuanMubWFwIiwiLy8gQ29weXJpZ2h0IChjKSBNaWNyb3NvZnQgQ29ycG9yYXRpb24uIEFsbCByaWdodHMgcmVzZXJ2ZWQuXHJcbi8vIExpY2Vuc2VkIHVuZGVyIHRoZSBNSVQgTGljZW5zZS5cclxudmFyIExvY2F0aW9uID0gLyoqIEBjbGFzcyAqLyAoZnVuY3Rpb24gKCkge1xyXG4gICAgZnVuY3Rpb24gTG9jYXRpb24oKSB7XHJcbiAgICB9XHJcbiAgICByZXR1cm4gTG9jYXRpb247XHJcbn0oKSk7XHJcbmV4cG9ydCB7IExvY2F0aW9uIH07XHJcbi8vIyBzb3VyY2VNYXBwaW5nVVJMPUxvY2F0aW9uLmpzLm1hcCIsIi8vIENvcHlyaWdodCAoYykgTWljcm9zb2Z0IENvcnBvcmF0aW9uLiBBbGwgcmlnaHRzIHJlc2VydmVkLlxyXG4vLyBMaWNlbnNlZCB1bmRlciB0aGUgTUlUIExpY2Vuc2UuXHJcbmltcG9ydCB7IFV0aWwsIERhdGVUaW1lVXRpbHMgfSBmcm9tICdAbWljcm9zb2Z0L2FwcGxpY2F0aW9uaW5zaWdodHMtY29tbW9uJztcclxuaW1wb3J0IHsgX0ludGVybmFsTWVzc2FnZUlkLCBMb2dnaW5nU2V2ZXJpdHksIENvcmVVdGlscywgRGlhZ25vc3RpY0xvZ2dlciB9IGZyb20gJ0BtaWNyb3NvZnQvYXBwbGljYXRpb25pbnNpZ2h0cy1jb3JlLWpzJztcclxudmFyIFNlc3Npb24gPSAvKiogQGNsYXNzICovIChmdW5jdGlvbiAoKSB7XHJcbiAgICBmdW5jdGlvbiBTZXNzaW9uKCkge1xyXG4gICAgfVxyXG4gICAgcmV0dXJuIFNlc3Npb247XHJcbn0oKSk7XHJcbmV4cG9ydCB7IFNlc3Npb24gfTtcclxudmFyIF9TZXNzaW9uTWFuYWdlciA9IC8qKiBAY2xhc3MgKi8gKGZ1bmN0aW9uICgpIHtcclxuICAgIGZ1bmN0aW9uIF9TZXNzaW9uTWFuYWdlcihjb25maWcsIGxvZ2dlcikge1xyXG4gICAgICAgIHZhciBfdGhpcyA9IHRoaXM7XHJcbiAgICAgICAgaWYgKENvcmVVdGlscy5pc051bGxPclVuZGVmaW5lZChsb2dnZXIpKSB7XHJcbiAgICAgICAgICAgIHRoaXMuX2xvZ2dlciA9IG5ldyBEaWFnbm9zdGljTG9nZ2VyKCk7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGVsc2Uge1xyXG4gICAgICAgICAgICB0aGlzLl9sb2dnZXIgPSBsb2dnZXI7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGlmICghY29uZmlnKSB7XHJcbiAgICAgICAgICAgIGNvbmZpZyA9IHt9O1xyXG4gICAgICAgIH1cclxuICAgICAgICBpZiAoISh0eXBlb2YgY29uZmlnLnNlc3Npb25FeHBpcmF0aW9uTXMgPT09IFwiZnVuY3Rpb25cIikpIHtcclxuICAgICAgICAgICAgY29uZmlnLnNlc3Npb25FeHBpcmF0aW9uTXMgPSBmdW5jdGlvbiAoKSB7IHJldHVybiBfU2Vzc2lvbk1hbmFnZXIuYWNxdWlzaXRpb25TcGFuOyB9O1xyXG4gICAgICAgIH1cclxuICAgICAgICBpZiAoISh0eXBlb2YgY29uZmlnLnNlc3Npb25SZW5ld2FsTXMgPT09IFwiZnVuY3Rpb25cIikpIHtcclxuICAgICAgICAgICAgY29uZmlnLnNlc3Npb25SZW5ld2FsTXMgPSBmdW5jdGlvbiAoKSB7IHJldHVybiBfU2Vzc2lvbk1hbmFnZXIucmVuZXdhbFNwYW47IH07XHJcbiAgICAgICAgfVxyXG4gICAgICAgIHRoaXMuY29uZmlnID0gY29uZmlnO1xyXG4gICAgICAgIHRoaXMuX3N0b3JhZ2VOYW1lUHJlZml4ID0gZnVuY3Rpb24gKCkgeyByZXR1cm4gX3RoaXMuY29uZmlnLm5hbWVQcmVmaXggJiYgX3RoaXMuY29uZmlnLm5hbWVQcmVmaXgoKSA/IF9TZXNzaW9uTWFuYWdlci5jb29raWVOYW1lQ29uc3QgKyBfdGhpcy5jb25maWcubmFtZVByZWZpeCgpIDogX1Nlc3Npb25NYW5hZ2VyLmNvb2tpZU5hbWVDb25zdDsgfTtcclxuICAgICAgICB0aGlzLmF1dG9tYXRpY1Nlc3Npb24gPSBuZXcgU2Vzc2lvbigpO1xyXG4gICAgfVxyXG4gICAgX1Nlc3Npb25NYW5hZ2VyLnByb3RvdHlwZS51cGRhdGUgPSBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgaWYgKCF0aGlzLmF1dG9tYXRpY1Nlc3Npb24uaWQpIHtcclxuICAgICAgICAgICAgdGhpcy5pbml0aWFsaXplQXV0b21hdGljU2Vzc2lvbigpO1xyXG4gICAgICAgIH1cclxuICAgICAgICB2YXIgbm93ID0gRGF0ZVRpbWVVdGlscy5Ob3coKTtcclxuICAgICAgICB2YXIgYWNxdWlzaXRpb25FeHBpcmVkID0gdGhpcy5jb25maWcuc2Vzc2lvbkV4cGlyYXRpb25NcygpID09PSAwID8gZmFsc2UgOiBub3cgLSB0aGlzLmF1dG9tYXRpY1Nlc3Npb24uYWNxdWlzaXRpb25EYXRlID4gdGhpcy5jb25maWcuc2Vzc2lvbkV4cGlyYXRpb25NcygpO1xyXG4gICAgICAgIHZhciByZW5ld2FsRXhwaXJlZCA9IHRoaXMuY29uZmlnLnNlc3Npb25FeHBpcmF0aW9uTXMoKSA9PT0gMCA/IGZhbHNlIDogbm93IC0gdGhpcy5hdXRvbWF0aWNTZXNzaW9uLnJlbmV3YWxEYXRlID4gdGhpcy5jb25maWcuc2Vzc2lvblJlbmV3YWxNcygpO1xyXG4gICAgICAgIC8vIHJlbmV3IGlmIGFjcXVpc2l0aW9uU3BhbiBvciByZW5ld2FsU3BhbiBoYXMgZWxsYXBzZWRcclxuICAgICAgICBpZiAoYWNxdWlzaXRpb25FeHBpcmVkIHx8IHJlbmV3YWxFeHBpcmVkKSB7XHJcbiAgICAgICAgICAgIC8vIHVwZGF0ZSBhdXRvbWF0aWNTZXNzaW9uIHNvIHNlc3Npb24gc3RhdGUgaGFzIGNvcnJlY3QgaWRcclxuICAgICAgICAgICAgdGhpcy5yZW5ldygpO1xyXG4gICAgICAgIH1cclxuICAgICAgICBlbHNlIHtcclxuICAgICAgICAgICAgLy8gZG8gbm90IHVwZGF0ZSB0aGUgY29va2llIG1vcmUgb2Z0ZW4gdGhhbiBjb29raWVVcGRhdGVJbnRlcnZhbFxyXG4gICAgICAgICAgICBpZiAoIXRoaXMuY29va2llVXBkYXRlZFRpbWVzdGFtcCB8fCBub3cgLSB0aGlzLmNvb2tpZVVwZGF0ZWRUaW1lc3RhbXAgPiBfU2Vzc2lvbk1hbmFnZXIuY29va2llVXBkYXRlSW50ZXJ2YWwpIHtcclxuICAgICAgICAgICAgICAgIHRoaXMuYXV0b21hdGljU2Vzc2lvbi5yZW5ld2FsRGF0ZSA9IG5vdztcclxuICAgICAgICAgICAgICAgIHRoaXMuc2V0Q29va2llKHRoaXMuYXV0b21hdGljU2Vzc2lvbi5pZCwgdGhpcy5hdXRvbWF0aWNTZXNzaW9uLmFjcXVpc2l0aW9uRGF0ZSwgdGhpcy5hdXRvbWF0aWNTZXNzaW9uLnJlbmV3YWxEYXRlKTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH1cclxuICAgIH07XHJcbiAgICAvKipcclxuICAgICAqICBSZWNvcmQgdGhlIGN1cnJlbnQgc3RhdGUgb2YgdGhlIGF1dG9tYXRpYyBzZXNzaW9uIGFuZCBzdG9yZSBpdCBpbiBvdXIgY29va2llIHN0cmluZyBmb3JtYXRcclxuICAgICAqICBpbnRvIHRoZSBicm93c2VyJ3MgbG9jYWwgc3RvcmFnZS4gVGhpcyBpcyB1c2VkIHRvIHJlc3RvcmUgdGhlIHNlc3Npb24gZGF0YSB3aGVuIHRoZSBjb29raWVcclxuICAgICAqICBleHBpcmVzLlxyXG4gICAgICovXHJcbiAgICBfU2Vzc2lvbk1hbmFnZXIucHJvdG90eXBlLmJhY2t1cCA9IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICB0aGlzLnNldFN0b3JhZ2UodGhpcy5hdXRvbWF0aWNTZXNzaW9uLmlkLCB0aGlzLmF1dG9tYXRpY1Nlc3Npb24uYWNxdWlzaXRpb25EYXRlLCB0aGlzLmF1dG9tYXRpY1Nlc3Npb24ucmVuZXdhbERhdGUpO1xyXG4gICAgfTtcclxuICAgIC8qKlxyXG4gICAgICogIFVzZSBjb25maWcubmFtZVByZWZpeCArIGFpX3Nlc3Npb24gY29va2llIGRhdGEgb3IgbG9jYWwgc3RvcmFnZSBkYXRhICh3aGVuIHRoZSBjb29raWUgaXMgdW5hdmFpbGFibGUpIHRvXHJcbiAgICAgKiAgaW5pdGlhbGl6ZSB0aGUgYXV0b21hdGljIHNlc3Npb24uXHJcbiAgICAgKi9cclxuICAgIF9TZXNzaW9uTWFuYWdlci5wcm90b3R5cGUuaW5pdGlhbGl6ZUF1dG9tYXRpY1Nlc3Npb24gPSBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgdmFyIGNvb2tpZSA9IFV0aWwuZ2V0Q29va2llKHRoaXMuX2xvZ2dlciwgdGhpcy5fc3RvcmFnZU5hbWVQcmVmaXgoKSk7XHJcbiAgICAgICAgaWYgKGNvb2tpZSAmJiB0eXBlb2YgY29va2llLnNwbGl0ID09PSBcImZ1bmN0aW9uXCIpIHtcclxuICAgICAgICAgICAgdGhpcy5pbml0aWFsaXplQXV0b21hdGljU2Vzc2lvbldpdGhEYXRhKGNvb2tpZSk7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGVsc2Uge1xyXG4gICAgICAgICAgICAvLyBUaGVyZSdzIG5vIGNvb2tpZSwgYnV0IHdlIG1pZ2h0IGhhdmUgc2Vzc2lvbiBkYXRhIGluIGxvY2FsIHN0b3JhZ2VcclxuICAgICAgICAgICAgLy8gVGhpcyBjYW4gaGFwcGVuIGlmIHRoZSBzZXNzaW9uIGV4cGlyZWQgb3IgdGhlIHVzZXIgYWN0aXZlbHkgZGVsZXRlZCB0aGUgY29va2llXHJcbiAgICAgICAgICAgIC8vIFdlIG9ubHkgd2FudCB0byByZWNvdmVyIGRhdGEgaWYgdGhlIGNvb2tpZSBpcyBtaXNzaW5nIGZyb20gZXhwaXJ5LiBXZSBzaG91bGQgcmVzcGVjdCB0aGUgdXNlcidzIHdpc2hlcyBpZiB0aGUgY29va2llIHdhcyBkZWxldGVkIGFjdGl2ZWx5LlxyXG4gICAgICAgICAgICAvLyBUaGUgVXNlciBjbGFzcyBoYW5kbGVzIHRoaXMgZm9yIHVzIGFuZCBkZWxldGVzIG91ciBsb2NhbCBzdG9yYWdlIG9iamVjdCBpZiB0aGUgcGVyc2lzdGVudCB1c2VyIGNvb2tpZSB3YXMgcmVtb3ZlZC5cclxuICAgICAgICAgICAgdmFyIHN0b3JhZ2UgPSBVdGlsLmdldFN0b3JhZ2UodGhpcy5fbG9nZ2VyLCB0aGlzLl9zdG9yYWdlTmFtZVByZWZpeCgpKTtcclxuICAgICAgICAgICAgaWYgKHN0b3JhZ2UpIHtcclxuICAgICAgICAgICAgICAgIHRoaXMuaW5pdGlhbGl6ZUF1dG9tYXRpY1Nlc3Npb25XaXRoRGF0YShzdG9yYWdlKTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH1cclxuICAgICAgICBpZiAoIXRoaXMuYXV0b21hdGljU2Vzc2lvbi5pZCkge1xyXG4gICAgICAgICAgICB0aGlzLnJlbmV3KCk7XHJcbiAgICAgICAgfVxyXG4gICAgfTtcclxuICAgIC8qKlxyXG4gICAgICogIEV4dHJhY3QgaWQsIGFxdWlzaXRpb25EYXRlLCBhbmQgcmVuZXdhbERhdGUgZnJvbSBhbiBhaV9zZXNzaW9uIHBheWxvYWQgc3RyaW5nIGFuZFxyXG4gICAgICogIHVzZSB0aGlzIGRhdGEgdG8gaW5pdGlhbGl6ZSBhdXRvbWF0aWNTZXNzaW9uLlxyXG4gICAgICpcclxuICAgICAqICBAcGFyYW0ge3N0cmluZ30gc2Vzc2lvbkRhdGEgLSBUaGUgc3RyaW5nIHN0b3JlZCBpbiBhbiBhaV9zZXNzaW9uIGNvb2tpZSBvciBsb2NhbCBzdG9yYWdlIGJhY2t1cFxyXG4gICAgICovXHJcbiAgICBfU2Vzc2lvbk1hbmFnZXIucHJvdG90eXBlLmluaXRpYWxpemVBdXRvbWF0aWNTZXNzaW9uV2l0aERhdGEgPSBmdW5jdGlvbiAoc2Vzc2lvbkRhdGEpIHtcclxuICAgICAgICB2YXIgcGFyYW1zID0gc2Vzc2lvbkRhdGEuc3BsaXQoXCJ8XCIpO1xyXG4gICAgICAgIGlmIChwYXJhbXMubGVuZ3RoID4gMCkge1xyXG4gICAgICAgICAgICB0aGlzLmF1dG9tYXRpY1Nlc3Npb24uaWQgPSBwYXJhbXNbMF07XHJcbiAgICAgICAgfVxyXG4gICAgICAgIHRyeSB7XHJcbiAgICAgICAgICAgIGlmIChwYXJhbXMubGVuZ3RoID4gMSkge1xyXG4gICAgICAgICAgICAgICAgdmFyIGFjcSA9ICtwYXJhbXNbMV07XHJcbiAgICAgICAgICAgICAgICB0aGlzLmF1dG9tYXRpY1Nlc3Npb24uYWNxdWlzaXRpb25EYXRlID0gK25ldyBEYXRlKGFjcSk7XHJcbiAgICAgICAgICAgICAgICB0aGlzLmF1dG9tYXRpY1Nlc3Npb24uYWNxdWlzaXRpb25EYXRlID0gdGhpcy5hdXRvbWF0aWNTZXNzaW9uLmFjcXVpc2l0aW9uRGF0ZSA+IDAgPyB0aGlzLmF1dG9tYXRpY1Nlc3Npb24uYWNxdWlzaXRpb25EYXRlIDogMDtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBpZiAocGFyYW1zLmxlbmd0aCA+IDIpIHtcclxuICAgICAgICAgICAgICAgIHZhciByZW5ld2FsID0gK3BhcmFtc1syXTtcclxuICAgICAgICAgICAgICAgIHRoaXMuYXV0b21hdGljU2Vzc2lvbi5yZW5ld2FsRGF0ZSA9ICtuZXcgRGF0ZShyZW5ld2FsKTtcclxuICAgICAgICAgICAgICAgIHRoaXMuYXV0b21hdGljU2Vzc2lvbi5yZW5ld2FsRGF0ZSA9IHRoaXMuYXV0b21hdGljU2Vzc2lvbi5yZW5ld2FsRGF0ZSA+IDAgPyB0aGlzLmF1dG9tYXRpY1Nlc3Npb24ucmVuZXdhbERhdGUgOiAwO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGNhdGNoIChlKSB7XHJcbiAgICAgICAgICAgIHRoaXMuX2xvZ2dlci50aHJvd0ludGVybmFsKExvZ2dpbmdTZXZlcml0eS5DUklUSUNBTCwgX0ludGVybmFsTWVzc2FnZUlkLkVycm9yUGFyc2luZ0FJU2Vzc2lvbkNvb2tpZSwgXCJFcnJvciBwYXJzaW5nIGFpX3Nlc3Npb24gY29va2llLCBzZXNzaW9uIHdpbGwgYmUgcmVzZXQ6IFwiICsgVXRpbC5nZXRFeGNlcHRpb25OYW1lKGUpLCB7IGV4Y2VwdGlvbjogVXRpbC5kdW1wKGUpIH0pO1xyXG4gICAgICAgIH1cclxuICAgICAgICBpZiAodGhpcy5hdXRvbWF0aWNTZXNzaW9uLnJlbmV3YWxEYXRlID09PSAwKSB7XHJcbiAgICAgICAgICAgIHRoaXMuX2xvZ2dlci50aHJvd0ludGVybmFsKExvZ2dpbmdTZXZlcml0eS5XQVJOSU5HLCBfSW50ZXJuYWxNZXNzYWdlSWQuU2Vzc2lvblJlbmV3YWxEYXRlSXNaZXJvLCBcIkFJIHNlc3Npb24gcmVuZXdhbCBkYXRlIGlzIDAsIHNlc3Npb24gd2lsbCBiZSByZXNldC5cIik7XHJcbiAgICAgICAgfVxyXG4gICAgfTtcclxuICAgIF9TZXNzaW9uTWFuYWdlci5wcm90b3R5cGUucmVuZXcgPSBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgdmFyIG5vdyA9IERhdGVUaW1lVXRpbHMuTm93KCk7XHJcbiAgICAgICAgdGhpcy5hdXRvbWF0aWNTZXNzaW9uLmlkID0gVXRpbC5uZXdJZCgpO1xyXG4gICAgICAgIHRoaXMuYXV0b21hdGljU2Vzc2lvbi5hY3F1aXNpdGlvbkRhdGUgPSBub3c7XHJcbiAgICAgICAgdGhpcy5hdXRvbWF0aWNTZXNzaW9uLnJlbmV3YWxEYXRlID0gbm93O1xyXG4gICAgICAgIHRoaXMuc2V0Q29va2llKHRoaXMuYXV0b21hdGljU2Vzc2lvbi5pZCwgdGhpcy5hdXRvbWF0aWNTZXNzaW9uLmFjcXVpc2l0aW9uRGF0ZSwgdGhpcy5hdXRvbWF0aWNTZXNzaW9uLnJlbmV3YWxEYXRlKTtcclxuICAgICAgICAvLyBJZiB0aGlzIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBsb2NhbCBzdG9yYWdlLCBmaXJlIGFuIGludGVybmFsIGxvZyB0byBrZWVwIHRyYWNrIG9mIGl0IGF0IHRoaXMgcG9pbnRcclxuICAgICAgICBpZiAoIVV0aWwuY2FuVXNlTG9jYWxTdG9yYWdlKCkpIHtcclxuICAgICAgICAgICAgdGhpcy5fbG9nZ2VyLnRocm93SW50ZXJuYWwoTG9nZ2luZ1NldmVyaXR5LldBUk5JTkcsIF9JbnRlcm5hbE1lc3NhZ2VJZC5Ccm93c2VyRG9lc05vdFN1cHBvcnRMb2NhbFN0b3JhZ2UsIFwiQnJvd3NlciBkb2VzIG5vdCBzdXBwb3J0IGxvY2FsIHN0b3JhZ2UuIFNlc3Npb24gZHVyYXRpb25zIHdpbGwgYmUgaW5hY2N1cmF0ZS5cIik7XHJcbiAgICAgICAgfVxyXG4gICAgfTtcclxuICAgIF9TZXNzaW9uTWFuYWdlci5wcm90b3R5cGUuc2V0Q29va2llID0gZnVuY3Rpb24gKGd1aWQsIGFjcSwgcmVuZXdhbCkge1xyXG4gICAgICAgIC8vIFNldCBjb29raWUgdG8gZXhwaXJlIGFmdGVyIHRoZSBzZXNzaW9uIGV4cGlyeSB0aW1lIHBhc3NlcyBvciB0aGUgc2Vzc2lvbiByZW5ld2FsIGRlYWRsaW5lLCB3aGljaGV2ZXIgaXMgc29vbmVyXHJcbiAgICAgICAgLy8gRXhwaXJpbmcgdGhlIGNvb2tpZSB3aWxsIGNhdXNlIHRoZSBzZXNzaW9uIHRvIGV4cGlyZSBldmVuIGlmIHRoZSB1c2VyIGlzbid0IG9uIHRoZSBwYWdlXHJcbiAgICAgICAgdmFyIGFjcXVpc2l0aW9uRXhwaXJ5ID0gYWNxICsgdGhpcy5jb25maWcuc2Vzc2lvbkV4cGlyYXRpb25NcygpO1xyXG4gICAgICAgIHZhciByZW5ld2FsRXhwaXJ5ID0gcmVuZXdhbCArIHRoaXMuY29uZmlnLnNlc3Npb25SZW5ld2FsTXMoKTtcclxuICAgICAgICB2YXIgY29va2llRXhwaXJ5ID0gbmV3IERhdGUoKTtcclxuICAgICAgICB2YXIgY29va2llID0gW2d1aWQsIGFjcSwgcmVuZXdhbF07XHJcbiAgICAgICAgaWYgKGFjcXVpc2l0aW9uRXhwaXJ5IDwgcmVuZXdhbEV4cGlyeSkge1xyXG4gICAgICAgICAgICBjb29raWVFeHBpcnkuc2V0VGltZShhY3F1aXNpdGlvbkV4cGlyeSk7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGVsc2Uge1xyXG4gICAgICAgICAgICBjb29raWVFeHBpcnkuc2V0VGltZShyZW5ld2FsRXhwaXJ5KTtcclxuICAgICAgICB9XHJcbiAgICAgICAgdmFyIGNvb2tpZURvbW5haW4gPSB0aGlzLmNvbmZpZy5jb29raWVEb21haW4gPyB0aGlzLmNvbmZpZy5jb29raWVEb21haW4oKSA6IG51bGw7XHJcbiAgICAgICAgLy8gaWYgc2Vzc2lvbkV4cGlyYXRpb25NcyBpcyBzZXQgdG8gMCwgaXQgbWVhbnMgdGhlIGV4cGlyeSBpcyBzZXQgdG8gMCBmb3IgdGhpcyBzZXNzaW9uIGNvb2tpZVxyXG4gICAgICAgIC8vIEEgY29va2llIHdpdGggMCBleHBpcnkgaW4gdGhlIHNlc3Npb24gY29va2llIHdpbGwgbmV2ZXIgZXhwaXJlIGZvciB0aGF0IGJyb3dzZXIgc2Vzc2lvbi4gIElmIHRoZSBicm93c2VyIGlzIGNsb3NlZCB0aGUgY29va2llIGV4cGlyZXMuICBcclxuICAgICAgICAvLyBBbm90aGVyIGJyb3dzZXIgaW5zdGFuY2UgZG9lcyBub3QgaW5oZXJpdCB0aGlzIGNvb2tpZS5cclxuICAgICAgICB2YXIgVVRDU3RyaW5nID0gdGhpcy5jb25maWcuc2Vzc2lvbkV4cGlyYXRpb25NcygpID09PSAwID8gJzAnIDogY29va2llRXhwaXJ5LnRvVVRDU3RyaW5nKCk7XHJcbiAgICAgICAgVXRpbC5zZXRDb29raWUodGhpcy5fbG9nZ2VyLCB0aGlzLl9zdG9yYWdlTmFtZVByZWZpeCgpLCBjb29raWUuam9pbignfCcpICsgJztleHBpcmVzPScgKyBVVENTdHJpbmcsIGNvb2tpZURvbW5haW4pO1xyXG4gICAgICAgIHRoaXMuY29va2llVXBkYXRlZFRpbWVzdGFtcCA9IERhdGVUaW1lVXRpbHMuTm93KCk7XHJcbiAgICB9O1xyXG4gICAgX1Nlc3Npb25NYW5hZ2VyLnByb3RvdHlwZS5zZXRTdG9yYWdlID0gZnVuY3Rpb24gKGd1aWQsIGFjcSwgcmVuZXdhbCkge1xyXG4gICAgICAgIC8vIEtlZXAgZGF0YSBpbiBsb2NhbCBzdG9yYWdlIHRvIHJldGFpbiB0aGUgbGFzdCBzZXNzaW9uIGlkLCBhbGxvd2luZyB1cyB0byBjbGVhbmx5IGVuZCB0aGUgc2Vzc2lvbiB3aGVuIGl0IGV4cGlyZXNcclxuICAgICAgICAvLyBCcm93c2VycyB0aGF0IGRvbid0IHN1cHBvcnQgbG9jYWwgc3RvcmFnZSB3b24ndCBiZSBhYmxlIHRvIGVuZCBzZXNzaW9ucyBjbGVhbmx5IGZyb20gdGhlIGNsaWVudFxyXG4gICAgICAgIC8vIFRoZSBzZXJ2ZXIgd2lsbCBub3RpY2UgdGhpcyBhbmQgZW5kIHRoZSBzZXNzaW9ucyBpdHNlbGYsIHdpdGggbG9zcyBvZiBhY2N1cmF0ZSBzZXNzaW9uIGR1cmF0aW9uXHJcbiAgICAgICAgVXRpbC5zZXRTdG9yYWdlKHRoaXMuX2xvZ2dlciwgdGhpcy5fc3RvcmFnZU5hbWVQcmVmaXgoKSwgW2d1aWQsIGFjcSwgcmVuZXdhbF0uam9pbignfCcpKTtcclxuICAgIH07XHJcbiAgICBfU2Vzc2lvbk1hbmFnZXIuYWNxdWlzaXRpb25TcGFuID0gODY0MDAwMDA7IC8vIDI0IGhvdXJzIGluIG1zXHJcbiAgICBfU2Vzc2lvbk1hbmFnZXIucmVuZXdhbFNwYW4gPSAxODAwMDAwOyAvLyAzMCBtaW51dGVzIGluIG1zXHJcbiAgICBfU2Vzc2lvbk1hbmFnZXIuY29va2llVXBkYXRlSW50ZXJ2YWwgPSA2MDAwMDsgLy8gMSBtaW51dGUgaW4gbXNcclxuICAgIF9TZXNzaW9uTWFuYWdlci5jb29raWVOYW1lQ29uc3QgPSAnYWlfc2Vzc2lvbic7XHJcbiAgICByZXR1cm4gX1Nlc3Npb25NYW5hZ2VyO1xyXG59KCkpO1xyXG5leHBvcnQgeyBfU2Vzc2lvbk1hbmFnZXIgfTtcclxuLy8jIHNvdXJjZU1hcHBpbmdVUkw9U2Vzc2lvbi5qcy5tYXAiLCIvLyBDb3B5cmlnaHQgKGMpIE1pY3Jvc29mdCBDb3Jwb3JhdGlvbi4gQWxsIHJpZ2h0cyByZXNlcnZlZC5cclxuLy8gTGljZW5zZWQgdW5kZXIgdGhlIE1JVCBMaWNlbnNlLlxyXG5pbXBvcnQgeyBVdGlsLCBEYXRhU2FuaXRpemVyIH0gZnJvbSAnQG1pY3Jvc29mdC9hcHBsaWNhdGlvbmluc2lnaHRzLWNvbW1vbic7XHJcbmltcG9ydCB7IGdldExvY2F0aW9uIH0gZnJvbSAnQG1pY3Jvc29mdC9hcHBsaWNhdGlvbmluc2lnaHRzLWNvcmUtanMnO1xyXG52YXIgVGVsZW1ldHJ5VHJhY2UgPSAvKiogQGNsYXNzICovIChmdW5jdGlvbiAoKSB7XHJcbiAgICBmdW5jdGlvbiBUZWxlbWV0cnlUcmFjZShpZCwgcGFyZW50SWQsIG5hbWUsIGxvZ2dlcikge1xyXG4gICAgICAgIHRoaXMudHJhY2VJRCA9IGlkIHx8IFV0aWwuZ2VuZXJhdGVXM0NJZCgpO1xyXG4gICAgICAgIHRoaXMucGFyZW50SUQgPSBwYXJlbnRJZDtcclxuICAgICAgICB0aGlzLm5hbWUgPSBuYW1lO1xyXG4gICAgICAgIHZhciBsb2NhdGlvbiA9IGdldExvY2F0aW9uKCk7XHJcbiAgICAgICAgaWYgKCFuYW1lICYmIGxvY2F0aW9uICYmIGxvY2F0aW9uLnBhdGhuYW1lKSB7XHJcbiAgICAgICAgICAgIHRoaXMubmFtZSA9IGxvY2F0aW9uLnBhdGhuYW1lO1xyXG4gICAgICAgIH1cclxuICAgICAgICB0aGlzLm5hbWUgPSBEYXRhU2FuaXRpemVyLnNhbml0aXplU3RyaW5nKGxvZ2dlciwgdGhpcy5uYW1lKTtcclxuICAgIH1cclxuICAgIHJldHVybiBUZWxlbWV0cnlUcmFjZTtcclxufSgpKTtcclxuZXhwb3J0IHsgVGVsZW1ldHJ5VHJhY2UgfTtcclxuLy8jIHNvdXJjZU1hcHBpbmdVUkw9VGVsZW1ldHJ5VHJhY2UuanMubWFwIiwiLy8gQ29weXJpZ2h0IChjKSBNaWNyb3NvZnQgQ29ycG9yYXRpb24uIEFsbCByaWdodHMgcmVzZXJ2ZWQuXHJcbi8vIExpY2Vuc2VkIHVuZGVyIHRoZSBNSVQgTGljZW5zZS5cclxuaW1wb3J0IHsgVXRpbCB9IGZyb20gJ0BtaWNyb3NvZnQvYXBwbGljYXRpb25pbnNpZ2h0cy1jb21tb24nO1xyXG5pbXBvcnQgeyBfSW50ZXJuYWxNZXNzYWdlSWQsIExvZ2dpbmdTZXZlcml0eSwgQ29yZVV0aWxzIH0gZnJvbSAnQG1pY3Jvc29mdC9hcHBsaWNhdGlvbmluc2lnaHRzLWNvcmUtanMnO1xyXG52YXIgVXNlciA9IC8qKiBAY2xhc3MgKi8gKGZ1bmN0aW9uICgpIHtcclxuICAgIGZ1bmN0aW9uIFVzZXIoY29uZmlnLCBsb2dnZXIpIHtcclxuICAgICAgICB0aGlzLmlzTmV3VXNlciA9IGZhbHNlO1xyXG4gICAgICAgIHRoaXMuX2xvZ2dlciA9IGxvZ2dlcjtcclxuICAgICAgICAvLyBnZXQgdXNlcklkIG9yIGNyZWF0ZSBuZXcgb25lIGlmIG5vbmUgZXhpc3RzXHJcbiAgICAgICAgdmFyIGNvb2tpZSA9IFV0aWwuZ2V0Q29va2llKHRoaXMuX2xvZ2dlciwgVXNlci51c2VyQ29va2llTmFtZSk7XHJcbiAgICAgICAgaWYgKGNvb2tpZSkge1xyXG4gICAgICAgICAgICB0aGlzLmlzTmV3VXNlciA9IGZhbHNlO1xyXG4gICAgICAgICAgICB2YXIgcGFyYW1zID0gY29va2llLnNwbGl0KFVzZXIuY29va2llU2VwYXJhdG9yKTtcclxuICAgICAgICAgICAgaWYgKHBhcmFtcy5sZW5ndGggPiAwKSB7XHJcbiAgICAgICAgICAgICAgICB0aGlzLmlkID0gcGFyYW1zWzBdO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgICAgIHRoaXMuY29uZmlnID0gY29uZmlnO1xyXG4gICAgICAgIGlmICghdGhpcy5pZCkge1xyXG4gICAgICAgICAgICB0aGlzLmlkID0gVXRpbC5uZXdJZCgpO1xyXG4gICAgICAgICAgICB2YXIgZGF0ZSA9IG5ldyBEYXRlKCk7XHJcbiAgICAgICAgICAgIHZhciBhY3FTdHIgPSBDb3JlVXRpbHMudG9JU09TdHJpbmcoZGF0ZSk7XHJcbiAgICAgICAgICAgIHRoaXMuYWNjb3VudEFjcXVpc2l0aW9uRGF0ZSA9IGFjcVN0cjtcclxuICAgICAgICAgICAgdGhpcy5pc05ld1VzZXIgPSB0cnVlO1xyXG4gICAgICAgICAgICAvLyB3aXRob3V0IGV4cGlyYXRpb24sIGNvb2tpZXMgZXhwaXJlIGF0IHRoZSBlbmQgb2YgdGhlIHNlc3Npb25cclxuICAgICAgICAgICAgLy8gc2V0IGl0IHRvIDM2NSBkYXlzIGZyb20gbm93XHJcbiAgICAgICAgICAgIC8vIDM2NSAqIDI0ICogNjAgKiA2MCAqIDEwMDAgPSAzMTUzNjAwMDAwMCBcclxuICAgICAgICAgICAgZGF0ZS5zZXRUaW1lKGRhdGUuZ2V0VGltZSgpICsgMzE1MzYwMDAwMDApO1xyXG4gICAgICAgICAgICB2YXIgbmV3Q29va2llID0gW3RoaXMuaWQsIGFjcVN0cl07XHJcbiAgICAgICAgICAgIHZhciBjb29raWVEb21haW4gPSB0aGlzLmNvbmZpZy5jb29raWVEb21haW4gPyB0aGlzLmNvbmZpZy5jb29raWVEb21haW4oKSA6IHVuZGVmaW5lZDtcclxuICAgICAgICAgICAgVXRpbC5zZXRDb29raWUodGhpcy5fbG9nZ2VyLCBVc2VyLnVzZXJDb29raWVOYW1lLCBuZXdDb29raWUuam9pbihVc2VyLmNvb2tpZVNlcGFyYXRvcikgKyAnO2V4cGlyZXM9JyArIGRhdGUudG9VVENTdHJpbmcoKSwgY29va2llRG9tYWluKTtcclxuICAgICAgICAgICAgLy8gSWYgd2UgaGF2ZSBhbiBjb25maWcubmFtZVByZWZpeCgpICsgYWlfc2Vzc2lvbiBpbiBsb2NhbCBzdG9yYWdlIHRoaXMgbWVhbnMgdGhlIHVzZXIgYWN0aXZlbHkgcmVtb3ZlZCBvdXIgY29va2llcy5cclxuICAgICAgICAgICAgLy8gV2Ugc2hvdWxkIHJlc3BlY3QgdGhlaXIgd2lzaGVzIGFuZCBjbGVhciBvdXJzZWx2ZXMgZnJvbSBsb2NhbCBzdG9yYWdlXHJcbiAgICAgICAgICAgIHZhciBuYW1lXzEgPSBjb25maWcubmFtZVByZWZpeCAmJiBjb25maWcubmFtZVByZWZpeCgpID8gY29uZmlnLm5hbWVQcmVmaXgoKSArICdhaV9zZXNzaW9uJyA6ICdhaV9zZXNzaW9uJztcclxuICAgICAgICAgICAgVXRpbC5yZW1vdmVTdG9yYWdlKHRoaXMuX2xvZ2dlciwgbmFtZV8xKTtcclxuICAgICAgICB9XHJcbiAgICAgICAgLy8gV2Ugc3RpbGwgdGFrZSB0aGUgYWNjb3VudCBpZCBmcm9tIHRoZSBjdG9yIHBhcmFtIGZvciBiYWNrd2FyZCBjb21wYXRpYmlsaXR5LiBcclxuICAgICAgICAvLyBCdXQgaWYgdGhlIHRoZSBjdXN0b21lciBzZXQgdGhlIGFjY291bnRJZCB0aHJvdWdoIHRoZSBuZXdlciBzZXRBdXRoZW50aWNhdGVkVXNlckNvbnRleHQgQVBJLCB3ZSB3aWxsIG92ZXJyaWRlIGl0LlxyXG4gICAgICAgIHRoaXMuYWNjb3VudElkID0gY29uZmlnLmFjY291bnRJZCA/IGNvbmZpZy5hY2NvdW50SWQoKSA6IHVuZGVmaW5lZDtcclxuICAgICAgICAvLyBHZXQgdGhlIGF1dGggdXNlciBpZCBhbmQgYWNjb3VudCBpZCBmcm9tIHRoZSBjb29raWUgaWYgZXhpc3RzXHJcbiAgICAgICAgLy8gQ29va2llIGlzIGluIHRoZSBwYXR0ZXJuOiA8YXV0aGVudGljYXRlZElkPnw8YWNjb3VudElkPlxyXG4gICAgICAgIHZhciBhdXRoQ29va2llID0gVXRpbC5nZXRDb29raWUodGhpcy5fbG9nZ2VyLCBVc2VyLmF1dGhVc2VyQ29va2llTmFtZSk7XHJcbiAgICAgICAgaWYgKGF1dGhDb29raWUpIHtcclxuICAgICAgICAgICAgYXV0aENvb2tpZSA9IGRlY29kZVVSSShhdXRoQ29va2llKTtcclxuICAgICAgICAgICAgdmFyIGF1dGhDb29raWVTdHJpbmcgPSBhdXRoQ29va2llLnNwbGl0KFVzZXIuY29va2llU2VwYXJhdG9yKTtcclxuICAgICAgICAgICAgaWYgKGF1dGhDb29raWVTdHJpbmdbMF0pIHtcclxuICAgICAgICAgICAgICAgIHRoaXMuYXV0aGVudGljYXRlZElkID0gYXV0aENvb2tpZVN0cmluZ1swXTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBpZiAoYXV0aENvb2tpZVN0cmluZy5sZW5ndGggPiAxICYmIGF1dGhDb29raWVTdHJpbmdbMV0pIHtcclxuICAgICAgICAgICAgICAgIHRoaXMuYWNjb3VudElkID0gYXV0aENvb2tpZVN0cmluZ1sxXTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH1cclxuICAgIH1cclxuICAgIC8qKlxyXG4gICAgICogU2V0cyB0aGUgYXV0aGVudGljYXRlZCB1c2VyIGlkIGFuZCB0aGUgYWNjb3VudCBpZCBpbiB0aGlzIHNlc3Npb24uXHJcbiAgICAgKlxyXG4gICAgICogQHBhcmFtIGF1dGhlbnRpY2F0ZWRVc2VySWQge3N0cmluZ30gLSBUaGUgYXV0aGVudGljYXRlZCB1c2VyIGlkLiBBIHVuaXF1ZSBhbmQgcGVyc2lzdGVudCBzdHJpbmcgdGhhdCByZXByZXNlbnRzIGVhY2ggYXV0aGVudGljYXRlZCB1c2VyIGluIHRoZSBzZXJ2aWNlLlxyXG4gICAgICogQHBhcmFtIGFjY291bnRJZCB7c3RyaW5nfSAtIEFuIG9wdGlvbmFsIHN0cmluZyB0byByZXByZXNlbnQgdGhlIGFjY291bnQgYXNzb2NpYXRlZCB3aXRoIHRoZSBhdXRoZW50aWNhdGVkIHVzZXIuXHJcbiAgICAgKi9cclxuICAgIFVzZXIucHJvdG90eXBlLnNldEF1dGhlbnRpY2F0ZWRVc2VyQ29udGV4dCA9IGZ1bmN0aW9uIChhdXRoZW50aWNhdGVkVXNlcklkLCBhY2NvdW50SWQsIHN0b3JlSW5Db29raWUpIHtcclxuICAgICAgICBpZiAoc3RvcmVJbkNvb2tpZSA9PT0gdm9pZCAwKSB7IHN0b3JlSW5Db29raWUgPSBmYWxzZTsgfVxyXG4gICAgICAgIC8vIFZhbGlkYXRlIGlucHV0cyB0byBlbnN1cmUgbm8gY29va2llIGNvbnRyb2wgY2hhcmFjdGVycy5cclxuICAgICAgICB2YXIgaXNJbnZhbGlkSW5wdXQgPSAhdGhpcy52YWxpZGF0ZVVzZXJJbnB1dChhdXRoZW50aWNhdGVkVXNlcklkKSB8fCAoYWNjb3VudElkICYmICF0aGlzLnZhbGlkYXRlVXNlcklucHV0KGFjY291bnRJZCkpO1xyXG4gICAgICAgIGlmIChpc0ludmFsaWRJbnB1dCkge1xyXG4gICAgICAgICAgICB0aGlzLl9sb2dnZXIudGhyb3dJbnRlcm5hbChMb2dnaW5nU2V2ZXJpdHkuV0FSTklORywgX0ludGVybmFsTWVzc2FnZUlkLlNldEF1dGhDb250ZXh0RmFpbGVkQWNjb3VudE5hbWUsIFwiU2V0dGluZyBhdXRoIHVzZXIgY29udGV4dCBmYWlsZWQuIFwiICtcclxuICAgICAgICAgICAgICAgIFwiVXNlciBhdXRoL2FjY291bnQgaWQgc2hvdWxkIGJlIG9mIHR5cGUgc3RyaW5nLCBhbmQgbm90IGNvbnRhaW4gY29tbWFzLCBzZW1pLWNvbG9ucywgZXF1YWwgc2lnbnMsIHNwYWNlcywgb3IgdmVydGljYWwtYmFycy5cIiwgdHJ1ZSk7XHJcbiAgICAgICAgICAgIHJldHVybjtcclxuICAgICAgICB9XHJcbiAgICAgICAgLy8gQ3JlYXRlIGNvb2tpZSBzdHJpbmcuXHJcbiAgICAgICAgdGhpcy5hdXRoZW50aWNhdGVkSWQgPSBhdXRoZW50aWNhdGVkVXNlcklkO1xyXG4gICAgICAgIHZhciBhdXRoQ29va2llID0gdGhpcy5hdXRoZW50aWNhdGVkSWQ7XHJcbiAgICAgICAgaWYgKGFjY291bnRJZCkge1xyXG4gICAgICAgICAgICB0aGlzLmFjY291bnRJZCA9IGFjY291bnRJZDtcclxuICAgICAgICAgICAgYXV0aENvb2tpZSA9IFt0aGlzLmF1dGhlbnRpY2F0ZWRJZCwgdGhpcy5hY2NvdW50SWRdLmpvaW4oVXNlci5jb29raWVTZXBhcmF0b3IpO1xyXG4gICAgICAgIH1cclxuICAgICAgICBpZiAoc3RvcmVJbkNvb2tpZSkge1xyXG4gICAgICAgICAgICAvLyBTZXQgdGhlIGNvb2tpZS4gTm8gZXhwaXJhdGlvbiBkYXRlIGJlY2F1c2UgdGhpcyBpcyBhIHNlc3Npb24gY29va2llIChleHBpcmVzIHdoZW4gYnJvd3NlciBjbG9zZWQpLlxyXG4gICAgICAgICAgICAvLyBFbmNvZGluZyB0aGUgY29va2llIHRvIGhhbmRsZSB1bmV4cGVjdGVkIHVuaWNvZGUgY2hhcmFjdGVycy5cclxuICAgICAgICAgICAgVXRpbC5zZXRDb29raWUodGhpcy5fbG9nZ2VyLCBVc2VyLmF1dGhVc2VyQ29va2llTmFtZSwgZW5jb2RlVVJJKGF1dGhDb29raWUpLCB0aGlzLmNvbmZpZy5jb29raWVEb21haW4oKSk7XHJcbiAgICAgICAgfVxyXG4gICAgfTtcclxuICAgIC8qKlxyXG4gICAgICogQ2xlYXJzIHRoZSBhdXRoZW50aWNhdGVkIHVzZXIgaWQgYW5kIHRoZSBhY2NvdW50IGlkIGZyb20gdGhlIHVzZXIgY29udGV4dC5cclxuICAgICAqIEByZXR1cm5zIHt9XHJcbiAgICAgKi9cclxuICAgIFVzZXIucHJvdG90eXBlLmNsZWFyQXV0aGVudGljYXRlZFVzZXJDb250ZXh0ID0gZnVuY3Rpb24gKCkge1xyXG4gICAgICAgIHRoaXMuYXV0aGVudGljYXRlZElkID0gbnVsbDtcclxuICAgICAgICB0aGlzLmFjY291bnRJZCA9IG51bGw7XHJcbiAgICAgICAgVXRpbC5kZWxldGVDb29raWUodGhpcy5fbG9nZ2VyLCBVc2VyLmF1dGhVc2VyQ29va2llTmFtZSk7XHJcbiAgICB9O1xyXG4gICAgVXNlci5wcm90b3R5cGUudmFsaWRhdGVVc2VySW5wdXQgPSBmdW5jdGlvbiAoaWQpIHtcclxuICAgICAgICAvLyBWYWxpZGF0ZTpcclxuICAgICAgICAvLyAxLiBJZCBpcyBhIG5vbi1lbXB0eSBzdHJpbmcuXHJcbiAgICAgICAgLy8gMi4gSXQgZG9lcyBub3QgY29udGFpbiBzcGVjaWFsIGNoYXJhY3RlcnMgZm9yIGNvb2tpZXMuXHJcbiAgICAgICAgaWYgKHR5cGVvZiBpZCAhPT0gJ3N0cmluZycgfHxcclxuICAgICAgICAgICAgIWlkIHx8XHJcbiAgICAgICAgICAgIGlkLm1hdGNoKC8sfDt8PXwgfFxcfC8pKSB7XHJcbiAgICAgICAgICAgIHJldHVybiBmYWxzZTtcclxuICAgICAgICB9XHJcbiAgICAgICAgcmV0dXJuIHRydWU7XHJcbiAgICB9O1xyXG4gICAgVXNlci5jb29raWVTZXBhcmF0b3IgPSAnfCc7XHJcbiAgICBVc2VyLnVzZXJDb29raWVOYW1lID0gJ2FpX3VzZXInO1xyXG4gICAgVXNlci5hdXRoVXNlckNvb2tpZU5hbWUgPSAnYWlfYXV0aFVzZXInO1xyXG4gICAgcmV0dXJuIFVzZXI7XHJcbn0oKSk7XHJcbmV4cG9ydCB7IFVzZXIgfTtcclxuLy8jIHNvdXJjZU1hcHBpbmdVUkw9VXNlci5qcy5tYXAiLCIvKipcclxuICogUHJvcGVydGllc1BsdWdpbi50c1xyXG4gKiBAY29weXJpZ2h0IE1pY3Jvc29mdCAyMDE4XHJcbiAqL1xyXG5pbXBvcnQgKiBhcyB0c2xpYl8xIGZyb20gXCJ0c2xpYlwiO1xyXG5pbXBvcnQgeyBCYXNlVGVsZW1ldHJ5UGx1Z2luLCBDb3JlVXRpbHMsIF9JbnRlcm5hbExvZ01lc3NhZ2UsIExvZ2dpbmdTZXZlcml0eSwgX0ludGVybmFsTWVzc2FnZUlkLCBnZXROYXZpZ2F0b3IgfSBmcm9tICdAbWljcm9zb2Z0L2FwcGxpY2F0aW9uaW5zaWdodHMtY29yZS1qcyc7XHJcbmltcG9ydCB7IFRlbGVtZXRyeUNvbnRleHQgfSBmcm9tICcuL1RlbGVtZXRyeUNvbnRleHQnO1xyXG5pbXBvcnQgeyBQYWdlVmlldywgQnJlZXplQ2hhbm5lbElkZW50aWZpZXIsIFByb3BlcnRpZXNQbHVnaW5JZGVudGlmaWVyLCBFeHRlbnNpb25zLCBVdGlsIH0gZnJvbSAnQG1pY3Jvc29mdC9hcHBsaWNhdGlvbmluc2lnaHRzLWNvbW1vbic7XHJcbnZhciBQcm9wZXJ0aWVzUGx1Z2luID0gLyoqIEBjbGFzcyAqLyAoZnVuY3Rpb24gKF9zdXBlcikge1xyXG4gICAgdHNsaWJfMS5fX2V4dGVuZHMoUHJvcGVydGllc1BsdWdpbiwgX3N1cGVyKTtcclxuICAgIGZ1bmN0aW9uIFByb3BlcnRpZXNQbHVnaW4oKSB7XHJcbiAgICAgICAgdmFyIF90aGlzID0gX3N1cGVyICE9PSBudWxsICYmIF9zdXBlci5hcHBseSh0aGlzLCBhcmd1bWVudHMpIHx8IHRoaXM7XHJcbiAgICAgICAgX3RoaXMucHJpb3JpdHkgPSAxMTA7XHJcbiAgICAgICAgX3RoaXMuaWRlbnRpZmllciA9IFByb3BlcnRpZXNQbHVnaW5JZGVudGlmaWVyO1xyXG4gICAgICAgIHJldHVybiBfdGhpcztcclxuICAgIH1cclxuICAgIFByb3BlcnRpZXNQbHVnaW4uZ2V0RGVmYXVsdENvbmZpZyA9IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICB2YXIgZGVmYXVsdENvbmZpZyA9IHtcclxuICAgICAgICAgICAgaW5zdHJ1bWVudGF0aW9uS2V5OiBmdW5jdGlvbiAoKSB7IHJldHVybiB1bmRlZmluZWQ7IH0sXHJcbiAgICAgICAgICAgIGFjY291bnRJZDogZnVuY3Rpb24gKCkgeyByZXR1cm4gbnVsbDsgfSxcclxuICAgICAgICAgICAgc2Vzc2lvblJlbmV3YWxNczogZnVuY3Rpb24gKCkgeyByZXR1cm4gMzAgKiA2MCAqIDEwMDA7IH0sXHJcbiAgICAgICAgICAgIHNhbXBsaW5nUGVyY2VudGFnZTogZnVuY3Rpb24gKCkgeyByZXR1cm4gMTAwOyB9LFxyXG4gICAgICAgICAgICBzZXNzaW9uRXhwaXJhdGlvbk1zOiBmdW5jdGlvbiAoKSB7IHJldHVybiAyNCAqIDYwICogNjAgKiAxMDAwOyB9LFxyXG4gICAgICAgICAgICBjb29raWVEb21haW46IGZ1bmN0aW9uICgpIHsgcmV0dXJuIG51bGw7IH0sXHJcbiAgICAgICAgICAgIHNka0V4dGVuc2lvbjogZnVuY3Rpb24gKCkgeyByZXR1cm4gbnVsbDsgfSxcclxuICAgICAgICAgICAgaXNCcm93c2VyTGlua1RyYWNraW5nRW5hYmxlZDogZnVuY3Rpb24gKCkgeyByZXR1cm4gZmFsc2U7IH0sXHJcbiAgICAgICAgICAgIGFwcElkOiBmdW5jdGlvbiAoKSB7IHJldHVybiBudWxsOyB9LFxyXG4gICAgICAgICAgICBuYW1lUHJlZml4OiBmdW5jdGlvbiAoKSB7IHJldHVybiB1bmRlZmluZWQ7IH1cclxuICAgICAgICB9O1xyXG4gICAgICAgIHJldHVybiBkZWZhdWx0Q29uZmlnO1xyXG4gICAgfTtcclxuICAgIFByb3BlcnRpZXNQbHVnaW4ucHJvdG90eXBlLmluaXRpYWxpemUgPSBmdW5jdGlvbiAoY29uZmlnLCBjb3JlLCBleHRlbnNpb25zLCBwbHVnaW5DaGFpbikge1xyXG4gICAgICAgIHZhciBfdGhpcyA9IHRoaXM7XHJcbiAgICAgICAgX3N1cGVyLnByb3RvdHlwZS5pbml0aWFsaXplLmNhbGwodGhpcywgY29uZmlnLCBjb3JlLCBleHRlbnNpb25zLCBwbHVnaW5DaGFpbik7XHJcbiAgICAgICAgdmFyIGN0eCA9IHRoaXMuX2dldFRlbEN0eCgpO1xyXG4gICAgICAgIHZhciBpZGVudGlmaWVyID0gdGhpcy5pZGVudGlmaWVyO1xyXG4gICAgICAgIHZhciBkZWZhdWx0Q29uZmlnID0gUHJvcGVydGllc1BsdWdpbi5nZXREZWZhdWx0Q29uZmlnKCk7XHJcbiAgICAgICAgdGhpcy5fZXh0ZW5zaW9uQ29uZmlnID0gdGhpcy5fZXh0ZW5zaW9uQ29uZmlnIHx8IFByb3BlcnRpZXNQbHVnaW4uZ2V0RGVmYXVsdENvbmZpZygpO1xyXG4gICAgICAgIHZhciBfbG9vcF8xID0gZnVuY3Rpb24gKGZpZWxkKSB7XHJcbiAgICAgICAgICAgIHRoaXNfMS5fZXh0ZW5zaW9uQ29uZmlnW2ZpZWxkXSA9IGZ1bmN0aW9uICgpIHsgcmV0dXJuIGN0eC5nZXRDb25maWcoaWRlbnRpZmllciwgZmllbGQsIGRlZmF1bHRDb25maWdbZmllbGRdKCkpOyB9O1xyXG4gICAgICAgIH07XHJcbiAgICAgICAgdmFyIHRoaXNfMSA9IHRoaXM7XHJcbiAgICAgICAgZm9yICh2YXIgZmllbGQgaW4gZGVmYXVsdENvbmZpZykge1xyXG4gICAgICAgICAgICBfbG9vcF8xKGZpZWxkKTtcclxuICAgICAgICB9XHJcbiAgICAgICAgdGhpcy5jb250ZXh0ID0gbmV3IFRlbGVtZXRyeUNvbnRleHQoY29yZS5sb2dnZXIsIHRoaXMuX2V4dGVuc2lvbkNvbmZpZyk7XHJcbiAgICAgICAgdGhpcy5fYnJlZXplQ2hhbm5lbCA9IFV0aWwuZ2V0RXh0ZW5zaW9uKGV4dGVuc2lvbnMsIEJyZWV6ZUNoYW5uZWxJZGVudGlmaWVyKTtcclxuICAgICAgICB0aGlzLmNvbnRleHQuYXBwSWQgPSBmdW5jdGlvbiAoKSB7IHJldHVybiBfdGhpcy5fYnJlZXplQ2hhbm5lbCA/IF90aGlzLl9icmVlemVDaGFubmVsW1wiX2FwcElkXCJdIDogbnVsbDsgfTtcclxuICAgIH07XHJcbiAgICAvKipcclxuICAgICAqIEFkZCBQYXJ0IEEgZmllbGRzIHRvIHRoZSBldmVudFxyXG4gICAgICogQHBhcmFtIGV2ZW50IFRoZSBldmVudCB0aGF0IG5lZWRzIHRvIGJlIHByb2Nlc3NlZFxyXG4gICAgICovXHJcbiAgICBQcm9wZXJ0aWVzUGx1Z2luLnByb3RvdHlwZS5wcm9jZXNzVGVsZW1ldHJ5ID0gZnVuY3Rpb24gKGV2ZW50LCBpdGVtQ3R4KSB7XHJcbiAgICAgICAgaWYgKENvcmVVdGlscy5pc051bGxPclVuZGVmaW5lZChldmVudCkpIHtcclxuICAgICAgICAgICAgLy8gVE9ETyhiYXJ1c3R1bSk6IHRocm93IGFuIGludGVybmFsIGV2ZW50IG9uY2Ugd2UgaGF2ZSBzdXBwb3J0IGZvciBpbnRlcm5hbCBsb2dnaW5nXHJcbiAgICAgICAgfVxyXG4gICAgICAgIGVsc2Uge1xyXG4gICAgICAgICAgICBpdGVtQ3R4ID0gdGhpcy5fZ2V0VGVsQ3R4KGl0ZW1DdHgpO1xyXG4gICAgICAgICAgICAvLyBJZiB0aGUgZW52ZWxvcGUgaXMgUGFnZVZpZXcsIHJlc2V0IHRoZSBpbnRlcm5hbCBtZXNzYWdlIGNvdW50IHNvIHRoYXQgd2UgY2FuIHNlbmQgaW50ZXJuYWwgdGVsZW1ldHJ5IGZvciB0aGUgbmV3IHBhZ2UuXHJcbiAgICAgICAgICAgIGlmIChldmVudC5uYW1lID09PSBQYWdlVmlldy5lbnZlbG9wZVR5cGUpIHtcclxuICAgICAgICAgICAgICAgIGl0ZW1DdHguZGlhZ0xvZygpLnJlc2V0SW50ZXJuYWxNZXNzYWdlQ291bnQoKTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBpZiAodGhpcy5jb250ZXh0LnNlc3Npb24pIHtcclxuICAgICAgICAgICAgICAgIC8vIElmIGN1c3RvbWVyIGRpZCBub3QgcHJvdmlkZSBjdXN0b20gc2Vzc2lvbiBpZCB1cGRhdGUgdGhlIHNlc3Npb24gbWFuYWdlclxyXG4gICAgICAgICAgICAgICAgaWYgKHR5cGVvZiB0aGlzLmNvbnRleHQuc2Vzc2lvbi5pZCAhPT0gXCJzdHJpbmdcIikge1xyXG4gICAgICAgICAgICAgICAgICAgIHRoaXMuY29udGV4dC5zZXNzaW9uTWFuYWdlci51cGRhdGUoKTtcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB0aGlzLl9wcm9jZXNzVGVsZW1ldHJ5SW50ZXJuYWwoZXZlbnQsIGl0ZW1DdHgpO1xyXG4gICAgICAgICAgICBpZiAodGhpcy5jb250ZXh0ICYmIHRoaXMuY29udGV4dC51c2VyICYmIHRoaXMuY29udGV4dC51c2VyLmlzTmV3VXNlcikge1xyXG4gICAgICAgICAgICAgICAgdGhpcy5jb250ZXh0LnVzZXIuaXNOZXdVc2VyID0gZmFsc2U7XHJcbiAgICAgICAgICAgICAgICB2YXIgbWVzc2FnZSA9IG5ldyBfSW50ZXJuYWxMb2dNZXNzYWdlKF9JbnRlcm5hbE1lc3NhZ2VJZC5TZW5kQnJvd3NlckluZm9PblVzZXJJbml0LCAoKGdldE5hdmlnYXRvcigpIHx8IHt9KS51c2VyQWdlbnQgfHwgXCJcIikpO1xyXG4gICAgICAgICAgICAgICAgaXRlbUN0eC5kaWFnTG9nKCkubG9nSW50ZXJuYWxNZXNzYWdlKExvZ2dpbmdTZXZlcml0eS5DUklUSUNBTCwgbWVzc2FnZSk7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgdGhpcy5wcm9jZXNzTmV4dChldmVudCwgaXRlbUN0eCk7XHJcbiAgICAgICAgfVxyXG4gICAgfTtcclxuICAgIFByb3BlcnRpZXNQbHVnaW4ucHJvdG90eXBlLl9wcm9jZXNzVGVsZW1ldHJ5SW50ZXJuYWwgPSBmdW5jdGlvbiAoZXZlbnQsIGl0ZW1DdHgpIHtcclxuICAgICAgICAvLyBzZXQgcGFydCBBICBmaWVsZHNcclxuICAgICAgICBpZiAoIWV2ZW50LnRhZ3MpIHtcclxuICAgICAgICAgICAgZXZlbnQudGFncyA9IFtdO1xyXG4gICAgICAgIH1cclxuICAgICAgICBpZiAoIWV2ZW50LmV4dCkge1xyXG4gICAgICAgICAgICBldmVudC5leHQgPSB7fTtcclxuICAgICAgICB9XHJcbiAgICAgICAgdmFyIGV4dCA9IGV2ZW50LmV4dDtcclxuICAgICAgICBleHRbRXh0ZW5zaW9ucy5EZXZpY2VFeHRdID0gZXh0W0V4dGVuc2lvbnMuRGV2aWNlRXh0XSB8fCB7fTtcclxuICAgICAgICBleHRbRXh0ZW5zaW9ucy5XZWJFeHRdID0gZXh0W0V4dGVuc2lvbnMuV2ViRXh0XSB8fCB7fTtcclxuICAgICAgICBleHRbRXh0ZW5zaW9ucy5Vc2VyRXh0XSA9IGV4dFtFeHRlbnNpb25zLlVzZXJFeHRdIHx8IHt9O1xyXG4gICAgICAgIGV4dFtFeHRlbnNpb25zLk9TRXh0XSA9IGV4dFtFeHRlbnNpb25zLk9TRXh0XSB8fCB7fTtcclxuICAgICAgICBleHRbRXh0ZW5zaW9ucy5BcHBFeHRdID0gZXh0W0V4dGVuc2lvbnMuQXBwRXh0XSB8fCB7fTtcclxuICAgICAgICBleHRbRXh0ZW5zaW9ucy5UcmFjZUV4dF0gPSBleHRbRXh0ZW5zaW9ucy5UcmFjZUV4dF0gfHwge307XHJcbiAgICAgICAgdmFyIGNvbnRleHQgPSB0aGlzLmNvbnRleHQ7XHJcbiAgICAgICAgY29udGV4dC5hcHBseVNlc3Npb25Db250ZXh0KGV2ZW50LCBpdGVtQ3R4KTtcclxuICAgICAgICBjb250ZXh0LmFwcGx5QXBwbGljYXRpb25Db250ZXh0KGV2ZW50LCBpdGVtQ3R4KTtcclxuICAgICAgICBjb250ZXh0LmFwcGx5RGV2aWNlQ29udGV4dChldmVudCwgaXRlbUN0eCk7XHJcbiAgICAgICAgY29udGV4dC5hcHBseU9wZXJhdGlvbkNvbnRleHQoZXZlbnQsIGl0ZW1DdHgpO1xyXG4gICAgICAgIGNvbnRleHQuYXBwbHlVc2VyQ29udGV4dChldmVudCwgaXRlbUN0eCk7XHJcbiAgICAgICAgY29udGV4dC5hcHBseU9wZXJhdGluZ1N5c3RlbUNvbnR4dChldmVudCwgaXRlbUN0eCk7XHJcbiAgICAgICAgY29udGV4dC5hcHBseVdlYkNvbnRleHQoZXZlbnQsIGl0ZW1DdHgpO1xyXG4gICAgICAgIGNvbnRleHQuYXBwbHlMb2NhdGlvbkNvbnRleHQoZXZlbnQsIGl0ZW1DdHgpOyAvLyBsZWdhY3kgdGFnc1xyXG4gICAgICAgIGNvbnRleHQuYXBwbHlJbnRlcm5hbENvbnRleHQoZXZlbnQsIGl0ZW1DdHgpOyAvLyBsZWdhY3kgdGFnc1xyXG4gICAgICAgIGNvbnRleHQuY2xlYW5VcChldmVudCwgaXRlbUN0eCk7XHJcbiAgICB9O1xyXG4gICAgcmV0dXJuIFByb3BlcnRpZXNQbHVnaW47XHJcbn0oQmFzZVRlbGVtZXRyeVBsdWdpbikpO1xyXG5leHBvcnQgZGVmYXVsdCBQcm9wZXJ0aWVzUGx1Z2luO1xyXG4vLyMgc291cmNlTWFwcGluZ1VSTD1Qcm9wZXJ0aWVzUGx1Z2luLmpzLm1hcCIsIi8qKlxyXG4gKiBQcm9wZXJ0aWVzUGx1Z2luLnRzXHJcbiAqIEBjb3B5cmlnaHQgTWljcm9zb2Z0IDIwMThcclxuICovXHJcbmltcG9ydCB7IENvcmVVdGlscywgaGFzV2luZG93IH0gZnJvbSAnQG1pY3Jvc29mdC9hcHBsaWNhdGlvbmluc2lnaHRzLWNvcmUtanMnO1xyXG5pbXBvcnQgeyBTZXNzaW9uLCBfU2Vzc2lvbk1hbmFnZXIgfSBmcm9tICcuL0NvbnRleHQvU2Vzc2lvbic7XHJcbmltcG9ydCB7IEV4dGVuc2lvbnMsIEN0eFRhZ0tleXMgfSBmcm9tICdAbWljcm9zb2Z0L2FwcGxpY2F0aW9uaW5zaWdodHMtY29tbW9uJztcclxuaW1wb3J0IHsgQXBwbGljYXRpb24gfSBmcm9tICcuL0NvbnRleHQvQXBwbGljYXRpb24nO1xyXG5pbXBvcnQgeyBEZXZpY2UgfSBmcm9tICcuL0NvbnRleHQvRGV2aWNlJztcclxuaW1wb3J0IHsgSW50ZXJuYWwgfSBmcm9tICcuL0NvbnRleHQvSW50ZXJuYWwnO1xyXG5pbXBvcnQgeyBVc2VyIH0gZnJvbSAnLi9Db250ZXh0L1VzZXInO1xyXG5pbXBvcnQgeyBMb2NhdGlvbiB9IGZyb20gJy4vQ29udGV4dC9Mb2NhdGlvbic7XHJcbmltcG9ydCB7IFRlbGVtZXRyeVRyYWNlIH0gZnJvbSAnLi9Db250ZXh0L1RlbGVtZXRyeVRyYWNlJztcclxudmFyIFRlbGVtZXRyeUNvbnRleHQgPSAvKiogQGNsYXNzICovIChmdW5jdGlvbiAoKSB7XHJcbiAgICBmdW5jdGlvbiBUZWxlbWV0cnlDb250ZXh0KGxvZ2dlciwgZGVmYXVsdENvbmZpZykge1xyXG4gICAgICAgIGlmIChoYXNXaW5kb3coKSkge1xyXG4gICAgICAgICAgICB0aGlzLnNlc3Npb25NYW5hZ2VyID0gbmV3IF9TZXNzaW9uTWFuYWdlcihkZWZhdWx0Q29uZmlnLCBsb2dnZXIpO1xyXG4gICAgICAgICAgICB0aGlzLmFwcGxpY2F0aW9uID0gbmV3IEFwcGxpY2F0aW9uKCk7XHJcbiAgICAgICAgICAgIHRoaXMuZGV2aWNlID0gbmV3IERldmljZSgpO1xyXG4gICAgICAgICAgICB0aGlzLmludGVybmFsID0gbmV3IEludGVybmFsKGRlZmF1bHRDb25maWcpO1xyXG4gICAgICAgICAgICB0aGlzLmxvY2F0aW9uID0gbmV3IExvY2F0aW9uKCk7XHJcbiAgICAgICAgICAgIHRoaXMudXNlciA9IG5ldyBVc2VyKGRlZmF1bHRDb25maWcsIGxvZ2dlcik7XHJcbiAgICAgICAgICAgIHRoaXMudGVsZW1ldHJ5VHJhY2UgPSBuZXcgVGVsZW1ldHJ5VHJhY2UodW5kZWZpbmVkLCB1bmRlZmluZWQsIHVuZGVmaW5lZCwgbG9nZ2VyKTtcclxuICAgICAgICAgICAgdGhpcy5zZXNzaW9uID0gbmV3IFNlc3Npb24oKTtcclxuICAgICAgICB9XHJcbiAgICAgICAgdGhpcy5hcHBJZCA9IGZ1bmN0aW9uICgpIHsgcmV0dXJuIG51bGw7IH07XHJcbiAgICB9XHJcbiAgICBUZWxlbWV0cnlDb250ZXh0LnByb3RvdHlwZS5hcHBseVNlc3Npb25Db250ZXh0ID0gZnVuY3Rpb24gKGV2ZW50LCBpdGVtQ3R4KSB7XHJcbiAgICAgICAgdmFyIHNlc3Npb25Db250ZXh0ID0gdGhpcy5zZXNzaW9uIHx8ICh0aGlzLnNlc3Npb25NYW5hZ2VyICYmIHRoaXMuc2Vzc2lvbk1hbmFnZXIuYXV0b21hdGljU2Vzc2lvbik7XHJcbiAgICAgICAgaWYgKHNlc3Npb25Db250ZXh0KSB7XHJcbiAgICAgICAgICAgIGlmICh0eXBlb2Ygc2Vzc2lvbkNvbnRleHQuaWQgPT09IFwic3RyaW5nXCIpIHtcclxuICAgICAgICAgICAgICAgIGV2ZW50LmV4dC5hcHAuc2VzSWQgPSBzZXNzaW9uQ29udGV4dC5pZDtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH1cclxuICAgICAgICBpZiAodGhpcy5zZXNzaW9uKSB7XHJcbiAgICAgICAgICAgIC8vIElmIGN1c3RvbWVyIHNldCBzZXNzaW9uIGluZm8sIGFwcGx5IGhpcyBjb250ZXh0OyBvdGhlcndpc2UgYXBwbHkgY29udGV4dCBhdXRvbWF0aWNhbGx5IGdlbmVyYXRlZFxyXG4gICAgICAgICAgICBpZiAodHlwZW9mIHRoaXMuc2Vzc2lvbi5pZCA9PT0gXCJzdHJpbmdcIikge1xyXG4gICAgICAgICAgICAgICAgZXZlbnQuZXh0LmFwcC5zZXNJZCA9IHRoaXMuc2Vzc2lvbi5pZDtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBlbHNlIHtcclxuICAgICAgICAgICAgICAgIGV2ZW50LmV4dC5hcHAuc2VzSWQgPSB0aGlzLnNlc3Npb25NYW5hZ2VyLmF1dG9tYXRpY1Nlc3Npb24uaWQ7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9XHJcbiAgICB9O1xyXG4gICAgVGVsZW1ldHJ5Q29udGV4dC5wcm90b3R5cGUuYXBwbHlPcGVyYXRpbmdTeXN0ZW1Db250eHQgPSBmdW5jdGlvbiAoZXZlbnQsIGl0ZW1DdHgpIHtcclxuICAgICAgICBpZiAodGhpcy5vcyAmJiB0aGlzLm9zLm5hbWUpIHtcclxuICAgICAgICAgICAgZXZlbnQuZXh0Lm9zID0gdGhpcy5vcztcclxuICAgICAgICB9XHJcbiAgICB9O1xyXG4gICAgVGVsZW1ldHJ5Q29udGV4dC5wcm90b3R5cGUuYXBwbHlBcHBsaWNhdGlvbkNvbnRleHQgPSBmdW5jdGlvbiAoZXZlbnQsIGl0ZW1DdHgpIHtcclxuICAgICAgICBpZiAodGhpcy5hcHBsaWNhdGlvbikge1xyXG4gICAgICAgICAgICBpZiAodHlwZW9mIHRoaXMuYXBwbGljYXRpb24udmVyID09PSBcInN0cmluZ1wiKSB7XHJcbiAgICAgICAgICAgICAgICBldmVudC50YWdzW0N0eFRhZ0tleXMuYXBwbGljYXRpb25WZXJzaW9uXSA9IHRoaXMuYXBwbGljYXRpb24udmVyO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIGlmICh0eXBlb2YgdGhpcy5hcHBsaWNhdGlvbi5idWlsZCA9PT0gXCJzdHJpbmdcIikge1xyXG4gICAgICAgICAgICAgICAgZXZlbnQudGFnc1tDdHhUYWdLZXlzLmFwcGxpY2F0aW9uQnVpbGRdID0gdGhpcy5hcHBsaWNhdGlvbi5idWlsZDtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH1cclxuICAgIH07XHJcbiAgICBUZWxlbWV0cnlDb250ZXh0LnByb3RvdHlwZS5hcHBseURldmljZUNvbnRleHQgPSBmdW5jdGlvbiAoZXZlbnQsIGl0ZW1DdHgpIHtcclxuICAgICAgICBpZiAodGhpcy5kZXZpY2UpIHtcclxuICAgICAgICAgICAgaWYgKHR5cGVvZiB0aGlzLmRldmljZS5pZCA9PT0gXCJzdHJpbmdcIikge1xyXG4gICAgICAgICAgICAgICAgZXZlbnQuZXh0LmRldmljZS5sb2NhbElkID0gdGhpcy5kZXZpY2UuaWQ7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgaWYgKHR5cGVvZiB0aGlzLmRldmljZS5pcCA9PT0gXCJzdHJpbmdcIikge1xyXG4gICAgICAgICAgICAgICAgZXZlbnQuZXh0LmRldmljZS5pcCA9IHRoaXMuZGV2aWNlLmlwO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIGlmICh0eXBlb2YgdGhpcy5kZXZpY2UubW9kZWwgPT09IFwic3RyaW5nXCIpIHtcclxuICAgICAgICAgICAgICAgIGV2ZW50LmV4dC5kZXZpY2UubW9kZWwgPSB0aGlzLmRldmljZS5tb2RlbDtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBpZiAodHlwZW9mIHRoaXMuZGV2aWNlLmRldmljZUNsYXNzID09PSBcInN0cmluZ1wiKSB7XHJcbiAgICAgICAgICAgICAgICBldmVudC5leHQuZGV2aWNlLmRldmljZUNsYXNzID0gdGhpcy5kZXZpY2UuZGV2aWNlQ2xhc3M7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9XHJcbiAgICB9O1xyXG4gICAgVGVsZW1ldHJ5Q29udGV4dC5wcm90b3R5cGUuYXBwbHlJbnRlcm5hbENvbnRleHQgPSBmdW5jdGlvbiAoZXZlbnQsIGl0ZW1DdHgpIHtcclxuICAgICAgICBpZiAodGhpcy5pbnRlcm5hbCkge1xyXG4gICAgICAgICAgICBpZiAodHlwZW9mIHRoaXMuaW50ZXJuYWwuYWdlbnRWZXJzaW9uID09PSBcInN0cmluZ1wiKSB7XHJcbiAgICAgICAgICAgICAgICBldmVudC50YWdzW0N0eFRhZ0tleXMuaW50ZXJuYWxBZ2VudFZlcnNpb25dID0gdGhpcy5pbnRlcm5hbC5hZ2VudFZlcnNpb247IC8vIG5vdCBtYXBwZWQgaW4gQ1MgNC4wXHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgaWYgKHR5cGVvZiB0aGlzLmludGVybmFsLnNka1ZlcnNpb24gPT09IFwic3RyaW5nXCIpIHtcclxuICAgICAgICAgICAgICAgIGV2ZW50LnRhZ3NbQ3R4VGFnS2V5cy5pbnRlcm5hbFNka1ZlcnNpb25dID0gdGhpcy5pbnRlcm5hbC5zZGtWZXJzaW9uO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgfTtcclxuICAgIFRlbGVtZXRyeUNvbnRleHQucHJvdG90eXBlLmFwcGx5TG9jYXRpb25Db250ZXh0ID0gZnVuY3Rpb24gKGV2ZW50LCBpdGVtQ3R4KSB7XHJcbiAgICAgICAgaWYgKHRoaXMubG9jYXRpb24pIHtcclxuICAgICAgICAgICAgaWYgKHR5cGVvZiB0aGlzLmxvY2F0aW9uLmlwID09PSBcInN0cmluZ1wiKSB7XHJcbiAgICAgICAgICAgICAgICBldmVudC50YWdzW0N0eFRhZ0tleXMubG9jYXRpb25JcF0gPSB0aGlzLmxvY2F0aW9uLmlwO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfVxyXG4gICAgfTtcclxuICAgIFRlbGVtZXRyeUNvbnRleHQucHJvdG90eXBlLmFwcGx5T3BlcmF0aW9uQ29udGV4dCA9IGZ1bmN0aW9uIChldmVudCwgaXRlbUN0eCkge1xyXG4gICAgICAgIGlmICh0aGlzLnRlbGVtZXRyeVRyYWNlKSB7XHJcbiAgICAgICAgICAgIHZhciB0cmFjZSA9IGV2ZW50LmV4dC50cmFjZSB8fCB7IHRyYWNlSUQ6IHVuZGVmaW5lZCwgcGFyZW50SUQ6IHVuZGVmaW5lZCB9O1xyXG4gICAgICAgICAgICBpZiAodHlwZW9mIHRoaXMudGVsZW1ldHJ5VHJhY2UudHJhY2VJRCA9PT0gXCJzdHJpbmdcIikge1xyXG4gICAgICAgICAgICAgICAgdHJhY2UudHJhY2VJRCA9IHRoaXMudGVsZW1ldHJ5VHJhY2UudHJhY2VJRDtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBpZiAodHlwZW9mIHRoaXMudGVsZW1ldHJ5VHJhY2UubmFtZSA9PT0gXCJzdHJpbmdcIikge1xyXG4gICAgICAgICAgICAgICAgdHJhY2UubmFtZSA9IHRoaXMudGVsZW1ldHJ5VHJhY2UubmFtZTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBpZiAodHlwZW9mIHRoaXMudGVsZW1ldHJ5VHJhY2UucGFyZW50SUQgPT09IFwic3RyaW5nXCIpIHtcclxuICAgICAgICAgICAgICAgIHRyYWNlLnBhcmVudElEID0gdGhpcy50ZWxlbWV0cnlUcmFjZS5wYXJlbnRJRDtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBldmVudC5leHQudHJhY2UgPSB0cmFjZTtcclxuICAgICAgICB9XHJcbiAgICB9O1xyXG4gICAgVGVsZW1ldHJ5Q29udGV4dC5wcm90b3R5cGUuYXBwbHlXZWJDb250ZXh0ID0gZnVuY3Rpb24gKGV2ZW50LCBpdGVtQ3R4KSB7XHJcbiAgICAgICAgaWYgKHRoaXMud2ViKSB7XHJcbiAgICAgICAgICAgIGV2ZW50LmV4dC53ZWIgPSBldmVudC5leHQud2ViIHx8IHt9O1xyXG4gICAgICAgICAgICBldmVudC5leHQud2ViID0gdGhpcy53ZWI7XHJcbiAgICAgICAgfVxyXG4gICAgfTtcclxuICAgIFRlbGVtZXRyeUNvbnRleHQucHJvdG90eXBlLmFwcGx5VXNlckNvbnRleHQgPSBmdW5jdGlvbiAoZXZlbnQsIGl0ZW1DdHgpIHtcclxuICAgICAgICBpZiAodGhpcy51c2VyKSB7XHJcbiAgICAgICAgICAgIGlmICghZXZlbnQudGFncykge1xyXG4gICAgICAgICAgICAgICAgZXZlbnQudGFncyA9IFtdO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIC8vIHN0YXlzIGluIHRhZ3NcclxuICAgICAgICAgICAgaWYgKHR5cGVvZiB0aGlzLnVzZXIuYWNjb3VudElkID09PSBcInN0cmluZ1wiKSB7XHJcbiAgICAgICAgICAgICAgICB2YXIgaXRlbSA9IHt9O1xyXG4gICAgICAgICAgICAgICAgZXZlbnQudGFnc1tDdHhUYWdLZXlzLnVzZXJBY2NvdW50SWRdID0gdGhpcy51c2VyLmFjY291bnRJZDtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAvLyBDUyA0LjBcclxuICAgICAgICAgICAgaWYgKHR5cGVvZiB0aGlzLnVzZXIuaWQgPT09IFwic3RyaW5nXCIpIHtcclxuICAgICAgICAgICAgICAgIGV2ZW50LmV4dC51c2VyLmlkID0gdGhpcy51c2VyLmlkO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIGlmICh0eXBlb2YgdGhpcy51c2VyLmF1dGhlbnRpY2F0ZWRJZCA9PT0gXCJzdHJpbmdcIikge1xyXG4gICAgICAgICAgICAgICAgZXZlbnQuZXh0LnVzZXIuYXV0aElkID0gdGhpcy51c2VyLmF1dGhlbnRpY2F0ZWRJZDtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH1cclxuICAgIH07XHJcbiAgICBUZWxlbWV0cnlDb250ZXh0LnByb3RvdHlwZS5jbGVhblVwID0gZnVuY3Rpb24gKGV2ZW50LCBpdGVtQ3R4KSB7XHJcbiAgICAgICAgaWYgKGV2ZW50LmV4dFtFeHRlbnNpb25zLkRldmljZUV4dF0gJiYgQ29yZVV0aWxzLm9iaktleXMoZXZlbnQuZXh0W0V4dGVuc2lvbnMuRGV2aWNlRXh0XSkubGVuZ3RoID09PSAwKSB7XHJcbiAgICAgICAgICAgIGRlbGV0ZSBldmVudC5leHRbRXh0ZW5zaW9ucy5EZXZpY2VFeHRdO1xyXG4gICAgICAgIH1cclxuICAgICAgICBpZiAoZXZlbnQuZXh0W0V4dGVuc2lvbnMuVXNlckV4dF0gJiYgQ29yZVV0aWxzLm9iaktleXMoZXZlbnQuZXh0W0V4dGVuc2lvbnMuVXNlckV4dF0pLmxlbmd0aCA9PT0gMCkge1xyXG4gICAgICAgICAgICBkZWxldGUgZXZlbnQuZXh0W0V4dGVuc2lvbnMuVXNlckV4dF07XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGlmIChldmVudC5leHRbRXh0ZW5zaW9ucy5XZWJFeHRdICYmIENvcmVVdGlscy5vYmpLZXlzKGV2ZW50LmV4dFtFeHRlbnNpb25zLldlYkV4dF0pLmxlbmd0aCA9PT0gMCkge1xyXG4gICAgICAgICAgICBkZWxldGUgZXZlbnQuZXh0W0V4dGVuc2lvbnMuV2ViRXh0XTtcclxuICAgICAgICB9XHJcbiAgICAgICAgaWYgKGV2ZW50LmV4dFtFeHRlbnNpb25zLk9TRXh0XSAmJiBDb3JlVXRpbHMub2JqS2V5cyhldmVudC5leHRbRXh0ZW5zaW9ucy5PU0V4dF0pLmxlbmd0aCA9PT0gMCkge1xyXG4gICAgICAgICAgICBkZWxldGUgZXZlbnQuZXh0W0V4dGVuc2lvbnMuT1NFeHRdO1xyXG4gICAgICAgIH1cclxuICAgICAgICBpZiAoZXZlbnQuZXh0W0V4dGVuc2lvbnMuQXBwRXh0XSAmJiBDb3JlVXRpbHMub2JqS2V5cyhldmVudC5leHRbRXh0ZW5zaW9ucy5BcHBFeHRdKS5sZW5ndGggPT09IDApIHtcclxuICAgICAgICAgICAgZGVsZXRlIGV2ZW50LmV4dFtFeHRlbnNpb25zLkFwcEV4dF07XHJcbiAgICAgICAgfVxyXG4gICAgICAgIGlmIChldmVudC5leHRbRXh0ZW5zaW9ucy5UcmFjZUV4dF0gJiYgQ29yZVV0aWxzLm9iaktleXMoZXZlbnQuZXh0W0V4dGVuc2lvbnMuVHJhY2VFeHRdKS5sZW5ndGggPT09IDApIHtcclxuICAgICAgICAgICAgZGVsZXRlIGV2ZW50LmV4dFtFeHRlbnNpb25zLlRyYWNlRXh0XTtcclxuICAgICAgICB9XHJcbiAgICB9O1xyXG4gICAgcmV0dXJuIFRlbGVtZXRyeUNvbnRleHQ7XHJcbn0oKSk7XHJcbmV4cG9ydCB7IFRlbGVtZXRyeUNvbnRleHQgfTtcclxuLy8jIHNvdXJjZU1hcHBpbmdVUkw9VGVsZW1ldHJ5Q29udGV4dC5qcy5tYXAiLCIvLyBDb3B5cmlnaHQgKGMpIE1pY3Jvc29mdCBDb3Jwb3JhdGlvbi4gQWxsIHJpZ2h0cyByZXNlcnZlZC5cclxuLy8gTGljZW5zZWQgdW5kZXIgdGhlIE1JVCBMaWNlbnNlLlxyXG5pbXBvcnQgUHJvcGVydGllc1BsdWdpbiBmcm9tIFwiLi9Qcm9wZXJ0aWVzUGx1Z2luXCI7XHJcbmltcG9ydCB7IFRlbGVtZXRyeVRyYWNlIH0gZnJvbSBcIi4vQ29udGV4dC9UZWxlbWV0cnlUcmFjZVwiO1xyXG5pbXBvcnQgeyBUZWxlbWV0cnlDb250ZXh0IH0gZnJvbSAnLi9UZWxlbWV0cnlDb250ZXh0JztcclxuaW1wb3J0IHsgU2Vzc2lvbiwgX1Nlc3Npb25NYW5hZ2VyIH0gZnJvbSBcIi4vQ29udGV4dC9TZXNzaW9uXCI7XHJcbmV4cG9ydCB7IFByb3BlcnRpZXNQbHVnaW4sIFRlbGVtZXRyeVRyYWNlLCBUZWxlbWV0cnlDb250ZXh0LCBTZXNzaW9uLCBfU2Vzc2lvbk1hbmFnZXIgYXMgU2Vzc2lvbk1hbmFnZXIgfTtcclxuLy8jIHNvdXJjZU1hcHBpbmdVUkw9YXBwbGljYXRpb25pbnNpZ2h0cy1wcm9wZXJ0aWVzLWpzLmpzLm1hcCJdLCJzb3VyY2VSb290IjoiIn0=

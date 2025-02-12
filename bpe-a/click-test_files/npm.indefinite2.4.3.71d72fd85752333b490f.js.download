@@ -1,0 +1,370 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["npm.indefinite2.4.3"],{
+
+/***/ "../../node_modules/.pnpm/indefinite@2.4.3/node_modules/indefinite/dist/indefinite.js":
+/*!***************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/indefinite@2.4.3/node_modules/indefinite/dist/indefinite.js ***!
+  \***************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else {}
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+var STARTS_WITH_VOWEL = /^[aeiouAEIOU]/;
+/**
+ * Array#indexOf is faster IF the word starts with "a" (for example),
+ * but negligibly faster when you have to .toLowerCase() the word, and
+ * slower if the word happens to start with (e.g.) "u."
+ */
+
+exports.startsWithVowel = function (word) {
+  return STARTS_WITH_VOWEL.test(word);
+};
+
+exports.capitalize = function (article, opts) {
+  if (opts.capitalize) {
+    article = "".concat(article.charAt(0).toUpperCase()).concat(article.slice(1));
+  }
+
+  return article;
+};
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+exports.check = function (word, ending) {
+  if (ending) {
+    // If the word ends in the ending, remove it.
+    var regex = new RegExp("".concat(ending, "$"));
+    word = word.replace(regex, '');
+
+    if (word.length <= 1) {
+      return false;
+    }
+  }
+
+  return exports.list.indexOf(word) > -1;
+};
+/**
+ * Here follows a List of words that take irregular articles because their
+ * first letter is either a consonant pronounced like a vowel (hour) or a
+ * vowel proncounced like a consonant (ukelele). Note that this is not only
+ * nouns because adjectives and adverbs that start with these letters could
+ * also follow an article when they identify a later noun, as in "a useless
+ * tool."
+ *
+ * This is not an attempt at a complete list, but rather a collection of
+ * words used in at least moderate frequency. A list of ALL irregular words
+ * would be too exhaustive to compile without some sort of tool.
+ * http://www.thefreedictionary.com/words-that-start-with-eu says there are
+ * over 1800 words starting with "eu" alone.
+ *
+ * At least for now, this list omits proper names, as they aren't USUALLY
+ * used in such a way as to require an _indefinite_ article. I can't think,
+ * for example, of a case where you'd want to say "a Eustace."
+ */
+
+
+exports.list = [// Nouns: eu like y
+'eunuch', 'eucalyptus', 'eugenics', 'eulogy', 'euphemism', 'euphony', 'euphoria', 'eureka', // Adjectives: eu like y
+'euro', 'european', 'euphemistic', 'euphonic', 'euphoric', // Adverbs: eu like y
+'euphemistically', 'euphonically', 'euphorically', // Nouns: silent h
+'heir', 'heiress', 'herb', 'homage', 'honesty', 'honor', 'honour', 'hour', // Adjectives: silent h
+'honest', 'honorous', // Adverbs: silent h
+'honestly', 'hourly', // Nouns: o like w
+'one', 'ouija', // Adjectives: o like w
+'once', // Adverbs: o like w
+// Nouns: u like y
+'ubiquity', 'udometer', 'ufo', 'uke', 'ukelele', 'ululate', 'unicorn', 'unicycle', 'uniform', 'unify', 'union', 'unison', 'unit', 'unity', 'universe', 'university', 'upas', 'ural', 'uranium', 'urea', 'ureter', 'urethra', 'urine', 'urologist', 'urology', 'urus', 'usage', 'use', 'user', 'usual', 'usurp', 'usurper', 'usury', 'utensil', 'uterus', 'utility', 'utopia', 'utricle', 'uvarovite', 'uvea', 'uvula', 'utah', 'utahn', // Adjectives: u like y
+'ubiquitous', 'ugandan', 'ukrainian', 'unanimous', 'unicameral', 'unified', 'unique', 'unisex', 'universal', 'urinal', 'urological', 'useful', 'useless', 'usurious', 'utilitarian', 'utopic', // Adverbs: u like y
+'ubiquitously', 'unanimously', 'unicamerally', 'uniquely', 'universally', 'urologically', 'usefully', 'uselessly', 'usuriously', // Nouns: y like i
+'yttria', 'yggdrasil', 'ylem', 'yperite', 'ytterbia', 'ytterbium', 'yttrium', // Adjectives: y like i
+'ytterbous', 'ytterbic', 'yttric', // Single letters
+'f', 'h', 'l', 'm', 'n', 'r', 's', 'u', 'x'];
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _require = __webpack_require__(0),
+    capitalize = _require.capitalize;
+
+var irregulars = __webpack_require__(1);
+
+var rules = __webpack_require__(3);
+
+var indefinite = function indefinite(word) {
+  var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  var article;
+  /**
+   * I'd really prefer to use for of here, but babel converts that
+   * to something using Symbol.iterator, which PhantomJS chokes on.
+   */
+
+  rules.some(function (rule) {
+    if (rule.check(word, opts)) {
+      article = rule.run(word, opts);
+      return true;
+    }
+  });
+  return handleOptions(article, opts, word);
+};
+
+var handleOptions = function handleOptions(article, opts, word) {
+  article = capitalize(article, opts);
+
+  if (opts.articleOnly) {
+    return article;
+  }
+
+  return "".concat(article, " ").concat(word);
+};
+
+indefinite.irregularWords = irregulars.list;
+module.exports = indefinite;
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = [__webpack_require__(4), __webpack_require__(5), __webpack_require__(6)];
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+var NUMBERS = /^([0-9,]+)/;
+var EIGHT_ELEVEN_EIGHTEEN = /^(11|8|18)/;
+var ELEVEN_EIGHTEEN = /^(11|18)/;
+
+exports.check = function (word) {
+  return NUMBERS.test(word);
+};
+
+exports.run = function (word, opts) {
+  var number = word.toString().match(NUMBERS)[1].replace(/,/g, '');
+  var article = 'a';
+
+  if (EIGHT_ELEVEN_EIGHTEEN.test(number)) {
+    var startsWith11Or18 = ELEVEN_EIGHTEEN.test(number); // If the number starts with 11 or 18 and is of length 4,
+    // the pronunciation is ambiguous so check opts.numbers to see
+    // how to render it. Otherwise, if it starts with 11 or 18
+    // and has 2, 5, 8, 11, etc. digits, use 'an.' Finally, if it
+    // starts with an 8, use 'an.' For everything else, use 'a.'
+
+    if (startsWith11Or18 && number.length === 4) {
+      article = opts.numbers === 'colloquial' ? 'an' : 'a';
+    } else if (startsWith11Or18 && (number.length - 2) % 3 === 0) {
+      article = 'an';
+    } else {
+      article = number.startsWith('8') ? 'an' : 'a';
+    }
+  }
+
+  return article;
+};
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _require = __webpack_require__(0),
+    startsWithVowel = _require.startsWithVowel;
+
+var ACRONYM = /^[A-Z]+$/;
+var IRREGULAR_ACRONYM = /^[UFHLMNRSX]/;
+
+var isIrregularAcronym = function isIrregularAcronym(word) {
+  return IRREGULAR_ACRONYM.test(word.charAt(0));
+};
+/**
+ * Both = a && b
+ * Neither = !a && !b
+ * In the case of Booleans, this means
+ * either both true or both false, so
+ * we can just compare the equality of
+ * a and b.
+ */
+
+
+var bothOrNeither = function bothOrNeither(a, b) {
+  return a === b;
+};
+/**
+ * If the entirety of the first word is capital letters
+ * and case insensitivity is off, it's an acronym.
+ */
+
+
+exports.check = function (word, _ref) {
+  var caseInsensitive = _ref.caseInsensitive;
+  return caseInsensitive ? false : ACRONYM.test(word.split(' ')[0]);
+};
+
+exports.run = function (word) {
+  var isIrregular = isIrregularAcronym(word);
+  var initialVowel = startsWithVowel(word);
+  /*
+   * If it starts with U: "a"
+   * If it starts with any other vowel: "an"
+   * If it starts with F, H, L, M, N, R, S, or X: "an"
+   * If it starts with any other consonant: "a"
+   */
+
+  var article = bothOrNeither(initialVowel, isIrregular) ? 'a' : 'an';
+  return article;
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _require = __webpack_require__(0),
+    startsWithVowel = _require.startsWithVowel;
+
+var irregulars = __webpack_require__(1);
+
+var EXTRAS = /[\s'-]/;
+
+var getFirst = function getFirst(word) {
+  return word.split(EXTRAS)[0].toLowerCase();
+};
+
+var xor = function xor(a, b) {
+  return (a || b) && !(a && b);
+};
+/**
+ * Try some variations on the word to determine whether it's irregular.
+ * Specifically, try trimming s, then es, then ed because those are common
+ * forms of plurals and past tense verbs (which can be used like adjectives).
+ */
+
+
+var checkForIrregulars = function checkForIrregulars(part) {
+  return [null, 's', 'es', 'ed'].reduce(function (memo, ending) {
+    return memo || irregulars.check(part, ending);
+  }, false);
+};
+
+exports.check = function () {
+  return true;
+};
+
+exports.run = function (word, opts) {
+  // Only check the first word. Also, if it's hyphenated, only
+  // check the first part. Finally, if it's possessive, ignore
+  // the possessive part.
+  var first = getFirst(word);
+  var isIrregular = checkForIrregulars(first);
+  /**
+  * If it starts with a vowel and isn't irregular: "an"
+  * If it starts with a vowel and IS irregular: "a"
+  * If it starts with a consonant and isn't irregular: "a"
+  * If it starts with a consonant and IS irregular: "an"
+  */
+
+  var article = xor(startsWithVowel(word), isIrregular) ? 'an' : 'a';
+  return article;
+};
+
+/***/ })
+/******/ ]);
+});
+
+/***/ })
+
+}]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9DOi9Vc2Vycy9UeWxlclRyb3R0ZXIvcmVwb3MvQ29nbml0byBGb3Jtcy9Db2duaXRvLldlYi5DbGllbnQvbm9kZV9tb2R1bGVzLy5wbnBtL2luZGVmaW5pdGVAMi40LjMvbm9kZV9tb2R1bGVzL2luZGVmaW5pdGUvZGlzdC9pbmRlZmluaXRlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFBO0FBQ0EsSUFBSSxJQUF5RDtBQUM3RDtBQUNBLE1BQU0sRUFLMkI7QUFDakMsQ0FBQztBQUNELG9DQUFvQztBQUNwQztBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLGtEQUFrRCxnQ0FBZ0M7QUFDbEY7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsZ0VBQWdFLGtCQUFrQjtBQUNsRjtBQUNBLHlEQUF5RCxjQUFjO0FBQ3ZFO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsaURBQWlELGlDQUFpQztBQUNsRix3SEFBd0gsbUJBQW1CLEVBQUU7QUFDN0k7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsbUNBQW1DLDBCQUEwQixFQUFFO0FBQy9ELHlDQUF5QyxlQUFlO0FBQ3hEO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSw4REFBOEQsK0RBQStEO0FBQzdIO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsVUFBVTtBQUNWO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQSxPQUFPO0FBQ1A7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7OztBQUdBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBLE9BQU87QUFDUDtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7O0FBRUE7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLEdBQUc7QUFDSDtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQSxPQUFPO0FBQ1A7QUFDQTs7QUFFQTs7QUFFQSxPQUFPO0FBQ1A7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBLHdEQUF3RDtBQUN4RDtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0EsS0FBSztBQUNMO0FBQ0EsS0FBSztBQUNMO0FBQ0E7QUFDQTs7QUFFQTtBQUNBOztBQUVBLE9BQU87QUFDUDtBQUNBOztBQUVBO0FBQ0E7O0FBRUE7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7QUFHQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7O0FBR0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQSxPQUFPO0FBQ1A7QUFDQTs7QUFFQTtBQUNBOztBQUVBOztBQUVBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOzs7QUFHQTtBQUNBO0FBQ0E7QUFDQSxHQUFHO0FBQ0g7O0FBRUE7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7O0FBRUEsT0FBTztBQUNQO0FBQ0EsQ0FBQyxFIiwiZmlsZSI6Im5wbS5pbmRlZmluaXRlMi40LjMuNzFkNzJmZDg1NzUyMzMzYjQ5MGYuanMiLCJzb3VyY2VzQ29udGVudCI6WyIoZnVuY3Rpb24gd2VicGFja1VuaXZlcnNhbE1vZHVsZURlZmluaXRpb24ocm9vdCwgZmFjdG9yeSkge1xuXHRpZih0eXBlb2YgZXhwb3J0cyA9PT0gJ29iamVjdCcgJiYgdHlwZW9mIG1vZHVsZSA9PT0gJ29iamVjdCcpXG5cdFx0bW9kdWxlLmV4cG9ydHMgPSBmYWN0b3J5KCk7XG5cdGVsc2UgaWYodHlwZW9mIGRlZmluZSA9PT0gJ2Z1bmN0aW9uJyAmJiBkZWZpbmUuYW1kKVxuXHRcdGRlZmluZShbXSwgZmFjdG9yeSk7XG5cdGVsc2UgaWYodHlwZW9mIGV4cG9ydHMgPT09ICdvYmplY3QnKVxuXHRcdGV4cG9ydHNbXCJpbmRlZmluaXRlXCJdID0gZmFjdG9yeSgpO1xuXHRlbHNlXG5cdFx0cm9vdFtcImluZGVmaW5pdGVcIl0gPSBmYWN0b3J5KCk7XG59KSh3aW5kb3csIGZ1bmN0aW9uKCkge1xucmV0dXJuIC8qKioqKiovIChmdW5jdGlvbihtb2R1bGVzKSB7IC8vIHdlYnBhY2tCb290c3RyYXBcbi8qKioqKiovIFx0Ly8gVGhlIG1vZHVsZSBjYWNoZVxuLyoqKioqKi8gXHR2YXIgaW5zdGFsbGVkTW9kdWxlcyA9IHt9O1xuLyoqKioqKi9cbi8qKioqKiovIFx0Ly8gVGhlIHJlcXVpcmUgZnVuY3Rpb25cbi8qKioqKiovIFx0ZnVuY3Rpb24gX193ZWJwYWNrX3JlcXVpcmVfXyhtb2R1bGVJZCkge1xuLyoqKioqKi9cbi8qKioqKiovIFx0XHQvLyBDaGVjayBpZiBtb2R1bGUgaXMgaW4gY2FjaGVcbi8qKioqKiovIFx0XHRpZihpbnN0YWxsZWRNb2R1bGVzW21vZHVsZUlkXSkge1xuLyoqKioqKi8gXHRcdFx0cmV0dXJuIGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdLmV4cG9ydHM7XG4vKioqKioqLyBcdFx0fVxuLyoqKioqKi8gXHRcdC8vIENyZWF0ZSBhIG5ldyBtb2R1bGUgKGFuZCBwdXQgaXQgaW50byB0aGUgY2FjaGUpXG4vKioqKioqLyBcdFx0dmFyIG1vZHVsZSA9IGluc3RhbGxlZE1vZHVsZXNbbW9kdWxlSWRdID0ge1xuLyoqKioqKi8gXHRcdFx0aTogbW9kdWxlSWQsXG4vKioqKioqLyBcdFx0XHRsOiBmYWxzZSxcbi8qKioqKiovIFx0XHRcdGV4cG9ydHM6IHt9XG4vKioqKioqLyBcdFx0fTtcbi8qKioqKiovXG4vKioqKioqLyBcdFx0Ly8gRXhlY3V0ZSB0aGUgbW9kdWxlIGZ1bmN0aW9uXG4vKioqKioqLyBcdFx0bW9kdWxlc1ttb2R1bGVJZF0uY2FsbChtb2R1bGUuZXhwb3J0cywgbW9kdWxlLCBtb2R1bGUuZXhwb3J0cywgX193ZWJwYWNrX3JlcXVpcmVfXyk7XG4vKioqKioqL1xuLyoqKioqKi8gXHRcdC8vIEZsYWcgdGhlIG1vZHVsZSBhcyBsb2FkZWRcbi8qKioqKiovIFx0XHRtb2R1bGUubCA9IHRydWU7XG4vKioqKioqL1xuLyoqKioqKi8gXHRcdC8vIFJldHVybiB0aGUgZXhwb3J0cyBvZiB0aGUgbW9kdWxlXG4vKioqKioqLyBcdFx0cmV0dXJuIG1vZHVsZS5leHBvcnRzO1xuLyoqKioqKi8gXHR9XG4vKioqKioqL1xuLyoqKioqKi9cbi8qKioqKiovIFx0Ly8gZXhwb3NlIHRoZSBtb2R1bGVzIG9iamVjdCAoX193ZWJwYWNrX21vZHVsZXNfXylcbi8qKioqKiovIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5tID0gbW9kdWxlcztcbi8qKioqKiovXG4vKioqKioqLyBcdC8vIGV4cG9zZSB0aGUgbW9kdWxlIGNhY2hlXG4vKioqKioqLyBcdF9fd2VicGFja19yZXF1aXJlX18uYyA9IGluc3RhbGxlZE1vZHVsZXM7XG4vKioqKioqL1xuLyoqKioqKi8gXHQvLyBkZWZpbmUgZ2V0dGVyIGZ1bmN0aW9uIGZvciBoYXJtb255IGV4cG9ydHNcbi8qKioqKiovIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5kID0gZnVuY3Rpb24oZXhwb3J0cywgbmFtZSwgZ2V0dGVyKSB7XG4vKioqKioqLyBcdFx0aWYoIV9fd2VicGFja19yZXF1aXJlX18ubyhleHBvcnRzLCBuYW1lKSkge1xuLyoqKioqKi8gXHRcdFx0T2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsIG5hbWUsIHsgZW51bWVyYWJsZTogdHJ1ZSwgZ2V0OiBnZXR0ZXIgfSk7XG4vKioqKioqLyBcdFx0fVxuLyoqKioqKi8gXHR9O1xuLyoqKioqKi9cbi8qKioqKiovIFx0Ly8gZGVmaW5lIF9fZXNNb2R1bGUgb24gZXhwb3J0c1xuLyoqKioqKi8gXHRfX3dlYnBhY2tfcmVxdWlyZV9fLnIgPSBmdW5jdGlvbihleHBvcnRzKSB7XG4vKioqKioqLyBcdFx0aWYodHlwZW9mIFN5bWJvbCAhPT0gJ3VuZGVmaW5lZCcgJiYgU3ltYm9sLnRvU3RyaW5nVGFnKSB7XG4vKioqKioqLyBcdFx0XHRPYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgU3ltYm9sLnRvU3RyaW5nVGFnLCB7IHZhbHVlOiAnTW9kdWxlJyB9KTtcbi8qKioqKiovIFx0XHR9XG4vKioqKioqLyBcdFx0T2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsICdfX2VzTW9kdWxlJywgeyB2YWx1ZTogdHJ1ZSB9KTtcbi8qKioqKiovIFx0fTtcbi8qKioqKiovXG4vKioqKioqLyBcdC8vIGNyZWF0ZSBhIGZha2UgbmFtZXNwYWNlIG9iamVjdFxuLyoqKioqKi8gXHQvLyBtb2RlICYgMTogdmFsdWUgaXMgYSBtb2R1bGUgaWQsIHJlcXVpcmUgaXRcbi8qKioqKiovIFx0Ly8gbW9kZSAmIDI6IG1lcmdlIGFsbCBwcm9wZXJ0aWVzIG9mIHZhbHVlIGludG8gdGhlIG5zXG4vKioqKioqLyBcdC8vIG1vZGUgJiA0OiByZXR1cm4gdmFsdWUgd2hlbiBhbHJlYWR5IG5zIG9iamVjdFxuLyoqKioqKi8gXHQvLyBtb2RlICYgOHwxOiBiZWhhdmUgbGlrZSByZXF1aXJlXG4vKioqKioqLyBcdF9fd2VicGFja19yZXF1aXJlX18udCA9IGZ1bmN0aW9uKHZhbHVlLCBtb2RlKSB7XG4vKioqKioqLyBcdFx0aWYobW9kZSAmIDEpIHZhbHVlID0gX193ZWJwYWNrX3JlcXVpcmVfXyh2YWx1ZSk7XG4vKioqKioqLyBcdFx0aWYobW9kZSAmIDgpIHJldHVybiB2YWx1ZTtcbi8qKioqKiovIFx0XHRpZigobW9kZSAmIDQpICYmIHR5cGVvZiB2YWx1ZSA9PT0gJ29iamVjdCcgJiYgdmFsdWUgJiYgdmFsdWUuX19lc01vZHVsZSkgcmV0dXJuIHZhbHVlO1xuLyoqKioqKi8gXHRcdHZhciBucyA9IE9iamVjdC5jcmVhdGUobnVsbCk7XG4vKioqKioqLyBcdFx0X193ZWJwYWNrX3JlcXVpcmVfXy5yKG5zKTtcbi8qKioqKiovIFx0XHRPYmplY3QuZGVmaW5lUHJvcGVydHkobnMsICdkZWZhdWx0JywgeyBlbnVtZXJhYmxlOiB0cnVlLCB2YWx1ZTogdmFsdWUgfSk7XG4vKioqKioqLyBcdFx0aWYobW9kZSAmIDIgJiYgdHlwZW9mIHZhbHVlICE9ICdzdHJpbmcnKSBmb3IodmFyIGtleSBpbiB2YWx1ZSkgX193ZWJwYWNrX3JlcXVpcmVfXy5kKG5zLCBrZXksIGZ1bmN0aW9uKGtleSkgeyByZXR1cm4gdmFsdWVba2V5XTsgfS5iaW5kKG51bGwsIGtleSkpO1xuLyoqKioqKi8gXHRcdHJldHVybiBucztcbi8qKioqKiovIFx0fTtcbi8qKioqKiovXG4vKioqKioqLyBcdC8vIGdldERlZmF1bHRFeHBvcnQgZnVuY3Rpb24gZm9yIGNvbXBhdGliaWxpdHkgd2l0aCBub24taGFybW9ueSBtb2R1bGVzXG4vKioqKioqLyBcdF9fd2VicGFja19yZXF1aXJlX18ubiA9IGZ1bmN0aW9uKG1vZHVsZSkge1xuLyoqKioqKi8gXHRcdHZhciBnZXR0ZXIgPSBtb2R1bGUgJiYgbW9kdWxlLl9fZXNNb2R1bGUgP1xuLyoqKioqKi8gXHRcdFx0ZnVuY3Rpb24gZ2V0RGVmYXVsdCgpIHsgcmV0dXJuIG1vZHVsZVsnZGVmYXVsdCddOyB9IDpcbi8qKioqKiovIFx0XHRcdGZ1bmN0aW9uIGdldE1vZHVsZUV4cG9ydHMoKSB7IHJldHVybiBtb2R1bGU7IH07XG4vKioqKioqLyBcdFx0X193ZWJwYWNrX3JlcXVpcmVfXy5kKGdldHRlciwgJ2EnLCBnZXR0ZXIpO1xuLyoqKioqKi8gXHRcdHJldHVybiBnZXR0ZXI7XG4vKioqKioqLyBcdH07XG4vKioqKioqL1xuLyoqKioqKi8gXHQvLyBPYmplY3QucHJvdG90eXBlLmhhc093blByb3BlcnR5LmNhbGxcbi8qKioqKiovIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5vID0gZnVuY3Rpb24ob2JqZWN0LCBwcm9wZXJ0eSkgeyByZXR1cm4gT2JqZWN0LnByb3RvdHlwZS5oYXNPd25Qcm9wZXJ0eS5jYWxsKG9iamVjdCwgcHJvcGVydHkpOyB9O1xuLyoqKioqKi9cbi8qKioqKiovIFx0Ly8gX193ZWJwYWNrX3B1YmxpY19wYXRoX19cbi8qKioqKiovIFx0X193ZWJwYWNrX3JlcXVpcmVfXy5wID0gXCJcIjtcbi8qKioqKiovXG4vKioqKioqL1xuLyoqKioqKi8gXHQvLyBMb2FkIGVudHJ5IG1vZHVsZSBhbmQgcmV0dXJuIGV4cG9ydHNcbi8qKioqKiovIFx0cmV0dXJuIF9fd2VicGFja19yZXF1aXJlX18oX193ZWJwYWNrX3JlcXVpcmVfXy5zID0gMik7XG4vKioqKioqLyB9KVxuLyoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cbi8qKioqKiovIChbXG4vKiAwICovXG4vKioqLyAoZnVuY3Rpb24obW9kdWxlLCBleHBvcnRzKSB7XG5cbnZhciBTVEFSVFNfV0lUSF9WT1dFTCA9IC9eW2FlaW91QUVJT1VdLztcbi8qKlxuICogQXJyYXkjaW5kZXhPZiBpcyBmYXN0ZXIgSUYgdGhlIHdvcmQgc3RhcnRzIHdpdGggXCJhXCIgKGZvciBleGFtcGxlKSxcbiAqIGJ1dCBuZWdsaWdpYmx5IGZhc3RlciB3aGVuIHlvdSBoYXZlIHRvIC50b0xvd2VyQ2FzZSgpIHRoZSB3b3JkLCBhbmRcbiAqIHNsb3dlciBpZiB0aGUgd29yZCBoYXBwZW5zIHRvIHN0YXJ0IHdpdGggKGUuZy4pIFwidS5cIlxuICovXG5cbmV4cG9ydHMuc3RhcnRzV2l0aFZvd2VsID0gZnVuY3Rpb24gKHdvcmQpIHtcbiAgcmV0dXJuIFNUQVJUU19XSVRIX1ZPV0VMLnRlc3Qod29yZCk7XG59O1xuXG5leHBvcnRzLmNhcGl0YWxpemUgPSBmdW5jdGlvbiAoYXJ0aWNsZSwgb3B0cykge1xuICBpZiAob3B0cy5jYXBpdGFsaXplKSB7XG4gICAgYXJ0aWNsZSA9IFwiXCIuY29uY2F0KGFydGljbGUuY2hhckF0KDApLnRvVXBwZXJDYXNlKCkpLmNvbmNhdChhcnRpY2xlLnNsaWNlKDEpKTtcbiAgfVxuXG4gIHJldHVybiBhcnRpY2xlO1xufTtcblxuLyoqKi8gfSksXG4vKiAxICovXG4vKioqLyAoZnVuY3Rpb24obW9kdWxlLCBleHBvcnRzKSB7XG5cbmV4cG9ydHMuY2hlY2sgPSBmdW5jdGlvbiAod29yZCwgZW5kaW5nKSB7XG4gIGlmIChlbmRpbmcpIHtcbiAgICAvLyBJZiB0aGUgd29yZCBlbmRzIGluIHRoZSBlbmRpbmcsIHJlbW92ZSBpdC5cbiAgICB2YXIgcmVnZXggPSBuZXcgUmVnRXhwKFwiXCIuY29uY2F0KGVuZGluZywgXCIkXCIpKTtcbiAgICB3b3JkID0gd29yZC5yZXBsYWNlKHJlZ2V4LCAnJyk7XG5cbiAgICBpZiAod29yZC5sZW5ndGggPD0gMSkge1xuICAgICAgcmV0dXJuIGZhbHNlO1xuICAgIH1cbiAgfVxuXG4gIHJldHVybiBleHBvcnRzLmxpc3QuaW5kZXhPZih3b3JkKSA+IC0xO1xufTtcbi8qKlxuICogSGVyZSBmb2xsb3dzIGEgTGlzdCBvZiB3b3JkcyB0aGF0IHRha2UgaXJyZWd1bGFyIGFydGljbGVzIGJlY2F1c2UgdGhlaXJcbiAqIGZpcnN0IGxldHRlciBpcyBlaXRoZXIgYSBjb25zb25hbnQgcHJvbm91bmNlZCBsaWtlIGEgdm93ZWwgKGhvdXIpIG9yIGFcbiAqIHZvd2VsIHByb25jb3VuY2VkIGxpa2UgYSBjb25zb25hbnQgKHVrZWxlbGUpLiBOb3RlIHRoYXQgdGhpcyBpcyBub3Qgb25seVxuICogbm91bnMgYmVjYXVzZSBhZGplY3RpdmVzIGFuZCBhZHZlcmJzIHRoYXQgc3RhcnQgd2l0aCB0aGVzZSBsZXR0ZXJzIGNvdWxkXG4gKiBhbHNvIGZvbGxvdyBhbiBhcnRpY2xlIHdoZW4gdGhleSBpZGVudGlmeSBhIGxhdGVyIG5vdW4sIGFzIGluIFwiYSB1c2VsZXNzXG4gKiB0b29sLlwiXG4gKlxuICogVGhpcyBpcyBub3QgYW4gYXR0ZW1wdCBhdCBhIGNvbXBsZXRlIGxpc3QsIGJ1dCByYXRoZXIgYSBjb2xsZWN0aW9uIG9mXG4gKiB3b3JkcyB1c2VkIGluIGF0IGxlYXN0IG1vZGVyYXRlIGZyZXF1ZW5jeS4gQSBsaXN0IG9mIEFMTCBpcnJlZ3VsYXIgd29yZHNcbiAqIHdvdWxkIGJlIHRvbyBleGhhdXN0aXZlIHRvIGNvbXBpbGUgd2l0aG91dCBzb21lIHNvcnQgb2YgdG9vbC5cbiAqIGh0dHA6Ly93d3cudGhlZnJlZWRpY3Rpb25hcnkuY29tL3dvcmRzLXRoYXQtc3RhcnQtd2l0aC1ldSBzYXlzIHRoZXJlIGFyZVxuICogb3ZlciAxODAwIHdvcmRzIHN0YXJ0aW5nIHdpdGggXCJldVwiIGFsb25lLlxuICpcbiAqIEF0IGxlYXN0IGZvciBub3csIHRoaXMgbGlzdCBvbWl0cyBwcm9wZXIgbmFtZXMsIGFzIHRoZXkgYXJlbid0IFVTVUFMTFlcbiAqIHVzZWQgaW4gc3VjaCBhIHdheSBhcyB0byByZXF1aXJlIGFuIF9pbmRlZmluaXRlXyBhcnRpY2xlLiBJIGNhbid0IHRoaW5rLFxuICogZm9yIGV4YW1wbGUsIG9mIGEgY2FzZSB3aGVyZSB5b3UnZCB3YW50IHRvIHNheSBcImEgRXVzdGFjZS5cIlxuICovXG5cblxuZXhwb3J0cy5saXN0ID0gWy8vIE5vdW5zOiBldSBsaWtlIHlcbidldW51Y2gnLCAnZXVjYWx5cHR1cycsICdldWdlbmljcycsICdldWxvZ3knLCAnZXVwaGVtaXNtJywgJ2V1cGhvbnknLCAnZXVwaG9yaWEnLCAnZXVyZWthJywgLy8gQWRqZWN0aXZlczogZXUgbGlrZSB5XG4nZXVybycsICdldXJvcGVhbicsICdldXBoZW1pc3RpYycsICdldXBob25pYycsICdldXBob3JpYycsIC8vIEFkdmVyYnM6IGV1IGxpa2UgeVxuJ2V1cGhlbWlzdGljYWxseScsICdldXBob25pY2FsbHknLCAnZXVwaG9yaWNhbGx5JywgLy8gTm91bnM6IHNpbGVudCBoXG4naGVpcicsICdoZWlyZXNzJywgJ2hlcmInLCAnaG9tYWdlJywgJ2hvbmVzdHknLCAnaG9ub3InLCAnaG9ub3VyJywgJ2hvdXInLCAvLyBBZGplY3RpdmVzOiBzaWxlbnQgaFxuJ2hvbmVzdCcsICdob25vcm91cycsIC8vIEFkdmVyYnM6IHNpbGVudCBoXG4naG9uZXN0bHknLCAnaG91cmx5JywgLy8gTm91bnM6IG8gbGlrZSB3XG4nb25lJywgJ291aWphJywgLy8gQWRqZWN0aXZlczogbyBsaWtlIHdcbidvbmNlJywgLy8gQWR2ZXJiczogbyBsaWtlIHdcbi8vIE5vdW5zOiB1IGxpa2UgeVxuJ3ViaXF1aXR5JywgJ3Vkb21ldGVyJywgJ3VmbycsICd1a2UnLCAndWtlbGVsZScsICd1bHVsYXRlJywgJ3VuaWNvcm4nLCAndW5pY3ljbGUnLCAndW5pZm9ybScsICd1bmlmeScsICd1bmlvbicsICd1bmlzb24nLCAndW5pdCcsICd1bml0eScsICd1bml2ZXJzZScsICd1bml2ZXJzaXR5JywgJ3VwYXMnLCAndXJhbCcsICd1cmFuaXVtJywgJ3VyZWEnLCAndXJldGVyJywgJ3VyZXRocmEnLCAndXJpbmUnLCAndXJvbG9naXN0JywgJ3Vyb2xvZ3knLCAndXJ1cycsICd1c2FnZScsICd1c2UnLCAndXNlcicsICd1c3VhbCcsICd1c3VycCcsICd1c3VycGVyJywgJ3VzdXJ5JywgJ3V0ZW5zaWwnLCAndXRlcnVzJywgJ3V0aWxpdHknLCAndXRvcGlhJywgJ3V0cmljbGUnLCAndXZhcm92aXRlJywgJ3V2ZWEnLCAndXZ1bGEnLCAndXRhaCcsICd1dGFobicsIC8vIEFkamVjdGl2ZXM6IHUgbGlrZSB5XG4ndWJpcXVpdG91cycsICd1Z2FuZGFuJywgJ3VrcmFpbmlhbicsICd1bmFuaW1vdXMnLCAndW5pY2FtZXJhbCcsICd1bmlmaWVkJywgJ3VuaXF1ZScsICd1bmlzZXgnLCAndW5pdmVyc2FsJywgJ3VyaW5hbCcsICd1cm9sb2dpY2FsJywgJ3VzZWZ1bCcsICd1c2VsZXNzJywgJ3VzdXJpb3VzJywgJ3V0aWxpdGFyaWFuJywgJ3V0b3BpYycsIC8vIEFkdmVyYnM6IHUgbGlrZSB5XG4ndWJpcXVpdG91c2x5JywgJ3VuYW5pbW91c2x5JywgJ3VuaWNhbWVyYWxseScsICd1bmlxdWVseScsICd1bml2ZXJzYWxseScsICd1cm9sb2dpY2FsbHknLCAndXNlZnVsbHknLCAndXNlbGVzc2x5JywgJ3VzdXJpb3VzbHknLCAvLyBOb3VuczogeSBsaWtlIGlcbid5dHRyaWEnLCAneWdnZHJhc2lsJywgJ3lsZW0nLCAneXBlcml0ZScsICd5dHRlcmJpYScsICd5dHRlcmJpdW0nLCAneXR0cml1bScsIC8vIEFkamVjdGl2ZXM6IHkgbGlrZSBpXG4neXR0ZXJib3VzJywgJ3l0dGVyYmljJywgJ3l0dHJpYycsIC8vIFNpbmdsZSBsZXR0ZXJzXG4nZicsICdoJywgJ2wnLCAnbScsICduJywgJ3InLCAncycsICd1JywgJ3gnXTtcblxuLyoqKi8gfSksXG4vKiAyICovXG4vKioqLyAoZnVuY3Rpb24obW9kdWxlLCBleHBvcnRzLCBfX3dlYnBhY2tfcmVxdWlyZV9fKSB7XG5cbnZhciBfcmVxdWlyZSA9IF9fd2VicGFja19yZXF1aXJlX18oMCksXG4gICAgY2FwaXRhbGl6ZSA9IF9yZXF1aXJlLmNhcGl0YWxpemU7XG5cbnZhciBpcnJlZ3VsYXJzID0gX193ZWJwYWNrX3JlcXVpcmVfXygxKTtcblxudmFyIHJ1bGVzID0gX193ZWJwYWNrX3JlcXVpcmVfXygzKTtcblxudmFyIGluZGVmaW5pdGUgPSBmdW5jdGlvbiBpbmRlZmluaXRlKHdvcmQpIHtcbiAgdmFyIG9wdHMgPSBhcmd1bWVudHMubGVuZ3RoID4gMSAmJiBhcmd1bWVudHNbMV0gIT09IHVuZGVmaW5lZCA/IGFyZ3VtZW50c1sxXSA6IHt9O1xuICB2YXIgYXJ0aWNsZTtcbiAgLyoqXG4gICAqIEknZCByZWFsbHkgcHJlZmVyIHRvIHVzZSBmb3Igb2YgaGVyZSwgYnV0IGJhYmVsIGNvbnZlcnRzIHRoYXRcbiAgICogdG8gc29tZXRoaW5nIHVzaW5nIFN5bWJvbC5pdGVyYXRvciwgd2hpY2ggUGhhbnRvbUpTIGNob2tlcyBvbi5cbiAgICovXG5cbiAgcnVsZXMuc29tZShmdW5jdGlvbiAocnVsZSkge1xuICAgIGlmIChydWxlLmNoZWNrKHdvcmQsIG9wdHMpKSB7XG4gICAgICBhcnRpY2xlID0gcnVsZS5ydW4od29yZCwgb3B0cyk7XG4gICAgICByZXR1cm4gdHJ1ZTtcbiAgICB9XG4gIH0pO1xuICByZXR1cm4gaGFuZGxlT3B0aW9ucyhhcnRpY2xlLCBvcHRzLCB3b3JkKTtcbn07XG5cbnZhciBoYW5kbGVPcHRpb25zID0gZnVuY3Rpb24gaGFuZGxlT3B0aW9ucyhhcnRpY2xlLCBvcHRzLCB3b3JkKSB7XG4gIGFydGljbGUgPSBjYXBpdGFsaXplKGFydGljbGUsIG9wdHMpO1xuXG4gIGlmIChvcHRzLmFydGljbGVPbmx5KSB7XG4gICAgcmV0dXJuIGFydGljbGU7XG4gIH1cblxuICByZXR1cm4gXCJcIi5jb25jYXQoYXJ0aWNsZSwgXCIgXCIpLmNvbmNhdCh3b3JkKTtcbn07XG5cbmluZGVmaW5pdGUuaXJyZWd1bGFyV29yZHMgPSBpcnJlZ3VsYXJzLmxpc3Q7XG5tb2R1bGUuZXhwb3J0cyA9IGluZGVmaW5pdGU7XG5cbi8qKiovIH0pLFxuLyogMyAqL1xuLyoqKi8gKGZ1bmN0aW9uKG1vZHVsZSwgZXhwb3J0cywgX193ZWJwYWNrX3JlcXVpcmVfXykge1xuXG5tb2R1bGUuZXhwb3J0cyA9IFtfX3dlYnBhY2tfcmVxdWlyZV9fKDQpLCBfX3dlYnBhY2tfcmVxdWlyZV9fKDUpLCBfX3dlYnBhY2tfcmVxdWlyZV9fKDYpXTtcblxuLyoqKi8gfSksXG4vKiA0ICovXG4vKioqLyAoZnVuY3Rpb24obW9kdWxlLCBleHBvcnRzKSB7XG5cbnZhciBOVU1CRVJTID0gL14oWzAtOSxdKykvO1xudmFyIEVJR0hUX0VMRVZFTl9FSUdIVEVFTiA9IC9eKDExfDh8MTgpLztcbnZhciBFTEVWRU5fRUlHSFRFRU4gPSAvXigxMXwxOCkvO1xuXG5leHBvcnRzLmNoZWNrID0gZnVuY3Rpb24gKHdvcmQpIHtcbiAgcmV0dXJuIE5VTUJFUlMudGVzdCh3b3JkKTtcbn07XG5cbmV4cG9ydHMucnVuID0gZnVuY3Rpb24gKHdvcmQsIG9wdHMpIHtcbiAgdmFyIG51bWJlciA9IHdvcmQudG9TdHJpbmcoKS5tYXRjaChOVU1CRVJTKVsxXS5yZXBsYWNlKC8sL2csICcnKTtcbiAgdmFyIGFydGljbGUgPSAnYSc7XG5cbiAgaWYgKEVJR0hUX0VMRVZFTl9FSUdIVEVFTi50ZXN0KG51bWJlcikpIHtcbiAgICB2YXIgc3RhcnRzV2l0aDExT3IxOCA9IEVMRVZFTl9FSUdIVEVFTi50ZXN0KG51bWJlcik7IC8vIElmIHRoZSBudW1iZXIgc3RhcnRzIHdpdGggMTEgb3IgMTggYW5kIGlzIG9mIGxlbmd0aCA0LFxuICAgIC8vIHRoZSBwcm9udW5jaWF0aW9uIGlzIGFtYmlndW91cyBzbyBjaGVjayBvcHRzLm51bWJlcnMgdG8gc2VlXG4gICAgLy8gaG93IHRvIHJlbmRlciBpdC4gT3RoZXJ3aXNlLCBpZiBpdCBzdGFydHMgd2l0aCAxMSBvciAxOFxuICAgIC8vIGFuZCBoYXMgMiwgNSwgOCwgMTEsIGV0Yy4gZGlnaXRzLCB1c2UgJ2FuLicgRmluYWxseSwgaWYgaXRcbiAgICAvLyBzdGFydHMgd2l0aCBhbiA4LCB1c2UgJ2FuLicgRm9yIGV2ZXJ5dGhpbmcgZWxzZSwgdXNlICdhLidcblxuICAgIGlmIChzdGFydHNXaXRoMTFPcjE4ICYmIG51bWJlci5sZW5ndGggPT09IDQpIHtcbiAgICAgIGFydGljbGUgPSBvcHRzLm51bWJlcnMgPT09ICdjb2xsb3F1aWFsJyA/ICdhbicgOiAnYSc7XG4gICAgfSBlbHNlIGlmIChzdGFydHNXaXRoMTFPcjE4ICYmIChudW1iZXIubGVuZ3RoIC0gMikgJSAzID09PSAwKSB7XG4gICAgICBhcnRpY2xlID0gJ2FuJztcbiAgICB9IGVsc2Uge1xuICAgICAgYXJ0aWNsZSA9IG51bWJlci5zdGFydHNXaXRoKCc4JykgPyAnYW4nIDogJ2EnO1xuICAgIH1cbiAgfVxuXG4gIHJldHVybiBhcnRpY2xlO1xufTtcblxuLyoqKi8gfSksXG4vKiA1ICovXG4vKioqLyAoZnVuY3Rpb24obW9kdWxlLCBleHBvcnRzLCBfX3dlYnBhY2tfcmVxdWlyZV9fKSB7XG5cbnZhciBfcmVxdWlyZSA9IF9fd2VicGFja19yZXF1aXJlX18oMCksXG4gICAgc3RhcnRzV2l0aFZvd2VsID0gX3JlcXVpcmUuc3RhcnRzV2l0aFZvd2VsO1xuXG52YXIgQUNST05ZTSA9IC9eW0EtWl0rJC87XG52YXIgSVJSRUdVTEFSX0FDUk9OWU0gPSAvXltVRkhMTU5SU1hdLztcblxudmFyIGlzSXJyZWd1bGFyQWNyb255bSA9IGZ1bmN0aW9uIGlzSXJyZWd1bGFyQWNyb255bSh3b3JkKSB7XG4gIHJldHVybiBJUlJFR1VMQVJfQUNST05ZTS50ZXN0KHdvcmQuY2hhckF0KDApKTtcbn07XG4vKipcbiAqIEJvdGggPSBhICYmIGJcbiAqIE5laXRoZXIgPSAhYSAmJiAhYlxuICogSW4gdGhlIGNhc2Ugb2YgQm9vbGVhbnMsIHRoaXMgbWVhbnNcbiAqIGVpdGhlciBib3RoIHRydWUgb3IgYm90aCBmYWxzZSwgc29cbiAqIHdlIGNhbiBqdXN0IGNvbXBhcmUgdGhlIGVxdWFsaXR5IG9mXG4gKiBhIGFuZCBiLlxuICovXG5cblxudmFyIGJvdGhPck5laXRoZXIgPSBmdW5jdGlvbiBib3RoT3JOZWl0aGVyKGEsIGIpIHtcbiAgcmV0dXJuIGEgPT09IGI7XG59O1xuLyoqXG4gKiBJZiB0aGUgZW50aXJldHkgb2YgdGhlIGZpcnN0IHdvcmQgaXMgY2FwaXRhbCBsZXR0ZXJzXG4gKiBhbmQgY2FzZSBpbnNlbnNpdGl2aXR5IGlzIG9mZiwgaXQncyBhbiBhY3JvbnltLlxuICovXG5cblxuZXhwb3J0cy5jaGVjayA9IGZ1bmN0aW9uICh3b3JkLCBfcmVmKSB7XG4gIHZhciBjYXNlSW5zZW5zaXRpdmUgPSBfcmVmLmNhc2VJbnNlbnNpdGl2ZTtcbiAgcmV0dXJuIGNhc2VJbnNlbnNpdGl2ZSA/IGZhbHNlIDogQUNST05ZTS50ZXN0KHdvcmQuc3BsaXQoJyAnKVswXSk7XG59O1xuXG5leHBvcnRzLnJ1biA9IGZ1bmN0aW9uICh3b3JkKSB7XG4gIHZhciBpc0lycmVndWxhciA9IGlzSXJyZWd1bGFyQWNyb255bSh3b3JkKTtcbiAgdmFyIGluaXRpYWxWb3dlbCA9IHN0YXJ0c1dpdGhWb3dlbCh3b3JkKTtcbiAgLypcbiAgICogSWYgaXQgc3RhcnRzIHdpdGggVTogXCJhXCJcbiAgICogSWYgaXQgc3RhcnRzIHdpdGggYW55IG90aGVyIHZvd2VsOiBcImFuXCJcbiAgICogSWYgaXQgc3RhcnRzIHdpdGggRiwgSCwgTCwgTSwgTiwgUiwgUywgb3IgWDogXCJhblwiXG4gICAqIElmIGl0IHN0YXJ0cyB3aXRoIGFueSBvdGhlciBjb25zb25hbnQ6IFwiYVwiXG4gICAqL1xuXG4gIHZhciBhcnRpY2xlID0gYm90aE9yTmVpdGhlcihpbml0aWFsVm93ZWwsIGlzSXJyZWd1bGFyKSA/ICdhJyA6ICdhbic7XG4gIHJldHVybiBhcnRpY2xlO1xufTtcblxuLyoqKi8gfSksXG4vKiA2ICovXG4vKioqLyAoZnVuY3Rpb24obW9kdWxlLCBleHBvcnRzLCBfX3dlYnBhY2tfcmVxdWlyZV9fKSB7XG5cbnZhciBfcmVxdWlyZSA9IF9fd2VicGFja19yZXF1aXJlX18oMCksXG4gICAgc3RhcnRzV2l0aFZvd2VsID0gX3JlcXVpcmUuc3RhcnRzV2l0aFZvd2VsO1xuXG52YXIgaXJyZWd1bGFycyA9IF9fd2VicGFja19yZXF1aXJlX18oMSk7XG5cbnZhciBFWFRSQVMgPSAvW1xccyctXS87XG5cbnZhciBnZXRGaXJzdCA9IGZ1bmN0aW9uIGdldEZpcnN0KHdvcmQpIHtcbiAgcmV0dXJuIHdvcmQuc3BsaXQoRVhUUkFTKVswXS50b0xvd2VyQ2FzZSgpO1xufTtcblxudmFyIHhvciA9IGZ1bmN0aW9uIHhvcihhLCBiKSB7XG4gIHJldHVybiAoYSB8fCBiKSAmJiAhKGEgJiYgYik7XG59O1xuLyoqXG4gKiBUcnkgc29tZSB2YXJpYXRpb25zIG9uIHRoZSB3b3JkIHRvIGRldGVybWluZSB3aGV0aGVyIGl0J3MgaXJyZWd1bGFyLlxuICogU3BlY2lmaWNhbGx5LCB0cnkgdHJpbW1pbmcgcywgdGhlbiBlcywgdGhlbiBlZCBiZWNhdXNlIHRob3NlIGFyZSBjb21tb25cbiAqIGZvcm1zIG9mIHBsdXJhbHMgYW5kIHBhc3QgdGVuc2UgdmVyYnMgKHdoaWNoIGNhbiBiZSB1c2VkIGxpa2UgYWRqZWN0aXZlcykuXG4gKi9cblxuXG52YXIgY2hlY2tGb3JJcnJlZ3VsYXJzID0gZnVuY3Rpb24gY2hlY2tGb3JJcnJlZ3VsYXJzKHBhcnQpIHtcbiAgcmV0dXJuIFtudWxsLCAncycsICdlcycsICdlZCddLnJlZHVjZShmdW5jdGlvbiAobWVtbywgZW5kaW5nKSB7XG4gICAgcmV0dXJuIG1lbW8gfHwgaXJyZWd1bGFycy5jaGVjayhwYXJ0LCBlbmRpbmcpO1xuICB9LCBmYWxzZSk7XG59O1xuXG5leHBvcnRzLmNoZWNrID0gZnVuY3Rpb24gKCkge1xuICByZXR1cm4gdHJ1ZTtcbn07XG5cbmV4cG9ydHMucnVuID0gZnVuY3Rpb24gKHdvcmQsIG9wdHMpIHtcbiAgLy8gT25seSBjaGVjayB0aGUgZmlyc3Qgd29yZC4gQWxzbywgaWYgaXQncyBoeXBoZW5hdGVkLCBvbmx5XG4gIC8vIGNoZWNrIHRoZSBmaXJzdCBwYXJ0LiBGaW5hbGx5LCBpZiBpdCdzIHBvc3Nlc3NpdmUsIGlnbm9yZVxuICAvLyB0aGUgcG9zc2Vzc2l2ZSBwYXJ0LlxuICB2YXIgZmlyc3QgPSBnZXRGaXJzdCh3b3JkKTtcbiAgdmFyIGlzSXJyZWd1bGFyID0gY2hlY2tGb3JJcnJlZ3VsYXJzKGZpcnN0KTtcbiAgLyoqXG4gICogSWYgaXQgc3RhcnRzIHdpdGggYSB2b3dlbCBhbmQgaXNuJ3QgaXJyZWd1bGFyOiBcImFuXCJcbiAgKiBJZiBpdCBzdGFydHMgd2l0aCBhIHZvd2VsIGFuZCBJUyBpcnJlZ3VsYXI6IFwiYVwiXG4gICogSWYgaXQgc3RhcnRzIHdpdGggYSBjb25zb25hbnQgYW5kIGlzbid0IGlycmVndWxhcjogXCJhXCJcbiAgKiBJZiBpdCBzdGFydHMgd2l0aCBhIGNvbnNvbmFudCBhbmQgSVMgaXJyZWd1bGFyOiBcImFuXCJcbiAgKi9cblxuICB2YXIgYXJ0aWNsZSA9IHhvcihzdGFydHNXaXRoVm93ZWwod29yZCksIGlzSXJyZWd1bGFyKSA/ICdhbicgOiAnYSc7XG4gIHJldHVybiBhcnRpY2xlO1xufTtcblxuLyoqKi8gfSlcbi8qKioqKiovIF0pO1xufSk7Il0sInNvdXJjZVJvb3QiOiIifQ==

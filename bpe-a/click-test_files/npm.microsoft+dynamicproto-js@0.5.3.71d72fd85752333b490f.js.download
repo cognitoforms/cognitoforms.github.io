@@ -1,0 +1,390 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["npm.microsoft+dynamicproto-js@0.5.3"],{
+
+/***/ "../../node_modules/.pnpm/@microsoft+dynamicproto-js@0.5.3/node_modules/@microsoft/dynamicproto-js/lib/dist/esm/dynamicproto-js.js":
+/*!************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/@microsoft+dynamicproto-js@0.5.3/node_modules/@microsoft/dynamicproto-js/lib/dist/esm/dynamicproto-js.js ***!
+  \************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/*!
+ * Microsoft Dynamic Proto Utility, 0.5.3
+ * Copyright (c) Microsoft and contributors. All rights reserved.
+ */
+/**
+ * Constant string defined to support minimization
+ * @ignore
+ */
+var Constructor = 'constructor';
+/**
+ * Constant string defined to support minimization
+ * @ignore
+ */
+var Prototype = 'prototype';
+/**
+ * Constant string defined to support minimization
+ * @ignore
+ */
+var strFunction = 'function';
+/**
+ * Used to define the name of the instance function lookup table
+ * @ignore
+ */
+var DynInstFuncTable = '_dynInstFuncs';
+/**
+ * Name used to tag the dynamic prototype function
+ * @ignore
+ */
+var DynProxyTag = '_isDynProxy';
+/**
+ * Name added to a prototype to define the dynamic prototype "class" name used to lookup the function table
+ * @ignore
+ */
+var DynClassName = '_dynClass';
+/**
+ * Prefix added to the classname to avoid any name clashes with other instance level properties
+ * @ignore
+ */
+var DynClassNamePrefix = '_dynCls$';
+/**
+ * Value used as the name of a class when it cannot be determined
+ * @ignore
+ */
+var UnknownValue = '_unknown_';
+/**
+ * Constant string defined to support minimization
+ * @ignore
+ */
+var str__Proto = "__proto__";
+/**
+ * Pre-lookup to check if we are running on a modern browser (i.e. not IE8)
+ * @ignore
+ */
+var _objGetPrototypeOf = Object["getPrototypeOf"];
+/**
+ * Internal Global used to generate a unique dynamic class name, every new class will increase this value
+ * @ignore
+ */
+var _dynamicNames = 0;
+/**
+ * Helper to check if the object contains a property of the name
+ * @ignore
+ */
+function _hasOwnProperty(obj, prop) {
+    return obj && Object[Prototype].hasOwnProperty.call(obj, prop);
+}
+/**
+ * Checks if the passed of value is a function.
+ * @param {any} value - Value to be checked.
+ * @return {boolean} True if the value is a boolean, false otherwise.
+ * @ignore
+ */
+function _isFunction(value) {
+    return typeof value === strFunction;
+}
+/**
+ * Helper used to check whether the target is an Object prototype or Array prototype
+ * @ignore
+ */
+function _isObjectOrArrayPrototype(target) {
+    return target && (target === Object[Prototype] || target === Array[Prototype]);
+}
+/**
+ * Helper used to check whether the target is an Object prototype, Array prototype or Function prototype
+ * @ignore
+ */
+function _isObjectArrayOrFunctionPrototype(target) {
+    return _isObjectOrArrayPrototype(target) || target === Function[Prototype];
+}
+/**
+ * Helper used to get the prototype of the target object as getPrototypeOf is not available in an ES3 environment.
+ * @ignore
+ */
+function _getObjProto(target) {
+    if (target) {
+        // This method doesn't existing in older browsers (e.g. IE8)
+        if (_objGetPrototypeOf) {
+            return _objGetPrototypeOf(target);
+        }
+        // target[Constructor] May break if the constructor has been changed or removed
+        var newProto = target[str__Proto] || target[Prototype] || target[Constructor];
+        if (newProto) {
+            return newProto;
+        }
+    }
+    return null;
+}
+/**
+ * Helper function to check whether the provided function name is a potential candidate for dynamic
+ * callback and prototype generation.
+ * @param target The target object, may be a prototpe or class object
+ * @param funcName The function name
+ * @param skipOwn Skips the check for own property
+ * @ignore
+ */
+function _isDynamicCandidate(target, funcName, skipOwn) {
+    return (funcName !== Constructor && _isFunction(target[funcName]) && (skipOwn || _hasOwnProperty(target, funcName)));
+}
+/**
+ * Helper to throw a TypeError exception
+ * @param message the message
+ * @ignore
+ */
+function _throwTypeError(message) {
+    throw new TypeError("DynamicProto: " + message);
+}
+/**
+ * Returns a collection of the instance functions that are defined directly on the thisTarget object, it does
+ * not return any inherited functions
+ * @param thisTarget The object to get the instance functions from
+ * @ignore
+ */
+function _getInstanceFuncs(thisTarget) {
+    // Get the base proto
+    var instFuncs = {};
+    // Save any existing instance functions
+    for (var name in thisTarget) {
+        // Don't include any dynamic prototype instances - as we only want the real functions
+        if (!instFuncs[name] && _isDynamicCandidate(thisTarget, name, false)) {
+            // Create an instance callback for pasing the base function to the caller
+            instFuncs[name] = thisTarget[name];
+        }
+    }
+    return instFuncs;
+}
+/**
+ * Returns whether the value is included in the array
+ * @param values The array of values
+ * @param value  The value
+ */
+function _hasVisited(values, value) {
+    for (var lp = values.length - 1; lp >= 0; lp--) {
+        if (values[lp] === value) {
+            return true;
+        }
+    }
+    return false;
+}
+/**
+ * Returns an object that contains callback functions for all "base/super" functions, this is used to "save"
+ * enabling calling super.xxx() functions without requiring that the base "class" has defined a prototype references
+ * @param target The current instance
+ * @ignore
+ */
+function _getBaseFuncs(classProto, thisTarget, instFuncs) {
+    function _instFuncProxy(target, theFunc) {
+        return function () {
+            return theFunc.apply(target, arguments);
+        };
+    }
+    // Start creating a new baseFuncs by creating proxies for the instance functions (as they may get replaced)
+    var baseFuncs = {};
+    for (var name in instFuncs) {
+        // Create an instance callback for pasing the base function to the caller
+        baseFuncs[name] = _instFuncProxy(thisTarget, instFuncs[name]);
+    }
+    // Get the base prototype functions
+    var baseProto = _getObjProto(classProto);
+    var visited = [];
+    // Don't include base object functions for Object, Array or Function
+    while (baseProto && !_isObjectArrayOrFunctionPrototype(baseProto) && !_hasVisited(visited, baseProto)) {
+        // look for prototype functions
+        for (var name in baseProto) {
+            // Don't include any dynamic prototype instances - as we only want the real functions
+            // For IE 7/8 the prototype lookup doesn't provide the full chain so we need to bypass the 
+            // hasOwnProperty check we get all of the methods, main difference is that IE7/8 doesn't return
+            // the Object prototype methods while bypassing the check
+            if (!baseFuncs[name] && _isDynamicCandidate(baseProto, name, !_objGetPrototypeOf)) {
+                // Create an instance callback for pasing the base function to the caller
+                baseFuncs[name] = _instFuncProxy(thisTarget, baseProto[name]);
+            }
+        }
+        // We need to find all possible functions that might be overloaded by walking the entire prototype chain
+        // This avoids the caller from needing to check whether it's direct base class implements the function or not
+        // by walking the entire chain it simplifies the usage and issues from upgrading any of the base classes.
+        visited.push(baseProto);
+        baseProto = _getObjProto(baseProto);
+    }
+    return baseFuncs;
+}
+/**
+ * Add the required dynamic prototype methods to the the class prototype
+ * @param proto The class prototype
+ * @param className The instance classname
+ * @param target The target instance
+ * @param baseInstFuncs The base instance functions
+ * @ignore
+ */
+function _populatePrototype(proto, className, target, baseInstFuncs) {
+    function _createDynamicPrototype(proto, funcName) {
+        var dynProtoProxy = function () {
+            var _this = this;
+            // We need to check whether the class name is defined directly on this prototype otherwise
+            // it will walk the proto chain and return any parent proto classname.
+            if (_this && _hasOwnProperty(proto, DynClassName)) {
+                var instFunc = ((_this[DynInstFuncTable] || {})[proto[DynClassName]] || {})[funcName];
+                if (instFunc) {
+                    // Used the instance function property
+                    return instFunc.apply(_this, arguments);
+                }
+                // Avoid stack overflow from recursive calling the same function
+                _throwTypeError("Missing [" + funcName + "] " + strFunction);
+            }
+            var protoFunc = proto[funcName];
+            // Check that the prototype function is not a self reference -- try to avoid stack overflow!
+            if (protoFunc === dynProtoProxy) {
+                // It is so lookup the base prototype
+                protoFunc = _getObjProto(proto)[funcName];
+            }
+            if (!_isFunction(protoFunc)) {
+                _throwTypeError("[" + funcName + "] is not a " + strFunction);
+            }
+            return protoFunc.apply(_this, arguments);
+        };
+        // Tag this function as a proxy to support replacing dynamic proxy elements (primary use case is for unit testing
+        // via which can dynamically replace the prototype function reference)
+        dynProtoProxy[DynProxyTag] = 1;
+        return dynProtoProxy;
+    }
+    if (!_isObjectOrArrayPrototype(proto)) {
+        var instFuncTable = target[DynInstFuncTable] = target[DynInstFuncTable] || {};
+        var instFuncs = instFuncTable[className] = (instFuncTable[className] || {}); // fetch and assign if as it may not exist yet
+        for (var name in target) {
+            // Only add overriden functions
+            if (_isDynamicCandidate(target, name, false) && target[name] !== baseInstFuncs[name]) {
+                // Save the instance Function to the lookup table and remove it from the instance as it's not a dynamic proto function
+                instFuncs[name] = target[name];
+                delete target[name];
+                // Add a dynamic proto if one doesn't exist or if a prototype function exists and it's not a dynamic one
+                if (!_hasOwnProperty(proto, name) || (proto[name] && !proto[name][DynProxyTag])) {
+                    proto[name] = _createDynamicPrototype(proto, name);
+                }
+            }
+        }
+    }
+}
+/**
+ * Checks whether the passed prototype object appears to be correct by walking the prototype heirarchy of the instance
+ * @param classProto The class prototype instance
+ * @param thisTarget The current instance that will be checked whther the passed prototype instance is in the heirarchy
+ * @ignore
+ */
+function _checkPrototype(classProto, thisTarget) {
+    var thisProto = _getObjProto(thisTarget);
+    while (thisProto && !_isObjectArrayOrFunctionPrototype(thisProto)) {
+        if (thisProto === classProto) {
+            return true;
+        }
+        thisProto = _getObjProto(thisProto);
+    }
+    return false;
+}
+/**
+ * Gets the current prototype name using the ES6 name if available otherwise falling back to a use unknown as the name.
+ * It's not critical for this to return a name, it's used to decorate the generated unique name for easier debugging only.
+ * @param target
+ * @param unknownValue
+ * @ignore
+ */
+function _getObjName(target, unknownValue) {
+    if (_hasOwnProperty(target, Prototype)) {
+        // Look like a prototype
+        return target.name || unknownValue || UnknownValue;
+    }
+    return (((target || {})[Constructor]) || {}).name || unknownValue || UnknownValue;
+}
+/**
+ * Helper function when creating dynamic (inline) functions for classes, this helper performs the following tasks :-
+ * - Saves references to all defined base class functions
+ * - Calls the delegateFunc with the current target (this) and a base object reference that can be used to call all "super" functions.
+ * - Will populate the class prototype for all overridden functions to support class extension that call the prototype instance.
+ * Callers should use this helper when declaring all function within the constructor of a class, as mentioned above the delegateFunc is
+ * passed both the target "this" and an object that can be used to call any base (super) functions, using this based object in place of
+ * super.XXX() (which gets expanded to _super.prototype.XXX()) provides a better minification outcome and also ensures the correct "this"
+ * context is maintained as TypeScript creates incorrect references using super.XXXX() for dynamically defined functions i.e. Functions
+ * defined in the constructor or some other function (rather than declared as complete typescript functions).
+ * ### Usage
+ * ```typescript
+ * import dynamicProto from "@microsoft/dynamicproto-js";
+ * class ExampleClass extends BaseClass {
+ *     constructor() {
+ *         dynamicProto(ExampleClass, this, (_self, base) => {
+ *             // This will define a function that will be converted to a prototype function
+ *             _self.newFunc = () => {
+ *                 // Access any "this" instance property
+ *                 if (_self.someProperty) {
+ *                     ...
+ *                 }
+ *             }
+ *             // This will define a function that will be converted to a prototype function
+ *             _self.myFunction = () => {
+ *                 // Access any "this" instance property
+ *                 if (_self.someProperty) {
+ *                     // Call the base version of the function that we are overriding
+ *                     base.myFunction();
+ *                 }
+ *                 ...
+ *             }
+ *             _self.initialize = () => {
+ *                 ...
+ *             }
+ *             // Warnings: While the following will work as _self is simply a reference to
+ *             // this, if anyone overrides myFunction() the overridden will be called first
+ *             // as the normal JavaScript method resolution will occur and the defined
+ *             // _self.initialize() function is actually gets removed from the instance and
+ *             // a proxy prototype version is created to reference the created method.
+ *             _self.initialize();
+ *         });
+ *     }
+ * }
+ * ```
+ * @typeparam DPType This is the generic type of the class, used to keep intellisense valid
+ * @typeparam DPCls The type that contains the prototype of the current class
+ * @param theClass This is the current class instance which contains the prototype for the current class
+ * @param target The current "this" (target) reference, when the class has been extended this.prototype will not be the 'theClass' value.
+ * @param delegateFunc The callback function (closure) that will create the dynamic function
+ */
+function dynamicProto(theClass, target, delegateFunc) {
+    // Make sure that the passed theClass argument looks correct
+    if (!_hasOwnProperty(theClass, Prototype)) {
+        _throwTypeError("theClass is an invalid class definition.");
+    }
+    // Quick check to make sure that the passed theClass argument looks correct (this is a common copy/paste error)
+    var classProto = theClass[Prototype];
+    if (!_checkPrototype(classProto, target)) {
+        _throwTypeError("[" + _getObjName(theClass) + "] is not in class heirarchy of [" + _getObjName(target) + "]");
+    }
+    var className = null;
+    if (_hasOwnProperty(classProto, DynClassName)) {
+        // Only grab the class name if it's defined on this prototype (i.e. don't walk the prototype chain)
+        className = classProto[DynClassName];
+    }
+    else {
+        // As not all browser support name on the prototype creating a unique dynamic one if we have not already
+        // assigned one, so we can use a simple string as the lookup rather than an object for the dynamic instance
+        // function table lookup.
+        className = DynClassNamePrefix + _getObjName(theClass, "_") + "$" + _dynamicNames;
+        _dynamicNames++;
+        classProto[DynClassName] = className;
+    }
+    // Get the current instance functions
+    var instFuncs = _getInstanceFuncs(target);
+    // Get all of the functions for any base instance (before they are potentially overriden)
+    var baseFuncs = _getBaseFuncs(classProto, target, instFuncs);
+    // Execute the delegate passing in both the current target "this" and "base" function references
+    // Note casting the same type as we don't actually have the base class here and this will provide some intellisense support
+    delegateFunc(target, baseFuncs);
+    // Populate the Prototype for any overidden instance functions
+    _populatePrototype(classProto, className, target, instFuncs);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (dynamicProto);
+//# sourceMappingURL=dynamicproto-js.js.map
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9DOi9Vc2Vycy9UeWxlclRyb3R0ZXIvcmVwb3MvQ29nbml0byBGb3Jtcy9Db2duaXRvLldlYi5DbGllbnQvbm9kZV9tb2R1bGVzLy5wbnBtL0BtaWNyb3NvZnQrZHluYW1pY3Byb3RvLWpzQDAuNS4zL25vZGVfbW9kdWxlcy9AbWljcm9zb2Z0L2R5bmFtaWNwcm90by1qcy9saWIvZGlzdC9lc20vZHluYW1pY3Byb3RvLWpzLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFBQTtBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxXQUFXLElBQUk7QUFDZixZQUFZLFFBQVE7QUFDcEI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0Esb0NBQW9DLFNBQVM7QUFDN0M7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsOERBQThELDRCQUE0QjtBQUMxRjtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLGtGQUFrRixFQUFFO0FBQ3BGO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLDBCQUEwQixxQkFBcUI7QUFDL0M7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsWUFBWTtBQUNaO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFZSwyRUFBWSxFQUFDO0FBQzVCIiwiZmlsZSI6Im5wbS5taWNyb3NvZnQrZHluYW1pY3Byb3RvLWpzQDAuNS4zLjcxZDcyZmQ4NTc1MjMzM2I0OTBmLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyohXG4gKiBNaWNyb3NvZnQgRHluYW1pYyBQcm90byBVdGlsaXR5LCAwLjUuM1xuICogQ29weXJpZ2h0IChjKSBNaWNyb3NvZnQgYW5kIGNvbnRyaWJ1dG9ycy4gQWxsIHJpZ2h0cyByZXNlcnZlZC5cbiAqL1xuLyoqXHJcbiAqIENvbnN0YW50IHN0cmluZyBkZWZpbmVkIHRvIHN1cHBvcnQgbWluaW1pemF0aW9uXHJcbiAqIEBpZ25vcmVcclxuICovXHJcbnZhciBDb25zdHJ1Y3RvciA9ICdjb25zdHJ1Y3Rvcic7XHJcbi8qKlxyXG4gKiBDb25zdGFudCBzdHJpbmcgZGVmaW5lZCB0byBzdXBwb3J0IG1pbmltaXphdGlvblxyXG4gKiBAaWdub3JlXHJcbiAqL1xyXG52YXIgUHJvdG90eXBlID0gJ3Byb3RvdHlwZSc7XHJcbi8qKlxyXG4gKiBDb25zdGFudCBzdHJpbmcgZGVmaW5lZCB0byBzdXBwb3J0IG1pbmltaXphdGlvblxyXG4gKiBAaWdub3JlXHJcbiAqL1xyXG52YXIgc3RyRnVuY3Rpb24gPSAnZnVuY3Rpb24nO1xyXG4vKipcclxuICogVXNlZCB0byBkZWZpbmUgdGhlIG5hbWUgb2YgdGhlIGluc3RhbmNlIGZ1bmN0aW9uIGxvb2t1cCB0YWJsZVxyXG4gKiBAaWdub3JlXHJcbiAqL1xyXG52YXIgRHluSW5zdEZ1bmNUYWJsZSA9ICdfZHluSW5zdEZ1bmNzJztcclxuLyoqXHJcbiAqIE5hbWUgdXNlZCB0byB0YWcgdGhlIGR5bmFtaWMgcHJvdG90eXBlIGZ1bmN0aW9uXHJcbiAqIEBpZ25vcmVcclxuICovXHJcbnZhciBEeW5Qcm94eVRhZyA9ICdfaXNEeW5Qcm94eSc7XHJcbi8qKlxyXG4gKiBOYW1lIGFkZGVkIHRvIGEgcHJvdG90eXBlIHRvIGRlZmluZSB0aGUgZHluYW1pYyBwcm90b3R5cGUgXCJjbGFzc1wiIG5hbWUgdXNlZCB0byBsb29rdXAgdGhlIGZ1bmN0aW9uIHRhYmxlXHJcbiAqIEBpZ25vcmVcclxuICovXHJcbnZhciBEeW5DbGFzc05hbWUgPSAnX2R5bkNsYXNzJztcclxuLyoqXHJcbiAqIFByZWZpeCBhZGRlZCB0byB0aGUgY2xhc3NuYW1lIHRvIGF2b2lkIGFueSBuYW1lIGNsYXNoZXMgd2l0aCBvdGhlciBpbnN0YW5jZSBsZXZlbCBwcm9wZXJ0aWVzXHJcbiAqIEBpZ25vcmVcclxuICovXHJcbnZhciBEeW5DbGFzc05hbWVQcmVmaXggPSAnX2R5bkNscyQnO1xyXG4vKipcclxuICogVmFsdWUgdXNlZCBhcyB0aGUgbmFtZSBvZiBhIGNsYXNzIHdoZW4gaXQgY2Fubm90IGJlIGRldGVybWluZWRcclxuICogQGlnbm9yZVxyXG4gKi9cclxudmFyIFVua25vd25WYWx1ZSA9ICdfdW5rbm93bl8nO1xyXG4vKipcclxuICogQ29uc3RhbnQgc3RyaW5nIGRlZmluZWQgdG8gc3VwcG9ydCBtaW5pbWl6YXRpb25cclxuICogQGlnbm9yZVxyXG4gKi9cclxudmFyIHN0cl9fUHJvdG8gPSBcIl9fcHJvdG9fX1wiO1xyXG4vKipcclxuICogUHJlLWxvb2t1cCB0byBjaGVjayBpZiB3ZSBhcmUgcnVubmluZyBvbiBhIG1vZGVybiBicm93c2VyIChpLmUuIG5vdCBJRTgpXHJcbiAqIEBpZ25vcmVcclxuICovXHJcbnZhciBfb2JqR2V0UHJvdG90eXBlT2YgPSBPYmplY3RbXCJnZXRQcm90b3R5cGVPZlwiXTtcclxuLyoqXHJcbiAqIEludGVybmFsIEdsb2JhbCB1c2VkIHRvIGdlbmVyYXRlIGEgdW5pcXVlIGR5bmFtaWMgY2xhc3MgbmFtZSwgZXZlcnkgbmV3IGNsYXNzIHdpbGwgaW5jcmVhc2UgdGhpcyB2YWx1ZVxyXG4gKiBAaWdub3JlXHJcbiAqL1xyXG52YXIgX2R5bmFtaWNOYW1lcyA9IDA7XHJcbi8qKlxyXG4gKiBIZWxwZXIgdG8gY2hlY2sgaWYgdGhlIG9iamVjdCBjb250YWlucyBhIHByb3BlcnR5IG9mIHRoZSBuYW1lXHJcbiAqIEBpZ25vcmVcclxuICovXHJcbmZ1bmN0aW9uIF9oYXNPd25Qcm9wZXJ0eShvYmosIHByb3ApIHtcclxuICAgIHJldHVybiBvYmogJiYgT2JqZWN0W1Byb3RvdHlwZV0uaGFzT3duUHJvcGVydHkuY2FsbChvYmosIHByb3ApO1xyXG59XHJcbi8qKlxyXG4gKiBDaGVja3MgaWYgdGhlIHBhc3NlZCBvZiB2YWx1ZSBpcyBhIGZ1bmN0aW9uLlxyXG4gKiBAcGFyYW0ge2FueX0gdmFsdWUgLSBWYWx1ZSB0byBiZSBjaGVja2VkLlxyXG4gKiBAcmV0dXJuIHtib29sZWFufSBUcnVlIGlmIHRoZSB2YWx1ZSBpcyBhIGJvb2xlYW4sIGZhbHNlIG90aGVyd2lzZS5cclxuICogQGlnbm9yZVxyXG4gKi9cclxuZnVuY3Rpb24gX2lzRnVuY3Rpb24odmFsdWUpIHtcclxuICAgIHJldHVybiB0eXBlb2YgdmFsdWUgPT09IHN0ckZ1bmN0aW9uO1xyXG59XHJcbi8qKlxyXG4gKiBIZWxwZXIgdXNlZCB0byBjaGVjayB3aGV0aGVyIHRoZSB0YXJnZXQgaXMgYW4gT2JqZWN0IHByb3RvdHlwZSBvciBBcnJheSBwcm90b3R5cGVcclxuICogQGlnbm9yZVxyXG4gKi9cclxuZnVuY3Rpb24gX2lzT2JqZWN0T3JBcnJheVByb3RvdHlwZSh0YXJnZXQpIHtcclxuICAgIHJldHVybiB0YXJnZXQgJiYgKHRhcmdldCA9PT0gT2JqZWN0W1Byb3RvdHlwZV0gfHwgdGFyZ2V0ID09PSBBcnJheVtQcm90b3R5cGVdKTtcclxufVxyXG4vKipcclxuICogSGVscGVyIHVzZWQgdG8gY2hlY2sgd2hldGhlciB0aGUgdGFyZ2V0IGlzIGFuIE9iamVjdCBwcm90b3R5cGUsIEFycmF5IHByb3RvdHlwZSBvciBGdW5jdGlvbiBwcm90b3R5cGVcclxuICogQGlnbm9yZVxyXG4gKi9cclxuZnVuY3Rpb24gX2lzT2JqZWN0QXJyYXlPckZ1bmN0aW9uUHJvdG90eXBlKHRhcmdldCkge1xyXG4gICAgcmV0dXJuIF9pc09iamVjdE9yQXJyYXlQcm90b3R5cGUodGFyZ2V0KSB8fCB0YXJnZXQgPT09IEZ1bmN0aW9uW1Byb3RvdHlwZV07XHJcbn1cclxuLyoqXHJcbiAqIEhlbHBlciB1c2VkIHRvIGdldCB0aGUgcHJvdG90eXBlIG9mIHRoZSB0YXJnZXQgb2JqZWN0IGFzIGdldFByb3RvdHlwZU9mIGlzIG5vdCBhdmFpbGFibGUgaW4gYW4gRVMzIGVudmlyb25tZW50LlxyXG4gKiBAaWdub3JlXHJcbiAqL1xyXG5mdW5jdGlvbiBfZ2V0T2JqUHJvdG8odGFyZ2V0KSB7XHJcbiAgICBpZiAodGFyZ2V0KSB7XHJcbiAgICAgICAgLy8gVGhpcyBtZXRob2QgZG9lc24ndCBleGlzdGluZyBpbiBvbGRlciBicm93c2VycyAoZS5nLiBJRTgpXHJcbiAgICAgICAgaWYgKF9vYmpHZXRQcm90b3R5cGVPZikge1xyXG4gICAgICAgICAgICByZXR1cm4gX29iakdldFByb3RvdHlwZU9mKHRhcmdldCk7XHJcbiAgICAgICAgfVxyXG4gICAgICAgIC8vIHRhcmdldFtDb25zdHJ1Y3Rvcl0gTWF5IGJyZWFrIGlmIHRoZSBjb25zdHJ1Y3RvciBoYXMgYmVlbiBjaGFuZ2VkIG9yIHJlbW92ZWRcclxuICAgICAgICB2YXIgbmV3UHJvdG8gPSB0YXJnZXRbc3RyX19Qcm90b10gfHwgdGFyZ2V0W1Byb3RvdHlwZV0gfHwgdGFyZ2V0W0NvbnN0cnVjdG9yXTtcclxuICAgICAgICBpZiAobmV3UHJvdG8pIHtcclxuICAgICAgICAgICAgcmV0dXJuIG5ld1Byb3RvO1xyXG4gICAgICAgIH1cclxuICAgIH1cclxuICAgIHJldHVybiBudWxsO1xyXG59XHJcbi8qKlxyXG4gKiBIZWxwZXIgZnVuY3Rpb24gdG8gY2hlY2sgd2hldGhlciB0aGUgcHJvdmlkZWQgZnVuY3Rpb24gbmFtZSBpcyBhIHBvdGVudGlhbCBjYW5kaWRhdGUgZm9yIGR5bmFtaWNcclxuICogY2FsbGJhY2sgYW5kIHByb3RvdHlwZSBnZW5lcmF0aW9uLlxyXG4gKiBAcGFyYW0gdGFyZ2V0IFRoZSB0YXJnZXQgb2JqZWN0LCBtYXkgYmUgYSBwcm90b3RwZSBvciBjbGFzcyBvYmplY3RcclxuICogQHBhcmFtIGZ1bmNOYW1lIFRoZSBmdW5jdGlvbiBuYW1lXHJcbiAqIEBwYXJhbSBza2lwT3duIFNraXBzIHRoZSBjaGVjayBmb3Igb3duIHByb3BlcnR5XHJcbiAqIEBpZ25vcmVcclxuICovXHJcbmZ1bmN0aW9uIF9pc0R5bmFtaWNDYW5kaWRhdGUodGFyZ2V0LCBmdW5jTmFtZSwgc2tpcE93bikge1xyXG4gICAgcmV0dXJuIChmdW5jTmFtZSAhPT0gQ29uc3RydWN0b3IgJiYgX2lzRnVuY3Rpb24odGFyZ2V0W2Z1bmNOYW1lXSkgJiYgKHNraXBPd24gfHwgX2hhc093blByb3BlcnR5KHRhcmdldCwgZnVuY05hbWUpKSk7XHJcbn1cclxuLyoqXHJcbiAqIEhlbHBlciB0byB0aHJvdyBhIFR5cGVFcnJvciBleGNlcHRpb25cclxuICogQHBhcmFtIG1lc3NhZ2UgdGhlIG1lc3NhZ2VcclxuICogQGlnbm9yZVxyXG4gKi9cclxuZnVuY3Rpb24gX3Rocm93VHlwZUVycm9yKG1lc3NhZ2UpIHtcclxuICAgIHRocm93IG5ldyBUeXBlRXJyb3IoXCJEeW5hbWljUHJvdG86IFwiICsgbWVzc2FnZSk7XHJcbn1cclxuLyoqXHJcbiAqIFJldHVybnMgYSBjb2xsZWN0aW9uIG9mIHRoZSBpbnN0YW5jZSBmdW5jdGlvbnMgdGhhdCBhcmUgZGVmaW5lZCBkaXJlY3RseSBvbiB0aGUgdGhpc1RhcmdldCBvYmplY3QsIGl0IGRvZXNcclxuICogbm90IHJldHVybiBhbnkgaW5oZXJpdGVkIGZ1bmN0aW9uc1xyXG4gKiBAcGFyYW0gdGhpc1RhcmdldCBUaGUgb2JqZWN0IHRvIGdldCB0aGUgaW5zdGFuY2UgZnVuY3Rpb25zIGZyb21cclxuICogQGlnbm9yZVxyXG4gKi9cclxuZnVuY3Rpb24gX2dldEluc3RhbmNlRnVuY3ModGhpc1RhcmdldCkge1xyXG4gICAgLy8gR2V0IHRoZSBiYXNlIHByb3RvXHJcbiAgICB2YXIgaW5zdEZ1bmNzID0ge307XHJcbiAgICAvLyBTYXZlIGFueSBleGlzdGluZyBpbnN0YW5jZSBmdW5jdGlvbnNcclxuICAgIGZvciAodmFyIG5hbWUgaW4gdGhpc1RhcmdldCkge1xyXG4gICAgICAgIC8vIERvbid0IGluY2x1ZGUgYW55IGR5bmFtaWMgcHJvdG90eXBlIGluc3RhbmNlcyAtIGFzIHdlIG9ubHkgd2FudCB0aGUgcmVhbCBmdW5jdGlvbnNcclxuICAgICAgICBpZiAoIWluc3RGdW5jc1tuYW1lXSAmJiBfaXNEeW5hbWljQ2FuZGlkYXRlKHRoaXNUYXJnZXQsIG5hbWUsIGZhbHNlKSkge1xyXG4gICAgICAgICAgICAvLyBDcmVhdGUgYW4gaW5zdGFuY2UgY2FsbGJhY2sgZm9yIHBhc2luZyB0aGUgYmFzZSBmdW5jdGlvbiB0byB0aGUgY2FsbGVyXHJcbiAgICAgICAgICAgIGluc3RGdW5jc1tuYW1lXSA9IHRoaXNUYXJnZXRbbmFtZV07XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG4gICAgcmV0dXJuIGluc3RGdW5jcztcclxufVxyXG4vKipcclxuICogUmV0dXJucyB3aGV0aGVyIHRoZSB2YWx1ZSBpcyBpbmNsdWRlZCBpbiB0aGUgYXJyYXlcclxuICogQHBhcmFtIHZhbHVlcyBUaGUgYXJyYXkgb2YgdmFsdWVzXHJcbiAqIEBwYXJhbSB2YWx1ZSAgVGhlIHZhbHVlXHJcbiAqL1xyXG5mdW5jdGlvbiBfaGFzVmlzaXRlZCh2YWx1ZXMsIHZhbHVlKSB7XHJcbiAgICBmb3IgKHZhciBscCA9IHZhbHVlcy5sZW5ndGggLSAxOyBscCA+PSAwOyBscC0tKSB7XHJcbiAgICAgICAgaWYgKHZhbHVlc1tscF0gPT09IHZhbHVlKSB7XHJcbiAgICAgICAgICAgIHJldHVybiB0cnVlO1xyXG4gICAgICAgIH1cclxuICAgIH1cclxuICAgIHJldHVybiBmYWxzZTtcclxufVxyXG4vKipcclxuICogUmV0dXJucyBhbiBvYmplY3QgdGhhdCBjb250YWlucyBjYWxsYmFjayBmdW5jdGlvbnMgZm9yIGFsbCBcImJhc2Uvc3VwZXJcIiBmdW5jdGlvbnMsIHRoaXMgaXMgdXNlZCB0byBcInNhdmVcIlxyXG4gKiBlbmFibGluZyBjYWxsaW5nIHN1cGVyLnh4eCgpIGZ1bmN0aW9ucyB3aXRob3V0IHJlcXVpcmluZyB0aGF0IHRoZSBiYXNlIFwiY2xhc3NcIiBoYXMgZGVmaW5lZCBhIHByb3RvdHlwZSByZWZlcmVuY2VzXHJcbiAqIEBwYXJhbSB0YXJnZXQgVGhlIGN1cnJlbnQgaW5zdGFuY2VcclxuICogQGlnbm9yZVxyXG4gKi9cclxuZnVuY3Rpb24gX2dldEJhc2VGdW5jcyhjbGFzc1Byb3RvLCB0aGlzVGFyZ2V0LCBpbnN0RnVuY3MpIHtcclxuICAgIGZ1bmN0aW9uIF9pbnN0RnVuY1Byb3h5KHRhcmdldCwgdGhlRnVuYykge1xyXG4gICAgICAgIHJldHVybiBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgICAgIHJldHVybiB0aGVGdW5jLmFwcGx5KHRhcmdldCwgYXJndW1lbnRzKTtcclxuICAgICAgICB9O1xyXG4gICAgfVxyXG4gICAgLy8gU3RhcnQgY3JlYXRpbmcgYSBuZXcgYmFzZUZ1bmNzIGJ5IGNyZWF0aW5nIHByb3hpZXMgZm9yIHRoZSBpbnN0YW5jZSBmdW5jdGlvbnMgKGFzIHRoZXkgbWF5IGdldCByZXBsYWNlZClcclxuICAgIHZhciBiYXNlRnVuY3MgPSB7fTtcclxuICAgIGZvciAodmFyIG5hbWUgaW4gaW5zdEZ1bmNzKSB7XHJcbiAgICAgICAgLy8gQ3JlYXRlIGFuIGluc3RhbmNlIGNhbGxiYWNrIGZvciBwYXNpbmcgdGhlIGJhc2UgZnVuY3Rpb24gdG8gdGhlIGNhbGxlclxyXG4gICAgICAgIGJhc2VGdW5jc1tuYW1lXSA9IF9pbnN0RnVuY1Byb3h5KHRoaXNUYXJnZXQsIGluc3RGdW5jc1tuYW1lXSk7XHJcbiAgICB9XHJcbiAgICAvLyBHZXQgdGhlIGJhc2UgcHJvdG90eXBlIGZ1bmN0aW9uc1xyXG4gICAgdmFyIGJhc2VQcm90byA9IF9nZXRPYmpQcm90byhjbGFzc1Byb3RvKTtcclxuICAgIHZhciB2aXNpdGVkID0gW107XHJcbiAgICAvLyBEb24ndCBpbmNsdWRlIGJhc2Ugb2JqZWN0IGZ1bmN0aW9ucyBmb3IgT2JqZWN0LCBBcnJheSBvciBGdW5jdGlvblxyXG4gICAgd2hpbGUgKGJhc2VQcm90byAmJiAhX2lzT2JqZWN0QXJyYXlPckZ1bmN0aW9uUHJvdG90eXBlKGJhc2VQcm90bykgJiYgIV9oYXNWaXNpdGVkKHZpc2l0ZWQsIGJhc2VQcm90bykpIHtcclxuICAgICAgICAvLyBsb29rIGZvciBwcm90b3R5cGUgZnVuY3Rpb25zXHJcbiAgICAgICAgZm9yICh2YXIgbmFtZSBpbiBiYXNlUHJvdG8pIHtcclxuICAgICAgICAgICAgLy8gRG9uJ3QgaW5jbHVkZSBhbnkgZHluYW1pYyBwcm90b3R5cGUgaW5zdGFuY2VzIC0gYXMgd2Ugb25seSB3YW50IHRoZSByZWFsIGZ1bmN0aW9uc1xyXG4gICAgICAgICAgICAvLyBGb3IgSUUgNy84IHRoZSBwcm90b3R5cGUgbG9va3VwIGRvZXNuJ3QgcHJvdmlkZSB0aGUgZnVsbCBjaGFpbiBzbyB3ZSBuZWVkIHRvIGJ5cGFzcyB0aGUgXHJcbiAgICAgICAgICAgIC8vIGhhc093blByb3BlcnR5IGNoZWNrIHdlIGdldCBhbGwgb2YgdGhlIG1ldGhvZHMsIG1haW4gZGlmZmVyZW5jZSBpcyB0aGF0IElFNy84IGRvZXNuJ3QgcmV0dXJuXHJcbiAgICAgICAgICAgIC8vIHRoZSBPYmplY3QgcHJvdG90eXBlIG1ldGhvZHMgd2hpbGUgYnlwYXNzaW5nIHRoZSBjaGVja1xyXG4gICAgICAgICAgICBpZiAoIWJhc2VGdW5jc1tuYW1lXSAmJiBfaXNEeW5hbWljQ2FuZGlkYXRlKGJhc2VQcm90bywgbmFtZSwgIV9vYmpHZXRQcm90b3R5cGVPZikpIHtcclxuICAgICAgICAgICAgICAgIC8vIENyZWF0ZSBhbiBpbnN0YW5jZSBjYWxsYmFjayBmb3IgcGFzaW5nIHRoZSBiYXNlIGZ1bmN0aW9uIHRvIHRoZSBjYWxsZXJcclxuICAgICAgICAgICAgICAgIGJhc2VGdW5jc1tuYW1lXSA9IF9pbnN0RnVuY1Byb3h5KHRoaXNUYXJnZXQsIGJhc2VQcm90b1tuYW1lXSk7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9XHJcbiAgICAgICAgLy8gV2UgbmVlZCB0byBmaW5kIGFsbCBwb3NzaWJsZSBmdW5jdGlvbnMgdGhhdCBtaWdodCBiZSBvdmVybG9hZGVkIGJ5IHdhbGtpbmcgdGhlIGVudGlyZSBwcm90b3R5cGUgY2hhaW5cclxuICAgICAgICAvLyBUaGlzIGF2b2lkcyB0aGUgY2FsbGVyIGZyb20gbmVlZGluZyB0byBjaGVjayB3aGV0aGVyIGl0J3MgZGlyZWN0IGJhc2UgY2xhc3MgaW1wbGVtZW50cyB0aGUgZnVuY3Rpb24gb3Igbm90XHJcbiAgICAgICAgLy8gYnkgd2Fsa2luZyB0aGUgZW50aXJlIGNoYWluIGl0IHNpbXBsaWZpZXMgdGhlIHVzYWdlIGFuZCBpc3N1ZXMgZnJvbSB1cGdyYWRpbmcgYW55IG9mIHRoZSBiYXNlIGNsYXNzZXMuXHJcbiAgICAgICAgdmlzaXRlZC5wdXNoKGJhc2VQcm90byk7XHJcbiAgICAgICAgYmFzZVByb3RvID0gX2dldE9ialByb3RvKGJhc2VQcm90byk7XHJcbiAgICB9XHJcbiAgICByZXR1cm4gYmFzZUZ1bmNzO1xyXG59XHJcbi8qKlxyXG4gKiBBZGQgdGhlIHJlcXVpcmVkIGR5bmFtaWMgcHJvdG90eXBlIG1ldGhvZHMgdG8gdGhlIHRoZSBjbGFzcyBwcm90b3R5cGVcclxuICogQHBhcmFtIHByb3RvIFRoZSBjbGFzcyBwcm90b3R5cGVcclxuICogQHBhcmFtIGNsYXNzTmFtZSBUaGUgaW5zdGFuY2UgY2xhc3NuYW1lXHJcbiAqIEBwYXJhbSB0YXJnZXQgVGhlIHRhcmdldCBpbnN0YW5jZVxyXG4gKiBAcGFyYW0gYmFzZUluc3RGdW5jcyBUaGUgYmFzZSBpbnN0YW5jZSBmdW5jdGlvbnNcclxuICogQGlnbm9yZVxyXG4gKi9cclxuZnVuY3Rpb24gX3BvcHVsYXRlUHJvdG90eXBlKHByb3RvLCBjbGFzc05hbWUsIHRhcmdldCwgYmFzZUluc3RGdW5jcykge1xyXG4gICAgZnVuY3Rpb24gX2NyZWF0ZUR5bmFtaWNQcm90b3R5cGUocHJvdG8sIGZ1bmNOYW1lKSB7XHJcbiAgICAgICAgdmFyIGR5blByb3RvUHJveHkgPSBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgICAgIHZhciBfdGhpcyA9IHRoaXM7XHJcbiAgICAgICAgICAgIC8vIFdlIG5lZWQgdG8gY2hlY2sgd2hldGhlciB0aGUgY2xhc3MgbmFtZSBpcyBkZWZpbmVkIGRpcmVjdGx5IG9uIHRoaXMgcHJvdG90eXBlIG90aGVyd2lzZVxyXG4gICAgICAgICAgICAvLyBpdCB3aWxsIHdhbGsgdGhlIHByb3RvIGNoYWluIGFuZCByZXR1cm4gYW55IHBhcmVudCBwcm90byBjbGFzc25hbWUuXHJcbiAgICAgICAgICAgIGlmIChfdGhpcyAmJiBfaGFzT3duUHJvcGVydHkocHJvdG8sIER5bkNsYXNzTmFtZSkpIHtcclxuICAgICAgICAgICAgICAgIHZhciBpbnN0RnVuYyA9ICgoX3RoaXNbRHluSW5zdEZ1bmNUYWJsZV0gfHwge30pW3Byb3RvW0R5bkNsYXNzTmFtZV1dIHx8IHt9KVtmdW5jTmFtZV07XHJcbiAgICAgICAgICAgICAgICBpZiAoaW5zdEZ1bmMpIHtcclxuICAgICAgICAgICAgICAgICAgICAvLyBVc2VkIHRoZSBpbnN0YW5jZSBmdW5jdGlvbiBwcm9wZXJ0eVxyXG4gICAgICAgICAgICAgICAgICAgIHJldHVybiBpbnN0RnVuYy5hcHBseShfdGhpcywgYXJndW1lbnRzKTtcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIC8vIEF2b2lkIHN0YWNrIG92ZXJmbG93IGZyb20gcmVjdXJzaXZlIGNhbGxpbmcgdGhlIHNhbWUgZnVuY3Rpb25cclxuICAgICAgICAgICAgICAgIF90aHJvd1R5cGVFcnJvcihcIk1pc3NpbmcgW1wiICsgZnVuY05hbWUgKyBcIl0gXCIgKyBzdHJGdW5jdGlvbik7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgdmFyIHByb3RvRnVuYyA9IHByb3RvW2Z1bmNOYW1lXTtcclxuICAgICAgICAgICAgLy8gQ2hlY2sgdGhhdCB0aGUgcHJvdG90eXBlIGZ1bmN0aW9uIGlzIG5vdCBhIHNlbGYgcmVmZXJlbmNlIC0tIHRyeSB0byBhdm9pZCBzdGFjayBvdmVyZmxvdyFcclxuICAgICAgICAgICAgaWYgKHByb3RvRnVuYyA9PT0gZHluUHJvdG9Qcm94eSkge1xyXG4gICAgICAgICAgICAgICAgLy8gSXQgaXMgc28gbG9va3VwIHRoZSBiYXNlIHByb3RvdHlwZVxyXG4gICAgICAgICAgICAgICAgcHJvdG9GdW5jID0gX2dldE9ialByb3RvKHByb3RvKVtmdW5jTmFtZV07XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgaWYgKCFfaXNGdW5jdGlvbihwcm90b0Z1bmMpKSB7XHJcbiAgICAgICAgICAgICAgICBfdGhyb3dUeXBlRXJyb3IoXCJbXCIgKyBmdW5jTmFtZSArIFwiXSBpcyBub3QgYSBcIiArIHN0ckZ1bmN0aW9uKTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICByZXR1cm4gcHJvdG9GdW5jLmFwcGx5KF90aGlzLCBhcmd1bWVudHMpO1xyXG4gICAgICAgIH07XHJcbiAgICAgICAgLy8gVGFnIHRoaXMgZnVuY3Rpb24gYXMgYSBwcm94eSB0byBzdXBwb3J0IHJlcGxhY2luZyBkeW5hbWljIHByb3h5IGVsZW1lbnRzIChwcmltYXJ5IHVzZSBjYXNlIGlzIGZvciB1bml0IHRlc3RpbmdcclxuICAgICAgICAvLyB2aWEgd2hpY2ggY2FuIGR5bmFtaWNhbGx5IHJlcGxhY2UgdGhlIHByb3RvdHlwZSBmdW5jdGlvbiByZWZlcmVuY2UpXHJcbiAgICAgICAgZHluUHJvdG9Qcm94eVtEeW5Qcm94eVRhZ10gPSAxO1xyXG4gICAgICAgIHJldHVybiBkeW5Qcm90b1Byb3h5O1xyXG4gICAgfVxyXG4gICAgaWYgKCFfaXNPYmplY3RPckFycmF5UHJvdG90eXBlKHByb3RvKSkge1xyXG4gICAgICAgIHZhciBpbnN0RnVuY1RhYmxlID0gdGFyZ2V0W0R5bkluc3RGdW5jVGFibGVdID0gdGFyZ2V0W0R5bkluc3RGdW5jVGFibGVdIHx8IHt9O1xyXG4gICAgICAgIHZhciBpbnN0RnVuY3MgPSBpbnN0RnVuY1RhYmxlW2NsYXNzTmFtZV0gPSAoaW5zdEZ1bmNUYWJsZVtjbGFzc05hbWVdIHx8IHt9KTsgLy8gZmV0Y2ggYW5kIGFzc2lnbiBpZiBhcyBpdCBtYXkgbm90IGV4aXN0IHlldFxyXG4gICAgICAgIGZvciAodmFyIG5hbWUgaW4gdGFyZ2V0KSB7XHJcbiAgICAgICAgICAgIC8vIE9ubHkgYWRkIG92ZXJyaWRlbiBmdW5jdGlvbnNcclxuICAgICAgICAgICAgaWYgKF9pc0R5bmFtaWNDYW5kaWRhdGUodGFyZ2V0LCBuYW1lLCBmYWxzZSkgJiYgdGFyZ2V0W25hbWVdICE9PSBiYXNlSW5zdEZ1bmNzW25hbWVdKSB7XHJcbiAgICAgICAgICAgICAgICAvLyBTYXZlIHRoZSBpbnN0YW5jZSBGdW5jdGlvbiB0byB0aGUgbG9va3VwIHRhYmxlIGFuZCByZW1vdmUgaXQgZnJvbSB0aGUgaW5zdGFuY2UgYXMgaXQncyBub3QgYSBkeW5hbWljIHByb3RvIGZ1bmN0aW9uXHJcbiAgICAgICAgICAgICAgICBpbnN0RnVuY3NbbmFtZV0gPSB0YXJnZXRbbmFtZV07XHJcbiAgICAgICAgICAgICAgICBkZWxldGUgdGFyZ2V0W25hbWVdO1xyXG4gICAgICAgICAgICAgICAgLy8gQWRkIGEgZHluYW1pYyBwcm90byBpZiBvbmUgZG9lc24ndCBleGlzdCBvciBpZiBhIHByb3RvdHlwZSBmdW5jdGlvbiBleGlzdHMgYW5kIGl0J3Mgbm90IGEgZHluYW1pYyBvbmVcclxuICAgICAgICAgICAgICAgIGlmICghX2hhc093blByb3BlcnR5KHByb3RvLCBuYW1lKSB8fCAocHJvdG9bbmFtZV0gJiYgIXByb3RvW25hbWVdW0R5blByb3h5VGFnXSkpIHtcclxuICAgICAgICAgICAgICAgICAgICBwcm90b1tuYW1lXSA9IF9jcmVhdGVEeW5hbWljUHJvdG90eXBlKHByb3RvLCBuYW1lKTtcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH1cclxuICAgIH1cclxufVxyXG4vKipcclxuICogQ2hlY2tzIHdoZXRoZXIgdGhlIHBhc3NlZCBwcm90b3R5cGUgb2JqZWN0IGFwcGVhcnMgdG8gYmUgY29ycmVjdCBieSB3YWxraW5nIHRoZSBwcm90b3R5cGUgaGVpcmFyY2h5IG9mIHRoZSBpbnN0YW5jZVxyXG4gKiBAcGFyYW0gY2xhc3NQcm90byBUaGUgY2xhc3MgcHJvdG90eXBlIGluc3RhbmNlXHJcbiAqIEBwYXJhbSB0aGlzVGFyZ2V0IFRoZSBjdXJyZW50IGluc3RhbmNlIHRoYXQgd2lsbCBiZSBjaGVja2VkIHdodGhlciB0aGUgcGFzc2VkIHByb3RvdHlwZSBpbnN0YW5jZSBpcyBpbiB0aGUgaGVpcmFyY2h5XHJcbiAqIEBpZ25vcmVcclxuICovXHJcbmZ1bmN0aW9uIF9jaGVja1Byb3RvdHlwZShjbGFzc1Byb3RvLCB0aGlzVGFyZ2V0KSB7XHJcbiAgICB2YXIgdGhpc1Byb3RvID0gX2dldE9ialByb3RvKHRoaXNUYXJnZXQpO1xyXG4gICAgd2hpbGUgKHRoaXNQcm90byAmJiAhX2lzT2JqZWN0QXJyYXlPckZ1bmN0aW9uUHJvdG90eXBlKHRoaXNQcm90bykpIHtcclxuICAgICAgICBpZiAodGhpc1Byb3RvID09PSBjbGFzc1Byb3RvKSB7XHJcbiAgICAgICAgICAgIHJldHVybiB0cnVlO1xyXG4gICAgICAgIH1cclxuICAgICAgICB0aGlzUHJvdG8gPSBfZ2V0T2JqUHJvdG8odGhpc1Byb3RvKTtcclxuICAgIH1cclxuICAgIHJldHVybiBmYWxzZTtcclxufVxyXG4vKipcclxuICogR2V0cyB0aGUgY3VycmVudCBwcm90b3R5cGUgbmFtZSB1c2luZyB0aGUgRVM2IG5hbWUgaWYgYXZhaWxhYmxlIG90aGVyd2lzZSBmYWxsaW5nIGJhY2sgdG8gYSB1c2UgdW5rbm93biBhcyB0aGUgbmFtZS5cclxuICogSXQncyBub3QgY3JpdGljYWwgZm9yIHRoaXMgdG8gcmV0dXJuIGEgbmFtZSwgaXQncyB1c2VkIHRvIGRlY29yYXRlIHRoZSBnZW5lcmF0ZWQgdW5pcXVlIG5hbWUgZm9yIGVhc2llciBkZWJ1Z2dpbmcgb25seS5cclxuICogQHBhcmFtIHRhcmdldFxyXG4gKiBAcGFyYW0gdW5rbm93blZhbHVlXHJcbiAqIEBpZ25vcmVcclxuICovXHJcbmZ1bmN0aW9uIF9nZXRPYmpOYW1lKHRhcmdldCwgdW5rbm93blZhbHVlKSB7XHJcbiAgICBpZiAoX2hhc093blByb3BlcnR5KHRhcmdldCwgUHJvdG90eXBlKSkge1xyXG4gICAgICAgIC8vIExvb2sgbGlrZSBhIHByb3RvdHlwZVxyXG4gICAgICAgIHJldHVybiB0YXJnZXQubmFtZSB8fCB1bmtub3duVmFsdWUgfHwgVW5rbm93blZhbHVlO1xyXG4gICAgfVxyXG4gICAgcmV0dXJuICgoKHRhcmdldCB8fCB7fSlbQ29uc3RydWN0b3JdKSB8fCB7fSkubmFtZSB8fCB1bmtub3duVmFsdWUgfHwgVW5rbm93blZhbHVlO1xyXG59XHJcbi8qKlxyXG4gKiBIZWxwZXIgZnVuY3Rpb24gd2hlbiBjcmVhdGluZyBkeW5hbWljIChpbmxpbmUpIGZ1bmN0aW9ucyBmb3IgY2xhc3NlcywgdGhpcyBoZWxwZXIgcGVyZm9ybXMgdGhlIGZvbGxvd2luZyB0YXNrcyA6LVxyXG4gKiAtIFNhdmVzIHJlZmVyZW5jZXMgdG8gYWxsIGRlZmluZWQgYmFzZSBjbGFzcyBmdW5jdGlvbnNcclxuICogLSBDYWxscyB0aGUgZGVsZWdhdGVGdW5jIHdpdGggdGhlIGN1cnJlbnQgdGFyZ2V0ICh0aGlzKSBhbmQgYSBiYXNlIG9iamVjdCByZWZlcmVuY2UgdGhhdCBjYW4gYmUgdXNlZCB0byBjYWxsIGFsbCBcInN1cGVyXCIgZnVuY3Rpb25zLlxyXG4gKiAtIFdpbGwgcG9wdWxhdGUgdGhlIGNsYXNzIHByb3RvdHlwZSBmb3IgYWxsIG92ZXJyaWRkZW4gZnVuY3Rpb25zIHRvIHN1cHBvcnQgY2xhc3MgZXh0ZW5zaW9uIHRoYXQgY2FsbCB0aGUgcHJvdG90eXBlIGluc3RhbmNlLlxyXG4gKiBDYWxsZXJzIHNob3VsZCB1c2UgdGhpcyBoZWxwZXIgd2hlbiBkZWNsYXJpbmcgYWxsIGZ1bmN0aW9uIHdpdGhpbiB0aGUgY29uc3RydWN0b3Igb2YgYSBjbGFzcywgYXMgbWVudGlvbmVkIGFib3ZlIHRoZSBkZWxlZ2F0ZUZ1bmMgaXNcclxuICogcGFzc2VkIGJvdGggdGhlIHRhcmdldCBcInRoaXNcIiBhbmQgYW4gb2JqZWN0IHRoYXQgY2FuIGJlIHVzZWQgdG8gY2FsbCBhbnkgYmFzZSAoc3VwZXIpIGZ1bmN0aW9ucywgdXNpbmcgdGhpcyBiYXNlZCBvYmplY3QgaW4gcGxhY2Ugb2ZcclxuICogc3VwZXIuWFhYKCkgKHdoaWNoIGdldHMgZXhwYW5kZWQgdG8gX3N1cGVyLnByb3RvdHlwZS5YWFgoKSkgcHJvdmlkZXMgYSBiZXR0ZXIgbWluaWZpY2F0aW9uIG91dGNvbWUgYW5kIGFsc28gZW5zdXJlcyB0aGUgY29ycmVjdCBcInRoaXNcIlxyXG4gKiBjb250ZXh0IGlzIG1haW50YWluZWQgYXMgVHlwZVNjcmlwdCBjcmVhdGVzIGluY29ycmVjdCByZWZlcmVuY2VzIHVzaW5nIHN1cGVyLlhYWFgoKSBmb3IgZHluYW1pY2FsbHkgZGVmaW5lZCBmdW5jdGlvbnMgaS5lLiBGdW5jdGlvbnNcclxuICogZGVmaW5lZCBpbiB0aGUgY29uc3RydWN0b3Igb3Igc29tZSBvdGhlciBmdW5jdGlvbiAocmF0aGVyIHRoYW4gZGVjbGFyZWQgYXMgY29tcGxldGUgdHlwZXNjcmlwdCBmdW5jdGlvbnMpLlxyXG4gKiAjIyMgVXNhZ2VcclxuICogYGBgdHlwZXNjcmlwdFxyXG4gKiBpbXBvcnQgZHluYW1pY1Byb3RvIGZyb20gXCJAbWljcm9zb2Z0L2R5bmFtaWNwcm90by1qc1wiO1xyXG4gKiBjbGFzcyBFeGFtcGxlQ2xhc3MgZXh0ZW5kcyBCYXNlQ2xhc3Mge1xyXG4gKiAgICAgY29uc3RydWN0b3IoKSB7XHJcbiAqICAgICAgICAgZHluYW1pY1Byb3RvKEV4YW1wbGVDbGFzcywgdGhpcywgKF9zZWxmLCBiYXNlKSA9PiB7XHJcbiAqICAgICAgICAgICAgIC8vIFRoaXMgd2lsbCBkZWZpbmUgYSBmdW5jdGlvbiB0aGF0IHdpbGwgYmUgY29udmVydGVkIHRvIGEgcHJvdG90eXBlIGZ1bmN0aW9uXHJcbiAqICAgICAgICAgICAgIF9zZWxmLm5ld0Z1bmMgPSAoKSA9PiB7XHJcbiAqICAgICAgICAgICAgICAgICAvLyBBY2Nlc3MgYW55IFwidGhpc1wiIGluc3RhbmNlIHByb3BlcnR5XHJcbiAqICAgICAgICAgICAgICAgICBpZiAoX3NlbGYuc29tZVByb3BlcnR5KSB7XHJcbiAqICAgICAgICAgICAgICAgICAgICAgLi4uXHJcbiAqICAgICAgICAgICAgICAgICB9XHJcbiAqICAgICAgICAgICAgIH1cclxuICogICAgICAgICAgICAgLy8gVGhpcyB3aWxsIGRlZmluZSBhIGZ1bmN0aW9uIHRoYXQgd2lsbCBiZSBjb252ZXJ0ZWQgdG8gYSBwcm90b3R5cGUgZnVuY3Rpb25cclxuICogICAgICAgICAgICAgX3NlbGYubXlGdW5jdGlvbiA9ICgpID0+IHtcclxuICogICAgICAgICAgICAgICAgIC8vIEFjY2VzcyBhbnkgXCJ0aGlzXCIgaW5zdGFuY2UgcHJvcGVydHlcclxuICogICAgICAgICAgICAgICAgIGlmIChfc2VsZi5zb21lUHJvcGVydHkpIHtcclxuICogICAgICAgICAgICAgICAgICAgICAvLyBDYWxsIHRoZSBiYXNlIHZlcnNpb24gb2YgdGhlIGZ1bmN0aW9uIHRoYXQgd2UgYXJlIG92ZXJyaWRpbmdcclxuICogICAgICAgICAgICAgICAgICAgICBiYXNlLm15RnVuY3Rpb24oKTtcclxuICogICAgICAgICAgICAgICAgIH1cclxuICogICAgICAgICAgICAgICAgIC4uLlxyXG4gKiAgICAgICAgICAgICB9XHJcbiAqICAgICAgICAgICAgIF9zZWxmLmluaXRpYWxpemUgPSAoKSA9PiB7XHJcbiAqICAgICAgICAgICAgICAgICAuLi5cclxuICogICAgICAgICAgICAgfVxyXG4gKiAgICAgICAgICAgICAvLyBXYXJuaW5nczogV2hpbGUgdGhlIGZvbGxvd2luZyB3aWxsIHdvcmsgYXMgX3NlbGYgaXMgc2ltcGx5IGEgcmVmZXJlbmNlIHRvXHJcbiAqICAgICAgICAgICAgIC8vIHRoaXMsIGlmIGFueW9uZSBvdmVycmlkZXMgbXlGdW5jdGlvbigpIHRoZSBvdmVycmlkZGVuIHdpbGwgYmUgY2FsbGVkIGZpcnN0XHJcbiAqICAgICAgICAgICAgIC8vIGFzIHRoZSBub3JtYWwgSmF2YVNjcmlwdCBtZXRob2QgcmVzb2x1dGlvbiB3aWxsIG9jY3VyIGFuZCB0aGUgZGVmaW5lZFxyXG4gKiAgICAgICAgICAgICAvLyBfc2VsZi5pbml0aWFsaXplKCkgZnVuY3Rpb24gaXMgYWN0dWFsbHkgZ2V0cyByZW1vdmVkIGZyb20gdGhlIGluc3RhbmNlIGFuZFxyXG4gKiAgICAgICAgICAgICAvLyBhIHByb3h5IHByb3RvdHlwZSB2ZXJzaW9uIGlzIGNyZWF0ZWQgdG8gcmVmZXJlbmNlIHRoZSBjcmVhdGVkIG1ldGhvZC5cclxuICogICAgICAgICAgICAgX3NlbGYuaW5pdGlhbGl6ZSgpO1xyXG4gKiAgICAgICAgIH0pO1xyXG4gKiAgICAgfVxyXG4gKiB9XHJcbiAqIGBgYFxyXG4gKiBAdHlwZXBhcmFtIERQVHlwZSBUaGlzIGlzIHRoZSBnZW5lcmljIHR5cGUgb2YgdGhlIGNsYXNzLCB1c2VkIHRvIGtlZXAgaW50ZWxsaXNlbnNlIHZhbGlkXHJcbiAqIEB0eXBlcGFyYW0gRFBDbHMgVGhlIHR5cGUgdGhhdCBjb250YWlucyB0aGUgcHJvdG90eXBlIG9mIHRoZSBjdXJyZW50IGNsYXNzXHJcbiAqIEBwYXJhbSB0aGVDbGFzcyBUaGlzIGlzIHRoZSBjdXJyZW50IGNsYXNzIGluc3RhbmNlIHdoaWNoIGNvbnRhaW5zIHRoZSBwcm90b3R5cGUgZm9yIHRoZSBjdXJyZW50IGNsYXNzXHJcbiAqIEBwYXJhbSB0YXJnZXQgVGhlIGN1cnJlbnQgXCJ0aGlzXCIgKHRhcmdldCkgcmVmZXJlbmNlLCB3aGVuIHRoZSBjbGFzcyBoYXMgYmVlbiBleHRlbmRlZCB0aGlzLnByb3RvdHlwZSB3aWxsIG5vdCBiZSB0aGUgJ3RoZUNsYXNzJyB2YWx1ZS5cclxuICogQHBhcmFtIGRlbGVnYXRlRnVuYyBUaGUgY2FsbGJhY2sgZnVuY3Rpb24gKGNsb3N1cmUpIHRoYXQgd2lsbCBjcmVhdGUgdGhlIGR5bmFtaWMgZnVuY3Rpb25cclxuICovXHJcbmZ1bmN0aW9uIGR5bmFtaWNQcm90byh0aGVDbGFzcywgdGFyZ2V0LCBkZWxlZ2F0ZUZ1bmMpIHtcclxuICAgIC8vIE1ha2Ugc3VyZSB0aGF0IHRoZSBwYXNzZWQgdGhlQ2xhc3MgYXJndW1lbnQgbG9va3MgY29ycmVjdFxyXG4gICAgaWYgKCFfaGFzT3duUHJvcGVydHkodGhlQ2xhc3MsIFByb3RvdHlwZSkpIHtcclxuICAgICAgICBfdGhyb3dUeXBlRXJyb3IoXCJ0aGVDbGFzcyBpcyBhbiBpbnZhbGlkIGNsYXNzIGRlZmluaXRpb24uXCIpO1xyXG4gICAgfVxyXG4gICAgLy8gUXVpY2sgY2hlY2sgdG8gbWFrZSBzdXJlIHRoYXQgdGhlIHBhc3NlZCB0aGVDbGFzcyBhcmd1bWVudCBsb29rcyBjb3JyZWN0ICh0aGlzIGlzIGEgY29tbW9uIGNvcHkvcGFzdGUgZXJyb3IpXHJcbiAgICB2YXIgY2xhc3NQcm90byA9IHRoZUNsYXNzW1Byb3RvdHlwZV07XHJcbiAgICBpZiAoIV9jaGVja1Byb3RvdHlwZShjbGFzc1Byb3RvLCB0YXJnZXQpKSB7XHJcbiAgICAgICAgX3Rocm93VHlwZUVycm9yKFwiW1wiICsgX2dldE9iak5hbWUodGhlQ2xhc3MpICsgXCJdIGlzIG5vdCBpbiBjbGFzcyBoZWlyYXJjaHkgb2YgW1wiICsgX2dldE9iak5hbWUodGFyZ2V0KSArIFwiXVwiKTtcclxuICAgIH1cclxuICAgIHZhciBjbGFzc05hbWUgPSBudWxsO1xyXG4gICAgaWYgKF9oYXNPd25Qcm9wZXJ0eShjbGFzc1Byb3RvLCBEeW5DbGFzc05hbWUpKSB7XHJcbiAgICAgICAgLy8gT25seSBncmFiIHRoZSBjbGFzcyBuYW1lIGlmIGl0J3MgZGVmaW5lZCBvbiB0aGlzIHByb3RvdHlwZSAoaS5lLiBkb24ndCB3YWxrIHRoZSBwcm90b3R5cGUgY2hhaW4pXHJcbiAgICAgICAgY2xhc3NOYW1lID0gY2xhc3NQcm90b1tEeW5DbGFzc05hbWVdO1xyXG4gICAgfVxyXG4gICAgZWxzZSB7XHJcbiAgICAgICAgLy8gQXMgbm90IGFsbCBicm93c2VyIHN1cHBvcnQgbmFtZSBvbiB0aGUgcHJvdG90eXBlIGNyZWF0aW5nIGEgdW5pcXVlIGR5bmFtaWMgb25lIGlmIHdlIGhhdmUgbm90IGFscmVhZHlcclxuICAgICAgICAvLyBhc3NpZ25lZCBvbmUsIHNvIHdlIGNhbiB1c2UgYSBzaW1wbGUgc3RyaW5nIGFzIHRoZSBsb29rdXAgcmF0aGVyIHRoYW4gYW4gb2JqZWN0IGZvciB0aGUgZHluYW1pYyBpbnN0YW5jZVxyXG4gICAgICAgIC8vIGZ1bmN0aW9uIHRhYmxlIGxvb2t1cC5cclxuICAgICAgICBjbGFzc05hbWUgPSBEeW5DbGFzc05hbWVQcmVmaXggKyBfZ2V0T2JqTmFtZSh0aGVDbGFzcywgXCJfXCIpICsgXCIkXCIgKyBfZHluYW1pY05hbWVzO1xyXG4gICAgICAgIF9keW5hbWljTmFtZXMrKztcclxuICAgICAgICBjbGFzc1Byb3RvW0R5bkNsYXNzTmFtZV0gPSBjbGFzc05hbWU7XHJcbiAgICB9XHJcbiAgICAvLyBHZXQgdGhlIGN1cnJlbnQgaW5zdGFuY2UgZnVuY3Rpb25zXHJcbiAgICB2YXIgaW5zdEZ1bmNzID0gX2dldEluc3RhbmNlRnVuY3ModGFyZ2V0KTtcclxuICAgIC8vIEdldCBhbGwgb2YgdGhlIGZ1bmN0aW9ucyBmb3IgYW55IGJhc2UgaW5zdGFuY2UgKGJlZm9yZSB0aGV5IGFyZSBwb3RlbnRpYWxseSBvdmVycmlkZW4pXHJcbiAgICB2YXIgYmFzZUZ1bmNzID0gX2dldEJhc2VGdW5jcyhjbGFzc1Byb3RvLCB0YXJnZXQsIGluc3RGdW5jcyk7XHJcbiAgICAvLyBFeGVjdXRlIHRoZSBkZWxlZ2F0ZSBwYXNzaW5nIGluIGJvdGggdGhlIGN1cnJlbnQgdGFyZ2V0IFwidGhpc1wiIGFuZCBcImJhc2VcIiBmdW5jdGlvbiByZWZlcmVuY2VzXHJcbiAgICAvLyBOb3RlIGNhc3RpbmcgdGhlIHNhbWUgdHlwZSBhcyB3ZSBkb24ndCBhY3R1YWxseSBoYXZlIHRoZSBiYXNlIGNsYXNzIGhlcmUgYW5kIHRoaXMgd2lsbCBwcm92aWRlIHNvbWUgaW50ZWxsaXNlbnNlIHN1cHBvcnRcclxuICAgIGRlbGVnYXRlRnVuYyh0YXJnZXQsIGJhc2VGdW5jcyk7XHJcbiAgICAvLyBQb3B1bGF0ZSB0aGUgUHJvdG90eXBlIGZvciBhbnkgb3ZlcmlkZGVuIGluc3RhbmNlIGZ1bmN0aW9uc1xyXG4gICAgX3BvcHVsYXRlUHJvdG90eXBlKGNsYXNzUHJvdG8sIGNsYXNzTmFtZSwgdGFyZ2V0LCBpbnN0RnVuY3MpO1xyXG59XG5cbmV4cG9ydCBkZWZhdWx0IGR5bmFtaWNQcm90bztcbi8vIyBzb3VyY2VNYXBwaW5nVVJMPWR5bmFtaWNwcm90by1qcy5qcy5tYXBcbiJdLCJzb3VyY2VSb290IjoiIn0=

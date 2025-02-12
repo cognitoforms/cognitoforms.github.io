@@ -1,0 +1,59 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8],{
+
+/***/ "../../libs/shared-components/src/utilities/notify.js":
+/*!*******************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/shared-components/src/utilities/notify.js ***!
+  \*******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _message = _interopRequireDefault(__webpack_require__(/*! @cognitoforms/element-ui/lib/message */ "../../libs/element-ui/lib/message.js"));
+__webpack_require__(/*! @cognitoforms/styles/global/notifications.scss */ "../../libs/styles/global/notifications.scss");
+var _Inline = _interopRequireDefault(__webpack_require__(/*! ../components/content/Inline.vue */ "../../libs/shared-components/src/components/content/Inline.vue"));
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "vue"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _default = exports.default = function _default(message) {
+  var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'info';
+  var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  var showClose = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+  var customIcon = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+  var icon;
+  var iconComponent;
+  if (type === 'success') icon = 'success';else if (type === 'error' || type === 'warning') icon = 'warning';else if (type === 'custom') icon = customIcon;else icon = null;
+  if (icon) iconComponent = new _vue.default({
+    props: Object.keys(_Inline.default.props),
+    propsData: {
+      svg: icon
+    },
+    template: '<inline class="sz-6 text-platon" ref="component" v-bind="$props" />'
+  });
+
+  // changed this I think it makes more sense to go by the words b/c thats how reading speeds are quantified
+  // I googled it it says that the average is 200 words per 2 minutes 120/200 = .6s per word
+  // the 400 is the about double the average response time (250ms)
+  if (typeof message === 'string') {
+    duration = duration === null ? Math.max(3000, message.split(' ').length * 500 + 400) : duration;
+    message = "".concat(iconComponent ? "<span id=\"icon-slot\" ></span> ".concat(message) : message);
+  }
+  (0, _message.default)({
+    dangerouslyUseHTMLString: true,
+    message: message,
+    type: type,
+    duration: duration,
+    customClass: "notification ".concat(type !== 'info' ? "is-".concat(type, " notification--icon") : 'notification--info'),
+    showClose: showClose
+  });
+  if (iconComponent) iconComponent.$mount('#icon-slot');
+};
+
+/***/ })
+
+}]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9DOi9Vc2Vycy9UeWxlclRyb3R0ZXIvcmVwb3MvQ29nbml0byBGb3Jtcy9Db2duaXRvLldlYi5DbGllbnQvbGlicy9zaGFyZWQtY29tcG9uZW50cy9zcmMvdXRpbGl0aWVzL25vdGlmeS5qcyJdLCJuYW1lcyI6WyJyZXF1aXJlIiwiX0lubGluZSIsIl9pbnRlcm9wUmVxdWlyZURlZmF1bHQiLCJfdnVlIiwib2JqIiwiX19lc01vZHVsZSIsImRlZmF1bHQiLCJfZGVmYXVsdCIsImV4cG9ydHMiLCJtZXNzYWdlIiwidHlwZSIsImFyZ3VtZW50cyIsImxlbmd0aCIsInVuZGVmaW5lZCIsImR1cmF0aW9uIiwic2hvd0Nsb3NlIiwiY3VzdG9tSWNvbiIsImljb24iLCJpY29uQ29tcG9uZW50IiwiVnVlIiwicHJvcHMiLCJPYmplY3QiLCJrZXlzIiwiSW5saW5lIiwicHJvcHNEYXRhIiwic3ZnIiwidGVtcGxhdGUiLCJNYXRoIiwibWF4Iiwic3BsaXQiLCJjb25jYXQiLCJfbWVzc2FnZSIsImRhbmdlcm91c2x5VXNlSFRNTFN0cmluZyIsImN1c3RvbUNsYXNzIiwiJG1vdW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7OztBQUFBQSxtQkFBQTtBQUVBLElBQUFDLE9BQUEsR0FBQUMsc0JBQUEsQ0FBQUYsbUJBQUE7QUFDQSxJQUFBRyxJQUFBLEdBQUFELHNCQUFBLENBQUFGLG1CQUFBO0FBQXNCLFNBQUFFLHVCQUFBRSxHQUFBLFdBQUFBLEdBQUEsSUFBQUEsR0FBQSxDQUFBQyxVQUFBLEdBQUFELEdBQUEsS0FBQUUsT0FBQSxFQUFBRixHQUFBO0FBQUEsSUFBQUcsUUFBQSxHQUFBQyxPQUFBLENBQUFGLE9BQUEsR0FFUCxTQUFBQyxTQUFDRSxPQUFPLEVBQTBFO0VBQUEsSUFBeEVDLElBQUksR0FBQUMsU0FBQSxDQUFBQyxNQUFBLFFBQUFELFNBQUEsUUFBQUUsU0FBQSxHQUFBRixTQUFBLE1BQUcsTUFBTTtFQUFBLElBQUVHLFFBQVEsR0FBQUgsU0FBQSxDQUFBQyxNQUFBLFFBQUFELFNBQUEsUUFBQUUsU0FBQSxHQUFBRixTQUFBLE1BQUcsSUFBSTtFQUFBLElBQUVJLFNBQVMsR0FBQUosU0FBQSxDQUFBQyxNQUFBLFFBQUFELFNBQUEsUUFBQUUsU0FBQSxHQUFBRixTQUFBLE1BQUcsSUFBSTtFQUFBLElBQUVLLFVBQVUsR0FBQUwsU0FBQSxDQUFBQyxNQUFBLFFBQUFELFNBQUEsUUFBQUUsU0FBQSxHQUFBRixTQUFBLE1BQUcsSUFBSTtFQUMzRixJQUFJTSxJQUFJO0VBQ1IsSUFBSUMsYUFBYTtFQUNqQixJQUFJUixJQUFJLEtBQUssU0FBUyxFQUNyQk8sSUFBSSxHQUFHLFNBQVMsQ0FBQyxLQUNiLElBQUlQLElBQUksS0FBSyxPQUFPLElBQUlBLElBQUksS0FBSyxTQUFTLEVBQzlDTyxJQUFJLEdBQUcsU0FBUyxDQUFDLEtBQ2IsSUFBSVAsSUFBSSxLQUFLLFFBQVEsRUFDekJPLElBQUksR0FBR0QsVUFBVSxDQUFDLEtBRWxCQyxJQUFJLEdBQUcsSUFBSTtFQUVaLElBQUlBLElBQUksRUFDUEMsYUFBYSxHQUFHLElBQUlDLFlBQUcsQ0FBQztJQUN2QkMsS0FBSyxFQUFFQyxNQUFNLENBQUNDLElBQUksQ0FBQ0MsZUFBTSxDQUFDSCxLQUFLLENBQUM7SUFDaENJLFNBQVMsRUFBRTtNQUNWQyxHQUFHLEVBQUVSO0lBQ04sQ0FBQztJQUNEUyxRQUFRLEVBQUU7RUFDWCxDQUFDLENBQUM7O0VBRUg7RUFDQTtFQUNBO0VBQ0EsSUFBSSxPQUFPakIsT0FBTyxLQUFLLFFBQVEsRUFBRTtJQUNoQ0ssUUFBUSxHQUFHQSxRQUFRLEtBQUssSUFBSSxHQUFHYSxJQUFJLENBQUNDLEdBQUcsQ0FBQyxJQUFJLEVBQUVuQixPQUFPLENBQUNvQixLQUFLLENBQUMsR0FBRyxDQUFDLENBQUNqQixNQUFNLEdBQUcsR0FBRyxHQUFHLEdBQUcsQ0FBQyxHQUFHRSxRQUFRO0lBQy9GTCxPQUFPLE1BQUFxQixNQUFBLENBQU1aLGFBQWEsc0NBQUFZLE1BQUEsQ0FBb0NyQixPQUFPLElBQUtBLE9BQU8sQ0FBRTtFQUNwRjtFQUVBLElBQUFzQixRQUFBLENBQUF6QixPQUFBLEVBQVE7SUFDUDBCLHdCQUF3QixFQUFFLElBQUk7SUFDOUJ2QixPQUFPLEVBQUVBLE9BQU87SUFDaEJDLElBQUksRUFBRUEsSUFBSTtJQUNWSSxRQUFRLEVBQUVBLFFBQVE7SUFDbEJtQixXQUFXLGtCQUFBSCxNQUFBLENBQWtCcEIsSUFBSSxLQUFLLE1BQU0sU0FBQW9CLE1BQUEsQ0FBU3BCLElBQUksMkJBQXdCLG9CQUFvQixDQUFFO0lBQ3ZHSyxTQUFTLEVBQUVBO0VBQ1osQ0FBQyxDQUFDO0VBRUYsSUFBSUcsYUFBYSxFQUNoQkEsYUFBYSxDQUFDZ0IsTUFBTSxDQUFDLFlBQVksQ0FBQztBQUNwQyxDQUFDLEMiLCJmaWxlIjoiOC43MWQ3MmZkODU3NTIzMzNiNDkwZi5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCAnQGNvZ25pdG9mb3Jtcy9zdHlsZXMvZ2xvYmFsL25vdGlmaWNhdGlvbnMuc2Nzcyc7XHJcbmltcG9ydCB7IE1lc3NhZ2UgfSBmcm9tICdAY29nbml0b2Zvcm1zL2VsZW1lbnQtdWknO1xyXG5pbXBvcnQgSW5saW5lIGZyb20gJy4uL2NvbXBvbmVudHMvY29udGVudC9JbmxpbmUudnVlJztcclxuaW1wb3J0IFZ1ZSBmcm9tICd2dWUnO1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgKG1lc3NhZ2UsIHR5cGUgPSAnaW5mbycsIGR1cmF0aW9uID0gbnVsbCwgc2hvd0Nsb3NlID0gdHJ1ZSwgY3VzdG9tSWNvbiA9IG51bGwpID0+IHtcclxuXHRsZXQgaWNvbjtcclxuXHRsZXQgaWNvbkNvbXBvbmVudDtcclxuXHRpZiAodHlwZSA9PT0gJ3N1Y2Nlc3MnKVxyXG5cdFx0aWNvbiA9ICdzdWNjZXNzJztcclxuXHRlbHNlIGlmICh0eXBlID09PSAnZXJyb3InIHx8IHR5cGUgPT09ICd3YXJuaW5nJylcclxuXHRcdGljb24gPSAnd2FybmluZyc7XHJcblx0ZWxzZSBpZiAodHlwZSA9PT0gJ2N1c3RvbScpXHJcblx0XHRpY29uID0gY3VzdG9tSWNvbjtcclxuXHRlbHNlXHJcblx0XHRpY29uID0gbnVsbDtcclxuXHJcblx0aWYgKGljb24pXHJcblx0XHRpY29uQ29tcG9uZW50ID0gbmV3IFZ1ZSh7XHJcblx0XHRcdHByb3BzOiBPYmplY3Qua2V5cyhJbmxpbmUucHJvcHMpLFxyXG5cdFx0XHRwcm9wc0RhdGE6IHtcclxuXHRcdFx0XHRzdmc6IGljb25cclxuXHRcdFx0fSxcclxuXHRcdFx0dGVtcGxhdGU6ICc8aW5saW5lIGNsYXNzPVwic3otNiB0ZXh0LXBsYXRvblwiIHJlZj1cImNvbXBvbmVudFwiIHYtYmluZD1cIiRwcm9wc1wiIC8+J1xyXG5cdFx0fSk7XHJcblxyXG5cdC8vIGNoYW5nZWQgdGhpcyBJIHRoaW5rIGl0IG1ha2VzIG1vcmUgc2Vuc2UgdG8gZ28gYnkgdGhlIHdvcmRzIGIvYyB0aGF0cyBob3cgcmVhZGluZyBzcGVlZHMgYXJlIHF1YW50aWZpZWRcclxuXHQvLyBJIGdvb2dsZWQgaXQgaXQgc2F5cyB0aGF0IHRoZSBhdmVyYWdlIGlzIDIwMCB3b3JkcyBwZXIgMiBtaW51dGVzIDEyMC8yMDAgPSAuNnMgcGVyIHdvcmRcclxuXHQvLyB0aGUgNDAwIGlzIHRoZSBhYm91dCBkb3VibGUgdGhlIGF2ZXJhZ2UgcmVzcG9uc2UgdGltZSAoMjUwbXMpXHJcblx0aWYgKHR5cGVvZiBtZXNzYWdlID09PSAnc3RyaW5nJykge1xyXG5cdFx0ZHVyYXRpb24gPSBkdXJhdGlvbiA9PT0gbnVsbCA/IE1hdGgubWF4KDMwMDAsIG1lc3NhZ2Uuc3BsaXQoJyAnKS5sZW5ndGggKiA1MDAgKyA0MDApIDogZHVyYXRpb247XHJcblx0XHRtZXNzYWdlID0gYCR7aWNvbkNvbXBvbmVudCA/IGA8c3BhbiBpZD1cImljb24tc2xvdFwiID48L3NwYW4+ICR7bWVzc2FnZX1gIDogbWVzc2FnZX1gO1xyXG5cdH1cclxuXHJcblx0TWVzc2FnZSh7XHJcblx0XHRkYW5nZXJvdXNseVVzZUhUTUxTdHJpbmc6IHRydWUsXHJcblx0XHRtZXNzYWdlOiBtZXNzYWdlLFxyXG5cdFx0dHlwZTogdHlwZSxcclxuXHRcdGR1cmF0aW9uOiBkdXJhdGlvbixcclxuXHRcdGN1c3RvbUNsYXNzOiBgbm90aWZpY2F0aW9uICR7dHlwZSAhPT0gJ2luZm8nID8gYGlzLSR7dHlwZX0gbm90aWZpY2F0aW9uLS1pY29uYCA6ICdub3RpZmljYXRpb24tLWluZm8nfWAsXHJcblx0XHRzaG93Q2xvc2U6IHNob3dDbG9zZVxyXG5cdH0pO1xyXG5cclxuXHRpZiAoaWNvbkNvbXBvbmVudClcclxuXHRcdGljb25Db21wb25lbnQuJG1vdW50KCcjaWNvbi1zbG90Jyk7XHJcbn07Il0sInNvdXJjZVJvb3QiOiIifQ==

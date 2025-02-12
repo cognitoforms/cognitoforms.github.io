@@ -1,0 +1,282 @@
+(window["cfAcWebpackJsonp"] = window["cfAcWebpackJsonp"] || []).push([[20],{
+
+/***/ "../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/interaction/IconButton.vue?vue&type=script&lang=ts":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./src/components/interaction/IconButton.vue?vue&type=script&lang=ts ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(vue__WEBPACK_IMPORTED_MODULE_0__["defineComponent"])({
+  name: 'CIconButton',
+  props: {
+    icon: {
+      type: String,
+      default: 'plus'
+    },
+    hoverIcon: {
+      type: String,
+      default: null
+    },
+    // Use isBlock when the button is in a menu with a constrained width, such as a side menu or dropdown.
+    isBlock: {
+      type: Boolean,
+      default: false
+    },
+    to: {
+      type: String,
+      default: null
+    },
+    isExternal: {
+      type: Boolean,
+      default: false
+    },
+    text: {
+      type: String,
+      default: undefined
+    },
+    intense: {
+      type: Boolean,
+      default: true
+    }
+  },
+  emits: ['click'],
+  setup: function setup(props) {
+    var componentType = Object(vue__WEBPACK_IMPORTED_MODULE_0__["computed"])(function () {
+      return props.to ? props.isExternal ? 'a' : 'router-link' : 'button';
+    });
+    var slots = Object(vue__WEBPACK_IMPORTED_MODULE_0__["useSlots"])();
+    var hasText = Object(vue__WEBPACK_IMPORTED_MODULE_0__["computed"])(function () {
+      return !!props.text || slots.default;
+    });
+    return {
+      componentType: componentType,
+      hasText: hasText
+    };
+  }
+}));
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/interaction/IconButton.vue?vue&type=template&id=4a0f0758":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./src/components/interaction/IconButton.vue?vue&type=template&id=4a0f0758 ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c,
+    _setup = _vm._self._setupProxy;
+  return _c(_vm.componentType, _vm._b({
+    tag: "component",
+    staticClass: "i-button",
+    class: {
+      "i-button--block": _vm.isBlock,
+      "i-button--no-text": !_vm.hasText,
+      "text-button": _vm.hasText && !_vm.isBlock,
+      "i-button--intense": _vm.intense,
+      "i-button--subtle": !_vm.intense,
+      "no-underline": _vm.to,
+      "button--no-style": !_vm.to,
+      "i-button--icon-hover": _vm.hoverIcon
+    },
+    attrs: {
+      to: _vm.componentType === "router-link" ? _vm.to : null,
+      href: _vm.componentType === "a" ? _vm.to : null,
+      type: _vm.componentType === "button" ? "button" : null,
+      "data-test": _vm.icon
+    },
+    on: {
+      click: function click($event) {
+        return _vm.$emit("click", $event);
+      }
+    }
+  }, "component", _vm.$attrs, false), [_c("inline", {
+    staticClass: "i-button__icon",
+    attrs: {
+      svg: _vm.icon
+    }
+  }), _vm._v(" "), _vm.hoverIcon ? _c("inline", {
+    staticClass: "i-button__icon i-button__icon--hover hidden",
+    attrs: {
+      svg: _vm.hoverIcon
+    }
+  }) : _vm._e(), _vm._v(" "), _vm.hasText ? _c("span", {
+    staticClass: "i-button__text"
+  }, [[_vm._v("\n\t\t\t" + _vm._s(_vm.text) + "\n\t\t")], _vm._v(" "), _vm._t("default")], 2) : _vm._e()], 1);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/runtime/api.js */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".i-button{align-items:center;display:flex;gap:8px}.i-button--intense{color:#09a098;font-weight:700}.i-button--intense .i-button__icon{color:#09a098}:root:root .i-button--subtle{color:inherit}.i-button__icon{border-radius:50%;color:#798f8f;display:flex;flex-grow:0}.i-button--icon-hover:hover .i-button__icon,.i-button__icon--hover{display:none}.i-button--icon-hover:hover .i-button__icon--hover{display:flex}:root .i-button{transition:background-color .3s}:root .i-button:hover{background-color:rgba(223,234,234,.65)}:root .i-button--block{display:flex;padding:var(--space__touch-target) 16px;width:100%}.i-button--no-text{border-radius:50%;padding:8px}.i-button[disabled]{color:#92b8b8;cursor:default}.i-button[disabled] .i-button__icon{color:#92b8b8}.i-button[disabled]:hover{background-color:transparent;box-shadow:none}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/index.js!../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/lib/addStylesClient.js */ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("14f4c3e2", content, false, {});
+// Hot Module Replacement
+if(true) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept(/*! !../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss", function() {
+     var newContent = __webpack_require__(/*! !../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss");
+     if(newContent.__esModule) newContent = newContent.default;
+     if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/components/interaction/IconButton.vue":
+/*!***************************************************!*\
+  !*** ./src/components/interaction/IconButton.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _IconButton_vue_vue_type_template_id_4a0f0758__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IconButton.vue?vue&type=template&id=4a0f0758 */ "./src/components/interaction/IconButton.vue?vue&type=template&id=4a0f0758");
+/* harmony import */ var _IconButton_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./IconButton.vue?vue&type=script&lang=ts */ "./src/components/interaction/IconButton.vue?vue&type=script&lang=ts");
+/* empty/unused harmony star reexport *//* harmony import */ var _IconButton_vue_vue_type_style_index_0_id_4a0f0758_lang_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss */ "./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss");
+/* harmony import */ var _node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _IconButton_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _IconButton_vue_vue_type_template_id_4a0f0758__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _IconButton_vue_vue_type_template_id_4a0f0758__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (true) {
+  var api = __webpack_require__(/*! C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-hot-reload-api@2.3.4/node_modules/vue-hot-reload-api/dist/index.js */ "../../node_modules/.pnpm/vue-hot-reload-api@2.3.4/node_modules/vue-hot-reload-api/dist/index.js")
+  api.install(__webpack_require__(/*! vue */ "vue"))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!api.isRecorded('4a0f0758')) {
+      api.createRecord('4a0f0758', component.options)
+    } else {
+      api.reload('4a0f0758', component.options)
+    }
+    module.hot.accept(/*! ./IconButton.vue?vue&type=template&id=4a0f0758 */ "./src/components/interaction/IconButton.vue?vue&type=template&id=4a0f0758", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ _IconButton_vue_vue_type_template_id_4a0f0758__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IconButton.vue?vue&type=template&id=4a0f0758 */ "./src/components/interaction/IconButton.vue?vue&type=template&id=4a0f0758");
+(function () {
+      api.rerender('4a0f0758', {
+        render: _IconButton_vue_vue_type_template_id_4a0f0758__WEBPACK_IMPORTED_MODULE_0__["render"],
+        staticRenderFns: _IconButton_vue_vue_type_template_id_4a0f0758__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]
+      })
+    })(__WEBPACK_OUTDATED_DEPENDENCIES__); }.bind(this))
+  }
+}
+component.options.__file = "src/components/interaction/IconButton.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./src/components/interaction/IconButton.vue?vue&type=script&lang=ts":
+/*!***************************************************************************!*\
+  !*** ./src/components/interaction/IconButton.vue?vue&type=script&lang=ts ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_IconButton_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./IconButton.vue?vue&type=script&lang=ts */ "../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/interaction/IconButton.vue?vue&type=script&lang=ts");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_IconButton_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss":
+/*!************************************************************************************************!*\
+  !*** ./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_IconButton_vue_vue_type_style_index_0_id_4a0f0758_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader!../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss */ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/index.js!../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/interaction/IconButton.vue?vue&type=style&index=0&id=4a0f0758&lang=scss");
+/* harmony import */ var _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_IconButton_vue_vue_type_style_index_0_id_4a0f0758_lang_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_IconButton_vue_vue_type_style_index_0_id_4a0f0758_lang_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_IconButton_vue_vue_type_style_index_0_id_4a0f0758_lang_scss__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_IconButton_vue_vue_type_style_index_0_id_4a0f0758_lang_scss__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./src/components/interaction/IconButton.vue?vue&type=template&id=4a0f0758":
+/*!*********************************************************************************!*\
+  !*** ./src/components/interaction/IconButton.vue?vue&type=template&id=4a0f0758 ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_IconButton_vue_vue_type_template_id_4a0f0758__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./IconButton.vue?vue&type=template&id=4a0f0758 */ "../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/interaction/IconButton.vue?vue&type=template&id=4a0f0758");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_IconButton_vue_vue_type_template_id_4a0f0758__WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_IconButton_vue_vue_type_template_id_4a0f0758__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);
