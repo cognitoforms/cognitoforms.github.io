@@ -10140,9 +10140,12 @@ html .cog-time-popper li, :root:root:root:root:root .cog-time-popper li {
 
       document.addEventListener('click', e => {
         if (e.target.closest('.intro')) {
-          e.target.closest('.intro').classList.add('hide');
-          startTime = Math.round(performance.now());
-          console.log(startTime);
+
+          if(e.target.id === 'next-button') {
+            e.target.closest('.intro').classList.add('hide');
+            startTime = Math.round(performance.now());
+          }
+
           return;
         }else {
           
