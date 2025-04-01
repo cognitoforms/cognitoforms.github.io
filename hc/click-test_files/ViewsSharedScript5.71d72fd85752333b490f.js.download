@@ -1,0 +1,92 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ViewsSharedScript5"],{
+
+/***/ "../../../Cognito.Services/Views/Shared/document-templates-dialog.js":
+/*!************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Services/Views/Shared/document-templates-dialog.js ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+﻿(( true ? exports : undefined).exec = function (isInIframe) {
+// #region Document Templates Dialog
+
+Cognito.ready("open-manage-templates-dialog", "Cognito.Forms", function ($) {
+	var saveErrorDialog;
+	var manageTemplatesDialog;
+
+	// Opens the Manage Templates dialog to allow users to add/edit/delete document templates.
+	Cognito.Forms.manageDocumentTemplates = function (options) {
+
+		var path = Cognito.config.mode === "anonymous"
+			? "forms/anonymous/view/documenttemplates"
+			: "forms/admin/view" + (options.usePersistedData ? "/" + Cognito.Forms.model.currentForm.get_LoweredInternalName() : "") + "/documenttemplates";
+
+		var queryString = "";
+
+		if (options.hasOwnProperty("isMultiPageForm")) {
+			queryString += "?isMultiPageForm=" + options.isMultiPageForm.toString();
+		}
+
+		if (options.hasOwnProperty("isPaymentForm")) {
+			queryString += (queryString ? "&" : "?") + "isPaymentForm=" + options.isPaymentForm.toString();
+		}
+
+		manageTemplatesDialog = $.fn.dialog({
+			title: "Manage Document Templates",
+			contentSelector: "#manage-templates-dialog",
+			name: "documentTemplates",
+			modalClass: 'document-templates-dialog',
+			contentClass: 'document-templates',
+			url: Cognito.config.baseUrl + path + queryString,
+			width: options.width || 800,
+			height: options.height || "650px",
+			buttons: [
+				{
+					label: options.cancelText || "Cancel",
+					isCancel: true,
+					click: function (event) {
+						// Stop propogation in order to prevent the menu
+						// that opened the dialog from being closed.
+						event.stopPropagation();
+					}
+				},
+				{
+					label: options.confirmText || "Save",
+					isCancel: false,
+					autoClose: false,
+					click: function (event) {
+						// Stop propogation in order to prevent the menu
+						// that opened the dialog from being closed.
+						event.stopPropagation();
+
+						if (options.autoSave) 
+							Cognito.Forms.controller.documentTemplates.save();
+						else{
+							Cognito.Forms.controller.documentTemplates.update();
+                            setTimeout(function () {
+                                manageTemplatesDialog.close();
+                            });
+						}
+					}
+				}
+			]
+		});
+
+		manageTemplatesDialog.open();
+	}
+
+	// Because documentTemplates.save just postes a message and our message proxy does not support callback, we need a way to close the dialog 
+	// when the templates update has completed 
+	Cognito.Forms.closeTemplatesDialog = function () {
+		if (manageTemplatesDialog)
+			manageTemplatesDialog.close();
+	}
+});
+
+// #endregion
+})(typeof exports === 'undefined');
+
+/***/ })
+
+}]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9DOi9Vc2Vycy9UeWxlclRyb3R0ZXIvcmVwb3MvQ29nbml0byBGb3Jtcy9Db2duaXRvLlNlcnZpY2VzL1ZpZXdzL1NoYXJlZC9kb2N1bWVudC10ZW1wbGF0ZXMtZGlhbG9nLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFBLEdBQUcsS0FBNkIsYUFBYSxTQUFFO0FBQy9DOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTs7QUFFQTs7QUFFQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLDZCQUE2QjtBQUM3QjtBQUNBO0FBQ0E7QUFDQTtBQUNBLEdBQUc7O0FBRUg7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxDQUFDOztBQUVEO0FBQ0EsQ0FBQyxrQyIsImZpbGUiOiJWaWV3c1NoYXJlZFNjcmlwdDUuNzFkNzJmZDg1NzUyMzMzYjQ5MGYuanMiLCJzb3VyY2VzQ29udGVudCI6WyLvu78oKHR5cGVvZiBleHBvcnRzICE9ICd1bmRlZmluZWQnID8gZXhwb3J0cyA6IHt9KS5leGVjID0gZnVuY3Rpb24gKGlzSW5JZnJhbWUpIHtcclxuLy8gI3JlZ2lvbiBEb2N1bWVudCBUZW1wbGF0ZXMgRGlhbG9nXHJcblxyXG5Db2duaXRvLnJlYWR5KFwib3Blbi1tYW5hZ2UtdGVtcGxhdGVzLWRpYWxvZ1wiLCBcIkNvZ25pdG8uRm9ybXNcIiwgZnVuY3Rpb24gKCQpIHtcclxuXHR2YXIgc2F2ZUVycm9yRGlhbG9nO1xyXG5cdHZhciBtYW5hZ2VUZW1wbGF0ZXNEaWFsb2c7XHJcblxyXG5cdC8vIE9wZW5zIHRoZSBNYW5hZ2UgVGVtcGxhdGVzIGRpYWxvZyB0byBhbGxvdyB1c2VycyB0byBhZGQvZWRpdC9kZWxldGUgZG9jdW1lbnQgdGVtcGxhdGVzLlxyXG5cdENvZ25pdG8uRm9ybXMubWFuYWdlRG9jdW1lbnRUZW1wbGF0ZXMgPSBmdW5jdGlvbiAob3B0aW9ucykge1xyXG5cclxuXHRcdHZhciBwYXRoID0gQ29nbml0by5jb25maWcubW9kZSA9PT0gXCJhbm9ueW1vdXNcIlxyXG5cdFx0XHQ/IFwiZm9ybXMvYW5vbnltb3VzL3ZpZXcvZG9jdW1lbnR0ZW1wbGF0ZXNcIlxyXG5cdFx0XHQ6IFwiZm9ybXMvYWRtaW4vdmlld1wiICsgKG9wdGlvbnMudXNlUGVyc2lzdGVkRGF0YSA/IFwiL1wiICsgQ29nbml0by5Gb3Jtcy5tb2RlbC5jdXJyZW50Rm9ybS5nZXRfTG93ZXJlZEludGVybmFsTmFtZSgpIDogXCJcIikgKyBcIi9kb2N1bWVudHRlbXBsYXRlc1wiO1xyXG5cclxuXHRcdHZhciBxdWVyeVN0cmluZyA9IFwiXCI7XHJcblxyXG5cdFx0aWYgKG9wdGlvbnMuaGFzT3duUHJvcGVydHkoXCJpc011bHRpUGFnZUZvcm1cIikpIHtcclxuXHRcdFx0cXVlcnlTdHJpbmcgKz0gXCI/aXNNdWx0aVBhZ2VGb3JtPVwiICsgb3B0aW9ucy5pc011bHRpUGFnZUZvcm0udG9TdHJpbmcoKTtcclxuXHRcdH1cclxuXHJcblx0XHRpZiAob3B0aW9ucy5oYXNPd25Qcm9wZXJ0eShcImlzUGF5bWVudEZvcm1cIikpIHtcclxuXHRcdFx0cXVlcnlTdHJpbmcgKz0gKHF1ZXJ5U3RyaW5nID8gXCImXCIgOiBcIj9cIikgKyBcImlzUGF5bWVudEZvcm09XCIgKyBvcHRpb25zLmlzUGF5bWVudEZvcm0udG9TdHJpbmcoKTtcclxuXHRcdH1cclxuXHJcblx0XHRtYW5hZ2VUZW1wbGF0ZXNEaWFsb2cgPSAkLmZuLmRpYWxvZyh7XHJcblx0XHRcdHRpdGxlOiBcIk1hbmFnZSBEb2N1bWVudCBUZW1wbGF0ZXNcIixcclxuXHRcdFx0Y29udGVudFNlbGVjdG9yOiBcIiNtYW5hZ2UtdGVtcGxhdGVzLWRpYWxvZ1wiLFxyXG5cdFx0XHRuYW1lOiBcImRvY3VtZW50VGVtcGxhdGVzXCIsXHJcblx0XHRcdG1vZGFsQ2xhc3M6ICdkb2N1bWVudC10ZW1wbGF0ZXMtZGlhbG9nJyxcclxuXHRcdFx0Y29udGVudENsYXNzOiAnZG9jdW1lbnQtdGVtcGxhdGVzJyxcclxuXHRcdFx0dXJsOiBDb2duaXRvLmNvbmZpZy5iYXNlVXJsICsgcGF0aCArIHF1ZXJ5U3RyaW5nLFxyXG5cdFx0XHR3aWR0aDogb3B0aW9ucy53aWR0aCB8fCA4MDAsXHJcblx0XHRcdGhlaWdodDogb3B0aW9ucy5oZWlnaHQgfHwgXCI2NTBweFwiLFxyXG5cdFx0XHRidXR0b25zOiBbXHJcblx0XHRcdFx0e1xyXG5cdFx0XHRcdFx0bGFiZWw6IG9wdGlvbnMuY2FuY2VsVGV4dCB8fCBcIkNhbmNlbFwiLFxyXG5cdFx0XHRcdFx0aXNDYW5jZWw6IHRydWUsXHJcblx0XHRcdFx0XHRjbGljazogZnVuY3Rpb24gKGV2ZW50KSB7XHJcblx0XHRcdFx0XHRcdC8vIFN0b3AgcHJvcG9nYXRpb24gaW4gb3JkZXIgdG8gcHJldmVudCB0aGUgbWVudVxyXG5cdFx0XHRcdFx0XHQvLyB0aGF0IG9wZW5lZCB0aGUgZGlhbG9nIGZyb20gYmVpbmcgY2xvc2VkLlxyXG5cdFx0XHRcdFx0XHRldmVudC5zdG9wUHJvcGFnYXRpb24oKTtcclxuXHRcdFx0XHRcdH1cclxuXHRcdFx0XHR9LFxyXG5cdFx0XHRcdHtcclxuXHRcdFx0XHRcdGxhYmVsOiBvcHRpb25zLmNvbmZpcm1UZXh0IHx8IFwiU2F2ZVwiLFxyXG5cdFx0XHRcdFx0aXNDYW5jZWw6IGZhbHNlLFxyXG5cdFx0XHRcdFx0YXV0b0Nsb3NlOiBmYWxzZSxcclxuXHRcdFx0XHRcdGNsaWNrOiBmdW5jdGlvbiAoZXZlbnQpIHtcclxuXHRcdFx0XHRcdFx0Ly8gU3RvcCBwcm9wb2dhdGlvbiBpbiBvcmRlciB0byBwcmV2ZW50IHRoZSBtZW51XHJcblx0XHRcdFx0XHRcdC8vIHRoYXQgb3BlbmVkIHRoZSBkaWFsb2cgZnJvbSBiZWluZyBjbG9zZWQuXHJcblx0XHRcdFx0XHRcdGV2ZW50LnN0b3BQcm9wYWdhdGlvbigpO1xyXG5cclxuXHRcdFx0XHRcdFx0aWYgKG9wdGlvbnMuYXV0b1NhdmUpIFxyXG5cdFx0XHRcdFx0XHRcdENvZ25pdG8uRm9ybXMuY29udHJvbGxlci5kb2N1bWVudFRlbXBsYXRlcy5zYXZlKCk7XHJcblx0XHRcdFx0XHRcdGVsc2V7XHJcblx0XHRcdFx0XHRcdFx0Q29nbml0by5Gb3Jtcy5jb250cm9sbGVyLmRvY3VtZW50VGVtcGxhdGVzLnVwZGF0ZSgpO1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0VGltZW91dChmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbWFuYWdlVGVtcGxhdGVzRGlhbG9nLmNsb3NlKCk7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9KTtcclxuXHRcdFx0XHRcdFx0fVxyXG5cdFx0XHRcdFx0fVxyXG5cdFx0XHRcdH1cclxuXHRcdFx0XVxyXG5cdFx0fSk7XHJcblxyXG5cdFx0bWFuYWdlVGVtcGxhdGVzRGlhbG9nLm9wZW4oKTtcclxuXHR9XHJcblxyXG5cdC8vIEJlY2F1c2UgZG9jdW1lbnRUZW1wbGF0ZXMuc2F2ZSBqdXN0IHBvc3RlcyBhIG1lc3NhZ2UgYW5kIG91ciBtZXNzYWdlIHByb3h5IGRvZXMgbm90IHN1cHBvcnQgY2FsbGJhY2ssIHdlIG5lZWQgYSB3YXkgdG8gY2xvc2UgdGhlIGRpYWxvZyBcclxuXHQvLyB3aGVuIHRoZSB0ZW1wbGF0ZXMgdXBkYXRlIGhhcyBjb21wbGV0ZWQgXHJcblx0Q29nbml0by5Gb3Jtcy5jbG9zZVRlbXBsYXRlc0RpYWxvZyA9IGZ1bmN0aW9uICgpIHtcclxuXHRcdGlmIChtYW5hZ2VUZW1wbGF0ZXNEaWFsb2cpXHJcblx0XHRcdG1hbmFnZVRlbXBsYXRlc0RpYWxvZy5jbG9zZSgpO1xyXG5cdH1cclxufSk7XHJcblxyXG4vLyAjZW5kcmVnaW9uXHJcbn0pKHR5cGVvZiBleHBvcnRzID09PSAndW5kZWZpbmVkJyk7Il0sInNvdXJjZVJvb3QiOiIifQ==

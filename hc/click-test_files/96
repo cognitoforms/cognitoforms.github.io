@@ -1,0 +1,460 @@
+(window["cfAcWebpackJsonp"] = window["cfAcWebpackJsonp"] || []).push([[96],{
+
+/***/ "../../libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external":
+/*!*************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external ***!
+  \*************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_card_dropdown_scss_vue_type_style_index_1_lang_scss_external__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader!../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!./card-dropdown.scss?vue&type=style&index=1&lang=scss&external */ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/index.js!../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external");
+/* harmony import */ var _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_card_dropdown_scss_vue_type_style_index_1_lang_scss_external__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_card_dropdown_scss_vue_type_style_index_1_lang_scss_external__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_card_dropdown_scss_vue_type_style_index_1_lang_scss_external__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_card_dropdown_scss_vue_type_style_index_1_lang_scss_external__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/app/DocumentsDropdown.vue?vue&type=script&lang=ts":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./src/components/app/DocumentsDropdown.vue?vue&type=script&lang=ts ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _cognitoforms_element_ui_lib_dropdown_item__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @cognitoforms/element-ui/lib/dropdown-item */ "../../libs/element-ui/lib/dropdown-item.js");
+/* harmony import */ var _cognitoforms_element_ui_lib_dropdown_item__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cognitoforms_element_ui_lib_dropdown_item__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _cognitoforms_element_ui_lib_dropdown_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @cognitoforms/element-ui/lib/dropdown-menu */ "../../libs/element-ui/lib/dropdown-menu.js");
+/* harmony import */ var _cognitoforms_element_ui_lib_dropdown_menu__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_cognitoforms_element_ui_lib_dropdown_menu__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _cognitoforms_element_ui_lib_dropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cognitoforms/element-ui/lib/dropdown */ "../../libs/element-ui/lib/dropdown.js");
+/* harmony import */ var _cognitoforms_element_ui_lib_dropdown__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_cognitoforms_element_ui_lib_dropdown__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_array_find_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.find-index.js */ "../../node_modules/.pnpm/core-js@3.31.0/node_modules/core-js/modules/es.array.find-index.js");
+/* harmony import */ var core_js_modules_es_array_find_index_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_find_index_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var src_components_app_Card_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/components/app/Card.vue */ "./src/components/app/Card.vue");
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(vue__WEBPACK_IMPORTED_MODULE_4__["defineComponent"])({
+  name: 'CDocumentsDropdown',
+  components: {
+    CCard: src_components_app_Card_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    'el-dropdown': _cognitoforms_element_ui_lib_dropdown__WEBPACK_IMPORTED_MODULE_2___default.a,
+    'el-dropdown-menu': _cognitoforms_element_ui_lib_dropdown_menu__WEBPACK_IMPORTED_MODULE_1___default.a,
+    'el-dropdown-item': _cognitoforms_element_ui_lib_dropdown_item__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  props: {
+    documents: {
+      type: Array,
+      required: true
+    },
+    selectedDocuments: {
+      type: Array,
+      default: function _default() {
+        return [];
+      }
+    },
+    dropdownOffset: {
+      type: Number,
+      default: 0
+    },
+    canManageForm: {
+      type: Boolean,
+      default: true
+    },
+    placement: {
+      type: String,
+      default: 'bottom-start'
+    },
+    hideOnClick: {
+      type: Boolean,
+      default: false
+    },
+    showSelectedDocument: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup: function setup() {
+    return {
+      dropdownVisible: Object(vue__WEBPACK_IMPORTED_MODULE_4__["ref"])(false)
+    };
+  },
+  computed: {
+    dropdownKey: function dropdownKey() {
+      return this.documents ? this.documents.length : 0;
+    }
+  },
+  methods: {
+    fileType: function fileType(document) {
+      var type = document.OutputType ? document.OutputType : document.Type;
+      if (!type) return;
+      return type.toLowerCase();
+    },
+    documentName: function documentName(document) {
+      return document.NameHtml ? document.NameHtml : document.Name;
+    },
+    getDocumentNumber: function getDocumentNumber(val) {
+      return typeof val === 'number' ? val : val.Number;
+    },
+    isSelected: function isSelected(document) {
+      if (!this.selectedDocuments) return;
+      var index = this.selectedDocuments.findIndex(function (doc) {
+        return (typeof doc === 'number' ? doc : doc.Number) === document.Number;
+      });
+      return index !== -1;
+    },
+    closeDropdown: function closeDropdown() {
+      this.$refs.dropdown.hide();
+    },
+    selectDocument: function selectDocument(command) {
+      if (command === 'manage-documents') {
+        this.closeDropdown();
+        this.$emit('manage-documents');
+      } else {
+        if (this.hideOnClick) this.closeDropdown();
+        this.$emit('select-document', command);
+      }
+    }
+  }
+}));
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/app/DocumentsDropdown.vue?vue&type=template&id=0d3c30fb":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./src/components/app/DocumentsDropdown.vue?vue&type=template&id=0d3c30fb ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c,
+    _setup = _vm._self._setupProxy;
+  return _c("el-dropdown", {
+    ref: "dropdown",
+    staticClass: "documents-dropdown card-dropdown",
+    class: {
+      "is-expanded": _vm.dropdownVisible
+    },
+    attrs: {
+      placement: _vm.placement,
+      "hide-on-click": false,
+      trigger: "click"
+    },
+    on: {
+      "visible-change": function visibleChange($event) {
+        _vm.dropdownVisible = $event;
+      },
+      command: _vm.selectDocument
+    },
+    scopedSlots: _vm._u([{
+      key: "dropdown",
+      fn: function fn() {
+        return [_c("el-dropdown-menu", {
+          key: _vm.dropdownKey,
+          ref: "documents",
+          staticClass: "documents-dropdown__menu card-dropdown__menu min-w-140 scrollbar",
+          attrs: {
+            offset: _vm.dropdownOffset
+          }
+        }, [_vm._l(_vm.documents, function (document) {
+          return _c("el-dropdown-item", {
+            key: document.Number,
+            staticClass: "el-dropdown-menu__item",
+            class: {
+              "is-selected": _vm.isSelected(document)
+            },
+            attrs: {
+              command: document
+            }
+          }, [_c("c-card", {
+            attrs: {
+              icon: "".concat(_vm.isSelected(document) ? "check" : _vm.fileType(document)),
+              "hover-icon": null,
+              "hide-handle": ""
+            },
+            scopedSlots: _vm._u([{
+              key: "title",
+              fn: function fn() {
+                return [_c("span", {
+                  domProps: {
+                    innerHTML: _vm._s(_vm.documentName(document))
+                  }
+                })];
+              },
+              proxy: true
+            }, {
+              key: "bottom",
+              fn: function fn() {
+                return [_vm._v(_vm._s(document.Description))];
+              },
+              proxy: true
+            }], null, true)
+          })], 1);
+        }), _vm._v(" "), _vm.canManageForm ? _c("el-dropdown-item", {
+          staticClass: "documents-dropdown__manage text-right sz-2",
+          attrs: {
+            command: "manage-documents"
+          }
+        }, [_c("span", [_vm._v("\n\t\t\t\t\tManage Templates\n\t\t\t\t")])]) : _vm._e()], 2)];
+      },
+      proxy: true
+    }])
+  }, [!_vm.$slots.default ? _c("div", {
+    staticClass: "documents-dropdown__input px-1 flex flex--sb flex--align relative"
+  }, [_c("div", {
+    staticClass: "documents-dropdown__input-content flex flex--align w-100"
+  }, [!_vm.showSelectedDocument || _vm.selectedDocuments.length === 0 ? _c("div", {
+    staticClass: "documents-dropdown__input-text",
+    class: {
+      "documents-dropdown__placeholder": _vm.showSelectedDocument
+    }
+  }, [_vm._v("\n\t\t\t\t" + _vm._s(_vm.showSelectedDocument ? "Select documents" : "Documents") + "\n\t\t\t")]) : [_c("inline", {
+    staticClass: "documents-dropdown__file-icon flex--no-shrink mr-1",
+    attrs: {
+      svg: _vm.documents[_vm.getDocumentNumber(_vm.selectedDocuments[0]) - 1].Type.toLowerCase()
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "documents-dropdown__input-text"
+  }, [_vm._v(_vm._s(_vm.documentName(_vm.documents[_vm.getDocumentNumber(_vm.selectedDocuments[0]) - 1])))])], _vm._v(" "), !_vm.showSelectedDocument && _vm.selectedDocuments.length > 0 || _vm.selectedDocuments.length > 1 ? _c("span", {
+    staticClass: "documents-dropdown__count bg-legacy-benjamin white flex--no-shrink"
+  }, [_vm._v("\n\t\t\t\t" + _vm._s(_vm.showSelectedDocument ? "+".concat(_vm.selectedDocuments.length - 1) : _vm.selectedDocuments.length) + "\n\t\t\t")]) : _vm._e()], 2), _vm._v(" "), _c("inline", {
+    staticClass: "flex--no-shrink",
+    attrs: {
+      svg: "chevron-down"
+    }
+  })], 1) : _vm._t("default")], 2);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/runtime/api.js */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".card-dropdown__selected-content .card__inner {\n  padding-right: 2.25em;\n}\n.card-dropdown__selected-content {\n  width: 305px;\n  box-sizing: border-box;\n}\n.card-dropdown__menu {\n  min-width: 305px;\n  max-width: min(100% - 50px, 650px);\n}\n.card-dropdown__menu .mceNonEditable {\n  box-shadow: inset 0 0 0 1px #dfeaea;\n  margin-top: 1px;\n  background-color: #edf4f4;\n  border-color: #dfeaea;\n}\n.card-dropdown__menu .el-dropdown-menu__item:hover,\n.card-dropdown__menu .el-dropdown-menu__item[tabindex=\"0\"] {\n  background: rgba(223, 234, 234, 0.65);\n}\n.card-dropdown__selected .i-chevron-down {\n  width: 14px;\n  margin-right: 8px;\n  color: #798f8f;\n}\n.card-dropdown .card__inner, .card-dropdown__menu .card__inner {\n  border-color: #d0dbdb;\n}\n.card-dropdown__menu .is-selected .card__inner {\n  background: rgba(223, 234, 234, 0.65);\n  border-color: #09a098;\n  box-shadow: 0 0 0 2px white;\n}\n.card-dropdown__menu .is-selected .card__inner svg path {\n  fill: transparent;\n  stroke: #09a098;\n}\n.card-dropdown__menu .el-dropdown-menu__item[tabindex=\"0\"] .card__inner,\n.card-dropdown .focusing .card__inner {\n  border-color: #09a098;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/runtime/api.js */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".documents-dropdown__input{border:1px solid #bdcccc;display:flex;padding:4px;width:100%}.documents-dropdown__input-content{max-width:calc(100% - 20px)}.documents-dropdown__input-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.documents-dropdown__placeholder{color:#92b8b8;font-weight:400}.documents-dropdown__file-icon{color:#798f8f;font-size:12px}.documents-dropdown .i-chevron-down{color:#798f8f;width:14px}.documents-dropdown__count{align-items:center;background:#09a098;border-radius:100px;display:flex;font-size:12px;font-weight:700;height:16px;justify-content:center;line-height:1;margin:0 4px;min-width:16px;padding:0 3px;text-align:center;vertical-align:middle}.documents-dropdown__manage{color:#09a098;font-family:inherit;font-weight:700;transition:opacity .25s,color .25s,background-color .25s}:root:root .documents-dropdown__manage{background:#fff}.documents-dropdown__menu{max-width:400px}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/index.js!../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!./card-dropdown.scss?vue&type=style&index=1&lang=scss&external */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/lib/addStylesClient.js */ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("3bcc4b98", content, false, {});
+// Hot Module Replacement
+if(true) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept(/*! !../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!./card-dropdown.scss?vue&type=style&index=1&lang=scss&external */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external", function() {
+     var newContent = __webpack_require__(/*! !../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!./card-dropdown.scss?vue&type=style&index=1&lang=scss&external */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external");
+     if(newContent.__esModule) newContent = newContent.default;
+     if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/index.js!../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/lib/addStylesClient.js */ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("f2b999f6", content, false, {});
+// Hot Module Replacement
+if(true) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept(/*! !../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss", function() {
+     var newContent = __webpack_require__(/*! !../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss");
+     if(newContent.__esModule) newContent = newContent.default;
+     if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/components/app/DocumentsDropdown.vue":
+/*!**************************************************!*\
+  !*** ./src/components/app/DocumentsDropdown.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DocumentsDropdown_vue_vue_type_template_id_0d3c30fb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DocumentsDropdown.vue?vue&type=template&id=0d3c30fb */ "./src/components/app/DocumentsDropdown.vue?vue&type=template&id=0d3c30fb");
+/* harmony import */ var _DocumentsDropdown_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DocumentsDropdown.vue?vue&type=script&lang=ts */ "./src/components/app/DocumentsDropdown.vue?vue&type=script&lang=ts");
+/* empty/unused harmony star reexport *//* harmony import */ var _cognitoforms_styles_app_dropdown_scss_vue_type_style_index_0_lang_scss_external__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @cognitoforms/styles/app/dropdown.scss?vue&type=style&index=0&lang=scss&external */ "../../libs/styles/app/dropdown.scss?vue&type=style&index=0&lang=scss&external");
+/* harmony import */ var _cognitoforms_styles_app_card_dropdown_scss_vue_type_style_index_1_lang_scss_external__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @cognitoforms/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external */ "../../libs/styles/app/card-dropdown.scss?vue&type=style&index=1&lang=scss&external");
+/* harmony import */ var _DocumentsDropdown_vue_vue_type_style_index_2_id_0d3c30fb_lang_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss */ "./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss");
+/* harmony import */ var _node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_5__["default"])(
+  _DocumentsDropdown_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DocumentsDropdown_vue_vue_type_template_id_0d3c30fb__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DocumentsDropdown_vue_vue_type_template_id_0d3c30fb__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (true) {
+  var api = __webpack_require__(/*! C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-hot-reload-api@2.3.4/node_modules/vue-hot-reload-api/dist/index.js */ "../../node_modules/.pnpm/vue-hot-reload-api@2.3.4/node_modules/vue-hot-reload-api/dist/index.js")
+  api.install(__webpack_require__(/*! vue */ "vue"))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!api.isRecorded('0d3c30fb')) {
+      api.createRecord('0d3c30fb', component.options)
+    } else {
+      api.reload('0d3c30fb', component.options)
+    }
+    module.hot.accept(/*! ./DocumentsDropdown.vue?vue&type=template&id=0d3c30fb */ "./src/components/app/DocumentsDropdown.vue?vue&type=template&id=0d3c30fb", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ _DocumentsDropdown_vue_vue_type_template_id_0d3c30fb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DocumentsDropdown.vue?vue&type=template&id=0d3c30fb */ "./src/components/app/DocumentsDropdown.vue?vue&type=template&id=0d3c30fb");
+(function () {
+      api.rerender('0d3c30fb', {
+        render: _DocumentsDropdown_vue_vue_type_template_id_0d3c30fb__WEBPACK_IMPORTED_MODULE_0__["render"],
+        staticRenderFns: _DocumentsDropdown_vue_vue_type_template_id_0d3c30fb__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]
+      })
+    })(__WEBPACK_OUTDATED_DEPENDENCIES__); }.bind(this))
+  }
+}
+component.options.__file = "src/components/app/DocumentsDropdown.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./src/components/app/DocumentsDropdown.vue?vue&type=script&lang=ts":
+/*!**************************************************************************!*\
+  !*** ./src/components/app/DocumentsDropdown.vue?vue&type=script&lang=ts ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsDropdown_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./DocumentsDropdown.vue?vue&type=script&lang=ts */ "../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/app/DocumentsDropdown.vue?vue&type=script&lang=ts");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsDropdown_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss":
+/*!***********************************************************************************************!*\
+  !*** ./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsDropdown_vue_vue_type_style_index_2_id_0d3c30fb_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader!../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss */ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/index.js!../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/app/DocumentsDropdown.vue?vue&type=style&index=2&id=0d3c30fb&lang=scss");
+/* harmony import */ var _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsDropdown_vue_vue_type_style_index_2_id_0d3c30fb_lang_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsDropdown_vue_vue_type_style_index_2_id_0d3c30fb_lang_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsDropdown_vue_vue_type_style_index_2_id_0d3c30fb_lang_scss__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsDropdown_vue_vue_type_style_index_2_id_0d3c30fb_lang_scss__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./src/components/app/DocumentsDropdown.vue?vue&type=template&id=0d3c30fb":
+/*!********************************************************************************!*\
+  !*** ./src/components/app/DocumentsDropdown.vue?vue&type=template&id=0d3c30fb ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsDropdown_vue_vue_type_template_id_0d3c30fb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./DocumentsDropdown.vue?vue&type=template&id=0d3c30fb */ "../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!./src/components/app/DocumentsDropdown.vue?vue&type=template&id=0d3c30fb");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsDropdown_vue_vue_type_template_id_0d3c30fb__WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_DocumentsDropdown_vue_vue_type_template_id_0d3c30fb__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ })
+
+}]);

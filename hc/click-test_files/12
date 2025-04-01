@@ -1,0 +1,451 @@
+(window["cfAcWebpackJsonp"] = window["cfAcWebpackJsonp"] || []).push([[12],{
+
+/***/ "../../libs/shared-components/src/components/auth/Avatar.vue":
+/*!**************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/shared-components/src/components/auth/Avatar.vue ***!
+  \**************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Avatar_vue_vue_type_template_id_7525fb74__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Avatar.vue?vue&type=template&id=7525fb74 */ "../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=template&id=7525fb74");
+/* harmony import */ var _Avatar_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Avatar.vue?vue&type=script&lang=ts */ "../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=script&lang=ts");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Avatar_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Avatar_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _Avatar_vue_vue_type_style_index_0_id_7525fb74_lang_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss */ "../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss");
+/* harmony import */ var _node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Avatar_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Avatar_vue_vue_type_template_id_7525fb74__WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Avatar_vue_vue_type_template_id_7525fb74__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (true) {
+  var api = __webpack_require__(/*! C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-hot-reload-api@2.3.4/node_modules/vue-hot-reload-api/dist/index.js */ "../../node_modules/.pnpm/vue-hot-reload-api@2.3.4/node_modules/vue-hot-reload-api/dist/index.js")
+  api.install(__webpack_require__(/*! vue */ "vue"))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!api.isRecorded('7525fb74')) {
+      api.createRecord('7525fb74', component.options)
+    } else {
+      api.reload('7525fb74', component.options)
+    }
+    module.hot.accept(/*! ./Avatar.vue?vue&type=template&id=7525fb74 */ "../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=template&id=7525fb74", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { /* harmony import */ _Avatar_vue_vue_type_template_id_7525fb74__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Avatar.vue?vue&type=template&id=7525fb74 */ "../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=template&id=7525fb74");
+(function () {
+      api.rerender('7525fb74', {
+        render: _Avatar_vue_vue_type_template_id_7525fb74__WEBPACK_IMPORTED_MODULE_0__["render"],
+        staticRenderFns: _Avatar_vue_vue_type_template_id_7525fb74__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]
+      })
+    })(__WEBPACK_OUTDATED_DEPENDENCIES__); }.bind(this))
+  }
+}
+component.options.__file = "libs/shared-components/src/components/auth/Avatar.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=script&lang=ts":
+/*!**************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/shared-components/src/components/auth/Avatar.vue?vue&type=script&lang=ts ***!
+  \**************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_ref_2_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib??ref--2!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./Avatar.vue?vue&type=script&lang=ts */ "../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=script&lang=ts");
+/* harmony import */ var _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_ref_2_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_ref_2_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_ref_2_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_ref_2_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_pnpm_babel_loader_8_3_0_babel_core_7_22_6_webpack_4_46_0_node_modules_babel_loader_lib_index_js_ref_2_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss ***!
+  \***********************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_style_index_0_id_7525fb74_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader!../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss */ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/index.js!../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss");
+/* harmony import */ var _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_style_index_0_id_7525fb74_lang_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_style_index_0_id_7525fb74_lang_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_style_index_0_id_7525fb74_lang_scss__WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_pnpm_vue_style_loader_4_1_3_node_modules_vue_style_loader_index_js_node_modules_pnpm_css_loader_3_6_0_webpack_4_46_0_node_modules_css_loader_dist_cjs_js_ref_7_1_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_pnpm_postcss_loader_4_3_0_postcss_8_4_31_webpack_4_46_0_node_modules_postcss_loader_dist_cjs_js_node_modules_pnpm_sass_loader_10_1_1_sass_1_44_0_webpack_4_46_0_node_modules_sass_loader_dist_cjs_js_node_modules_pnpm_sass_resources_loader_2_0_1_node_modules_sass_resources_loader_lib_loader_js_ref_7_4_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_style_index_0_id_7525fb74_lang_scss__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=template&id=7525fb74":
+/*!********************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/shared-components/src/components/auth/Avatar.vue?vue&type=template&id=7525fb74 ***!
+  \********************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_template_id_7525fb74__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./Avatar.vue?vue&type=template&id=7525fb74 */ "../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=template&id=7525fb74");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_template_id_7525fb74__WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_pnpm_vue_loader_15_11_1_css_loader_3_6_0_prettier_1_18_2_react_dom_16_14_0_react_16_14_0_vue_templ_dssrug5utsuiubrw6t4rzekrjy_node_modules_vue_loader_lib_index_js_vue_loader_options_Avatar_vue_vue_type_template_id_7525fb74__WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "../../libs/shared-components/src/mixins/long-text-tooltip.js":
+/*!***************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/shared-components/src/mixins/long-text-tooltip.js ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator.return && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, catch: function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+var _default = exports.default = {
+  mounted: function mounted() {
+    var _this = this;
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      return _regeneratorRuntime().wrap(function _callee$(_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _this.addTooltip();
+          case 1:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee);
+    }))();
+  },
+  updated: function updated() {
+    var _this2 = this;
+    return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _this2.addTooltip();
+          case 1:
+          case "end":
+            return _context2.stop();
+        }
+      }, _callee2);
+    }))();
+  },
+  methods: {
+    addTooltip: function addTooltip() {
+      // Show tooltip for long text strings
+      var strings = document.querySelectorAll('[data-tooltip],[data-tooltip=true]');
+      if (strings.length) {
+        var _iterator = _createForOfIteratorHelper(strings),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var text = _step.value;
+            if (text.scrollWidth > text.offsetWidth && text.title !== text.innerText) {
+              text.title = text.innerText;
+            }
+            // Clear title tooltip if text fits in scrollWidth
+            else if (text.scrollWidth <= text.offsetWidth && text.title) text.title = '';
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+      }
+    }
+  }
+};
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib/index.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=script&lang=ts":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/babel-loader@8.3.0_@babel+core@7.22.6_webpack@4.46.0/node_modules/babel-loader/lib??ref--2!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/shared-components/src/components/auth/Avatar.vue?vue&type=script&lang=ts ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _longTextTooltip = _interopRequireDefault(__webpack_require__(/*! ../../mixins/long-text-tooltip */ "../../libs/shared-components/src/mixins/long-text-tooltip.js"));
+var _vue = __webpack_require__(/*! vue */ "vue");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _default = exports.default = (0, _vue.defineComponent)({
+  mixins: [_longTextTooltip.default],
+  props: {
+    avatar: {
+      type: String,
+      default: null
+    },
+    size: {
+      type: String,
+      default: 's'
+    },
+    icon: {
+      type: String,
+      default: undefined
+    },
+    name: {
+      type: String,
+      default: null
+    },
+    wrap: {
+      type: Boolean,
+      default: false
+    },
+    isDeleted: {
+      type: Boolean,
+      default: false
+    },
+    test: {
+      type: Boolean,
+      default: false
+    },
+    email: {
+      type: String,
+      default: null
+    },
+    alwaysShowTooltip: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    computedAvatar: function computedAvatar() {
+      if (this.avatar && this.size === 'l') {
+        if (this.avatar.includes('graph.facebook.com')) return this.avatar + (this.avatar.includes('?') ? '&' : '?') + 'width=300&height=300';
+        if (this.avatar.includes('googleusercontent.com/')) return this.avatar.replace('s96-c', 's300-c');
+      }
+      return this.avatar;
+    },
+    displayAsImg: function displayAsImg() {
+      return this.computedAvatar && this.computedAvatar.startsWith('http');
+    },
+    title: function title() {
+      return this.$attrs.title;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/runtime/api.js */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".avatar {\n  min-width: 0;\n}\n.avatar__image {\n  width: 27px;\n  height: 27px;\n  background-color: white;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 50%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.avatar__image .i-simple {\n  width: 17px;\n}\n.avatar--s .avatar__image {\n  width: 22px;\n  height: 22px;\n}\n.avatar--s .i-simple {\n  width: 14px;\n}\n.avatar--icon .avatar__image {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: #dfeaea;\n  color: #234652;\n}\n:root .avatar__initials {\n  font-family: \"Gilroy\", \"Gilroy Extra\", \"Century Gothic\", sans-serif;\n  font-size: 140.7354px;\n  font-weight: 900;\n  -moz-user-select: none;\n       user-select: none;\n}\n.avatar.app-nav__avatar-mobile .avatar__image {\n  width: 100%;\n  height: 100%;\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  border-radius: 50%;\n}\n.avatar--nowrap {\n  min-width: 0;\n}\n.avatar--nowrap > div {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=template&id=7525fb74":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/shared-components/src/components/auth/Avatar.vue?vue&type=template&id=7525fb74 ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c,
+    _setup = _vm._self._setupProxy
+  return _vm.avatar || _vm.icon || _vm.test
+    ? _c(
+        "div",
+        {
+          staticClass: "avatar flex",
+          class: [
+            {
+              "flex--align gap-3": (_vm.name || _vm.email) && _vm.size != "l",
+              "avatar--icon": _vm.icon
+            },
+            "avatar--" + _vm.size
+          ]
+        },
+        [
+          _vm.test
+            ? [
+                _c("div", { staticClass: "avatar__image" }, [
+                  _c("svg", { attrs: { viewBox: "0 0 300 300" } }, [
+                    _c("circle", {
+                      staticClass: "abraham",
+                      attrs: {
+                        cx: "150",
+                        cy: "150",
+                        r: "150",
+                        fill: "currentColor",
+                        stroke: "transparent",
+                        "stroke-width": "20",
+                        "stroke-dasharray": "45 45"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "text",
+                      {
+                        staticClass: "avatar__initials icon--fill matins heavy",
+                        staticStyle: {
+                          transform: "scale(1)",
+                          "transform-origin": "50%"
+                        },
+                        attrs: { x: "50%", y: "68%", "text-anchor": "middle" }
+                      },
+                      [_vm._v("CT")]
+                    )
+                  ])
+                ])
+              ]
+            : _vm.icon
+            ? _c(
+                "div",
+                { staticClass: "avatar__image" },
+                [_c("inline", { attrs: { svg: _vm.icon } })],
+                1
+              )
+            : [
+                _vm.displayAsImg
+                  ? _c("img", {
+                      staticClass: "avatar__image flex--no-shrink mb-0 block",
+                      attrs: {
+                        src: _vm.computedAvatar,
+                        alt: _vm.name ? "" : "profile image"
+                      },
+                      on: {
+                        error: function($event) {
+                          return _vm.$emit("error")
+                        }
+                      }
+                    })
+                  : _c("div", {
+                      staticClass: "avatar__image flex--no-shrink",
+                      domProps: { innerHTML: _vm._s(_vm.computedAvatar) }
+                    })
+              ],
+          _vm._v(" "),
+          _vm.name || _vm.email
+            ? _c(
+                "div",
+                {
+                  class: { "avatar--nowrap": !_vm.wrap, italic: _vm.isDeleted }
+                },
+                [
+                  _vm.name
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "avatar__name",
+                          attrs: {
+                            "data-tooltip": !_vm.alwaysShowTooltip,
+                            title: _vm.title
+                          }
+                        },
+                        [_vm._v(_vm._s(_vm.name))]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.email
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "avatar__email",
+                          attrs: { "data-tooltip": "", title: _vm.title }
+                        },
+                        [_vm._v(_vm._s(_vm.email) + " ")]
+                      )
+                    : _vm._e()
+                ]
+              )
+            : _vm._e()
+        ],
+        2
+      )
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/index.js!../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(/*! !../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(/*! ../../../../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/lib/addStylesClient.js */ "../../node_modules/.pnpm/vue-style-loader@4.1.3/node_modules/vue-style-loader/lib/addStylesClient.js").default
+var update = add("53b9b3a1", content, false, {});
+// Hot Module Replacement
+if(true) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept(/*! !../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss", function() {
+     var newContent = __webpack_require__(/*! !../../../../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js??ref--7-1!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../../../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js??ref--7-4!../../../../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib??vue-loader-options!./Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss */ "../../node_modules/.pnpm/css-loader@3.6.0_webpack@4.46.0/node_modules/css-loader/dist/cjs.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/.pnpm/postcss-loader@4.3.0_postcss@8.4.31_webpack@4.46.0/node_modules/postcss-loader/dist/cjs.js!../../node_modules/.pnpm/sass-loader@10.1.1_sass@1.44.0_webpack@4.46.0/node_modules/sass-loader/dist/cjs.js!../../node_modules/.pnpm/sass-resources-loader@2.0.1/node_modules/sass-resources-loader/lib/loader.js?!../../node_modules/.pnpm/vue-loader@15.11.1_css-loader@3.6.0_prettier@1.18.2_react-dom@16.14.0_react@16.14.0_vue-templ_dssrug5utsuiubrw6t4rzekrjy/node_modules/vue-loader/lib/index.js?!../../libs/shared-components/src/components/auth/Avatar.vue?vue&type=style&index=0&id=7525fb74&lang=scss");
+     if(newContent.__esModule) newContent = newContent.default;
+     if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ })
+
+}]);

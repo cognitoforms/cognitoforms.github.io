@@ -1,0 +1,22 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["npm.strip-ansi3.0.1"],{
+
+/***/ "../../node_modules/.pnpm/strip-ansi@3.0.1/node_modules/strip-ansi/index.js":
+/*!*****************************************************************************************************************************************!*\
+  !*** C:/Users/TylerTrotter/repos/Cognito Forms/Cognito.Web.Client/node_modules/.pnpm/strip-ansi@3.0.1/node_modules/strip-ansi/index.js ***!
+  \*****************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var ansiRegex = __webpack_require__(/*! ansi-regex */ "../../node_modules/.pnpm/ansi-regex@2.1.1/node_modules/ansi-regex/index.js")();
+
+module.exports = function (str) {
+	return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
+};
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy9DOi9Vc2Vycy9UeWxlclRyb3R0ZXIvcmVwb3MvQ29nbml0byBGb3Jtcy9Db2duaXRvLldlYi5DbGllbnQvbm9kZV9tb2R1bGVzLy5wbnBtL3N0cmlwLWFuc2lAMy4wLjEvbm9kZV9tb2R1bGVzL3N0cmlwLWFuc2kvaW5kZXguanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7OztBQUFhO0FBQ2IsZ0JBQWdCLG1CQUFPLENBQUMsOEZBQVk7O0FBRXBDO0FBQ0E7QUFDQSIsImZpbGUiOiJucG0uc3RyaXAtYW5zaTMuMC4xLjcxZDcyZmQ4NTc1MjMzM2I0OTBmLmpzIiwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBzdHJpY3QnO1xudmFyIGFuc2lSZWdleCA9IHJlcXVpcmUoJ2Fuc2ktcmVnZXgnKSgpO1xuXG5tb2R1bGUuZXhwb3J0cyA9IGZ1bmN0aW9uIChzdHIpIHtcblx0cmV0dXJuIHR5cGVvZiBzdHIgPT09ICdzdHJpbmcnID8gc3RyLnJlcGxhY2UoYW5zaVJlZ2V4LCAnJykgOiBzdHI7XG59O1xuIl0sInNvdXJjZVJvb3QiOiIifQ==
