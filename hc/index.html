@@ -9603,6 +9603,18 @@ html .cog-time-popper li, :root:root:root:root:root .cog-time-popper li {
     z-index: 9999;
   }
 
+  @media (max-width: 700px) {
+    .intro .wrapper {
+      display: none;
+    }
+
+    .intro:before {
+      content: 'The screen size of this device is too small. Try on a desktop or tablet.';
+      padding: 20px;
+      display: block;
+    }
+  }
+
   .intro p {
     margin-bottom: 1em;
   }
@@ -9784,22 +9796,22 @@ html .cog-time-popper li, :root:root:root:root:root .cog-time-popper li {
       
               <!-- Hide Columns -->
               <div class="c-columns c-nav-action toggle-on" tabindex="0">
-                <div class="version-1 text-button">
+                <div class="version-1 text-button" aria-label="eye Hide">
                   <div class="h-100 platon flex flex--align"><i class="c-icon icon i-simple i-no-eye"><svg viewBox="0 0 17 17" fill="none" class=""><g stroke="#234652"><path d="m2 2 2.491 2.491m7.853 7.853L15 15m-6.5-1.5c-4.455 0-7-5-7-5 .792-1.449 1.836-2.836 3.167-3.834l7.56 7.577A6.456 6.456 0 0 1 8.5 13.5ZM7.164 3.65c.438-.1.886-.151 1.336-.15 4.454 0 7 5 7 5a11.56 11.56 0 0 1-1.374 1.994L7.164 3.65Z" stroke-linecap="round" stroke-linejoin="round" class="i-stroke"></path><path d="M7.077 7.119a1.985 1.985 0 1 0 2.807 2.807" class="i-Ellipse 1"></path></g></svg></i></div>
                   <span>Hide</span>
                 </div>
 
-                <div class="version-2 text-button">
+                <div class="version-2 text-button" aria-label="columns Hide">
                   <div class="h-100 platon flex flex--align"><i class="c-icon icon i-simple i-columns"><svg viewBox="0 0 17 17" fill="none" class=""><path d="M1.924 5.5h13.152M4.5 7.5v5m8-5v5m-4-5v5m-7-9.172c0-.457.38-.828.848-.828h12.303c.47 0 .849.37.849.828v10.344c0 .457-.38.828-.848.828H2.348a.838.838 0 0 1-.848-.828V3.328Z" stroke="#798f8f" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></div>
                   <span>Hide</span>
                 </div>
 
-                <div class="version-3 text-button">
+                <div class="version-3 text-button" aria-label="eye Columns">
                   <div class="h-100 platon flex flex--align"><i class="c-icon icon i-simple i-no-eye"><svg viewBox="0 0 17 17" fill="none" class=""><g stroke="#234652"><path d="m2 2 2.491 2.491m7.853 7.853L15 15m-6.5-1.5c-4.455 0-7-5-7-5 .792-1.449 1.836-2.836 3.167-3.834l7.56 7.577A6.456 6.456 0 0 1 8.5 13.5ZM7.164 3.65c.438-.1.886-.151 1.336-.15 4.454 0 7 5 7 5a11.56 11.56 0 0 1-1.374 1.994L7.164 3.65Z" stroke-linecap="round" stroke-linejoin="round" class="i-stroke"></path><path d="M7.077 7.119a1.985 1.985 0 1 0 2.807 2.807" class="i-Ellipse 1"></path></g></svg></i></div>
                   <span>Columns</span>
                 </div>
 
-                <div class="version-4 text-button">
+                <div class="version-4 text-button" aria-label="columns Columns">
                   <div class="h-100 platon flex flex--align"><i class="c-icon icon i-simple i-columns"><svg viewBox="0 0 17 17" fill="none" class=""><path d="M1.924 5.5h13.152M4.5 7.5v5m8-5v5m-4-5v5m-7-9.172c0-.457.38-.828.848-.828h12.303c.47 0 .849.37.849.828v10.344c0 .457-.38.828-.848.828H2.348a.838.838 0 0 1-.848-.828V3.328Z" stroke="#798f8f" stroke-linecap="round" stroke-linejoin="round"></path></svg></i></div>
                   <span>Columns</span>
                 </div>
@@ -10188,6 +10200,10 @@ html .cog-time-popper li, :root:root:root:root:root .cog-time-popper li {
   .version-5 .version-4 {
     display: inline-flex;
   }
+
+  .version-5 {
+    opacity: 0;
+  }
     </style>
 
     <script>
@@ -10220,15 +10236,15 @@ html .cog-time-popper li, :root:root:root:root:root .cog-time-popper li {
           if (e.target.closest('a')){
             buttonName = e.target.closest('a').getAttribute('title')?.replace('Form', '').trim() || e.target.closest('a').innerText;
           }else if (e.target.closest('button')){
-            buttonName = e.target.closest('button').innerText;
+            buttonName = e.target.closest('button').getAttribute('aria-label') || e.target.closest('button').innerText;
           }else if (e.target.closest('.text-button')){
-            buttonName = e.target.closest('.text-button').innerText;
+            buttonName = e.target.closest('.text-button').getAttribute('aria-label') || e.target.closest('.text-button').innerText;
           }
           else if (e.target.closest('.relevant-forms-menu__button--dropdown')){
             buttonName = 'Form Name';
           }
 
-          let code = btoa(version+ "," + buttonName + "," + e.x + "," + e.y + "," + (Math.round(performance.now()) - startTime));
+          let code = btoa(version+ "," + buttonName + "," + e.x + "," + e.y + "," + (Math.round(performance.now()) - startTime) + "," + window.innerWidth + "," + window.innerHeight);
 
           document.body.classList.add('hidden');
 
