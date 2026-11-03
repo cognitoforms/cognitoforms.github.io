@@ -41,7 +41,7 @@ button,input,select,textarea{font:inherit; color:inherit}
 .frame.phone, .frame.tablet{box-shadow:0 0 0 1px var(--c-line), 0 14px 40px rgba(0,0,0,.12)}
 @media (max-width:700px){ .stage{padding:0} .poc .hide-sm{display:none} }
 
-.drawer{position:fixed; top:0; right:0; bottom:0; z-index:60; width:390px; max-width:100%;
+.drawer{position:fixed; top:0; right:0; bottom:0; z-index:60; width:460px; max-width:100%;
   background:var(--c-panel); border-left:1px solid var(--c-line); box-shadow:-16px 0 40px rgba(0,0,0,.14);
   transform:translateX(105%); transition:transform .25s ease; display:flex; flex-direction:column}
 .drawer.open{transform:none}
@@ -1300,7 +1300,7 @@ textarea.inp{min-height:96px; resize:vertical}
   <span class="sp"></span>
   <button class="pbtn q" id="helpBtn" aria-label="Help" title="Help" aria-haspopup="dialog">?</button>
   <button class="pbtn" id="brandBtn"></button>
-  <button class="pbtn go" id="doneBtn">Done: Send My Setup</button>
+  <button class="pbtn go" id="doneBtn">Submit &amp; Begin Survey</button>
 </div>
 <div class="stage"><div class="frame" id="frame"></div></div>
 <aside class="drawer" id="drawer" aria-label="Customize Portal"></aside>
@@ -3464,7 +3464,7 @@ function openIntro(){
   if (seen) return;
   const el = document.createElement("div");
   el.className = "intro"; el.id = "intro"; el.setAttribute("role", "dialog"); el.setAttribute("aria-labelledby", "introT");
-  el.innerHTML = '<b id="introT">Set Up This Portal Your Way</b><p>Use Customize Portal to configure the portal how you’d want it for your guests. When you’re done, click Done: Send My Setup to complete a short follow-up survey.</p>'
+  el.innerHTML = '<b id="introT">Set Up This Portal Your Way</b><p>Use Customize Portal to configure the portal how you’d want it for your guests. When you’re done, click Submit &amp; Begin Survey to complete a short follow-up survey.</p>'
     + '<button class="ok" type="button">Got It</button><button class="x" type="button" aria-label="Dismiss">' + ic("ex") + "</button>";
   el.addEventListener("click", e => { if (e.target.closest(".x, .ok")) closeIntro(); });
   document.body.appendChild(el); placeIntro();
