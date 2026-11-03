@@ -254,6 +254,8 @@ input.dr-tt:focus{border-color:var(--c-acc); outline:none; background:var(--c-ch
 .vseg button[aria-pressed="true"]{background:var(--c-acc); color:var(--c-acc-tx); font-weight:600}
 .vseg button:focus-visible{outline:2px solid var(--c-acc); outline-offset:-2px}
 .vseg-na{font-size:11.5px; color:var(--c-dim)}
+.wi-note{margin:8px 0 0 34px; text-align:right}
+.wi.wsub .wi-note{margin-left:0}
 /* a widget in Cards view: its items as cards in a row you swipe or scroll through */
 .w-body.w-cards{padding:2px 0 0}
 .wcards{display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; padding:4px 16px 12px; scroll-padding:0 16px; scrollbar-width:thin}
@@ -3082,8 +3084,9 @@ function widgetRow(k, i, n, inGroup){
     + '<input class="nm" data-wn="' + k + '" value="' + esc(W[k].title) + '" aria-label="Widget title" title="Rename">'
     + "</div>"
     /* bottom row: how it's drawn on the left; what to do with it (group, move, hide) on the right */
-    + '<div class="r2">' + (S.inHead[k] ? '<span class="vseg-na">' + HEAD_WHERE[k] + '</span>' : viewSeg(k))
-    + '<span class="r2b">' + (inGroup ? "" : groupBtn(k)) + headBtn(k) + hideBtn("eye", k, S.on[k], W[k].title, "Section") + "</span></div></div>";
+    + '<div class="r2">' + (S.inHead[k] ? "" : viewSeg(k))
+    + '<span class="r2b">' + (inGroup ? "" : groupBtn(k)) + headBtn(k) + hideBtn("eye", k, S.on[k], W[k].title, "Section") + "</span></div>"
+    + (S.inHead[k] ? '<p class="vseg-na wi-note">' + HEAD_WHERE[k] + "</p>" : "") + "</div>";
 }
 function groupCard(u, i, n){
   return '<div class="wi wgrp" data-wk="' + u[0] + '"><div class="r1">' + gripBtn(u[0], S.billTitle, i, n)
