@@ -22,7 +22,8 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0; background:var(--c-bg); color:var(--c-tx);
-  font:13px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  font:13px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; transition:padding-right .25s ease}
+@media (min-width:960px){ body.dr-open{padding-right:460px} }
 button,input,select,textarea{font:inherit; color:inherit}
 .poc{position:sticky; top:0; z-index:50; display:flex; align-items:center; gap:10px; flex-wrap:wrap;
   padding:8px 14px; background:var(--c-panel); border-bottom:1px solid var(--c-line)}
@@ -963,7 +964,7 @@ textarea.inp{min-height:96px; resize:vertical}
 .host-slot .tc{box-shadow:none}
 
 /* the settings pane's reset button sits under its tabs' content */
-.dr-ft{padding:12px 16px 16px; border-top:1px solid var(--c-line)}
+.dr-ft{padding:12px 16px 16px; border-top:1px solid var(--c-line); display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap}
 
 /* a widget's required note sits right under its title (Subscriptions, §13) */
 .w-sub{margin:-4px 18px 8px; font-size:13.5px; color:var(--mid)}
@@ -2949,12 +2950,13 @@ function renderDrawer(){
   const prev = dr.querySelector(".dr-b"), keepScroll = prev && renderDrawer.tab === tab ? prev.scrollTop : 0;
   renderDrawer.tab = tab;
   dr.classList.toggle("open", S.drawer);
+  document.body.classList.toggle("dr-open", S.drawer);
   dr.innerHTML = '<div class="dr-h"><h2>Customize Portal</h2><button id="drClose" aria-label="Close">' + ic("ex") + "</button></div>"
     + '<div class="dr-tabs" role="tablist" aria-label="Settings">' + [["theme","Appearance"],["dash","Layout & Content"]].map(x => '<button role="tab" data-dtab="' + x[0] + '" aria-selected="' + (tab === x[0]) + '">' + x[1] + "</button>").join("") + "</div>"
     + '<div class="dr-b">' + (tab === "theme" ? themeTab()
     : rteBox() + contactBox() + attnBox() + '<div class="dr-sec"><h3>Widgets <span class="h3-help">Drag to reorder</span></h3><div class="wl">' + units().map((u, i, U) => u.length > 1 ? groupCard(u, i, U.length) : widgetRow(u[0], i, U.length)).join("") + "</div>"
     + "</div>") + "</div>"
-    + '<div class="dr-ft"><button class="pbtn" id="drReset">Reset All Settings to Default</button></div>';
+    + '<div class="dr-ft"><button class="pbtn" id="drReset">Reset All Settings to Default</button><button class="pbtn go" id="drDone">Submit &amp; Begin Survey</button></div>';
   if (keepScroll) dr.querySelector(".dr-b").scrollTop = keepScroll;
 }
 $("#drawer").addEventListener("click", e => {
@@ -2970,6 +2972,7 @@ $("#drawer").addEventListener("click", e => {
   if (b.closest(".rte")) return;
   if (b.id === "drClose"){ S.drawer = false; return renderDrawer(); }
   if (b.id === "drReset"){ resetSettings(); return; }
+  if (b.id === "drDone"){ S.drawer = false; renderDrawer(); openDone(); return; }
   if (b.dataset.wishadd){ addWish(b.dataset.wishadd); return; }
   if (b.dataset.wishrm){ S.wishes.splice(+b.dataset.wishrm, 1); saveSettings(); renderDrawer(); return; }
   if (b.dataset.dtab){ S.dtab = b.dataset.dtab; S.teOpen = false; renderDrawer(); const f = $("#drawer").querySelector('[data-dtab="' + S.dtab + '"]'); if (f) f.focus(); return; }
