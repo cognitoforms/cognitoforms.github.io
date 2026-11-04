@@ -499,6 +499,17 @@ input.dr-tt:focus{border-color:var(--c-acc); outline:none; background:var(--c-ch
 .sw-red{--sw:#eba49f; --swt:#82231c}
 .sw-teal{--sw:#73d6d3; --swt:#1b5a56}
 .sw-gray{--sw:#d0dbdb; --swt:#4b6363}
+.portal.dk{color-scheme:dark}
+.dk .sw-green{--swt:#d3edb0}
+.dk .sw-yellow{--swt:#fce6a8}
+.dk .sw-red{--swt:#f9d3cf}
+.dk .sw-teal{--swt:#b5ede9}
+.dk .sw-gray{--swt:#d9e2e2}
+.dk .ac.done .icon{color:#d3edb0}
+.dk .x-auto{color:#b5ede9}
+.dk .x-alert{color:#fbe6ae}
+.dk .x-alert > .icon{color:#fadb8a}
+.dk .inp{background:color-mix(in srgb, var(--ink) 6%, var(--panel)); color:var(--ink)}
 
 /* null states: ghost rows in the same five slots, with the reason to care over them */
 .null{position:absolute; inset:6px 8px; display:flex; flex-direction:column}
@@ -1137,7 +1148,7 @@ textarea.inp{min-height:96px; resize:vertical}
 /* Entries: All or just My Submissions */
 .scope{display:inline-flex; gap:2px; padding:3px; border-radius:999px; background:var(--line-2)}
 .scope button{border:0; background:none; border-radius:999px; padding:5px 12px; font-size:13.5px; color:var(--mid); white-space:nowrap; min-height:32px}
-.scope button em{font-style:normal; font-variant-numeric:tabular-nums; color:var(--dim); margin-left:2px}
+.scope button em{font-style:normal; font-variant-numeric:tabular-nums; color:var(--mid); margin-left:2px}
 .scope button:hover{color:var(--ink)}
 .scope button[aria-pressed="true"]{background:var(--panel); color:var(--ink); font-weight:600; box-shadow:0 1px 2px rgba(16,32,48,.12)}
 .scope button:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
@@ -1496,7 +1507,8 @@ const lum = h => { const [r, g, b] = rgb(h).map(lin); return .2126 * r + .7152 *
 const contrast = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
 const inkOn = h => contrast(h, "#ffffff") >= 3.2 ? "#ffffff" : "#1b242d";
 function mixHex(h, t, f){ const a = rgb(h), b = rgb(t); return "#" + a.map((v, i) => Math.round((v + (b[i] - v) * f) * 255).toString(16).padStart(2, "0")).join(""); }
-function readable(h){ let c = h, f = 0; while (contrast(c, "#ffffff") < 4.6 && f < 1){ f += .06; c = mixHex(h, "#000000", f); } return c; }
+const isDark = h => inkOn(h) === "#ffffff";
+function readable(h, bg = "#ffffff"){ const to = isDark(bg) ? "#ffffff" : "#000000"; let c = h, f = 0; while (contrast(c, bg) < 4.6 && f < 1){ f += .06; c = mixHex(h, to, f); } return c; }
 
 /* a theme has the shape of a Cognito Forms form theme; a preset fills it in from a few brand values */
 function mkA(o){
@@ -1507,11 +1519,12 @@ function mkA(o){
 const pageShade = h => lum(h) > .4 ? mixHex(h, "#000000", .05) : mixHex(h, "#ffffff", .07);
 function toTheme(a){
   const c = a.colors, hf = a.headFont || (a.osType ? "System Font" : "Cognito Display"), bf = a.bodyFont || "System Font";
-  return { headerBg:a.headerBg || c.text,
-    title:{ font:hf, size:1.5, color:c.text, bold:true }, heading:{ font:hf, size:1.25, color:c.text, bold:true },
-    label:{ font:bf, size:1.0625, color:c.text, bold:true }, text:{ font:bf, size:1, color:c.text },
-    link:{ color:readable(c.primary) }, button:{ font:bf, size:1.0625, color:inkOn(c.primary), bg:c.primary, bold:true },
-    placeholder:mixHex(c.text, "#ffffff", .62), highlight:c.primary, inputBorder:mixHex(c.text, "#ffffff", .42),
+  const tx = contrast(c.text, c.background) < 3 ? inkOn(c.background) : c.text;
+  return { headerBg:a.headerBg || tx,
+    title:{ font:hf, size:1.5, color:tx, bold:true }, heading:{ font:hf, size:1.25, color:tx, bold:true },
+    label:{ font:bf, size:1.0625, color:tx, bold:true }, text:{ font:bf, size:1, color:tx },
+    link:{ color:readable(c.primary, c.background) }, button:{ font:bf, size:1.0625, color:inkOn(c.primary), bg:c.primary, bold:true },
+    placeholder:mixHex(tx, c.background, .62), highlight:c.primary, inputBorder:mixHex(tx, c.background, .42),
     formBg:c.background, pageBg:pageShade(c.background), field:a.corners === "rounded" ? "rounded" : "standard" };
 }
 const PRESETS = [
@@ -2037,13 +2050,13 @@ function themeVars(){
   const a = S.theme, t = toTheme(a), f = n => FONTS[n] || FONTS["System Font"], z = k => (t[k].size || DEF_SIZE[k]) / DEF_SIZE[k], w = b => b ? 700 : 400;
   const v = { "--accent":t.highlight, "--accent-ink":inkOn(t.highlight), "--accent-tx":t.link.color, "--head-bg":t.headerBg, "--head-ink":inkOn(t.headerBg),
     "--panel":t.formBg, "--page":t.pageBg, "--ink":t.text.color, "--in-b":t.inputBorder, "--ph":t.placeholder,
-    "--mid":"color-mix(in srgb, " + t.text.color + " 80%, " + t.formBg + ")", "--dim":"color-mix(in srgb, " + t.text.color + " 62%, " + t.formBg + ")",
+    "--mid":"color-mix(in srgb, " + t.text.color + (isDark(t.formBg) ? " 90%, " : " 80%, ") + t.formBg + ")", "--dim":"color-mix(in srgb, " + t.text.color + (isDark(t.formBg) ? " 80%, " : " 62%, ") + t.formBg + ")",
     "--line":"color-mix(in srgb, " + t.text.color + " 13%, " + t.formBg + ")", "--line-2":"color-mix(in srgb, " + t.text.color + " 7%, " + t.formBg + ")",
     "--font-b":f(t.text.font), "--font-h":f(t.heading.font), "--tx-z":z("text"),
     "--font-t":f(t.title.font), "--title-c":t.title.color, "--title-w":w(t.title.bold), "--title-z":z("title"),
     "--font-hd":f(t.heading.font), "--hd-c":t.heading.color, "--hd-w":w(t.heading.bold), "--hd-z":z("heading"),
     "--font-lb":f(t.label.font), "--lb-c":t.label.color, "--lb-w":w(t.label.bold), "--lb-z":z("label"),
-    "--font-btn":f(t.button.font), "--btn-bg":t.button.bg, "--btn-c":t.button.color, "--btn-w":w(t.button.bold), "--hd-ink":inkOn(t.heading.color), "--sec":a.colors.secondary, "--sec-ink":inkOn(a.colors.secondary), "--imp":a.colors.important, "--imp-ink":inkOn(a.colors.important), "--imp-tx":readable(a.colors.important),
+    "--font-btn":f(t.button.font), "--btn-bg":t.button.bg, "--btn-c":t.button.color, "--btn-w":w(t.button.bold), "--hd-ink":inkOn(t.heading.color), "--sec":a.colors.secondary, "--sec-ink":inkOn(a.colors.secondary), "--imp":a.colors.important, "--imp-ink":inkOn(a.colors.important), "--imp-tx":readable(a.colors.important, t.formBg),
     "--radius":radiusOf(a) + "px",
     "--ctl":Math.round(radiusOf(a) * .5) + "px" };
   return Object.keys(v).map(k => k + ":" + v[k]).join(";").replace(/"/g, "'");
@@ -2716,7 +2729,7 @@ function topHtml(){
 }
 function portalHtml(){
   let inner = ({ home:homeHtml, list:listHtml, detail:detailHtml, view:viewHtml, attn:attnHtml, profile:profileHtml })[S.view]();
-  const cls = "portal fs-" + toTheme(S.theme).field;
+  const t = toTheme(S.theme), cls = "portal fs-" + t.field + (isDark(t.formBg) ? " dk" : "");
   const p = '<div class="' + cls + '" id="portal" style="' + themeVars() + '">' + topHtml() + inner
     + (S.dlg ? formHtml() : S.im && S.im.length ? itemModalHtml() : "") + (S.card ? cardHtml() : "") + '<div class="toasts">' + S.toasts.map(t => '<div class="toast">' + esc(t.m) + "</div>").join("") + "</div></div>";
   if (S.host === "hosted") return p;
