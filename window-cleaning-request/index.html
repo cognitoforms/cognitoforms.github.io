@@ -590,7 +590,14 @@ svg { flex: none; }
 
 .icon { width: var(--spacing-icon); height: var(--spacing-icon); flex-shrink: 0; color: var(--icon-subtle); }
 .icon--sm { width: var(--spacing-icon-small); height: var(--spacing-icon-small); }
-.help { width: var(--spacing-icon-small); height: var(--spacing-icon-small); color: var(--icon-subtle); }
+/* Matches CToolTip in the app: white, tooltip border, top placement with arrow */
+.tip { position: relative; display: inline-flex; vertical-align: -2px; }
+.tip-pop { position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%); z-index: 20; width: 225px; padding: var(--spacing-3); background: var(--bg-primary); border: 1px solid var(--border-tooltip); box-shadow: 0 1px 1px 0 var(--shadow-color); color: var(--text-primary); font-size: var(--text-2); font-weight: 400; line-height: 1.4; white-space: normal; text-align: left; pointer-events: none; visibility: hidden; opacity: 0; transition: opacity .12s; }
+.tip-arrow, .tip-arrow::after { position: absolute; width: 0; height: 0; border: 8px solid transparent; border-bottom-width: 0; }
+.tip-arrow { top: 100%; left: 50%; margin-left: -8px; border-top-color: var(--border-tooltip); }
+.tip-arrow::after { content: ''; left: -8px; bottom: 1px; border-top-color: var(--bg-primary); }
+.tip:hover .tip-pop { visibility: visible; opacity: 1; }
+.help { width: var(--spacing-icon); height: var(--spacing-icon); color: var(--icon-intense); }
 
 /* Checkboxes and radios drawn like the app (.c-checkbox-fancy) */
 input[type='checkbox'], input[type='radio'], select { cursor: default; }
@@ -609,7 +616,7 @@ input[type='radio']:checked { border-color: var(--icon-intense); background: var
 .app { display: flex; flex-direction: column; min-height: 100%; }
 
 /* Form header with Form Navigation (FormNav.vue) */
-.topbar { display: flex; align-items: center; gap: var(--spacing-4); padding-block: var(--spacing-3); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-bottom: 1px solid var(--border-primary); flex-wrap: wrap; }
+.topbar { display: flex; align-items: center; gap: var(--spacing-4); padding-block: var(--spacing-3); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); flex-wrap: wrap; }
 .logo { width: 26px; height: 26px; display: grid; place-items: center; }
 .logo svg { width: 26px; height: 26px; }
 .formname { font-family: var(--font-display); font-weight: var(--font-extra-bold); font-size: var(--text-4); }
@@ -649,7 +656,7 @@ div.text { display: flex; align-items: center; }
 .pills { display: inline-flex; border: 1px solid var(--border-input); border-radius: 999px; padding: 2px; background: var(--bg-primary); }
 .pill { display: inline-flex; align-items: center; gap: var(--spacing-1); border: 0; background: none; border-radius: 999px; padding: 2px var(--spacing-3); color: var(--text-primary); font-size: var(--text-1); transition: background-color var(--duration-hovered); }
 .pill:hover { background: var(--bg-hovered); }
-.pill.on, .pill.on:hover { background: var(--bg-selected-alt); font-weight: var(--font-bold); }
+.pill.on, .pill.on:hover { background: var(--bg-selected-alt); font-weight: var(--font-normal, 400); }
 .pill .icon { width: var(--spacing-icon-small); height: var(--spacing-icon-small); color: inherit; }
 
 /* Expandable rows and sections */
@@ -662,6 +669,16 @@ div.text { display: flex; align-items: center; }
 .section.open { background: var(--shade-2); }
 .section .body { padding: var(--spacing-2) var(--spacing-4) var(--spacing-4) calc(var(--spacing-4) + var(--spacing-icon) + var(--spacing-3)); display: flex; flex-direction: column; gap: var(--spacing-4); }
 .status { color: var(--text-helptext); font-size: var(--text-1); font-weight: var(--font-normal, 400); white-space: nowrap; }
+.rem-v1 { margin-bottom: var(--spacing-3); }
+.rem-v1.open { background: var(--shade-2); padding-bottom: var(--spacing-4); }
+.rem-v1 .static-row, .rem-v1 .exp-btn { align-items: flex-start; }
+.rem-v1 .exp-btn .chev { margin-top: 2px; }
+.rem-v1 .exp-btn .name { display: block; }
+.rem-v1 .nw { white-space: nowrap; }
+.rem-v1 .exp-btn .name .help { display: inline-block; vertical-align: -2px; margin-left: 4px; }
+.rem-hint { margin: var(--spacing-1) var(--spacing-4) 0 calc(var(--spacing-4) + var(--spacing-icon) + var(--spacing-3)); }
+.rem-gates { padding: var(--spacing-3) var(--spacing-4) 0; }
+.rem-body { padding: var(--spacing-2) var(--spacing-4) 0 calc(var(--spacing-4) + var(--spacing-icon) + var(--spacing-3)); display: flex; flex-direction: column; gap: var(--spacing-4); }
 .static-row { display: flex; align-items: center; gap: var(--spacing-3); padding: var(--spacing-3) var(--spacing-4); min-height: 36px; color: var(--text-primary); }
 .static-row .name { flex: 1; font-weight: var(--font-bold); display: flex; gap: var(--spacing-2); align-items: center; }
 .subhead { padding: 0 var(--spacing-4); margin: var(--spacing-3) 0 var(--spacing-2); font-weight: var(--font-bold); }
@@ -674,7 +691,7 @@ div.text { display: flex; align-items: center; }
 .toggle[aria-checked="true"]::after { transform: translateX(18px); }
 .toggle:disabled { opacity: 0.45; cursor: not-allowed; }
 
-.token { display: inline-block; font-family: var(--font-monospace); font-size: var(--text-1); background: var(--token-bg); border: 1px solid var(--token-line); border-radius: var(--border-radius-text-button); padding: 0 4px; line-height: 16px; white-space: nowrap; }
+.token { display: inline-block; max-width: 100%; overflow: hidden; vertical-align: middle; margin: 0 2px; padding: 0 .2em; background-color: var(--bg-pill); border: 1px solid var(--border-pill); border-radius: .2em; color: var(--text-primary); font-family: var(--font-monospace); font-size: var(--text-1); font-style: normal; font-weight: 400; line-height: 14px; text-overflow: ellipsis; white-space: nowrap; }
 .todo { display: inline-block; font-size: var(--text-0); font-weight: var(--font-bold); letter-spacing: 0.06em; text-transform: uppercase; background: var(--todo-bg); color: var(--todo-fg); border-radius: 999px; padding: 1px 6px; }
 
 .group-lbl { display: flex; align-items: center; gap: var(--spacing-3); font-weight: var(--font-bold); }
@@ -683,13 +700,16 @@ div.text { display: flex; align-items: center; }
 /* Email cards */
 .cards { display: flex; flex-direction: column; gap: var(--spacing-3); }
 .card { display: flex; gap: var(--spacing-3); align-items: flex-start; border: 1px solid var(--border-primary); border-radius: 0; background: var(--bg-primary); padding: var(--spacing-3); cursor: pointer; text-align: left; width: 100%; transition: border-color var(--duration-hovered), background-color var(--duration-hovered); }
-.card:hover { border-color: var(--border-input); background: var(--bg-hovered); }
-.card .ic { display: flex; margin-top: 1px; }
+.card:hover { border-color: var(--border-input); }
+.card .ic .icon--edit, .card:hover .ic .icon--email, .card:hover .ic .icon--action { display: none; }
+.card:hover .ic .icon--email + .icon--edit, .card:hover .ic .icon--action + .icon--edit { display: block; }
+.card .ic { display: flex; align-self: center; }
 .card .ic.err .icon { color: var(--icon-error); }
 .card .main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--spacing-1); }
-.card .title { font-weight: var(--font-bold); display: flex; gap: var(--spacing-3); align-items: center; flex-wrap: wrap; }
+.card .title { font-size: 13px; font-weight: var(--font-bold); display: flex; gap: var(--spacing-3); align-items: center; flex-wrap: wrap; }
 .card .sub { color: var(--text-helptext); font-size: var(--text-1); overflow-wrap: anywhere; }
-.card .del { display: flex; border: 0; background: transparent; padding: var(--spacing-2); border-radius: 50%; margin: -4px -4px -4px 0; transition: background-color var(--duration-hovered); }
+.card .del { display: flex; border: 0; background: transparent; padding: var(--spacing-2); border-radius: 50%; margin: -4px -4px -4px 0; align-self: center; color: var(--icon-intense); transition: background-color var(--duration-hovered); }
+.card .del .icon { color: var(--icon-intense); }
 .card .del:hover { background: var(--bg-hovered); }
 
 /* Add button (IconButton.vue, intense with text) */
@@ -718,6 +738,11 @@ div.text { display: flex; align-items: center; }
 body.notes .req { display: inline-block; }
 
 /* Form preview on the canvas, restyled to match the app */
+.flow-wrap { max-width: 860px; margin: var(--spacing-5) auto 0; }
+.flow-diagram { display: block; width: 100%; max-width: 730px; height: auto; font-family: var(--font-body); }
+.fd-pill { font-size: 13px; font-weight: var(--font-bold); }
+.fd-act { font-size: 13px; font-weight: var(--font-bold); fill: var(--text-primary); }
+.fd-role { font-size: 12px; fill: var(--text-primary); }
 .form { max-width: 860px; margin: 0 auto; background: var(--bg-primary); border: 1px solid var(--border-primary); }
 .form-h { padding: 20px 24px; border-bottom: 1px solid var(--border-primary); display: flex; justify-content: space-between; align-items: center; background: var(--bg-selected-nav); }
 .form-h h3 { margin: 0; font-family: var(--font-display); font-weight: var(--font-extra-bold); font-size: var(--text-5); }
@@ -732,6 +757,35 @@ body.notes .req { display: inline-block; }
 .pay { margin: 0 24px 20px; border-top: 1px solid var(--border-primary); padding-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .pay h4 { grid-column: 1 / -1; margin: 0; font-family: var(--font-body); font-weight: var(--font-bold); font-size: var(--text-3); }
 .pay .pay-box { grid-column: 1 / -1; background: var(--shade-2); padding: var(--spacing-4) 20px; display: flex; flex-direction: column; gap: 10px; font-variant-numeric: tabular-nums; }
+.ff { min-width: 0; }
+.person .avatar.av-blank { width: 24px; height: 24px; background: var(--shade-2); border: 1px solid var(--border-input); color: var(--shade-7); }
+.person .avatar.av-blank .icon { width: 15px; height: 15px; }
+.name-tok { display: inline-block; font-weight: var(--font-normal, 400); padding: 0 .25em; background: var(--bg-pill-read-only); border: 1px solid var(--border-primary); border-radius: .2em; font-family: var(--font-monospace); font-size: var(--text-2, 14px); line-height: 18px; color: var(--text-primary); }
+.lbl-icons { display: inline-flex; gap: var(--spacing-3); color: var(--icon-intense); }
+.form-f .btn { background: var(--shade-4); border-color: var(--border-primary); font-weight: var(--font-normal, 400); }
+.form-f .btn:hover { background: var(--shade-5); border-color: var(--border-input); }
+.ff .box.ic-l { gap: var(--spacing-3); }
+.ff .box.due-box { justify-content: space-between; gap: var(--spacing-3); }
+.ff .box.due-box .icon { color: var(--icon-subtle); flex: none; }
+.ff .box.due-box, .ff .box.ic-l { min-width: 0; overflow: hidden; }
+.ff .box.due-box > span, .ff .box.ic-l > span { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; }
+.ff .box.ic-l .icon { flex: none; color: var(--icon-primary, currentColor); }
+.addon.static, .addon.static input { pointer-events: none; }
+input[type='checkbox']:disabled { background-color: var(--bg-primary); border-color: var(--border-disabled); }
+input[type='checkbox']:disabled:checked { background: var(--bg-disabled) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23bdcccc' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; border-color: var(--border-disabled); }
+input[type='radio']:disabled { border-color: var(--border-disabled); background: var(--bg-primary); box-shadow: none; }
+input[type='radio']:disabled:checked { border-color: var(--border-disabled); background: radial-gradient(circle, var(--icon-disabled) 0 3px, var(--bg-disabled) 3.5px); box-shadow: none; }
+.radio-row .addon.static { color: var(--text-disabled); }
+.radio-row { display: flex; gap: var(--spacing-5); }
+.radio-row .addon { margin: 0; }
+.calc-val { white-space: nowrap; overflow: hidden; }
+.pay .pay-box { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4) 24px; align-items: start; }
+.pay-card, .pay-tot { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.pay-card { gap: var(--spacing-3); }
+.pay-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-3); }
+.pay-card .addon.save-card { display: flex; gap: var(--spacing-3); font-weight: var(--font-normal, 400); align-items: flex-start; margin: var(--spacing-2) 0 0; }
+.pay-card .save-card input { margin-top: 2px; flex: none; }
+.form-f { flex-wrap: wrap; }
 .pay-box .li { display: flex; justify-content: space-between; gap: var(--spacing-4); }
 .pay-box .li.sub { justify-content: flex-end; gap: var(--spacing-5); font-weight: var(--font-bold); padding-bottom: 10px; border-bottom: 1px solid var(--border-input); }
 .pay-box .li.due { justify-content: flex-end; font-family: var(--font-display); font-weight: var(--font-extra-bold); font-size: var(--text-4); }
@@ -754,10 +808,11 @@ body.notes .req { display: inline-block; }
 .erow { display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--border-primary); padding: var(--spacing-3) 0; }
 .erow > b { width: 56px; flex: none; }
 .erow .val { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--spacing-3); flex-wrap: wrap; }
-.erow input { border: 0; background: transparent; flex: 1; min-width: 120px; padding: 2px 0; }
-.erow input:focus { outline: none; }
+.erow input, .erow .rt { border: 0; background: transparent; flex: 1; min-width: 120px; padding: 2px 0; }
+.erow input:focus, .rt:focus { outline: none; }
+.rt { white-space: pre-wrap; overflow-wrap: anywhere; cursor: text; }
 .erow .side { color: var(--text-helptext); font-size: var(--text-1); }
-.msg { width: 100%; border: 0; border-bottom: 1px solid var(--border-primary); padding: var(--spacing-3) 0; min-height: 70px; resize: vertical; background: transparent; }
+.msg { width: 100%; border: 0; border-bottom: 1px solid var(--border-primary); padding: var(--spacing-3) 0; min-height: 70px; background: transparent; white-space: pre-wrap; overflow-wrap: anywhere; }
 .msg:focus { outline: none; border-bottom-color: var(--outline-focused); }
 .opts { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--spacing-4); margin-top: var(--spacing-4); }
 .opt-h { font-weight: var(--font-bold); margin-bottom: var(--spacing-3); display: flex; gap: var(--spacing-3); align-items: center; flex-wrap: wrap; }
@@ -770,7 +825,8 @@ body.notes .req { display: inline-block; }
 .dsec-h .grow { flex: 1; }
 .inline { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
 .inline .f { display: flex; flex-direction: column; gap: var(--spacing-2); }
-.inline .f span { font-weight: var(--font-bold); }
+.inline .f span { font-weight: 600; }
+.send-time-row { flex-direction: column; align-items: flex-start; gap: var(--spacing-2); }
 .num { width: 54px; text-align: center; }
 .actions { display: flex; justify-content: flex-end; gap: var(--spacing-3); margin-top: var(--spacing-5); }
 
@@ -780,7 +836,7 @@ body.notes .req { display: inline-block; }
 .dialog.wide { width: min(1200px, 100%); padding: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 470px); overflow: hidden; }
 .dialog.wide .editor { padding: var(--spacing-modal-padding); overflow-y: auto; max-height: calc(100vh - 32px); }
 .pv { background: var(--shade-2); border-left: 1px solid var(--border-primary); display: flex; flex-direction: column; max-height: calc(100vh - 32px); min-width: 0; }
-.pv-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-3); padding: 12px calc(var(--spacing-modal-padding) + var(--spacing-2)) 10px var(--spacing-4); border-bottom: 1px solid var(--border-primary); min-height: 52px; }
+.pv-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-3); padding: 12px calc(var(--spacing-modal-padding) + var(--spacing-2)) 10px var(--spacing-4); min-height: 52px; }
 .pv-bar b { font-weight: var(--font-bold); font-size: var(--text-3); }
 .pv-bar .pv-bar-note { flex: 1; min-width: 160px; margin-right: auto; }
 .pv-scroll { overflow-y: auto; padding: var(--spacing-4); flex: 1; }
@@ -801,6 +857,28 @@ body.notes .req { display: inline-block; }
 .wf-btn-text { margin-left: 24px; width: 170px; max-width: calc(100% - 24px); }
 
 /* Actions list and Action Settings */
+.wf-sec { padding: 0 var(--spacing-4); border-top: 1px solid transparent; border-bottom: 1px solid transparent; transition: background-color var(--duration-hovered); }
+.wf-sec.open { background: var(--shade-2); border-color: var(--border-primary); padding-bottom: var(--spacing-3); }
+.wf-head { width: 100%; padding-left: 0; padding-right: 0; border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.wf-sec.has-extra { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: var(--spacing-3); }
+.wf-sec.has-extra > .wf-list { grid-column: 1 / -1; }
+#wfPublic-body { padding-left: calc(var(--spacing-icon) + var(--spacing-3)); gap: var(--spacing-4); }
+#wfPublic-body .field { margin: 0; }
+.wf-list { display: flex; flex-direction: column; gap: var(--spacing-2); }
+.role-card { align-items: center; }
+.role-card .ic .icon { color: var(--icon-subtle); }
+.role-card .act-meta .icon { width: 14px; height: 14px; color: var(--icon-subtle); }
+.status-card { align-items: center; min-height: 42px; }
+.status-card .status-dot { margin: 0 var(--spacing-1); }
+.wf-add { margin-left: 22px; font-weight: var(--font-bold); color: var(--text-link); }
+.act-row .card .title { font-weight: var(--font-bold); }
+.status-sel { display: flex; align-items: center; gap: var(--spacing-3); }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--icon-intense); flex: none; }
+.email-card + .email-card { margin-top: var(--spacing-3); }
+.email-card .title { flex-wrap: nowrap; }
+.email-card .title > span { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.to-globe .icon { width: 14px; height: 14px; vertical-align: -3px; color: var(--icon-subtle); }
+.wf-add-email { margin-top: var(--spacing-3); font-weight: var(--font-bold); color: var(--text-link); }
 .act-row { display: flex; align-items: center; gap: var(--spacing-2); }
 .act-row .grip { display: flex; }
 .act-row .card { flex: 1; align-items: center; }
@@ -834,6 +912,8 @@ body.notes .req { display: inline-block; }
 .input-ic .icon { position: absolute; right: var(--spacing-3); color: var(--icon-intense); pointer-events: none; }
 textarea.text { resize: vertical; min-height: 68px; }
 .radios { display: flex; flex-direction: column; gap: var(--spacing-3); }
+.dis-type .check { color: var(--text-disabled); }
+.dis-type input[type="radio"]:disabled:not(:checked) { background: var(--bg-disabled); border-color: var(--border-disabled); }
 .range { display: flex; align-items: center; gap: var(--spacing-3); }
 .range .input-ic { flex: 1; min-width: 0; }
 .ftypes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--spacing-3); }
@@ -841,15 +921,17 @@ textarea.text { resize: vertical; min-height: 68px; }
 .form.v3 .form-h { background: transparent; cursor: default; transition: background-color var(--duration-hovered); }
 .form.v3 .form-h.is-sel { background: var(--bg-selected-nav); }
 .form.v3 .sel-able { margin: calc(var(--spacing-3) * -1); padding: var(--spacing-3); border: 1px solid transparent; cursor: default; transition: background-color var(--duration-hovered), border-color var(--duration-hovered); }
-.form.v3 .sel-able:hover { border-color: var(--border-subtle); }
+.form.v3 .sel-able:hover:not(.is-sel) { background: var(--bg-hovered); }
 .form.v3 .sel-able.is-sel { background: var(--bg-selected-nav); border-color: var(--border-input); }
 .form.v3 .form-f { cursor: default; transition: background-color var(--duration-hovered); }
-.form.v3 .pay { margin: 0 12px 8px; padding: 12px; cursor: default; transition: background-color var(--duration-hovered); }
+.form.v3 .pay { margin: 0; padding: var(--spacing-4) 24px 20px; cursor: default; transition: background-color var(--duration-hovered); }
 .form.v3 .pay.is-sel { background: var(--bg-selected-nav); }
+.form.v3 .pay:hover:not(.is-sel) { background: var(--shade-2); }
 .ff .box { background: var(--bg-primary); }
 .form.v3 .pay.is-sel .pay-box { background: color-mix(in srgb, var(--bg-selected-nav) 35%, var(--bg-primary)); }
 .form-h .status { display: inline-flex; align-items: center; gap: var(--spacing-2); }
 .form.v3 .form-f.is-sel { background: var(--bg-selected-nav); }
+.form.v3 .form-f:hover:not(.is-sel):not(:has(.btn:hover)) { background: var(--bg-hovered); }
 .form.v3 .btn.is-sel { box-shadow: 0 0 0 4px var(--bg-selected-nav), 0 0 0 5px var(--border-input); }
 /* Form Settings panel */
 .panel h2.ph { display: flex; align-items: center; gap: var(--spacing-3); }
@@ -862,8 +944,40 @@ textarea.text { resize: vertical; min-height: 68px; }
 textarea.text { resize: vertical; }
 .text.summary { gap: var(--spacing-2); }
 .s-row .name { gap: var(--spacing-2); }
-.s-row .name .icon:first-child { color: var(--icon-subtle); }
+.s-row .name > .icon:first-child { color: var(--icon-subtle); }
 .s-row .lbl-t { min-width: 0; }
+.yn-label { resize: none; min-height: 0; }
+.yn-ic .icon { color: var(--icon-subtle); vertical-align: -3px; }
+.pay-acct { display: flex; align-items: center; gap: var(--spacing-3); }
+.pay-logo { display: flex; flex: none; }
+.pay-logo svg { width: 18px; height: 18px; }
+.pay-acct-link { flex: 1; min-width: 0; color: var(--text-link); font-style: italic; text-decoration: underline; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.pay-cond { display: flex; align-items: center; gap: var(--spacing-3); min-width: 0; }
+.pay-cond .pills { flex: none; }
+.pay-cond .pill .icon { width: 12px; height: 12px; margin-left: 4px; color: currentColor; }
+.pay-cond-t { flex: 1; min-width: 0; font-style: italic; text-decoration: underline; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.pay-cond-ic { display: flex; flex: none; }
+.pay-cond-t.full { flex: 0 1 auto; white-space: normal; overflow: visible; }
+.pay-cond-ic .icon { color: var(--icon-intense); }
+.pay-row .lbl-t .help { display: inline-block; vertical-align: -3px; margin-left: var(--spacing-1); }
+.pay-fees { margin-top: var(--spacing-3); }
+.fee-row { display: flex; align-items: center; gap: var(--spacing-3); }
+.fee-in { flex: 1; min-width: 0; display: grid; grid-template-columns: 1fr 48px 48px; }
+.fee-in .text { min-width: 0; }
+.fee-in .text + .text { border-left: 0; }
+.fee-del .icon { color: var(--icon-disabled); }
+.fee-add .icon { color: var(--icon-intense); }
+.roles-row { display: flex; align-items: center; gap: var(--spacing-3); }
+.roles-row .pills { flex: none; }
+.roles-row .pill .icon { width: 12px; height: 12px; margin-left: 4px; vertical-align: -1px; color: currentColor; }
+.role-box { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-2); }
+.role-box > .icon { color: var(--icon-subtle); }
+.role-tag { display: inline-flex; align-items: center; gap: 6px; padding: 0 5px; border: 1px solid var(--border-pill); border-radius: .2em; background: var(--bg-pill); font-size: var(--text-1); line-height: 18px; color: var(--text-primary); }
+.ef-panel .pill.on, .ef-panel .pill.on:hover { font-weight: var(--font-normal, 400); }
+.role-x .icon { width: 10px; height: 10px; color: var(--icon-subtle); }
+.s-row.track-row .lbl-t .help { width: var(--spacing-icon); height: var(--spacing-icon); color: var(--icon-intense); vertical-align: -3px; }
+.track-on { border: 0; background: none; padding: 0; display: inline-flex; color: var(--icon-intense); cursor: default; }
+.track-on .track-check { width: 22px; height: 22px; color: var(--icon-intense); }
 .s-row .lbl-t .help { display: inline-block; vertical-align: -2px; margin-left: var(--spacing-1); }
 .select-ic { position: relative; display: flex; align-items: center; }
 .select-ic select { appearance: none; -webkit-appearance: none; padding-right: calc(var(--spacing-icon) + var(--spacing-3) * 2); }
@@ -903,7 +1017,7 @@ textarea.text { resize: vertical; }
 	.work { grid-template-columns: minmax(0, 1fr); }
 	.panel { border-right: 0; border-bottom: 1px solid var(--border-primary); }
 	.opts { grid-template-columns: minmax(0, 1fr); }
-	.form-b, .pay { grid-template-columns: minmax(0, 1fr); }
+	.form-b, .pay, .pay .pay-box { grid-template-columns: minmax(0, 1fr); }
 }
 @media (pointer: coarse) {
 	.card .del, .x, .toggle { position: relative; }
@@ -916,7 +1030,7 @@ textarea.text { resize: vertical; }
 :root { --em-page: #eeeeee; --em-paper: #ffffff; --em-ink: #333333; --em-soft: #888888; --em-rule: #dddddd; --em-btn: #09a098; --em-head: #172d35; --em-row: #f6f6f6; --em-total: #dddddd;
 	--st-unpaid-bg: #fff1d0; --st-unpaid: #a3340d; --st-overdue-bg: #fde3da; --st-overdue: #a3340d; --st-paid-bg: #e7f5be; --st-paid: #347208; --st-quote-bg: #edf4f4; --st-quote: #55727b; }
 .em { background: var(--em-page); color: var(--em-ink); font-family: Helvetica, Arial, sans-serif; font-size: 13px; line-height: 1.35; border-radius: 3px; overflow: hidden; border: 1px solid var(--em-rule); }
-.em-head { background: var(--em-paper); border-bottom: 2px solid var(--em-rule); padding: 18px 18px 20px; text-align: center; }
+.em-head { background: var(--em-paper); padding: 18px 18px 20px; text-align: center; }
 .em-head h1 { font-size: 19px; margin: 0; color: var(--em-ink); }
 .em-head h2 { font-size: 15px; margin: 2px 0 0; color: var(--em-soft); font-weight: 400; }
 .em-msg { text-align: left; white-space: pre-wrap; margin: 14px 0 0; overflow-wrap: anywhere; }
@@ -924,7 +1038,7 @@ textarea.text { resize: vertical; }
 .em-body { padding: 14px; display: flex; flex-direction: column; gap: 12px; }
 .em-sec { background: var(--em-paper); border-radius: 3px; overflow: hidden; }
 .em-sec h3 { margin: 0; padding: 12px 14px 8px; font-size: 17px; color: var(--em-ink); }
-.em-sum { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 10px 12px; padding: 4px 14px 12px; border-bottom: 1px solid var(--em-page); }
+.em-sum { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 10px 12px; padding: 4px 14px 12px; }
 .em-sum .k { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--em-soft); }
 .em-sum .v { font-weight: 700; overflow-wrap: anywhere; }
 .em-sum .v.big { font-size: 18px; font-variant-numeric: tabular-nums; }
@@ -934,7 +1048,7 @@ textarea.text { resize: vertical; }
 .em-st.overdue { background: var(--st-overdue-bg); color: var(--st-overdue); }
 .em-st.paid { background: var(--st-paid-bg); color: var(--st-paid); }
 .em-st.quote { background: var(--st-quote-bg); color: var(--st-quote); }
-.em-parties { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--em-page); }
+.em-parties { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 10px 14px; }
 .em-parties .k { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--em-soft); margin-bottom: 2px; }
 .em-parties div { overflow-wrap: anywhere; }
 .em-ids { padding: 8px 14px; font-size: 12px; color: var(--em-soft); display: flex; gap: 14px; flex-wrap: wrap; }
@@ -955,7 +1069,7 @@ textarea.text { resize: vertical; }
 .em-rc { padding: 0 14px 10px; font-size: 12px; line-height: 1.5; }
 .em-rc b { font-size: 13px; }
 .em-rc .k { font-size: 10px; font-weight: 700; text-transform: uppercase; }
-.em-tok { display: inline-block; max-width: 100%; box-sizing: border-box; margin: 0 2px; padding: 0 .2em; overflow: hidden; border: 1px solid #d0efec; border-radius: .2em; background: #f1fcfc; color: #333333; font-family: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Courier New', monospace; font-size: 12.5px; font-style: normal; font-weight: 400; letter-spacing: normal; line-height: 16px; text-overflow: ellipsis; text-transform: none; vertical-align: middle; white-space: nowrap; }
+.em-tok { display: inline-block; max-width: 100%; box-sizing: border-box; overflow: hidden; vertical-align: middle; margin: 0 2px; padding: 0 .2em; background-color: var(--bg-pill-read-only); border: 1px solid var(--border-primary); border-radius: .2em; color: var(--text-primary); font-family: var(--font-monospace); font-size: var(--text-1); font-style: normal; font-weight: 400; letter-spacing: normal; line-height: 14px; text-overflow: ellipsis; text-transform: none; white-space: nowrap; }
 .pv-meta .em-tok { font-size: 11px; line-height: 15px; }
 </style>
 
@@ -981,6 +1095,14 @@ textarea.text { resize: vertical; }
 
 <script>
 const ICONS = {
+	link: "<svg class=\"icon icon--link\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M7.06029 9.22057C7.36943 9.63428 7.76384 9.97659 8.21677 10.2243C8.6697 10.472 9.17054 10.6193 9.68534 10.6562C10.2001 10.6931 10.7168 10.6188 11.2004 10.4382C11.684 10.2576 12.1231 9.97507 12.488 9.60968L14.6475 7.44795C15.3032 6.76844 15.666 5.85834 15.6578 4.91368C15.6496 3.96902 15.271 3.06537 14.6037 2.39736C13.9364 1.72936 13.0336 1.35045 12.0899 1.34224C11.1462 1.33403 10.237 1.69718 9.55818 2.35347L8.32003 3.58566M9.9397 7.77942C9.63056 7.36572 9.23615 7.0234 8.78322 6.7757C8.3303 6.528 7.82945 6.3807 7.31465 6.34379C6.79985 6.30689 6.28315 6.38124 5.79958 6.5618C5.31601 6.74237 4.8769 7.02493 4.51201 7.39031L2.35246 9.55204C1.69682 10.2316 1.33404 11.1416 1.34224 12.0863C1.35044 13.031 1.72897 13.9346 2.3963 14.6026C3.06363 15.2706 3.96637 15.6495 4.91009 15.6578C5.8538 15.666 6.76299 15.3028 7.44181 14.6465L8.67276 13.4143\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
+	userPerson: "<svg class=\"icon icon--user-person\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M13.5016 8.86456V5.49685C13.5014 5.26305 13.4396 5.03342 13.3226 4.83099C13.2056 4.62857 13.0374 4.46048 12.835 4.34358L8.16851 1.67704C7.96583 1.56002 7.73592 1.49841 7.50188 1.49841C7.26784 1.49841 7.03793 1.56002 6.83524 1.67704L2.1688 4.34358C1.96632 4.46048 1.79814 4.62857 1.68113 4.83099C1.56413 5.03342 1.50241 5.26305 1.50217 5.49685V10.8299C1.50241 11.0637 1.56413 11.2934 1.68113 11.4958C1.79814 11.6982 1.96632 11.8663 2.1688 11.9832L6.83524 14.6497C7.03793 14.7668 7.26784 14.8284 7.50188 14.8284C7.73592 14.8284 7.96583 14.7668 8.16851 14.6497\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M9.63419 10.2982C9.11154 9.93406 8.5006 9.71716 7.86534 9.67021C7.23009 9.62327 6.5939 9.74799 6.0234 10.0313C5.4529 10.3147 4.96908 10.7462 4.62261 11.2807C4.27614 11.8152 4.07977 12.4331 4.05407 13.0696M9.63374 7.4992C9.63374 8.69032 8.66815 9.6559 7.47704 9.6559C6.28592 9.6559 5.32033 8.69032 5.32033 7.4992C5.32033 6.30809 6.28592 5.3425 7.47704 5.3425C8.66815 5.3425 9.63374 6.30809 9.63374 7.4992Z\" stroke=\"currentColor\" stroke-linecap=\"round\"/><path d=\"M9.74043 12.618C9.74043 12.2702 10.0223 11.9883 10.3701 11.9883L15.112 12.0022C15.4598 12.0022 15.7417 12.2841 15.7417 12.6318V15.111C15.7417 15.4588 15.4598 15.7407 15.112 15.7407H10.3701C10.0223 15.7407 9.74043 15.4588 9.74043 15.111V12.618Z\" stroke=\"currentColor\"/><path d=\"M11.6486 15.2544L11.6486 10.9365C11.6486 10.6365 11.8725 10.3933 12.1486 10.3933L13.3586 10.3889C13.6348 10.3889 13.8586 10.6321 13.8586 10.932L13.8586 15.2499\" stroke=\"currentColor\"/></svg>",
+	helpQ: "<svg class=\"icon icon--support help\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M6.26316 6.00997C6.44357 5.49774 6.79966 5.06581 7.26836 4.79068C7.73706 4.51556 8.28813 4.41499 8.82396 4.50678C9.35979 4.59858 9.8458 4.87682 10.1959 5.29223C10.546 5.70764 10.7377 6.2334 10.7368 6.7764C10.7368 8.30925 8.5 9 8.5 9V10M9 12.5C9 12.7761 8.77614 13 8.5 13C8.22386 13 8 12.7761 8 12.5C8 12.2239 8.22386 12 8.5 12C8.77614 12 9 12.2239 9 12.5ZM15.5 8.5C15.5 12.366 12.366 15.5 8.5 15.5C4.63401 15.5 1.5 12.366 1.5 8.5C1.5 4.63401 4.63401 1.5 8.5 1.5C12.366 1.5 15.5 4.63401 15.5 8.5Z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
+	contactCard: "<svg class=\"icon icon--person\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M12.5 4.5H14.6515C15.1201 4.5 15.5 4.87052 15.5 5.32758V13.6724C15.5 14.1295 15.1201 14.5 14.6515 14.5H2.34848C1.87988 14.5 1.5 14.1295 1.5 13.6724V5.32758C1.5 4.87052 1.87988 4.5 2.34848 4.5H4.5M10 10.5H13M10 8.5H13M8.5 12C8.33184 11.5647 8.02852 11.1882 7.6302 10.9204C7.23188 10.6525 6.75735 10.506 6.26945 10.5002C5.78155 10.4944 5.3033 10.6295 4.89804 10.8878C4.49277 11.146 4.1796 11.5152 4 11.9463M7.3 5.5C6.85817 5.5 6.5 5.16421 6.5 4.75V3.25C6.5 2.83579 6.85817 2.5 7.3 2.5H9.7C10.1418 2.5 10.5 2.83579 10.5 3.25V4.75C10.5 5.16421 10.1418 5.5 9.7 5.5H7.3ZM7.64507 9.0028C7.64507 9.81999 6.9826 10.4825 6.16541 10.4825C5.34822 10.4825 4.68576 9.81999 4.68576 9.0028C4.68576 8.18561 5.34822 7.52315 6.16541 7.52315C6.9826 7.52315 7.64507 8.18561 7.64507 9.0028Z\" stroke=\"currentColor\" stroke-linecap=\"round\"/></g></svg>",
+	identify: "<svg class=\"icon icon--identify-submitter\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M15.0045 10.9815L10.8672 14.9934L8.98668 13.1417\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M10.956 10.4966C10.0161 9.86465 8.89647 9.51892 7.74526 9.50519C6.59404 9.49146 5.46559 9.81038 4.50935 10.4197C3.5531 11.0291 2.81416 11.9001 2.39039 12.9174\" stroke=\"currentColor\" stroke-linecap=\"round\"/><path d=\"M7.50614 9.4925C9.43434 9.4925 10.9975 7.92939 10.9975 6.00119C10.9975 4.073 9.43434 2.50989 7.50614 2.50989C5.57795 2.50989 4.01484 4.073 4.01484 6.00119C4.01484 7.92939 5.57795 9.4925 7.50614 9.4925Z\" stroke=\"currentColor\" stroke-linecap=\"round\"/></svg>",
+	lock: "<svg class=\"icon icon--lock\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M3.5 8.49225C3.5 7.94424 3.94772 7.5 4.5 7.5H12.5C13.0523 7.5 13.5 7.94424 13.5 8.49225V14.5078C13.5 15.0558 13.0523 15.5 12.5 15.5H4.5C3.94772 15.5 3.5 15.0558 3.5 14.5078V8.49225Z\" stroke=\"currentColor\"/><path d=\"M5.5 7V4.55556C5.5 3.74517 5.81607 2.96798 6.37868 2.39495C6.94129 1.82192 7.70435 1.5 8.5 1.5C9.29565 1.5 10.0587 1.82192 10.6213 2.39495C11.1839 2.96798 11.5 3.74517 11.5 4.55556V7\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
+	creditCard: "<svg class=\"icon icon--credit-card\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M4.125 10.5H6.75M2 6.5H15M2.77273 3.5H14.2273C14.9302 3.5 15.5 4.05964 15.5 4.75V12.25C15.5 12.9404 14.9302 13.5 14.2273 13.5H2.77273C2.06982 13.5 1.5 12.9404 1.5 12.25V4.75C1.5 4.05964 2.06982 3.5 2.77273 3.5Z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
+	edit: "<svg class=\"icon icon--edit\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M8.94737 4.92105L2.23684 11.6316L1.3421 15.6579L5.36842 14.7632L12.0789 8.05263M11.6345 2.23393C12.6212 1.24724 14.1248 1.1511 14.9929 2.01919C15.861 2.88729 15.7648 4.39089 14.7781 5.37758L13.8849 6.27086L10.7412 3.12721L11.6345 2.23393Z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
 	chev: "<svg class=\"icon icon--chevron-right chev\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M5.5 2.5L11.5 8.5L5.5 14.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
 	chevDown: "<svg class=\"icon icon--chevron-down\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M14.5 5.5L8.47369 11.5263L2.44738 5.5\" stroke=\"currentColor\" stroke-width=\"0.962184\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
 	mail: "<svg class=\"icon icon--email\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M15.5 5.16667L8.5 9.38235L1.5 5.16667M1.5 4.28431C1.5 3.85115 1.87988 3.5 2.34848 3.5H14.6515C15.1201 3.5 15.5 3.85115 15.5 4.28431V12.7157C15.5 13.1489 15.1201 13.5 14.6515 13.5H2.34848C1.87988 13.5 1.5 13.1489 1.5 12.7157V4.28431Z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
@@ -997,7 +1119,7 @@ const ICONS = {
 	settings: "<svg class=\"icon icon--settings\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M6 5.49999L1.5 5.49999M15.5 5.49999L13.5 5.49999M11 11.5L15.5 11.5M1.5 11.5H3.5M8 5.50769C8 4.54119 8.7835 3.75769 9.75 3.75769C10.7165 3.75769 11.5 4.54119 11.5 5.50769C11.5 6.47419 10.7165 7.25769 9.75 7.25769C8.7835 7.25769 8 6.47419 8 5.50769ZM9 11.4791C9 12.4456 8.2165 13.2291 7.25 13.2291C6.2835 13.2291 5.5 12.4456 5.5 11.4791C5.5 10.5126 6.2835 9.72906 7.25 9.72906C8.2165 9.72906 9 10.5126 9 11.4791Z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
 	card: "<svg class=\"icon icon--credit-card\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M4.125 10.5H6.75M2 6.5H15M2.77273 3.5H14.2273C14.9302 3.5 15.5 4.05964 15.5 4.75V12.25C15.5 12.9404 14.9302 13.5 14.2273 13.5H2.77273C2.06982 13.5 1.5 12.9404 1.5 12.25V4.75C1.5 4.05964 2.06982 3.5 2.77273 3.5Z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
 	flow: "<svg class=\"icon icon--workflow\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M13.5 10.5L15.498 12.5L13.5 14.5M13.5 2.5L15.5 4.50006M15.5 4.50006L13.5 6.5M15.5 4.50006L13.967 4.5C11.1301 4.5 8.53162 6.13592 7.62413 8.5C6.71664 10.8641 4.33686 12.587 1.5 12.587M15.4814 12.5H13.965C12.1266 12.5 10.3924 11.8447 9.20376 10.7016M1.57291 4.44521C3.39574 4.44521 5.04449 5.14322 6.23103 6.2694\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
-	help: "<svg class=\"icon icon--info help\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M8.5 12V8.5H7.625M8.5 6.3125V5.4375M7.63375 12H9.30701M15.5 8.5C15.5 12.366 12.366 15.5 8.5 15.5C4.63401 15.5 1.5 12.366 1.5 8.5C1.5 4.63401 4.63401 1.5 8.5 1.5C12.366 1.5 15.5 4.63401 15.5 8.5Z\" stroke=\"currentColor\" stroke-width=\"1\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
+	help: "<svg class=\"icon icon--support help\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M6.26316 6.00997C6.44357 5.49774 6.79966 5.06581 7.26836 4.79068C7.73706 4.51556 8.28813 4.41499 8.82396 4.50678C9.35979 4.59858 9.8458 4.87682 10.1959 5.29223C10.546 5.70764 10.7377 6.2334 10.7368 6.7764C10.7368 8.30925 8.5 9 8.5 9V10M9 12.5C9 12.7761 8.77614 13 8.5 13C8.22386 13 8 12.7761 8 12.5C8 12.2239 8.22386 12 8.5 12C8.77614 12 9 12.2239 9 12.5ZM15.5 8.5C15.5 12.366 12.366 15.5 8.5 15.5C4.63401 15.5 1.5 12.366 1.5 8.5C1.5 4.63401 4.63401 1.5 8.5 1.5C12.366 1.5 15.5 4.63401 15.5 8.5Z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
 eye: "<svg class=\"icon icon--eye\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><g><path d=\"M1.5 8.5C1.5 8.5 4.04545 3.5 8.5 3.5C12.9545 3.5 15.5 8.5 15.5 8.5C15.5 8.5 12.9545 13.5 8.5 13.5C4.04545 13.5 1.5 8.5 1.5 8.5Z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M8.5 10.5C9.60457 10.5 10.5 9.60457 10.5 8.5C10.5 7.39543 9.60457 6.5 8.5 6.5C7.39543 6.5 6.5 7.39543 6.5 8.5C6.5 9.60457 7.39543 10.5 8.5 10.5Z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></g></svg>",
 	calc: "<svg class=\"icon icon--calculations\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M9.5 1.5L3.5 10.5H8.06579L7.5 15.5L13.5 6.5H8.97143L9.5 1.5Z\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
 	f_textbox: "<svg class=\"icon icon--textbox\" aria-hidden=\"true\" viewBox=\"0 0 17 17\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g><path d=\"M2.5 4.36183V2.5H14.5V4.36183M6.375 14.5H10.625M8.5 2.5L8.5 14.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></g></svg>",
@@ -1097,11 +1219,13 @@ const makeAuto = (value, unit, pred) => adaptReminder({
 	include: defaultInclude(), invoice: reminderDetails(),
 	link: { on: true, role: 'Customer', text: pred === 'after' ? 'Pay Now' : 'View & Pay Invoice' }
 }, pred);
+const v1Schedule = () => [makeAuto(3, 'days', 'before'), makeAuto(1, 'days', 'after')];
 const defaultSchedule = () => [makeAuto(3, 'days', 'before'), makeAuto(0, 'days', 'on'), makeAuto(1, 'days', 'after')];
 
 function initialState(start, keep = {}) {
 	nextId = 1;
 	const fresh = start === 'fresh';
+	const v1 = (keep.proto || 'v1') === 'v1';
 	return {
 		version: keep.version || 'new',
 		proto: keep.proto || 'v1',
@@ -1119,11 +1243,11 @@ function initialState(start, keep = {}) {
 		dueField: fresh ? '' : 'Due Date',
 		dueFor: fresh ? '' : 'payment',
 		dueForCleared: false,
-		open: { reminders: false, publicLinks: false, payDue: !fresh },
-		autoOn: !fresh,
+		open: { reminders: false, publicLinks: false, payDue: !fresh, wfActions: true, wfStatuses: false, wfRoles: false, wfPublic: false },
+		autoOn: !fresh && !v1,
 		sendHour: 9,
 		manual: { subject: COPY.manual.subject, message: COPY.manual.message, include: defaultInclude(), invoice: reminderDetails(), link: { on: true, role: 'Customer', text: 'View & Pay Invoice' } },
-		auto: fresh ? [] : defaultSchedule(),
+		auto: v1 ? v1Schedule() : fresh ? [] : defaultSchedule(),
 		workflow: {
 			subject: COPY.workflow.subject, message: COPY.workflow.message, send: 'Always',
 			include: { ...defaultInclude(), documents: true }, invoice: invoiceEmailDetails(),
@@ -1173,7 +1297,7 @@ function toast(text) {
 function enforceGates(reason) {
 	if (state.autoOn && !autoAvailable()) {
 		state.autoOn = false;
-		toast(`Automatic reminders turned off: ${reason}. Manual reminders are still available.`);
+		toast(`Automatic reminders turned off: ${reason}.${state.proto === 'v1' ? '' : ' Manual reminders are still available.'}`);
 	}
 }
 
@@ -1196,7 +1320,7 @@ function settingsPanel() {
 	<div class="field"><div class="lbl">Entry Summary ${ICONS.help}</div><div class="text summary"><span class="token">Customer</span></div><div class="hint">Identify entries using field values.</div></div>
 	${row(ICONS.sLock, 'Encrypt Entry Data?', 's-encrypt', false)}
 	${row(ICONS.sLookup, 'Use with Lookup Field?', 's-lookup', true)}
-	${row(ICONS.chev, 'Track Submissions By Person?', 'tracking', state.tracking, ' ' + req('R7.2.3'))}
+	<div class="static-row s-row track-row"><span class="name">${ICONS.chev}<span class="lbl-t">Track Submissions By Person ${ICONS.helpQ} ${req('R7.2.3')}</span></span>${state.tracking ? `<span class="track-on" role="img" aria-label="Track Submissions By Person is on"><svg class="icon track-check" aria-hidden="true" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.75 11.25l2.75 2.75 5.75-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>` : toggle('tracking', false, false, 'Track Submissions By Person')}</div>
 	${row(ICONS.chev, 'Share as Template?', 's-template', false)}
 	${row(ICONS.chev, 'Developer Mode', 's-dev', false)}
 	${row(ICONS.chev, 'Analytics & Tracking', 's-analytics', false)}
@@ -1210,22 +1334,21 @@ function settingsPanel() {
 }
 
 function paymentPanel() {
-	return `<h2>Payment Settings</h2>
-	<div class="field"><div class="lbl">Account</div><div class="text" style="color:var(--accent-strong)">Bright Side Window Cleaning</div></div>
-	<div class="field"><div class="lbl">Process Payment?</div>
-		<div class="pills"><button class="pill on" type="button">Always</button><button class="pill" type="button">When</button><button class="pill" type="button">Never</button></div>
-	</div>
+	const cond = (text, label) => `<div class="pay-cond"><div class="pills"><button class="pill on" type="button">When ${ICONS.chevDown}</button></div><span class="cond pay-cond-t" title="${esc(text)}">${text}</span><span class="pay-cond-ic" aria-label="${label} condition">${ICONS.calc}</span></div>`;
+	return `<div class="ef-panel"><h2>Payment Settings</h2>
+	<div class="field"><div class="lbl">Account</div><div class="text pay-acct"><span class="pay-logo" aria-hidden="true"><svg viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg"><g><path d="M16.8443 0.150518C16.8443 0.150518 18.1306 0 19.4168 0C20.7031 0 21.9893 0.150518 21.9893 0.150518L23.0789 4.81363C24.5318 5.17681 25.901 5.75112 27.1521 6.50208L31.2211 3.97446C31.2211 3.97446 32.2371 4.77754 33.1466 5.68705C34.0561 6.59657 34.8592 7.61251 34.8592 7.61251L32.3315 11.6815C33.0825 12.9326 33.6568 14.3018 34.02 15.7547L38.6831 16.8443C38.6831 16.8443 38.8336 18.1306 38.8336 19.4168C38.8336 20.7031 38.6831 21.9893 38.6831 21.9893L34.02 23.0789C33.6568 24.5318 33.0825 25.901 32.3315 27.1521L34.8592 31.2211C34.8592 31.2211 34.0561 32.2371 33.1466 33.1466C32.2371 34.0561 31.2211 34.8592 31.2211 34.8592L27.1521 32.3315C25.901 33.0825 24.5318 33.6568 23.0789 34.02L21.9893 38.6831C21.9893 38.6831 20.7031 38.8336 19.4168 38.8336C18.1306 38.8336 16.8443 38.6831 16.8443 38.6831L15.7547 34.02C14.3019 33.6568 12.9326 33.0825 11.6815 32.3315L7.61252 34.8592C7.61252 34.8592 6.59657 34.0561 5.68706 33.1466C4.77755 32.2371 3.97447 31.2211 3.97447 31.2211L6.50208 27.1521C5.75112 25.901 5.17681 24.5318 4.81364 23.0789L0.150522 21.9893C0.150522 21.9893 3.75847e-06 20.7031 3.8147e-06 19.4168C3.87092e-06 18.1306 0.150522 16.8443 0.150522 16.8443L4.81363 15.7547C5.17681 14.3018 5.75112 12.9326 6.50208 11.6815L3.97447 7.61251C3.97447 7.61251 4.77755 6.59657 5.68706 5.68705C6.59657 4.77754 7.61251 3.97446 7.61251 3.97446L11.6815 6.50207C12.9326 5.75112 14.3018 5.17681 15.7547 4.81363L16.8443 0.150518Z" fill="#D85427"/><path d="M23.943 21.1635C23.5654 21.9981 22.945 22.725 22.1898 23.2365C21.3806 23.775 20.4365 24.0711 19.4115 24.098C18.7102 24.098 18.0628 23.9634 17.4694 23.7211C16.5523 23.3173 15.7971 22.6711 15.2576 21.8904C14.7181 21.0827 14.4214 20.1404 14.3944 19.1173C14.3944 18.4173 14.5293 17.7712 14.7721 17.1789C15.1497 16.2904 15.7971 15.5097 16.5793 14.9981C17.3885 14.4597 18.3326 14.1635 19.3575 14.1366C20.0589 14.1366 20.7062 14.2712 21.2996 14.5135C22.1898 14.8905 22.972 15.5366 23.4845 16.3174C23.6193 16.5327 23.7542 16.7481 23.8621 16.9904L29.3916 15.5635C29.3107 15.3481 29.2298 15.1597 29.1489 14.9443C28.3397 13.0328 26.991 11.4174 25.2917 10.2597C23.5924 9.10207 21.5424 8.429 19.3306 8.429C17.928 8.48285 16.5253 8.779 15.2576 9.31745C13.3425 10.1251 11.7241 11.4713 10.5642 13.1674C9.40437 14.8635 8.73004 16.9097 8.73004 19.1173C8.73004 20.5712 9.02675 21.9711 9.56621 23.2634C10.3754 25.1749 11.7241 26.7903 13.4234 27.948C15.1227 29.1057 17.1727 29.7787 19.3845 29.7787C20.8411 29.7787 22.2437 29.4826 23.5384 28.9441C25.4535 28.1364 27.0719 26.7903 28.2318 25.0942C28.7443 24.3403 29.1489 23.5327 29.4726 22.6442L23.943 21.1635Z" fill="white"/></g></svg></span><a class="pay-acct-link" href="#" onclick="return false">Bright Side Window Cleaning</a><button type="button" class="url-edit" aria-label="Change account">${ICONS.sEdit}</button></div></div>
+	<div class="field"><div class="lbl">Process Payment?</div>${cond('Status is one of Sent to Client, Payment Pending', 'Process Payment')}</div>
 	${state.proto === 'v1' ? dueAndReminders() : ''}
-	<div class="subhead">Save Card for Future Payments</div>
-	<div class="field"><div class="pills"><button class="pill" type="button">Always</button><button class="pill" type="button">When</button><button class="pill on" type="button">Never</button></div></div>
-	<div class="static-row"><span class="name">Map Billing Fields? ${ICONS.help}</span>${toggle('p-billing', true, true, 'Map Billing Fields')}</div>
-	<div class="static-row"><span class="name">Include Processing Fees? ${ICONS.help}</span>${toggle('p-fees', false, true, 'Include Processing Fees')}</div>
-	<div class="static-row"><span class="name">Show Subtotal?</span>${toggle('p-subtotal', true, true, 'Show Subtotal')}</div>
-	<div class="static-row"><span class="name">Show Line Items?</span>${toggle('p-lines', true, true, 'Show Line Items')}</div>`;
+	<div class="field"><div class="lbl">Save Card for Future Payments</div>${cond('Status is Sent to Client and Role is Public', 'Save Card')}</div>
+	<div class="static-row s-row pay-row"><span class="name">${ICONS.chev}<span class="lbl-t">Map Billing Fields? ${ICONS.help}</span></span><span class="track-on" role="img" aria-label="Map Billing Fields is on"><svg class="icon track-check" aria-hidden="true" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.5"/><path d="M6.75 11.25l2.75 2.75 5.75-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+	<div class="static-row s-row pay-row"><span class="name">${ICONS.chev}<span class="lbl-t">Include Processing Fees? ${ICONS.help}</span></span>${toggle('p-fees', false, false, 'Include Processing Fees')}</div>
+	<div class="static-row pay-row"><span class="name">Show Subtotal?</span>${toggle('p-subtotal', true, false, 'Show Subtotal')}</div>
+	<div class="static-row pay-row"><span class="name">Show Line Items?</span>${toggle('p-lines', true, false, 'Show Line Items')}</div>
+	<div class="field pay-fees"><div class="lbl">Additional Fees</div><div class="fee-row"><div class="fee-in"><input class="text fee-label" placeholder="Label" aria-label="Fee label"><input class="text fee-amt" placeholder="$" aria-label="Fee amount"><input class="text fee-pct" placeholder="%" aria-label="Fee percent"></div><span class="fee-del" aria-hidden="true">${ICONS.trash}</span><span class="fee-add" aria-hidden="true">${ICONS.plus}</span></div></div></div>`;
 }
 
 function dueLabel() { return ({ v1: 'Payment Due', v2: 'Payment Due Date', v3: 'Set as Due Date' })[state.proto]; }
-function remLabel() { return ({ v1: 'Send Reminders', v2: 'Send Payment Reminders', v3: 'Send Reminders' })[state.proto]; }
+function remLabel() { return ({ v1: 'Send Automatic Payment Reminders', v2: 'Send Payment Reminders', v3: 'Send Reminders' })[state.proto]; }
 
 const DUE_FOR_OPTIONS = [
 	['General', [['form', 'This Form']]],
@@ -1262,10 +1385,10 @@ function fieldPanel() {
 	return `<h2>Field Settings - Date</h2>
 	<div class="field"><label class="lbl" for="fs-label">Label</label><span class="input-ic"><input id="fs-label" class="text" value="Due Date">${ICONS.eye}</span></div>
 	<div class="field"><div class="lbl">Type</div>
-		<div class="radios"><label class="check" for="fs-type-date"><input type="radio" id="fs-type-date" name="fs-type" checked> Date</label>
-		<label class="check" for="fs-type-time"><input type="radio" id="fs-type-time" name="fs-type"> Time</label></div></div>
+		<div class="radios dis-type"><label class="check" for="fs-type-date"><input type="radio" id="fs-type-date" name="fs-type" checked disabled> Date</label>
+		<label class="check" for="fs-type-time"><input type="radio" id="fs-type-time" name="fs-type" disabled> Time</label></div></div>
 	<div class="field"><label class="lbl" for="fs-ph">Placeholder Text</label><input id="fs-ph" class="text"></div>
-	<div class="field"><label class="lbl" for="fs-default">Default Value</label>${calcInput('fs-default', '=', 'Default Value', '= "30 days from now"')}</div>
+	<div class="field"><label class="lbl" for="fs-default">Default Value</label>${calcInput('fs-default', '=', 'Default Value', '=Entry.DateUpdated.AddDays(30)')}</div>
 	<div class="field"><div class="lbl">Range</div><div class="range">${calcInput('fs-min', 'Minimum', 'Minimum')}<span>to</span>${calcInput('fs-max', 'Maximum', 'Maximum')}</div></div>
 	<div class="field"><label class="lbl" for="fs-help">Help Text</label><textarea id="fs-help" class="text" rows="3"></textarea></div>
 	${due}
@@ -1277,14 +1400,95 @@ function fieldPanel() {
 	${bar('Show Custom Error', ['When', 'Never'], 'Never')}`;
 }
 
+const FORM_FIELDS = {
+	'admin-email': { label: 'Admin email', type: 'Email', req: true },
+	addons: { label: 'Add Ons', type: 'Price' },
+	'order-complete': { label: 'Is the order complete?', type: 'Yes/No' },
+	'client-changes': { label: 'Can client make changes?', type: 'Calculation' },
+	agree: { label: 'I agree to the amount in this invoice and am ready to pay.', type: 'Choice' },
+};
+function emailFieldPanel() {
+	const bar = (label, opts, on) => `<div class="field"><div class="lbl">${label}</div><div class="pills">${opts.map(o => `<button class="pill ${o === on ? 'on' : ''}" type="button">${o}</button>`).join('')}</div></div>`;
+	const roles = label => `<div class="field"><div class="lbl">${label}</div><div class="roles-row"><div class="pills"><button class="pill on" type="button">For Roles ${ICONS.chevDown}</button></div><div class="text role-box" role="combobox" aria-label="${label} roles"><span class="role-tag">Internal <span class="role-x" aria-hidden="true">${ICONS.x}</span></span>${ICONS.chevDown}</div></div></div>`;
+	return `<div class="ef-panel"><h2>Field Settings - Email</h2>
+	<div class="field"><label class="lbl" for="ff-label">Label</label><span class="input-ic"><input id="ff-label" class="text" value="Admin email">${ICONS.eye}</span></div>
+	<div class="field"><label class="lbl" for="ff-ph">Placeholder Text</label><input id="ff-ph" class="text"></div>
+	<div class="field"><label class="lbl" for="ff-default">Default Value</label><span class="input-ic"><input id="ff-default" class="text" placeholder="=">${ICONS.calc}</span></div>
+	<div class="field"><label class="lbl" for="ff-help">Help Text</label><textarea id="ff-help" class="text" rows="3"></textarea></div>
+	${roles('Show This Field')}
+	${roles('Require This Field')}
+	${bar('Field Read-Only', ['Always', 'When', 'For Roles', 'Never'], 'Never')}
+	${bar('Limit Quantity', ['No Duplicates', 'Specific Quantity', 'Never'], 'Never')}
+	${bar('Show Custom Error', ['When', 'Never'], 'Never')}</div>`;
+}
+function yesNoFieldPanel(label, forRoles = true) {
+	const bar = (l, opts, on) => `<div class="field"><div class="lbl">${l}</div><div class="pills">${opts.map(o => `<button class="pill ${o === on ? 'on' : ''}" type="button">${o}</button>`).join('')}</div></div>`;
+	return `<div class="ef-panel"><h2>Field Settings - Yes/No</h2>
+	<div class="field"><label class="lbl" for="yn-label">Label</label>${label.length > 40 ? `<textarea id="yn-label" class="text yn-label" rows="2">${esc(label)}</textarea>` : `<input id="yn-label" class="text" value="${esc(label)}">`}</div>
+	<div class="field"><div class="lbl">Type</div>
+		<div class="radios"><label class="check" for="yn-radio"><input type="radio" id="yn-radio" name="yn-type" checked> Radio Buttons</label>
+		<label class="check" for="yn-check"><input type="radio" id="yn-check" name="yn-type"> Checkbox</label>
+		<label class="check" for="yn-toggle"><input type="radio" id="yn-toggle" name="yn-type"> Toggle</label></div></div>
+	<div class="field"><label class="check" for="yn-pay"><input type="checkbox" id="yn-pay"> Collect Payment For This Field <span class="yn-ic">${ICONS.creditCard}</span></label></div>
+	<div class="field"><label class="check" for="yn-price"><input type="checkbox" id="yn-price"> Assign Price?</label></div>
+	<div class="field"><label class="lbl" for="yn-choices">Choices</label><span class="select-ic"><select id="yn-choices" class="text"><option>Yes/No</option></select>${ICONS.chevDown}</span></div>
+	${bar('Default Value', ['Yes', 'Yes When', 'No'], 'No')}
+	<div class="field"><label class="lbl" for="yn-help">Help Text</label><textarea id="yn-help" class="text" rows="3"></textarea></div>
+	${forRoles ? `<div class="field"><div class="lbl">Show This Field</div><div class="roles-row"><div class="pills"><button class="pill on" type="button">For Roles ${ICONS.chevDown}</button></div><div class="text role-box" role="combobox" aria-label="Show This Field roles"><span class="role-tag">Internal <span class="role-x" aria-hidden="true">${ICONS.x}</span></span>${ICONS.chevDown}</div></div></div>` : bar('Show This Field', ['Always', 'When', 'For Roles', 'Never'], 'Always')}
+	${bar('Require Yes Response', ['Always', 'When', 'For Roles', 'Never'], 'Never')}
+	${bar('Field Read-Only', ['Always', 'When', 'For Roles', 'Never'], 'Never')}
+	${bar('Limit Quantity', ['No Duplicates', 'Specific Quantity', 'Never'], 'Never')}
+	${bar('Show Custom Error', ['When', 'Never'], 'Never')}</div>`;
+}
+function calcFieldPanel() {
+	const bar = (l, opts, on) => `<div class="field"><div class="lbl">${l}</div><div class="pills">${opts.map(o => `<button class="pill ${o === on ? 'on' : ''}" type="button">${o}</button>`).join('')}</div></div>`;
+	const types = ['Text', 'Yes/No', 'Number', 'Percent', 'Currency', 'Date', 'Time'];
+	return `<div class="ef-panel"><h2>Field Settings - Calculation</h2>
+	<div class="field"><label class="lbl" for="cf-label">Label</label><span class="input-ic"><input id="cf-label" class="text" value="Can client make changes?">${ICONS.eye}</span></div>
+	<div class="field"><div class="lbl">Type</div>
+		<div class="radios">${types.map((t, i) => `<label class="check" for="cf-type-${i}"><input type="radio" id="cf-type-${i}" name="cf-type" ${t === 'Yes/No' ? 'checked' : ''}> ${t}</label>`).join('')}</div></div>
+	<div class="field"><label class="lbl" for="cf-calc">Calculation</label><span class="input-ic"><input id="cf-calc" class="text" value="=(Entry.Status = &quot;Sent to Client&quot; and Entry.Role = &quot;Public&quot; and Entry.Action = &quot;Send Changes&quot;)">${ICONS.calc}</span></div>
+	<div class="field"><label class="lbl" for="cf-help">Help Text</label><textarea id="cf-help" class="text" rows="3"></textarea></div>
+	<div class="field"><div class="lbl">Show This Field</div><div class="roles-row"><div class="pills"><button class="pill on" type="button">For Roles ${ICONS.chevDown}</button></div><div class="text role-box" role="combobox" aria-label="Show This Field roles"><span class="role-tag">Internal <span class="role-x" aria-hidden="true">${ICONS.x}</span></span>${ICONS.chevDown}</div></div></div>
+	${bar('Limit Quantity', ['No Duplicates', 'Specific Quantity', 'Never'], 'Never')}
+	${bar('Show Custom Error', ['When', 'Never'], 'Never')}</div>`;
+}
+function formFieldPanel(key) {
+	if (key === 'admin-email') return emailFieldPanel();
+	if (key === 'client-changes') return calcFieldPanel();
+	if (key === 'order-complete') return yesNoFieldPanel(FORM_FIELDS[key].label);
+	if (key === 'agree') return yesNoFieldPanel(FORM_FIELDS[key].label, false);
+	const f = FORM_FIELDS[key];
+	const bar = (label, opts, on) => `<div class="field"><div class="lbl">${label}</div><div class="pills">${opts.map(o => `<button class="pill ${o === on ? 'on' : ''}" type="button">${o}</button>`).join('')}</div></div>`;
+	return `<h2>Field Settings - ${f.type}</h2>
+	<div class="field"><label class="lbl" for="ff-label">Label</label><input id="ff-label" class="text" value="${esc(f.label)}"></div>
+	<div class="field"><label class="lbl" for="ff-help">Help Text</label><textarea id="ff-help" class="text" rows="3"></textarea></div>
+	${bar('Show This Field', ['Always', 'When', 'For Roles', 'Never'], 'Always')}
+	${bar('Require This Field', ['Always', 'When', 'For Roles', 'Never'], f.req ? 'Always' : 'Never')}
+	${bar('Field Read-Only', ['Always', 'When', 'For Roles', 'Never'], 'Never')}`;
+}
+
 function addFieldPanel() {
 	const types = [['Textbox', 'f_textbox'], ['Name', 'f_name'], ['Email', 'f_email'], ['Phone', 'f_phone'], ['Address', 'f_address'], ['Date', 'f_date'], ['Number', 'f_number'], ['Choice', 'f_choice'], ['Price', 'f_price'], ['Yes/No', 'f_yes_no'], ['Signature', 'f_signature'], ['Section', 'f_section']];
 	return `<h2>Add Field</h2>
 	<div class="field"><div class="ftypes">${types.map(([l, k]) => `<div class="ftype">${ICONS[k]}<span>${l}</span></div>`).join('')}</div></div>`;
 }
 
+const TIP_DUE = '<span class="tip">' + ICONS.help + '<span class="tip-pop" role="tooltip">Select a date source from the list of Date fields on your form.<span class="tip-arrow"></span></span></span>';
+
+function dueFromField() {
+	return `<div class="field due-from">
+		<label class="lbl" for="due-field">Set Due Date From ${TIP_DUE}</label>
+		<span class="select-ic"><select id="due-field" class="text" data-action="due-field">
+			<option value="" ${!state.dueField ? 'selected' : ''}></option>
+			${['Due Date'].map(f => `<option ${state.dueField === f ? 'selected' : ''}>${f}</option>`).join('')}
+		</select>${ICONS.chevDown}</span>
+	</div>`;
+}
+
 function dueAndReminders() {
-	return `${state.version === 'new' ? `<div class="static-row" ${state.open.payDue ? 'style="background:var(--hover)"' : ''}><button type="button" class="exp-btn" data-action="open-paydue" aria-expanded="${state.open.payDue}">${ICONS.chev}<span class="name">${dueLabel()} ${ICONS.help} ${req('R2.1')}</span></button>${toggle('paydue', state.payDue, false, dueLabel())}</div>` : ''}
+	if (state.proto === 'v1') return state.version === 'new' ? dueFromField() + (state.payDue ? `<div id="rem-wrap">${remindersSection()}</div>` : '') : '';
+	return `${state.version === 'new' ? `<div class="static-row" ${state.open.payDue ? 'style="background:var(--hover)"' : ''}><button type="button" class="exp-btn" data-action="open-paydue" aria-expanded="${state.open.payDue}">${ICONS.chev}<span class="name">${dueLabel()} <span class="tip">${ICONS.help}<span class="tip-pop" role="tooltip">Select a date source from the list of Date fields on your form.<span class="tip-arrow"></span></span></span> ${req('R2.1')}</span></button>${toggle('paydue', state.payDue, false, dueLabel())}</div>` : ''}
 	${state.version === 'new' && state.open.payDue ? `<div class="field" id="paydue-body" style="background:var(--hover);padding-bottom:10px;margin-bottom:6px">
 		<label class="lbl" for="due-field">Set Due Date From</label>
 		<select id="due-field" class="text" data-action="due-field" ${state.payDue && !state.dueField ? 'aria-invalid="true" aria-describedby="due-field-err"' : ''}>
@@ -1301,7 +1505,7 @@ function manualCard() {
 		? `<span class="token">${TRACKED_EMAIL}</span>`
 		: `<em>Blank. Entered when sending.</em>`;
 	return `<button type="button" class="card" data-edit="manual">
-		<span class="ic">${ICONS.mail}</span>
+		<span class="ic">${ICONS.mail}${ICONS.edit}</span>
 		<span class="main">
 			<span class="title"><span>${tokens(state.manual.subject || 'Payment reminder')}</span></span>
 			<span class="sub">To: ${to}</span>
@@ -1313,7 +1517,7 @@ function manualCard() {
 function autoCard(r, i) {
 	const dupe = isDupe(r, state.auto);
 	return `<div class="card" role="button" tabindex="0" data-edit="${i}">
-		<span class="ic ${dupe ? 'err' : ''}" title="${dupe ? 'Another reminder has the same timing' : ''}">${dupe ? ICONS.err : ICONS.mail}</span>
+		<span class="ic ${dupe ? 'err' : ''}" title="${dupe ? 'Another reminder has the same timing' : ''}">${dupe ? ICONS.err : ICONS.mail + ICONS.edit}</span>
 		<span class="main">
 			<span class="title"><span>${tokens(r.subject || `Reminder ${i + 1}`)}</span></span>
 			<span class="sub">To: <span class="token">${TRACKED_EMAIL}</span></span>
@@ -1333,15 +1537,15 @@ function remindersSection() {
 	const gates = [];
 	if (!state.tracking)
 		gates.push(`<div class="callout"><span>${ICONS.info}</span><span>Submission tracking must be enabled to configure automatic reminders. <button type="button" class="linkbtn" data-tab="settings">Go to Settings</button> ${req('R7.2.3.2')}</span></div>`);
-	else if (!dueConfigured())
-		gates.push(`<div class="callout"><span>${ICONS.info}</span><span>Automatic reminders are timed from the due date. Turn on <b>${dueLabel()}</b> above and choose ${state.proto === 'v3' ? 'what the date is due for' : 'which field the due date is set from'}. ${req('R7.2.8')}</span></div>`);
+	else if (!dueConfigured() && state.proto !== 'v1')
+		gates.push(`<div class="callout"><span>${ICONS.info}</span><span>Automatic reminders are timed from the due date. ${state.proto === 'v1' ? 'Choose a field in <b>Set Due Date From</b> above.' : `Turn on <b>${dueLabel()}</b> above and choose ${state.proto === 'v3' ? 'what the date is due for' : 'which field the due date is set from'}.`} ${req('R7.2.8')}</span></div>`);
 
 	let autoBody = '';
-	if (state.autoOn) {
-		autoBody = `<div class="inline">
+	if (state.autoOn || state.proto === 'v1') {
+		autoBody = `<div class="inline send-time-row">
 			<label class="f" for="send-time"><span>Send Time</span>
 				<select id="send-time" class="text" data-action="send-time" style="width:110px">${Array.from({ length: 24 }, (_, h) => `<option value="${h}" ${state.sendHour === h ? 'selected' : ''}>${hourText(h)}</option>`).join('')}</select></label>
-			<span class="hint" style="margin:0 0 6px">${TIME_ZONE}, the form's time zone</span>
+			<span class="hint" style="margin:0">${TIME_ZONE}, the form's time zone</span>
 		</div>`;
 		autoBody += state.auto.length
 			? `<div class="cards">${state.auto.map(autoCard).join('')}</div>`
@@ -1351,16 +1555,22 @@ function remindersSection() {
 		if (state.auto.some(r => isDupe(r, state.auto))) autoBody += `<div class="dupe">${ICONS.err} Two reminders have the same timing. Only one will send.</div>`;
 	}
 
+	if (state.proto === 'v1') return `<div class="rem-v1 ${state.open.reminders ? 'open' : ''}">
+		<div class="static-row"><button type="button" class="exp-btn" data-action="open-rem-v1" aria-expanded="${state.open.reminders}" aria-controls="auto-body">${ICONS.chev}<span class="name">${remLabel().replace(/ ([^ ]+)$/, ' <span class="nw">$1')}${ICONS.help}</span></span></button>${toggle('auto', state.autoOn, !autoAvailable(), remLabel())}</div>
+		${gates.length ? `<div class="rem-gates">${gates.join('')}</div>` : ''}
+		${state.open.reminders ? `<div id="auto-body" class="rem-body">${autoBody}</div>` : ''}
+	</div>`;
+
 	return `<div class="section ${open ? 'open' : ''}">
 		<div class="row exp" data-action="open-reminders" role="button" tabindex="0" aria-expanded="${open}">
 			${ICONS.chev}<span class="name">${remLabel()} ${ICONS.help} ${req('R7.2.1')}</span>
 		</div>
 		${open ? `<div class="body" id="reminders-body">
-			<div>
+			${state.proto === 'v1' ? '' : `<div>
 				<div class="group-lbl">Manual Reminder ${req('R4.7')}</div>
 				<div class="hint" style="margin:4px 0 8px">Sent whenever you choose, from an entry on the Entries page.</div>
 				${manualCard()}
-			</div>
+			</div>`}
 			<div style="display:flex;flex-direction:column;gap:8px">
 				<div class="group-lbl"><span class="grow">Automatic Reminders ${req('R7.2.3.3')}</span>${toggle('auto', state.autoOn, !autoAvailable(), 'Automatic Reminders')}</div>
 				<div class="hint" style="margin-top:-4px">${({ pay: 'Sent to open invoices', sign: 'Sent to customers who haven\'t signed yet,', form: 'Sent to requests that aren\'t finished yet,' })[dueKind()]} on a schedule relative to the due date.</div>
@@ -1371,59 +1581,114 @@ function remindersSection() {
 	</div>`;
 }
 
-function actionCard(name, hasEmail) {
+function actionCard(name, dot) {
 	return `<div class="act-row">
 		<span class="grip" aria-hidden="true">${ICONS.grip}</span>
 		<div class="card" role="button" tabindex="0" data-action="open-action" data-name="${name}">
-			<span class="ic">${ICONS.action}</span>
-			<span class="main"><span class="title">${name}</span>${hasEmail ? `<span class="act-meta"><span class="dot"></span>${ICONS.mailSm}</span>` : ''}</span>
+			<span class="ic">${ICONS.action}${ICONS.edit}</span>
+			<span class="main"><span class="title">${name}</span>${dot ? `<span class="act-meta"><span class="dot" style="background:${dot}"></span>${ICONS.mailSm}</span>` : ''}</span>
 			<span class="del" aria-hidden="true">${ICONS.trash}</span>
 		</div>
 	</div>`;
 }
 
+const ACTION_STATUS = { 'Send to Client': ['Sent to Client', 'var(--icon-intense)'], 'Send Changes': ['Incomplete', 'var(--shade-5)'], 'Submit Payment': ['Payment Submitted', 'var(--yellow-2)'], 'Complete Order': ['Invoice Complete', 'var(--green-5)'] };
 function actionPanel(name) {
-	const isSubmit = name === 'Submit';
+	const isSubmit = name === 'Send to Client';
 	const w = state.version === 'new' ? state.workflow : state.legacy;
 	return `<h2 class="crumb"><button type="button" class="back" data-action="close-action">${ICONS.back} Workflow</button> <span>/ Action Settings</span></h2>
 	<div class="field"><label class="lbl" for="a-name">Action Name</label><input id="a-name" class="text" value="${name}"></div>
 	<div class="field"><label class="lbl" for="a-btn">Button Text</label><input id="a-btn" class="text" value="${name}"></div>
 	<div class="field"><div class="lbl">Allow Action</div>
-		<div style="display:flex;align-items:center;gap:8px"><div class="pills"><button class="pill on" type="button">When ${ICONS.chevDown}</button></div><span class="cond">${isSubmit ? 'Status is Incomplete' : 'Status is Submitted'}</span></div></div>
+		${name === 'Submit Payment' ? `<div class="roles-row"><div class="pills"><button class="pill on" type="button">For Roles ${ICONS.chevDown}</button></div><div class="text role-box" role="combobox" aria-label="Allow Action roles"><span class="role-tag">Public <span class="role-x" aria-hidden="true">${ICONS.x}</span></span>${ICONS.chevDown}</div></div>` : `<div class="pay-cond"><div class="pills"><button class="pill on" type="button">When ${ICONS.chevDown}</button></div><span class="cond pay-cond-t full">${isSubmit ? 'Status is Incomplete and Role is Internal' : name === 'Update' ? 'Status is not Incomplete and Role is Internal' : name === 'Send Changes' ? 'Status is Sent to Client' : name === 'Complete Order' ? 'IsTheOrderComplete is yes and Role is Internal' : 'Status is Submitted'}</span><span class="pay-cond-ic" aria-label="Allow Action condition">${ICONS.calc}</span></div>`}</div>
 	<div class="field"><div class="lbl">Confirmation</div>
 		<div class="pills" style="margin-bottom:6px"><button class="pill on" type="button">Message</button><button class="pill" type="button">Redirect</button></div>
 		<div class="confirm"><div class="confirm-msg">Thank you for filling out the form. Your response has been recorded.</div>
 		<div class="confirm-inc"><b>Include?</b><label class="check"><input type="checkbox" id="a-inc-entry"> Entry Details</label><span class="confirm-docs">Documents ${ICONS.chevDown}</span></div></div></div>
 	<div class="field"><label class="lbl" for="a-status">Change Status To</label>
-		<select id="a-status" class="text"><option>Submitted</option></select></div>
+		${ACTION_STATUS[name] ? `<span class="select-ic"><span id="a-status" class="text status-sel" role="combobox" aria-label="Change Status To"><span class="status-dot" style="background:${ACTION_STATUS[name][1]}"></span>${ACTION_STATUS[name][0]}</span>${ICONS.chevDown}</span>` : '<select id="a-status" class="text"><option>Submitted</option></select>'}</div>
 	<div class="field"><div class="lbl">Send Emails</div>
-		${isSubmit ? `<div class="card" role="button" tabindex="0" data-edit="workflow">
-			<span class="ic">${ICONS.mail}</span>
+		${isSubmit ? `<div class="card email-card">
+			<span class="ic">${ICONS.mail}${ICONS.edit}</span>
+			<span class="main">
+				<span class="title"><span>Window Cleaning Request - <span class="token">Customer</span></span></span>
+				<span class="sub">To: office@brightsidewindowcleaning.com</span>
+				<span class="sub">When: Always</span>
+			</span>
+			<span class="del" aria-hidden="true">${ICONS.trash}</span>
+		</div>
+		<div class="card email-card" role="button" tabindex="0" data-edit="workflow">
+			<span class="ic">${ICONS.mail}${ICONS.edit}</span>
 			<span class="main">
 				<span class="title"><span>${tokens(w.subject)}</span></span>
-				<span class="sub">To: <span class="token">${TRACKED_EMAIL}</span></span>
+				<span class="sub">To: <span class="token">${TRACKED_EMAIL}</span> <span class="to-globe">${ROLE_ICONS.public}</span></span>
 				<span class="sub">When: ${w.send}</span>
 			</span>
 			<span class="del" aria-hidden="true">${ICONS.trash}</span>
 		</div>` : ''}
-		<span class="add" style="margin-top:6px">${ICONS.plus} Add Email</span></div>
+		${name === 'Send Changes' || name === 'Submit Payment' ? `<div class="card email-card">
+			<span class="ic">${ICONS.mail}${ICONS.edit}</span>
+			<span class="main">
+				<span class="title"><span>Window Cleaning Request - <span class="token">Customer</span></span></span>
+				<span class="sub">To: <span class="token">AdminEmail</span> <span class="to-globe">${ROLE_ICONS.internal}</span></span>
+				<span class="sub">When: Always</span>
+			</span>
+			<span class="del" aria-hidden="true">${ICONS.trash}</span>
+		</div>` : ''}
+		${name === 'Complete Order' ? `<div class="card email-card">
+			<span class="ic">${ICONS.mail}${ICONS.edit}</span>
+			<span class="main">
+				<span class="title"><span>Order complete</span></span>
+				<span class="sub">To: <span class="token">${TRACKED_EMAIL}</span> <span class="to-globe">${ROLE_ICONS.role}</span></span>
+				<span class="sub">When: Always</span>
+			</span>
+			<span class="del" aria-hidden="true">${ICONS.trash}</span>
+		</div>` : ''}
+		${name === 'Submit Payment' ? `<div class="card email-card">
+			<span class="ic">${ICONS.mail}${ICONS.edit}</span>
+			<span class="main">
+				<span class="title"><span>Thanks for making a deposit for your window cleaning</span></span>
+				<span class="sub">To: <span class="token">${TRACKED_EMAIL}</span> <span class="to-globe">${ROLE_ICONS.public}</span></span>
+				<span class="sub">When: Always</span>
+			</span>
+			<span class="del" aria-hidden="true">${ICONS.trash}</span>
+		</div>` : ''}
+		<span class="add wf-add-email">${ICONS.plus} Add Email</span></div>
 	<div class="field"><div class="lbl">Create Entries</div><span class="add">${ICONS.plus} Add Entry</span></div>
 	<div class="field"><div class="lbl">Clear Fields</div><span class="add">${ICONS.plus} Add Field</span></div>`;
 }
 
+function wfSection(key, label, body, extra = '') {
+	const open = state.open[key];
+	return `<div class="wf-sec ${open ? 'open' : ''} ${extra ? 'has-extra' : ''}">
+		<button type="button" class="row wf-head" data-action="open-wf" data-key="${key}" aria-expanded="${open}" aria-controls="${key}-body">${open ? ICONS.chevDown : ICONS.chev}<span class="name">${label} ${ICONS.help}</span></button>${extra}
+		${open ? `<div id="${key}-body" class="wf-list">${body}</div>` : ''}
+	</div>`;
+}
+function roleCard(name, icon, fixed) {
+	return `<div class="act-row">
+		<span class="grip" aria-hidden="true">${ICONS.grip}</span>
+		<div class="card role-card"><span class="ic">${icon}</span><span class="main"><span class="title">${name}</span><span class="act-meta">${ICONS.link}</span></span>${fixed ? '' : `<span class="del" aria-hidden="true">${ICONS.trash}</span>`}</div>
+	</div>`;
+}
+function statusCard(name, dot, fixed) {
+	return `<div class="act-row">
+		<span class="grip" aria-hidden="true" ${fixed ? 'style="visibility:hidden"' : ''}>${ICONS.grip}</span>
+		<div class="card status-card"><span class="status-dot" style="background:${dot}"></span><span class="main"><span class="title">${name}</span></span>${fixed ? '' : `<span class="del" aria-hidden="true">${ICONS.trash}</span>`}</div>
+	</div>`;
+}
 function workflowPanel() {
 	if (state.action) return actionPanel(state.action);
 	return `<h2>Workflow</h2>
-	<div class="row">${ICONS.chevDown}<span class="name">Actions ${ICONS.help}</span></div>
-	<div style="padding:0 16px 6px 14px;display:flex;flex-direction:column;gap:6px">
-		${actionCard('Submit', true)}
-		${actionCard('Update', false)}
-		<span class="add" style="padding-left:22px">${ICONS.plus} Add Action</span>
-	</div>
+	${wfSection('wfActions', 'Actions', `${[['Send to Client', 'var(--icon-intense)'], ['Update', null], ['Send Changes', 'var(--shade-5)'], ['Submit Payment', 'var(--yellow-2)'], ['Complete Order', 'var(--green-5)']].map(([n, d]) => actionCard(n, d)).join('')}
+		<span class="add wf-add">${ICONS.plus} Add Action</span>`)}
 	${state.proto === 'v2' ? dueAndReminders() : ''}
-	<div class="row">${ICONS.chev}<span class="name">Statuses ${ICONS.help}</span></div>
-	<div class="row">${ICONS.chev}<span class="name">Roles ${ICONS.help}</span></div>
-	<div class="row">${ICONS.chev}<span class="name">Public Links ${ICONS.help}</span>${toggle('w-public', true, true, 'Public Links')}</div>
+	${wfSection('wfStatuses', 'Statuses', `${[['Incomplete', 'var(--shade-5)', true], ['Sent to Client', 'var(--icon-intense)'], ['Payment Submitted', 'var(--yellow-2)'], ['Invoice Complete', 'var(--green-5)']].map(([n, d, fixed]) => statusCard(n, d, fixed)).join('')}
+		<span class="add wf-add">${ICONS.plus} Add Status</span>`)}
+	${wfSection('wfRoles', 'Roles', `${[['Public', ROLE_ICONS.public, true], ['Internal', ROLE_ICONS.internal, true], ['Read Only Client', ROLE_ICONS.role, false]].map(([n, ic, fixed]) => roleCard(n, ic, fixed)).join('')}
+		<span class="add wf-add">${ICONS.plus} Add Role</span>`)}
+	${wfSection('wfPublic', 'Public Links', `<div class="field"><div class="lbl">Allow Links</div><div class="pills"><button class="pill on" type="button">Always</button><button class="pill" type="button">By Date</button><button class="pill" type="button">When</button></div></div>
+		<div class="field"><div class="lbl">Require Authentication</div><div class="pills"><button class="pill on" type="button">Guests &amp; Users</button><button class="pill" type="button">Users Only</button><button class="pill" type="button">Never</button></div><div class="hint">Only guests and users can access public links.</div></div>`, toggle('w-public', true, false, 'Public Links'))}
 	<div class="row">${ICONS.chev}<span class="name">Save &amp; Resume ${ICONS.help}</span>${toggle('w-save', true, true, 'Save and Resume')}</div>
 	<div class="row">${ICONS.chev}<span class="name">Workflow Link Sharing ${ICONS.help}</span>${toggle('w-share', true, true, 'Workflow Link Sharing')}</div>
 	<div class="field" style="margin-top:10px"><div class="lbl">Form Read-Only</div>
@@ -1432,7 +1697,7 @@ function workflowPanel() {
 
 function renderPanel() {
 	const p = document.getElementById('panel');
-	p.innerHTML = state.tab === 'field' ? (state.sel === 'add' ? addFieldPanel() : fieldPanel())
+	p.innerHTML = state.tab === 'field' ? (state.sel === 'add' ? addFieldPanel() : FORM_FIELDS[state.sel] ? formFieldPanel(state.sel) : fieldPanel())
 		: state.tab === 'settings' ? settingsPanel() : state.tab === 'payment' ? paymentPanel() : workflowPanel();
 }
 
@@ -1491,28 +1756,65 @@ function renderCanvas() {
 	const v3 = true; // canvas selection highlights apply to every version
 	const selCls = key => v3 && state.tab === 'field' && state.sel === key ? 'is-sel' : '';
 	const selAttrs = (action, label) => v3 ? `data-action="${action}" role="button" tabindex="0" aria-label="${label}"` : '';
+	const keep = state.keep || {};
+	const selField = (key, body, extra = '') => `<div class="ff sel-able ${extra} ${selCls(key)}" ${selAttrs('select-field', FORM_FIELDS[key].label + ' field settings')} data-key="${key}"><label>${FORM_FIELDS[key].label}${FORM_FIELDS[key].req ? '<span class="req-star" aria-label="required">*</span>' : ''}</label>${body}</div>`;
+	const yesNo = key => `<div class="radio-row">${['Yes', 'No'].map(v => `<label class="addon static"><input type="radio" name="${key}" value="${v}" disabled ${v === 'No' ? 'checked' : ''}> ${v}</label>`).join('')}</div>`;
 	document.getElementById('canvas').innerHTML = `<div class="form ${v3 ? 'v3' : ''}">
-		<div class="form-h ${v3 && state.tab === 'settings' ? 'is-sel' : ''}" ${selAttrs('select-header', 'Form settings')}><h3>Window Cleaning Request</h3><span class="status">Customers ${ICONS.personForm}</span></div>
+		<div class="form-h ${v3 && state.tab === 'settings' ? 'is-sel' : ''}" ${selAttrs('select-header', 'Form settings')}><h3>Window Cleaning Request</h3><span class="status">Customers ${ICONS.userPerson}</span></div>
 		<div class="form-b">
-			<div class="ff"><label>Customer</label><div class="box person" role="combobox" aria-expanded="false" aria-label="Customer"><span class="pname"></span>${ICONS.chevDown}</div></div>
-			<div class="ff ${v3 ? 'sel-able' : ''} ${selCls('due')}" ${selAttrs('select-due', 'Due Date field settings')}><label>Due Date</label><div class="box" style="color:var(--fg)">= &quot;30 days from now&quot;</div></div>
+			<div class="ff"><div class="sig-lbl"><label>Customer</label><span class="lbl-icons">${ICONS.contactCard}${ICONS.identify}</span></div><div class="box person" role="combobox" aria-expanded="false" aria-label="Customer"><span class="avatar av-blank"><svg class="icon" aria-hidden="true" viewBox="0 0 17 17" fill="none"><circle cx="8.5" cy="6.25" r="2.5" stroke="currentColor"/><path d="M4 13.5c.6-2.2 2.4-3.5 4.5-3.5s3.9 1.3 4.5 3.5" stroke="currentColor" stroke-linecap="round"/></svg></span><span class="pname"><span class="name-tok">Name</span></span>${ICONS.chevDown}</div></div>
+			${selField('admin-email', `<div class="box ic-l">${ICONS.mail}<span>Email</span></div>`)}
 			<div class="ff"><label>Base Fee</label><div>${money(BASE_FEE)}</div></div>
-			<div class="ff"><label>Add Ons</label>
-				${ADD_ONS.map(([n, p], i) => `<label class="addon" for="addon-${i}"><input type="checkbox" id="addon-${i}" data-addon="${i}" ${state.addOns[i] ? 'checked' : ''}> ${n} - ${money(p)}</label>`).join('')}
-			</div>
+			${selField('addons', ADD_ONS.map(([n, p], i) => `<label class="addon static"><input type="checkbox" disabled ${i === 0 ? 'checked' : ''}> ${n} - ${money(p)}</label>`).join(''))}
+			${selField('order-complete', yesNo('order-complete'))}
+			${selField('client-changes', '<div class="calc-val">=(Entry.Status = &quot;Sent to Client&quot; and Entry.Role = &quot;Public&quot; and Entry.Action = &quot;Send Changes&quot;)</div>')}
+			${selField('agree', yesNo('agree'))}
+			<div class="ff ${v3 ? 'sel-able' : ''} ${selCls('due')}" ${selAttrs('select-due', 'Due Date field settings')}><label>Due Date</label><div class="box due-box" style="color:var(--text-primary)"><span>=Entry.DateUpdated.AddDays(30)</span>${ICONS.f_date}</div></div>
 			${state.proto === 'v3' ? `<div class="ff full"><div class="sig-lbl"><label>Customer Signature<span class="req-star" aria-label="required">*</span></label>${ICONS.docSign}</div><div class="sig-box"><div class="sig-line">${ICONS.f_signature}<span>Signature</span></div></div></div>` : ''}
 		</div>
 		<div class="pay ${v3 && state.tab === 'payment' ? 'is-sel' : ''}" ${selAttrs('select-payment', 'Payment settings')}>
 			<h4>Payment</h4>
 			<div class="pay-box">
-				<div class="li"><span>Base Fee</span><span>${money(BASE_FEE)}</span></div>
-				${ADD_ONS.filter((_, i) => state.addOns[i]).map(([n, p]) => `<div class="li"><span>Add Ons – ${n}</span><span>${money(p)}</span></div>`).join('')}
-				<div class="li sub"><span>Subtotal:</span><span>${money(invoiceTotal())}</span></div>
-				<div class="li due">Amount Due: ${money(invoiceTotal())}</div>
+				<div class="pay-card">
+					<div class="ff"><div class="box ic-l">${ICONS.creditCard}<span>Credit Card Number</span></div></div>
+					<div class="pay-2"><div class="ff"><div class="box ic-l">${ICONS.f_date}<span>MM/YY</span></div></div><div class="ff"><div class="box ic-l">${ICONS.lock}<span>CVV</span></div></div></div>
+					<label class="addon save-card"><input type="checkbox" data-keep="save-card" tabindex="-1" ${keep['save-card'] ? 'checked' : ''}> <span>I agree to save my card and allow Cognito Pay Invoicing to charge it for future payments in accordance with their terms.</span></label>
+				</div>
+				<div class="pay-tot">
+				<div class="li"><span>Line Item</span><span>$0.00</span></div>
+				<div class="li sub"><span>Subtotal:</span><span>$0.00</span></div>
+				<div class="li due">Amount Due: $0.00</div>
+				</div>
 			</div>
 		</div>
-		<div class="form-f ${v3 && state.tab === 'workflow' && !state.action ? 'is-sel' : ''}" ${selAttrs('select-footer', 'Workflow settings')}>${['Submit', 'Update'].map(n => `<button class="btn ${n === 'Submit' ? 'primary' : ''} ${v3 && state.tab === 'workflow' && state.action === n ? 'is-sel' : ''}" type="button" data-action="go-action" data-name="${n}">${n}</button>`).join('')}</div>
+		<div class="form-f ${v3 && state.tab === 'workflow' && !state.action ? 'is-sel' : ''}" ${selAttrs('select-footer', 'Workflow settings')}>${['Send to Client', 'Update', 'Send Changes', 'Submit Payment', 'Complete Order'].map(n => `<button class="btn ${v3 && state.tab === 'workflow' && state.action === n ? 'is-sel' : ''}" type="button" data-action="go-action" data-name="${n}">${n}</button>`).join('')}</div>
 	</div>
+	<div class="flow-wrap"><svg class="flow-diagram" viewBox="0 0 730 395" role="img" aria-label="Workflow diagram: Incomplete, Send to Client to Sent to Client, Complete Order to Invoice Complete, Submit Payment to Payment Submitted, Update, and Send Changes back to Incomplete">
+	<g fill="none" stroke-width="2.5" stroke-linecap="round">
+		<path d="M155 352 V362 Q155 370 147 370 H50 Q42 370 42 362 V26 Q42 18 50 18 H177 Q185 18 185 26 V38" stroke="var(--shade-5)"/>
+		<path d="M184 267 V316" stroke="var(--shade-5)"/>
+		<path d="M225 267 V277 Q225 285 233 285 H397 Q405 285 405 293 V310" stroke="var(--shade-5)"/>
+		<path d="M405 267 V310" stroke="var(--shade-5)"/>
+		<path d="M616 267 V277 Q616 285 608 285 H413 Q405 285 405 293" stroke="var(--shade-5)"/>
+		<path d="M205 78 V118" stroke="var(--icon-intense)"/>
+		<path d="M205 182 V226" stroke="var(--icon-intense)"/>
+		<path d="M405 182 V226" stroke="var(--green-5)"/>
+		<path d="M614 182 V226" stroke="var(--yellow-2)"/>
+	</g>
+	<polyline points="178,32 185,40 192,32" fill="none" stroke="var(--shade-5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="198,219 205,227 212,219" fill="none" stroke="var(--icon-intense)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="398,219 405,227 412,219" fill="none" stroke="var(--green-5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="607,219 614,227 621,219" fill="none" stroke="var(--yellow-2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="398,303 405,311 412,303" fill="none" stroke="var(--shade-5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+	<rect x="135" y="42" width="104" height="36" rx="18" fill="var(--shade-4)" stroke="color-mix(in srgb, var(--shade-4) 80%, black)" stroke-width="1"/><text x="187" y="64.5" text-anchor="middle" class="fd-pill" fill="var(--text-secondary, #5b7373)">Incomplete</text>
+	<rect x="146" y="231" width="118" height="36" rx="18" fill="#14ada3" stroke="color-mix(in srgb, #14ada3 80%, black)" stroke-width="1"/><text x="205" y="253.5" text-anchor="middle" class="fd-pill" fill="var(--text-primary)">Sent to Client</text>
+	<rect x="334" y="231" width="144" height="36" rx="18" fill="var(--green-5)" stroke="color-mix(in srgb, var(--green-5) 80%, black)" stroke-width="1"/><text x="406" y="253.5" text-anchor="middle" class="fd-pill" fill="var(--text-primary)">Invoice Complete</text>
+	<rect x="538" y="231" width="156" height="36" rx="18" fill="var(--yellow-2)" stroke="color-mix(in srgb, var(--yellow-2) 80%, black)" stroke-width="1"/><text x="616" y="253.5" text-anchor="middle" class="fd-pill" fill="var(--text-primary)">Payment Submitted</text>
+	<g fill="var(--bg-primary)" stroke="var(--border-input)" stroke-width="1.5">
+		<circle cx="205" cy="78" r="4" fill="var(--icon-intense)" stroke="none"/><circle cx="225" cy="267" r="4" fill="var(--shade-5)" stroke="none"/><circle cx="184" cy="267" r="4" fill="var(--shade-5)" stroke="none"/><circle cx="405" cy="267" r="4" fill="var(--shade-5)" stroke="none"/><circle cx="616" cy="267" r="4" fill="var(--shade-5)" stroke="none"/>
+	</g>
+	<text x="203" y="148" text-anchor="middle" class="fd-act">Send to Client</text><g transform="translate(270 138)" fill="none" stroke="var(--icon-subtle)" stroke-width="1"><rect x="0.5" y="0.5" width="13" height="9" rx="1"/><path d="M1 1.5l6 4.5 6-4.5"/></g><text x="203" y="174" text-anchor="middle" class="fd-role">Internal</text>
+	<text x="405" y="148" text-anchor="middle" class="fd-act">Complete Order</text><g transform="translate(476 138)" fill="none" stroke="var(--icon-subtle)" stroke-width="1"><rect x="0.5" y="0.5" width="13" height="9" rx="1"/><path d="M1 1.5l6 4.5 6-4.5"/></g><text x="405" y="174" text-anchor="middle" class="fd-role">Internal</text>
+	<text x="614" y="148" text-anchor="middle" class="fd-act">Submit Payment</text><g transform="translate(688 138)" fill="none" stroke="var(--icon-subtle)" stroke-width="1"><rect x="0.5" y="0.5" width="13" height="9" rx="1"/><path d="M1 1.5l6 4.5 6-4.5"/></g><text x="614" y="174" text-anchor="middle" class="fd-role">Public</text>
+	<text x="405" y="337" text-anchor="middle" class="fd-act">Update</text><text x="405" y="363" text-anchor="middle" class="fd-role">Internal</text>
+	<text x="155" y="337" text-anchor="middle" class="fd-act">Send Changes</text><g transform="translate(219 327)" fill="none" stroke="var(--icon-subtle)" stroke-width="1"><rect x="0.5" y="0.5" width="13" height="9" rx="1"/><path d="M1 1.5l6 4.5 6-4.5"/></g>
+</svg></div>
 	`;
 }
 
@@ -1607,10 +1909,10 @@ function renderDialog() {
 	if (!d) { root.innerHTML = ''; return; }
 	const r = d.draft;
 	const inc = r.include, inv = r.invoice;
-	const title = { workflow: 'Email for Submit Action', legacy: 'Email for Submit Action', manual: 'Manual Reminder Email', auto: dueKind() === 'pay' ? 'Invoice Reminder Email' : 'Reminder Email' }[d.kind];
+	const title = { workflow: 'Email for Send to Client Action', legacy: 'Email for Send to Client Action', manual: 'Manual Reminder Email', auto: dueKind() === 'pay' ? 'Invoice Reminder Email' : 'Reminder Email' }[d.kind];
 	const lead = {
 		legacy: '',
-		workflow: 'Sent when the Submit action runs.',
+		workflow: 'Sent when the Send to Client action runs.',
 		manual: 'Sent manually from the entries page.',
 		auto: ({ pay: 'Sent automatically while the invoice is ready for collection.', sign: 'Sent automatically until the customer signs.', form: 'Sent automatically until the request is finished.' })[dueKind()]
 	}[d.kind];
@@ -1652,8 +1954,8 @@ function renderDialog() {
 			${d.kind === 'legacy'
 				? `<div class="erow"><b>To</b><div class="val"><span class="token">${TRACKED_EMAIL}</span></div>${rolePicker(d)}</div>`
 				: `<div class="erow"><b>To</b><div class="val">${to}</div>${req('R7.2.5')}</div>`}
-			<div class="erow"><b>Subject</b><div class="val"><input id="d-subject" data-field="subject" value="${esc(r.subject)}" aria-label="Subject"></div></div>
-			<textarea id="d-message" class="msg" data-field="message" rows="6" aria-label="Message">${esc(r.message)}</textarea>
+			<div class="erow"><b>Subject</b><div class="val"><div id="d-subject" class="rt" contenteditable="true" role="textbox" data-field="subject" data-single aria-label="Subject">${rtHtml(r.subject)}</div></div></div>
+			<div id="d-message" class="msg rt" contenteditable="true" role="textbox" aria-multiline="true" data-field="message" aria-label="Message">${rtHtml(r.message)}</div>
 
 			${d.kind === 'legacy' ? legacyOpts(r) : `<div class="opts">
 				<div>
@@ -1794,6 +2096,22 @@ function reminderSendDate(o) {
 }
 const fmtDate = dt => dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 const tok = name => `<span class="em-tok">${esc(name)}</span>`;
+const rtHtml = text => esc(text).replace(/\[([^[\]\r\n]+)\]/g, (m, k) => `<span class="token" contenteditable="false" data-tok="${k}">${k}</span>`);
+const rtText = el => [...el.childNodes].map(n => n.nodeType === 3 ? n.textContent
+	: n.dataset?.tok ? `[${n.dataset.tok}]`
+	: n.nodeName === 'BR' ? '\n'
+	: (/^(DIV|P)$/.test(n.nodeName) ? '\n' : '') + rtText(n)).join('');
+document.addEventListener('keydown', e => {
+	const t = e.target;
+	if (e.key !== 'Enter' || !t.classList?.contains('rt')) return;
+	e.preventDefault();
+	if (!('single' in t.dataset)) document.execCommand('insertText', false, '\n');
+});
+document.addEventListener('paste', e => {
+	if (!e.target.closest?.('.rt')) return;
+	e.preventDefault();
+	document.execCommand('insertText', false, e.clipboardData.getData('text/plain'));
+});
 const pills = text => esc(text).replace(/\[([^[\]\r\n]+)\]/g, (m, k) => tok(k));
 
 function headerHtml(inc) {
@@ -1902,7 +2220,7 @@ function renderPreview() {
 	if (d.kind === 'auto')
 		controls = `<span class="hint" style="margin:0">Sent ${fmtDate(reminderSendDate(r.offset))} at ${hourText(state.sendHour)}, ${offsetText({ ...r.offset, value: parseInt(r.offset.value, 10) || 0 })}</span>`;
 
-	el.innerHTML = `<div class="pv-bar"><b>Preview</b><span class="pv-note pv-bar-note">Tokens are filled in from each entry when the email sends.</span>${controls}</div>
+	el.innerHTML = `${controls ? `<div class="pv-bar">${controls}</div>` : ''}
 	<div class="pv-scroll">
 		<div class="pv-meta">
 			<span><b>From:</b> Cognito Pay (reply-to billing@brightsidewindowcleaning.com)</span>
@@ -1936,6 +2254,12 @@ function saveDialog() {
 
 /* ---------- events ---------- */
 document.addEventListener('click', e => {
+	const kin = e.target.closest('input[data-keep]') || e.target.closest('label')?.querySelector('input[data-keep]');
+	if (kin) {
+		state.keep = state.keep || {};
+		state.keep[kin.dataset.keep] = kin.type === 'radio' ? kin.value : (e.target === kin ? kin.checked : !kin.checked);
+		if (e.target !== kin) e.preventDefault();
+	}
 	const tab = e.target.closest('[data-tab]');
 	if (tab) { state.tab = tab.dataset.tab; state.action = null; state.sel = null; render(); return; }
 
@@ -1969,6 +2293,14 @@ document.addEventListener('click', e => {
 			enforceGates(`${dueLabel()} is off`);
 			setOpen('payDue', 'paydue-body', state.payDue); break;
 		case 'auto':
+			if (state.proto === 'v1') {
+				if (sliding) break;
+				state.autoOn = !state.autoOn;
+				if (state.autoOn && !state.auto.length) state.auto = v1Schedule();
+				if (state.autoOn !== state.open.reminders) setOpen('reminders', 'auto-body', state.autoOn);
+				else render();
+				break;
+			}
 			state.autoOn = !state.autoOn;
 			if (state.autoOn && !state.auto.length) state.auto = [makeAuto(1, 'days', 'before')];
 			render(); break;
@@ -2000,6 +2332,10 @@ document.addEventListener('click', e => {
 		}
 		case 'open-paydue':
 			setOpen('payDue', 'paydue-body', !state.open.payDue); break;
+		case 'open-wf':
+			setOpen(a.dataset.key, a.dataset.key + '-body', !state.open[a.dataset.key]); break;
+		case 'open-rem-v1':
+			setOpen('reminders', 'auto-body', !state.open.reminders); break;
 		case 'open-reminders':
 			setOpen('reminders', 'reminders-body', !state.open.reminders); break;
 		case 'add-auto':
@@ -2012,6 +2348,8 @@ document.addEventListener('click', e => {
 			state.tab = 'workflow'; state.sel = null; state.action = null; render(); break;
 		case 'select-header':
 			state.tab = 'settings'; state.sel = null; state.action = null; render(); break;
+		case 'select-field':
+			state.tab = 'field'; state.sel = a.dataset.key; state.action = null; render(); break;
 		case 'select-due':
 		case 'select-add':
 			state.tab = 'field'; state.sel = act === 'select-due' ? 'due' : 'add'; state.action = null; render(); break;
@@ -2077,6 +2415,22 @@ document.addEventListener('change', e => {
 		render(); return;
 	}
 	if (t.dataset.action === 'due-field') {
+		if (state.proto === 'v1') {
+			if (sliding) { render(); return; }
+			if (t.value && !state.payDue) {
+				state.dueField = t.value; state.payDue = true;
+				render();
+				slide(document.getElementById('rem-wrap'), true);
+			}
+			else if (!t.value && state.payDue) {
+				slide(document.getElementById('rem-wrap'), false, () => {
+					state.dueField = ''; state.payDue = false; state.autoOn = false;
+					render();
+				});
+			}
+			else { state.dueField = t.value; render(); }
+			return;
+		}
 		state.dueField = t.value;
 		if (t.value) state.payDue = true;
 		enforceGates('no due date field is mapped');
@@ -2112,7 +2466,7 @@ document.addEventListener('change', e => {
 document.addEventListener('input', e => {
 	const t = e.target;
 	if (state.dialog && t.dataset.field && t.tagName !== 'SELECT') {
-		setPath(state.dialog.draft, t.dataset.field, t.dataset.field === 'offset.value' ? t.value.replace(/\D/g, '') : t.value);
+		setPath(state.dialog.draft, t.dataset.field, t.dataset.field === 'offset.value' ? t.value.replace(/\D/g, '') : t.isContentEditable ? rtText(t) : t.value);
 		if (t.dataset.field === 'offset.value') {
 			const pos = t.selectionStart;
 			renderDialog();
