@@ -2453,6 +2453,80 @@ body.is-resizing.rz-s, body.is-resizing.rz-s *{cursor:ns-resize !important}
 .mode-dock.on-img{--dm:calc(56px + 22px); top:calc(var(--poc-h, 46px) + 22px - var(--dm)); width:min(100%, 1576px); margin-inline:auto; padding-inline:28px}
 .mode-dock.on-img .wp-mode{margin-top:var(--dm)}
 @container portal (max-width:640px){ .mode-dock.on-img{--dm:calc(56px + 14px); padding-inline:16px} }
+/* status tooltip for Entries: dark bubble with the status, its step in the workflow, a step track, and what it means */
+/* every status dot opens the status tooltip on hover; an invisible ring around it makes the small dot easy to land on */
+.portal :is(.pill > i, .x-dot, .tc-f .dot){position:relative; cursor:help}
+.portal :is(.pill:has(> i), .tc-f > span){cursor:help}
+.portal :is(.pill > i, .x-dot, .tc-f .dot)::after{content:""; position:absolute; inset:-7px; border-radius:50%}
+/* the tooltip lives inside the portal and uses its theme: the card color and text color of the organization's theme, so a light portal
+   gets a light tooltip and a dark one a dark tooltip, with the step track in the primary color */
+.st-tip{position:absolute; z-index:75; width:260px; padding:12px 14px; border:1px solid var(--line); border-radius:min(var(--radius), 10px); background:var(--panel); color:var(--ink); box-shadow:0 10px 28px rgba(16,32,48,.18); font:13px/1.45 var(--font-b); pointer-events:none; text-align:left}
+.st-tip::after{content:""; position:absolute; left:var(--ax, 50%); width:10px; height:10px; margin-left:-5px; background:inherit; border:inherit; border-radius:0; transform:rotate(45deg)}
+.st-tip.up::after{bottom:-6px; border-top:0; border-left:0}
+.st-tip.down::after{top:-6px; border-bottom:0; border-right:0}
+.st-h{display:flex; align-items:center; gap:7px; font-size:14px; color:var(--ink)}
+.portal .st-h .icon{width:17px; height:17px; flex:0 0 auto; color:var(--mid)}
+.st-h span{min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.st-where{display:block; margin-top:2px; padding-left:24px; color:var(--accent-tx); font-size:12px; font-weight:600}
+/* steps as stops on a line: passed stops filled, the current stop is the status dot in its own color with a halo, upcoming stops hollow */
+.st-steps{display:flex; margin:14px -6px 0; padding:0; list-style:none}
+.st-steps li{position:relative; flex:1 1 0; min-width:0; display:flex; flex-direction:column; align-items:center; gap:6px; padding:0 2px; text-align:center; font-size:11px; color:var(--dim)}
+.st-steps li + li::before{content:""; position:absolute; top:5px; right:50%; width:100%; height:2px; background:var(--line)}
+.st-steps li.done + li::before{background:color-mix(in srgb, var(--ink) 38%, var(--panel))}
+.st-steps i{position:relative; z-index:1; display:block; width:12px; height:12px; border:2px solid var(--line); border-radius:50%; background:var(--panel)}
+.st-steps li.done i{border-color:color-mix(in srgb, var(--ink) 38%, var(--panel)); background:color-mix(in srgb, var(--ink) 38%, var(--panel))}
+.st-steps li.on i{width:16px; height:16px; margin-top:-2px; margin-bottom:-2px; border:3px solid var(--panel); background:var(--cur, var(--accent)); box-shadow:0 0 0 2px var(--cur, var(--accent))}
+.st-steps li.on{color:var(--ink); font-weight:600}
+.st-steps span{line-height:1.25; overflow-wrap:anywhere}
+.st-tip{width:280px}
+.st-d{margin:10px 0 0; color:var(--mid); text-wrap:pretty}
+.st-steps span{text-wrap:balance}
+/* the info icon after each Entries status says there's more to read on hover */
+/* portal search in the top bar: a pill on the header color that turns into a field when focused, with results grouped by widget below it.
+   On a phone it's a magnifier that opens the field across the whole bar */
+.portal .ph{position:relative}
+.srch{position:relative; flex:0 1 320px; min-width:0}
+.srch-box{display:flex; align-items:center; gap:8px; height:38px; padding:0 12px; border:1px solid transparent; border-radius:999px; background:color-mix(in srgb, var(--head-ink) 14%, transparent); color:var(--head-ink); cursor:text; transition:background-color .15s}
+.srch-box:hover{background:color-mix(in srgb, var(--head-ink) 20%, transparent)}
+.srch-box:focus-within{background:var(--panel); color:var(--ink); border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent); text-shadow:none}
+.portal .srch-box > .icon{width:16px; height:16px; opacity:.8}
+.srch-box input{flex:1 1 auto; min-width:0; height:100%; border:0; padding:0; background:none; outline:0; color:inherit; font:inherit; font-size:14.5px; text-shadow:none}
+.srch-box input::placeholder{color:inherit; opacity:.72}
+.srch-ic, .srch-x{display:none; flex:0 0 auto; width:40px; height:40px; place-items:center; border:0; border-radius:50%; background:none; padding:0; color:var(--head-ink)}
+.srch-ic:hover, .srch-x:hover{background:color-mix(in srgb, var(--head-ink) 18%, transparent)}
+.srch-ic:focus-visible, .srch-x:focus-visible{outline:2px solid var(--head-ink); outline-offset:2px}
+.portal .srch-ic .icon, .portal .srch-x .icon{width:19px; height:19px}
+.srch-pop{position:absolute; top:calc(100% + 8px); right:0; z-index:33; width:min(460px, calc(100cqw - 32px)); max-height:min(70vh, 560px); overflow:auto; padding:6px; border:1px solid var(--line); border-radius:min(var(--radius), 10px); background:var(--panel); color:var(--ink); box-shadow:0 14px 34px rgba(16,32,48,.18); text-align:left; text-shadow:none}
+.srch-h{padding:8px 10px 6px; font-size:13px; color:var(--mid)}
+.srch-g + .srch-g{margin-top:4px; padding-top:4px; border-top:1px solid var(--line-2)}
+.srch-cap{display:flex; align-items:baseline; gap:6px; padding:6px 10px 4px; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--dim)}
+.srch-cap em{font-style:normal; font-weight:600; letter-spacing:0}
+.srch-r{display:flex; align-items:center; gap:10px; width:100%; padding:8px 10px; border:0; border-radius:min(var(--radius), 6px); background:none; color:var(--ink); text-align:left; font:inherit}
+.srch-r:hover, .srch-r:focus-visible{background:var(--accent-soft); outline:none}
+.srch-r:focus-visible{box-shadow:inset 0 0 0 2px var(--accent)}
+.srch-r .si{flex:0 0 auto; width:32px; height:32px; display:grid; place-items:center; border-radius:50%; background:var(--accent-soft); color:var(--accent-tx)}
+.portal .srch-r .si .icon{width:16px; height:16px}
+.srch-r .tx{flex:1 1 auto; min-width:0}
+.srch-r b{display:block; font-size:14.5px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.srch-r .tx > span{display:block; font-size:13px; color:var(--mid); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.srch-r mark{padding:0 1px; border-radius:2px; background:color-mix(in srgb, var(--accent) 24%, transparent); color:inherit}
+.srch-why{font-style:normal; color:var(--accent-tx)}
+.srch-sug{display:flex; flex-wrap:wrap; gap:6px; padding:2px 10px 10px}
+.srch-sug button{min-height:32px; padding:4px 12px; border:1px solid var(--line); border-radius:999px; background:var(--panel); color:var(--ink); font:inherit; font-size:13.5px}
+.srch-sug button:hover, .srch-sug button:focus-visible{border-color:var(--accent); color:var(--accent-tx); outline:none}
+.srch-none{margin:0; padding:12px 10px; color:var(--mid); font-size:14px}
+@container portal (max-width:640px){
+  .srch{flex:0 0 auto; position:static}
+  .srch-box{display:none}
+  .srch-ic{display:grid}
+  .ph.srch-on > .logo, .ph.srch-on > .sp, .ph.srch-on > .hd-r, .ph.srch-on .srch-ic{display:none}
+  .ph.srch-on .srch{flex:1 1 auto; display:flex; align-items:center; gap:6px}
+  .ph.srch-on .srch-box{display:flex; flex:1 1 auto}
+  .ph.srch-on .srch-x{display:grid}
+  .srch-pop{left:12px; right:12px; width:auto; top:calc(100% + 4px)}
+  .srch-r, .srch-sug button{min-height:44px}
+}
+@media (prefers-reduced-motion: reduce){ .srch-box{transition:none} }
 .pf-pop-f{display:flex; justify-content:flex-end; margin-top:var(--spacing-3)}
 .pf-go{min-width:90px; border:1px solid transparent; border-radius:0; padding:var(--spacing-button-y) var(--spacing-button-x); background:var(--bg-cta); color:var(--text-cta); font:inherit; font-size:var(--text-2); font-weight:var(--font-bold); cursor:pointer; transition:background-color var(--duration-hovered)}
 .pf-go:hover{background:var(--bg-cta-hovered)}
@@ -2876,7 +2950,7 @@ function thin(k, r){
 const data = k => { const all = D[k] || []; if (S.data === "empty") return all.filter(x => x.newOnly); if (S.data === "mixed" && EMPTY_MIXED.indexOf(k) >= 0) return []; return thin(k, all.filter(x => !x.newOnly)); };
 
 /* ---------- widgets: one definition each, shared by the dashboard, drill-in and detail ---------- */
-const SUB_SW = { "Incomplete":"gray", "Approved":"green", "Awaiting Signature":"yellow", "Confirmed":"green", "Submitted":"teal", "Received":"teal", "Unpaid":"red", "Waitlisted":"yellow", "Completed":"gray" };
+const SUB_SW = { "Incomplete":"gray", "Approved":"green", "Awaiting Signature":"yellow", "Confirmed":"green", "Submitted":"teal", "Received":"teal", "Unpaid":"red", "Waitlisted":"yellow", "Completed":"gray", "Signed":"green" };
 const EV_SW = { "RSVP":"teal", "Going":"green", "Confirmed":"green", "To Confirm":"yellow", "Payment Due":"yellow", "Due":"yellow", "Automatic":"teal", "Attended":"gray" };
 const DOC_SW = { "To Sign":"yellow", "Signed":"green", "Sealed":"green", "File":"gray" };
 const PAY = { overdue:["Overdue","red"], due:["Due","yellow"], scheduled:["Scheduled","teal"], paid:["Paid","green"], refunded:["Refunded","gray"] };
@@ -3304,8 +3378,122 @@ function shrinkImage(file, max, done){
   r.onload = () => { const im = new Image(); im.onload = () => { const k = Math.min(1, max / Math.max(im.width, im.height)), c = document.createElement("canvas"); c.width = Math.round(im.width * k); c.height = Math.round(im.height * k); c.getContext("2d").drawImage(im, 0, 0, c.width, c.height); done(c.toDataURL("image/jpeg", .82)); }; im.src = r.result; };
   r.readAsDataURL(file);
 }
+/* ---------- portal search: one box in the top bar that searches every widget at once and groups what it finds by widget.
+   It reads loosely: words are matched with their endings trimmed, and everyday words point at related ones ("owe" finds overdue invoices,
+   "sign" finds documents waiting for a signature), standing in for the real semantic search ---------- */
+S.srchQ = ""; S.srchOpen = false; S.srchWide = false; S.srchLog = [];
+const SRCH_STOP = new Set("a an the my me i to of for in on at is are am do does did what which who with and or any all things thing stuff show find need needs have has get".split(" "));
+const SRCH_SYN = {
+  owe:["overdue", "due", "unpaid"], pay:["due", "overdue", "invoice", "unpaid"], bill:["invoice", "due", "unpaid"], money:["invoice", "paid", "due"], cost:["invoice", "quote"], charge:["invoice", "paid", "automatic"],
+  receipt:["paid", "refund"], refund:["refunded"], spent:["paid"], late:["overdue"], autopay:["automatic"],
+  sign:["signature", "to sign"], signature:["to sign"], contract:["agreement"], waiver:["agreement", "release", "waiver"], paperwork:["agreement", "document"], form:["entry", "registration", "request"],
+  week:["this week"], soon:["this week", "upcoming"], today:["today"], tomorrow:["tomorrow"], schedule:["upcoming", "this week"], calendar:["upcoming"], meeting:["booking", "room", "orientation"],
+  message:["email", "announcement", "conversation"], email:["message", "announcement"], news:["announcement", "newsletter"],
+  card:["visa", "mastercard", "amex"], expire:["expired", "expiring"], plan:["subscription", "membership"], renew:["renews", "subscription"], membership:["subscription", "membership"],
+  food:["catering", "pastry", "breakfast", "lunch"], order:["catering", "order"], estimate:["quote"], price:["quote"],
+};
+const srchStem = w => w.length > 4 ? w.replace(/(ings|ing|ed|es|s)$/, "") : w;
+function srchIndex(){
+  const out = [], on = k => S.on[k] && !RETIRED.includes(k);
+  const add = (k, id, t, sub, extra, icon, hot) => out.push({ k, id, t, sub, icon, hot:!!hot, tl:t.toLowerCase(), text:(t + " " + sub + " " + extra).toLowerCase() });
+  if (on("submissions")) data("submissions").forEach(s => add("submissions", s.id, s.title, s.status + " · " + fDate(s.at), s.sum + " " + s.form + " " + (s.by || "") + " entry " + s.fields.map(f => f.join(" ")).join(" "), s.status === "Incomplete" ? "edit" : "form", ["Incomplete", "Awaiting Signature", "Unpaid"].includes(s.status)));
+  if (on("payments")) data("payments").forEach(o => add("payments", o.id, o.what, o.num + " · " + money(o.amt) + " · " + payWhen(o), o.ctx + " invoice " + o.amt + " " + (o.card || "") + " "
+    + ({ overdue:"overdue due unpaid", due:"due unpaid", scheduled:"scheduled automatic unpaid upcoming", paid:"paid receipt", refunded:"refunded refund receipt" }[o.band] || "") + " " + (o.lines || []).map(l => l[0]).join(" "), "currency", o.band === "overdue" || o.band === "due"));
+  if (on("documents")) data("documents").forEach(d => add("documents", d.id, d.name, d.state + " · " + d.forWho, d.entry + " document " + (d.state === "To Sign" ? "to sign signature needed waiting" : d.state === "File" ? "file" : "signed"), d.state === "To Sign" ? "signature" : "document", d.state === "To Sign"));
+  if (on("events")) W.events.all().forEach(e => { const n = daysFrom(e.at);
+    add("events", e.id, e.title, fDay(e.at) + (e.allDay ? "" : " · " + fTime(e.at)) + (e.place ? " · " + e.place : ""), (e.for || "") + " " + e.status + " " + (e.note || "") + " event " + DOW[e.at.getDay()]
+      + (e.past ? " past" : " upcoming") + (n >= 0 && n < 7 ? " this week" : "") + (n === 0 ? " today" : n === 1 ? " tomorrow" : ""), e.task ? "tasks" : "date", !e.past && (e.status === "RSVP" || e.status === "To Confirm" || e.task)); });
+  if (on("notifications")) threads().forEach(t => add("notifications", t.id, t.ann ? t.last.subj : t.entry, t.last.from + " · " + ago(t.at), t.msgs.map(m => m.subj + " " + m.from + " " + m.body.join(" ")).join(" ") + (t.ann ? " announcement" : " message email conversation"), t.ann ? "info" : "email", t.fresh > 0));
+  if (on("quotes")) data("quotes").forEach(q => add("quotes", q.id, q.what, q.num + " · " + money(q.amt) + " · valid until " + fDate(q.valid), q.ctx + " quote " + q.amt + " " + (q.lines || []).map(l => l[0]).join(" "), "price", qSoon(q)));
+  if (on("subscriptions")) data("subscriptions").forEach(u => add("subscriptions", u.id, u.name, money(u.amt) + " " + u.cadence.toLowerCase() + " · " + u.state, "subscription renews plan membership " + (u.card || ""), "sync", false));
+  if (on("cards")) data("cards").forEach(c => add("cards", c.id, cardName(c), "Expires " + c.exp, "card payment method " + ({ expired:"expired", soon:"expiring", ok:"" })[cardState(c)], "credit-card", cardState(c) !== "ok"));
+  return out;
+}
+/* a word matches at the start of a word, so "paid" doesn't find "unpaid" */
+const srchRx = w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const srchHas = (text, w) => new RegExp("(^|[^a-z0-9])" + srchRx(w)).test(text);
+function srchRun(q){
+  const toks = q.toLowerCase().replace(/[^a-z0-9$.\/ -]+/g, " ").split(/\s+/).filter(t => t && !SRCH_STOP.has(t));
+  if (!toks.length) return [];
+  const out = [];
+  srchIndex().forEach(it => {
+    let score = 0, rel = "";
+    const hit = [];
+    toks.forEach(t => {
+      const s = srchStem(t);
+      if (srchHas(it.text, s)){ score += srchHas(it.tl, s) ? 2 : 1; hit.push(s); return; }
+      const syn = (SRCH_SYN[t] || SRCH_SYN[s] || SRCH_SYN[t.replace(/s$/, "")] || []).find(x => srchHas(it.text, x));
+      if (syn){ score += .8; if (!rel) rel = syn; }
+    });
+    if (score > 0 && score >= toks.length * .5) out.push(Object.assign({}, it, { score:score + (it.hot ? .3 : 0), hit, why:hit.length ? "" : rel }));
+  });
+  return out.sort((a, b) => b.score - a.score);
+}
+/* highlights the words that matched, leaving character references alone */
+function srchMark(t, hits){
+  const h = esc(t), ws = hits.filter(w => w.length > 1);
+  if (!ws.length) return h;
+  const re = new RegExp("(^|[^a-z0-9])(" + ws.map(srchRx).join("|") + ")", "ig");
+  return h.split(/(&[a-z#0-9]+;)/i).map((p, i) => i % 2 ? p : p.replace(re, "$1<mark>$2</mark>")).join("");
+}
+const srchSugs = () => ["What do I owe?", "Things to sign", "This week", "Receipts", STARTABLE[0]].filter(Boolean);
+function srchPanel(){
+  const q = S.srchQ.trim();
+  if (!q) return "";
+  const res = srchRun(q);
+  if (!res.length) return '<p class="srch-none">Nothing matches “' + esc(q) + '”. Try a form name, an invoice number, or words like “waiver” or “due”.</p>';
+  const groups = [];
+  res.forEach(r => { let g = groups.find(x => x.k === r.k); if (!g){ g = { k:r.k, n:0, items:[] }; groups.push(g); } g.n++; if (g.items.length < 4) g.items.push(r); });
+  return '<div class="srch-h">' + plural(res.length, "result") + " for “" + esc(q) + "”</div>"
+    + groups.map(g => '<div class="srch-g" role="group" aria-label="' + esc(W[g.k].title) + '"><div class="srch-cap">' + esc(W[g.k].title) + (g.n > g.items.length ? "<em>" + g.n + "</em>" : "") + "</div>"
+      + g.items.map(r => '<button class="srch-r" data-act="sres" data-w="' + r.k + '" data-id="' + esc(r.id) + '"><span class="si">' + ic(r.icon) + '</span><span class="tx"><b>' + srchMark(r.t, r.hit) + "</b><span>" + esc(r.sub)
+        + (r.why ? ' · <em class="srch-why">Related: ' + esc(r.why) + "</em>" : "") + "</span></span></button>").join("") + "</div>").join("");
+}
+function srchHtml(){
+  return '<div class="srch" role="search"><button class="srch-ic" data-act="srchopen" aria-label="Search your portal" title="Search">' + ic("search") + "</button>"
+    + '<label class="srch-box">' + ic("search") + '<input id="gSearch" type="search" placeholder="Search your portal" aria-label="Search your portal" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-controls="srchRes" aria-expanded="' + srchShown() + '" value="' + esc(S.srchQ) + '"></label>'
+    + '<button class="srch-x" data-act="srchclose" aria-label="Close search" title="Close search">' + ic("ex") + "</button>"
+    + '<div class="srch-pop" id="srchRes"' + (srchShown() ? "" : " hidden") + ">" + (srchShown() ? srchPanel() : "") + "</div></div>";
+}
+/* the results panel shows only once something is typed: an empty box has no panel under it */
+const srchShown = () => !!(S.srchOpen && S.srchQ.trim());
+function srchPaint(){
+  const p = $("#srchRes"), i = $("#gSearch"); if (!p) return;
+  const on = srchShown(); p.hidden = !on; p.innerHTML = on ? srchPanel() : "";
+  if (i) i.setAttribute("aria-expanded", String(on));
+}
+/* what people searched for goes to the survey with their setup */
+function srchLog(q){ q = (q || "").trim().slice(0, 80); if (q && S.srchLog[S.srchLog.length - 1] !== q){ S.srchLog.push(q); if (S.srchLog.length > 20) S.srchLog.shift(); } }
+let srchQuiet = false;
+function srchFocus(){ const i = $("#gSearch"); if (i){ srchQuiet = true; i.focus({ preventScroll:true }); srchQuiet = false; } }
+document.addEventListener("focusin", e => { if (e.target.id === "gSearch" && !srchQuiet && !S.srchOpen){ S.srchOpen = true; srchPaint(); } });
+document.addEventListener("input", e => { if (e.target.id !== "gSearch") return; S.srchQ = e.target.value; S.srchOpen = true; srchPaint(); });
+document.addEventListener("click", e => {
+  if (!S.srchOpen || !document.contains(e.target) || (e.target.closest && e.target.closest(".srch"))) return;
+  if (S.srchQ.trim()) srchLog(S.srchQ);
+  S.srchOpen = false;
+  if (S.srchWide && !S.srchQ){ S.srchWide = false; render(); } else srchPaint();
+});
+document.addEventListener("keydown", e => {
+  const inS = e.target.id === "gSearch", r = e.target.closest && e.target.closest("#srchRes button");
+  if (!inS && !r) return;
+  const items = Array.from(document.querySelectorAll("#srchRes button"));
+  if (e.key === "ArrowDown" || e.key === "ArrowUp"){
+    e.preventDefault(); if (!S.srchOpen){ S.srchOpen = true; srchPaint(); return; }
+    const j = (inS ? -1 : items.indexOf(r)) + (e.key === "ArrowDown" ? 1 : -1);
+    if (j < 0) srchFocus(); else if (items[j]) items[j].focus();
+    return;
+  }
+  if (e.key === "Enter" && inS){ e.preventDefault(); const first = $("#srchRes .srch-r"); if (first) first.click(); return; }
+  if (e.key === "Escape"){
+    e.preventDefault(); e.stopPropagation();
+    if (inS && S.srchQ){ S.srchQ = ""; e.target.value = ""; srchPaint(); return; }
+    S.srchOpen = false; srchPaint();
+    if (S.srchWide){ S.srchWide = false; render(); const b = $("#frame .srch-ic"); if (b) b.focus(); } else srchFocus();
+  }
+}, true);
 function headerHtml(){
-  return '<header class="ph"><button class="logo" data-act="home">' + logoHtml() + "<b>" + esc(ORG.name) + '</b></button><span class="sp"></span><div class="hd-r">' + (inHead("notifications") ? bellCtl() : "")
+  return '<header class="ph' + (S.srchWide ? " srch-on" : "") + '"><button class="logo" data-act="home">' + logoHtml() + "<b>" + esc(ORG.name) + '</b></button><span class="sp"></span>' + srchHtml() + '<div class="hd-r">' + (inHead("notifications") ? bellCtl() : "")
     + '<div class="me"><button class="av" data-act="acct" aria-label="Account" aria-expanded="' + (S.menu === "acct") + '">' + ME.initials + "</button>"
     + (S.menu === "acct" ? '<div class="menu amenu"><div class="mh"><b>' + ME.name + "</b><span>" + ME.email + '</span></div><div class="mcap">People on This Account</div>' + ME.people.map(p => '<div class="ppl-m"><b>' + esc(p[0]) + "</b> · " + esc(p[1]) + "</div>").join("") + '<button data-act="profile">' + ic("guest-person") + "Profile</button>" + acctItems() + '<div class="msep"></div><button data-act="toast" data-msg="Logs you out of the portal.">' + ic("logout") + "Log Out</button></div>" : "")
     + "</div></div></header>";
@@ -3388,11 +3576,22 @@ function fitAdd(){
 function fitForms(){
   document.querySelectorAll("#frame .fw-wrap.long").forEach(w => { const s = w.firstElementChild; if (s.scrollHeight - s.clientHeight <= 60) w.classList.remove("long"); });
 }
-const layoutRO = new ResizeObserver(() => requestAnimationFrame(() => { masonry(); carSync(); if (!document.body.classList.contains("is-resizing")) updateHandles(); }));
+/* Entries lists its newest rows first, at least five per grid row it spans, then as many more as fit in the height its row gives it,
+   so a widget beside a taller one (or a big monitor) shows more entries instead of empty space */
+function fitEntries(){
+  document.querySelectorAll("#frame .x-tb[data-fill]").forEach(tb => {
+    const body = tb.closest(".w-body"), rows = Array.from(tb.querySelectorAll(":scope > .it")), min = +tb.dataset.fill;
+    /* the room is measured once with only the minimum rows showing: a revealed row would make the grid row taller and always seem to fit */
+    rows.forEach((r, i) => { r.hidden = i >= min; });
+    let room = body.getBoundingClientRect().bottom - (parseFloat(getComputedStyle(body).paddingBottom) || 0) - tb.getBoundingClientRect().bottom;
+    for (let i = min; i < rows.length; i++){ rows[i].hidden = false; room -= rows[i].getBoundingClientRect().height; if (room < -1){ rows[i].hidden = true; break; } }
+  });
+}
+const layoutRO = new ResizeObserver(() => requestAnimationFrame(() => { masonry(); carSync(); fitEntries(); if (!document.body.classList.contains("is-resizing")) updateHandles(); }));
 function watchLayout(){
   layoutRO.disconnect();
   document.querySelectorAll("#frame .grid, #frame .grid > .w, #frame .car-track").forEach(el => layoutRO.observe(el));
-  fitForms(); fitAdd(); masonry(); carSync(); updateHandles();
+  fitForms(); fitAdd(); masonry(); carSync(); updateHandles(); fitEntries();
 }
 function ghost(){ let g = ""; for (let i = 0; i < 5; i++) g += '<div class="ghost"><span class="g1"></span><span class="g2"><i></i><i></i></span><span class="g3"></span></div>'; return g; }
 function newMenu(where){
@@ -3572,6 +3771,159 @@ function invoicesBody(items){
       + '<span class="x-tc">' + o.num + '</span><em class="x-tc x-when">' + esc(when(o)) + "</em>"
       + '<span class="x-amt">' + money(o.amt) + "</span>" + (o.band === "scheduled" ? '<span class="x-auto">Auto</span>' : '<span class="btn solid sm" data-act="payone" data-id="' + o.id + '">Pay</span>') + "</button>").join("") + "</div></div>";
 }
+/* ---------- status tooltips in Entries: where the entry is in its workflow, and what the status means (default copy) ---------- */
+/* each form's workflow: the statuses an entry moves through, in order, as the organization set them up on the form.
+   The tooltip's track is the entry's own form's steps, so the highlighted step is always the status on the pill */
+const FORM_FLOWS = {
+  /* Cedar & Pine */
+  "Catering Order":["Submitted", "Confirmed", "Completed"],
+  "Service Agreement":["Drafted", "Awaiting Signature", "Signed"],
+  "Community Room Booking":["Submitted", "Confirmed", "Completed"],
+  "Office Coffee Service Request":["Submitted", "In Review", "Approved", "Completed"],
+  "Bulk Gift Card Order":["Submitted", "Processing", "Shipped", "Completed"],
+  "Feedback & Support":["Submitted", "In Review", "Completed"],
+  "Invoice":["Issued", "Unpaid", "Completed"],
+  /* Harbor Point */
+  "Boat Rental Request":["Submitted", "Confirmed", "Completed"],
+  "Youth Sailing Registration":["Submitted", "In Review", "Approved", "Completed"],
+  "Liability Waiver":["Drafted", "Awaiting Signature", "Signed"],
+  "Fall Regatta Entry":["Submitted", "Confirmed", "Completed"],
+  "Membership Renewal":["Submitted", "Approved", "Completed"],
+  "Medical & Emergency Info":["Submitted", "Reviewed"],
+  "Volunteer Sign-Up":["Received", "Assigned", "Completed"],
+  "Locker Request":["Submitted", "Waitlisted", "Assigned", "Completed"],
+  "Photo Release":["Submitted", "On File"],
+  "Spring Racing Clinic":["Submitted", "Confirmed", "Completed"],
+  "Guest Pass Request":["Submitted", "Approved", "Completed"],
+  "Lesson Change Request":["Submitted", "Approved", "Completed"],
+  "Incident Report":["Submitted", "In Review", "Closed"],
+};
+/* the steps for an entry: its form's workflow, or a plain one for a form without one; a status the workflow doesn't list is slotted in after the first step */
+function stFlow(form, st){
+  const steps = (FORM_FLOWS[form] || ["Submitted", "In Review", "Completed"]).slice();
+  if (st !== "Incomplete" && !steps.includes(st)) steps.splice(1, 0, st);
+  return steps;
+}
+const ST_INFO = {
+  "Incomplete":[0, "You started this but haven't submitted it yet. Pick up where you left off any time."],
+  "Submitted":[1, "Your entry was sent. It will be reviewed soon, and you'll be emailed when its status changes."],
+  "Received":[1, () => esc(ORG.name) + " received your entry and will follow up if they need anything."],
+  "Awaiting Signature":[2, "This is waiting for a signature before it can move forward. Open it to review and sign."],
+  "Unpaid":[2, "This is waiting for payment before it can move forward. Open the invoice to pay."],
+  "Waitlisted":[2, "You're on the waitlist. You'll be notified as soon as a spot opens up."],
+  "Approved":[3, "Your entry was approved. Nothing more is needed from you right now."],
+  "Confirmed":[3, "Your entry is confirmed. You're all set."],
+  "Completed":[4, "This is finished. It's kept here for your records."],
+  "Signed":[4, "Everyone has signed. A sealed copy is in your documents."],
+};
+/* ---------- status tooltips: hovering any status dot in the portal (or focusing the row it's on) shows the item, its steps as stops
+   on a line with the current one drawn in the status's own color, and what the status means. The item comes from the row or card the
+   dot is in (its data-open), from the attention card, or from the item popup that's open ---------- */
+const TIP_D = {
+  payments:{ Overdue:"This invoice is past its due date. Pay it to bring your account up to date.", Due:"This invoice is waiting for payment.",
+    Unsuccessful:"The automatic payment didn't go through. Pay with another card to keep things on schedule.", Scheduled:"This will be charged automatically on its due date. Nothing to do.",
+    Paid:"Paid in full. The receipt is saved with the invoice.", Refunded:"This payment was refunded to the card it was paid with." },
+  documents:{ "To Sign":"This document is waiting for your signature.", Signed:"Everyone who needed to sign has signed.", Sealed:"Signed by everyone and sealed, so it can't be changed. A certificate of completion is attached.", File:"A file shared with you. There's nothing to sign." },
+  events:{ RSVP:"You're invited. Let them know whether you're coming.", Going:"You RSVP'd yes.", "To Confirm":"Please confirm that this still works for you.", Confirmed:"This is confirmed. It's on your schedule.",
+    Attended:"This has already happened.", Automatic:"A payment that charges your saved card automatically on this date.", Due:"A task assigned to you, due on this date." },
+  quotes:{ Open:"This quote is open. Review it before it expires.", "Expiring Soon":"This quote expires soon. Review it before then." },
+  subscriptions:{ Active:"This subscription is active and renews on schedule.", Paused:"This subscription is paused. Nothing is charged until it resumes." },
+  cards:{ Valid:"This card is good to use.", "Expiring Soon":"This card expires soon. Update it so automatic payments keep working.", Expired:"This card has expired and can't be charged. Update it or use another card." },
+};
+function tipInfo(k, r){
+  if (!r) return null;
+  let t, icon, st, steps;
+  if (k === "submissions"){ t = r.form || r.title; icon = "form"; st = r.status; steps = stFlow(r.form, st);
+    const info = ST_INFO[st]; return { t, icon, st, steps, d:!info ? "This entry is " + esc(st.toLowerCase()) + "." : typeof info[1] === "function" ? info[1]() : esc(info[1]) }; }
+  if (k === "payments" || k === "history"){ t = r.what; icon = "currency"; st = STATUS.payments(r)[0]; steps = r.band === "refunded" ? ["Issued", "Paid", "Refunded"] : ["Issued", st === "Paid" ? "Due" : st, "Paid"]; k = "payments"; }
+  else if (k === "documents"){ t = r.name; icon = "document"; st = r.state; steps = st === "File" ? ["Shared"] : ["Sent", "To Sign", "Signed"].concat(st === "Sealed" || r.need > 1 ? ["Sealed"] : []); }
+  else if (k === "events"){ t = r.title; icon = r.task ? "tasks" : "date"; st = r.status;
+    steps = r.pay ? ["Scheduled", "Automatic", "Paid"] : r.task ? ["Assigned", "Due", "Done"] : st === "RSVP" || st === "Going" ? ["Invited", "RSVP", "Going", "Attended"] : st === "To Confirm" ? ["Scheduled", "To Confirm", "Confirmed", "Attended"] : ["Scheduled", "Confirmed", "Attended"]; }
+  else if (k === "quotes"){ t = r.what; icon = "price"; st = qSoon(r) ? "Expiring Soon" : "Open"; steps = ["Sent", st, "Accepted"]; }
+  else if (k === "subscriptions"){ t = r.name; icon = "sync"; st = r.state; steps = st === "Paused" ? ["Active", "Paused", "Resumes " + r.resume] : ["Started", "Active", r.next ? "Renews " + fDate(r.next) : "Renews"]; }
+  else if (k === "cards"){ t = cardName(r); icon = "credit-card"; st = STATUS.cards(r)[0]; steps = ["Valid", "Expiring Soon", "Expired"]; }
+  else return null;
+  if (!steps.includes(st)) steps.splice(1, 0, st);
+  return { t, icon, st, steps, d:esc((TIP_D[k] || {})[st] || "") };
+}
+/* which item a dot belongs to */
+function tipItem(dot){
+  const op = dot.closest("[data-open]");
+  if (op){ const [w, id] = op.dataset.open.split(":"); return [w, itemOf({ w, id })]; }
+  const at = dot.closest("[data-attn]");
+  if (at){ const a = attention()[+at.dataset.attn]; if (!a) return null;
+    if (a.go) return [a.go[0], itemOf({ w:a.go[0], id:a.go[1] })];
+    if (a.act && a.act[0] === "continue") return ["submissions", itemOf({ w:"submissions", id:a.act[1] })];
+    if (a.act && a.act[0] === "task") return ["events", W.events.all().find(e => e.id === a.act[1])];
+    return null; }
+  if (dot.closest(".dlg.im") && S.im && S.im.length){ const cur = S.im[S.im.length - 1]; return [cur.w, itemOf(cur)]; }
+  return null;
+}
+function stTipHtml(info){
+  const n = info.steps.indexOf(info.st) + 1;
+  /* the title always leads with the form icon, whatever kind of item it is */
+  return '<b class="st-h">' + ic("form") + "<span>" + esc(info.t) + "</span></b>"
+    + '<ol class="st-steps" aria-hidden="true">' + info.steps.map((s, i) => '<li class="' + (i + 1 < n ? "done" : i + 1 === n ? "on" : "") + '"><i></i><span>' + esc(s) + "</span></li>").join("") + "</ol>"
+    /* no widows: the last two words of the description stay together (a backup for browsers without text-wrap:pretty) */
+    + (info.d ? '<p class="st-d">' + info.d.replace(/ (\S+)$/, "&nbsp;$1") + "</p>" : "");
+}
+const ST_DOTS = ".pill > i, .x-dot, .tc-f .dot";
+let stFor = null, stDot = null;
+function hideSt(){ const t = $("#stTip"); if (t) t.remove(); if (stFor && stFor.isConnected) stFor.removeAttribute("aria-describedby"); stFor = null; stDot = null; }
+function showSt(dot){
+  if (stDot === dot && $("#stTip")) return;
+  hideSt();
+  const it = tipItem(dot), info = it && tipInfo(it[0], it[1]); if (!info) return;
+  const t = document.createElement("div"); t.id = "stTip"; t.className = "st-tip"; t.setAttribute("role", "tooltip"); t.innerHTML = stTipHtml(info);
+  /* the current stop takes the hovered dot's own color */
+  t.style.setProperty("--cur", getComputedStyle(dot).backgroundColor);
+  /* drawn inside the portal so it takes the portal's own theme colors, light or dark; placed in the portal's coordinates */
+  const host = $("#portal") || document.body; host.appendChild(t);
+  const r = dot.getBoundingClientRect(), hr = host.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight, poc = $(".poc") ? $(".poc").offsetHeight : 0;
+  const above = r.top - h - 10 >= Math.max(poc, hr.top) + 4, left = Math.max(hr.left + 8, Math.min(Math.min(innerWidth, hr.right) - w - 8, r.left + r.width / 2 - w / 2));
+  t.style.left = (left - hr.left) + "px"; t.style.top = ((above ? r.top - h - 10 : r.bottom + 10) - hr.top) + "px";
+  t.classList.add(above ? "up" : "down"); t.style.setProperty("--ax", (r.left + r.width / 2 - left) + "px");
+  stDot = dot; stFor = dot.closest("[data-open], [data-attn]"); if (stFor) stFor.setAttribute("aria-describedby", "stTip");
+}
+/* the hover target is the status dot plus its status name where one sits beside it: the whole pill, or the attention card's flag.
+   Whatever is hovered, the tooltip is anchored to (and colored from) the dot itself */
+const ST_HOT = ".pill:has(> i), .x-dot, .tc-f .dot, .tc-f > span";
+const stDotOf = el => {
+  const h = el.closest && el.closest("#frame :is(" + ST_HOT + ")"); if (!h) return null;
+  return h.matches(".pill") ? h.querySelector(":scope > i") : h.matches(".tc-f > span") ? h.parentNode.querySelector(".dot") : h;
+};
+document.addEventListener("mouseover", e => { const d = stDotOf(e.target); if (d) showSt(d); else if (stDot && !(stFor && e.target.closest && e.target.closest("#stTip"))) hideSt(); });
+/* keyboard: focusing a row or card that has a status dot shows its tooltip */
+document.addEventListener("focusin", e => {
+  const row = e.target.closest && e.target.closest("#frame [data-open], #frame [data-attn]"), d = row && row === e.target && row.querySelector(ST_DOTS);
+  if (d) showSt(d); else if (stDot) hideSt();
+});
+document.addEventListener("focusout", e => { if (stFor && e.target === stFor) hideSt(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && stDot) hideSt(); }, true);
+window.addEventListener("scroll", () => { if (stDot) hideSt(); }, true);
+
+/* Invoices can show what's still to pay (overdue, due, and scheduled) or what's been paid (paid and refunded, newest first).
+   The admin picks Unpaid and Paid (end-users get a toggle like Entries' All / My Submissions), Unpaid Only, or Paid Only */
+S.invShow = "both"; S.invF = "unpaid";
+const INV_SHOW = [["both", "Unpaid and Paid"], ["unpaid", "Unpaid Only"], ["paid", "Paid Only"]];
+const invMode = () => S.invShow === "paid" || (S.invShow !== "unpaid" && S.invF === "paid") ? "paid" : "unpaid";
+const paidItems = () => data("payments").filter(o => o.band === "paid" || o.band === "refunded").sort((a, b) => b.paid - a.paid);
+/* the admin's choice is in the widget's settings menu while editing; end-users get the toggle only when both lists are on */
+function invRow(){
+  if (S.invShow !== "both") return "";
+  const m = invMode();
+  return '<div class="w-scope ent-row"><div class="scope" role="group" aria-label="Show invoices">' + [["unpaid", "Unpaid", W.payments.items().length], ["paid", "Paid", paidItems().length]]
+    .map(o => '<button data-act="invf" data-v="' + o[0] + '" aria-pressed="' + (m === o[0]) + '">' + o[1] + " <em>" + o[2] + "</em></button>").join("") + "</div></div>";
+}
+function paidBody(items){
+  const ref = items.filter(o => o.band === "refunded").length;
+  return '<div class="x-sum"><span class="x-cap">Paid this year</span><b class="x-big">' + money(paidYear()) + '</b><span class="x-sub">' + plural(items.length - ref, "payment") + (ref ? " · " + plural(ref, "refund") : "") + "</span></div>"
+    + '<div class="x-inv"><div class="x-tb"><div class="x-th" aria-hidden="true"><span></span><span>Invoice</span><span>Number</span><span>Status</span><span>Amount</span><span></span></div>'
+    + items.slice(0, ROWS).map(o => { const when = (o.band === "refunded" ? "Refunded " : "Paid ") + fDate(o.paid);
+      return '<button class="it x-row x-ir sw-' + (o.band === "refunded" ? "gray" : "green") + '" data-open="payments:' + o.id + '"><i class="x-dot"></i><div class="tx"><b>' + esc(o.what) + "</b><span>" + o.num + ' · <em class="x-when">' + when + "</em></span></div>"
+        + '<span class="x-tc">' + o.num + '</span><em class="x-tc x-when">' + when + "</em>"
+        + '<span class="x-amt">' + money(o.amt) + '</span><span class="btn sm" data-act="toast" data-msg="Downloads the receipt for ' + o.num + '.">' + ic("download") + "Receipt</span></button>"; }).join("") + "</div></div>";
+}
 /* Quotes: laid out like Invoices, the open total on top, then each quote with how long it has left */
 function quotesBody(items){
   const soon = items.filter(qSoon).length, total = items.reduce((a, q) => a + q.amt, 0);
@@ -3615,7 +3967,8 @@ function docsBody(items){
 let ROWS = 5;
 function widgetHtml(k, G = {}){
   ROWS = 5 * (S.ht[k] || 1);
-  const w = W[k], items = w.items(), kpi = w.kpi(items);
+  const paidOn = k === "payments" && invMode() === "paid";
+  const w = W[k], items = paidOn ? paidItems() : w.items(), kpi = w.kpi(items);
   let body, shown = Math.min(items.length, ROWS);
   const sumOn = !!(S.kpiOn[k] && items.length && kpi), cardsOn = !sumOn && (k === "events" ? evStyle() === "cards" : S.views[k] === "cards" && canCards(k)) && items.length > 0;
   if (sumOn){ body = summaryHtml(k, items, kpi); shown = items.length; }
@@ -3623,13 +3976,14 @@ function widgetHtml(k, G = {}){
   else if (k === "formsx" && items.length){ body = fxBody(items); shown = items.length; }
   else if (cardsOn){ shown = Math.min(items.length, 8); body = cardPages(k, items.slice(0, 8), w); }
   else if (k === "events" && items.length){ const st = evStyle(); body = upcomingBody(items, st); shown = st === "list" ? Math.min(items.length, 4) : items.length; }
-  else if (k === "payments" && items.length) body = invoicesBody(items);
+  else if (k === "payments" && items.length) body = paidOn ? paidBody(items) : invoicesBody(items);
+  else if (paidOn) body = '<div class="null"><div class="ov"><b>No payments yet</b><p>Invoices you pay show up here with their receipts.</p></div></div>';
   else if (k === "quotes" && items.length) body = quotesBody(items);
   else if (k === "subscriptions" && items.length) body = subsBody(items);
   else if (k === "documents" && items.length){ body = docsBody(items); shown = Math.min(items.length, 4); }
   else if (k === "submissions" && entMode() === "form") body = entGroupBody();
-  else if (k === "submissions" && items.length) body = '<div class="x-ent"><div class="x-tb"><div class="x-th" aria-hidden="true"><span>Entry</span><span>Details</span><span>Status</span><span>From</span><span>Date</span></div>'
-    + items.slice(0, ROWS).map(it => '<button class="it x-er" data-open="submissions:' + it.id + '">' + w.row(it) + '<span class="x-tc">' + esc(it.by || "You") + '</span><span class="x-tc x-dt">' + fDate(it.at) + "</span></button>").join("") + "</div></div>";
+  else if (k === "submissions" && items.length) body = '<div class="x-ent"><div class="x-tb" data-fill="' + ROWS + '"><div class="x-th" aria-hidden="true"><span>Entry</span><span>Details</span><span>Status</span><span>From</span><span>Date</span></div>'
+    + items.slice(0, 40).map((it, i) => '<button class="it x-er" data-open="submissions:' + it.id + '"' + (i >= ROWS ? " hidden" : "") + ">" + w.row(it) + '<span class="x-tc">' + esc(it.by || "You") + '</span><span class="x-tc x-dt">' + fDate(it.at) + "</span></button>").join("") + "</div></div>";
   else if (items.length) body = items.slice(0, ROWS).map(it => '<button class="it" data-open="' + k + ":" + it.id + '">' + w.row(it) + "</button>").join("");
   else if (k === "submissions") body = '<div class="startlist"><div class="cap">' + esc(w.nul.p) + "</div>" + STARTABLE.map(f => '<button data-act="start" data-form="' + esc(f) + '">' + ic("plus") + esc(f) + '<span class="go">' + ic("chevron-right") + "</span></button>").join("") + "</div>";
   else if (k === "payments" && data("payments").length) body = '<div class="null"><div class="ov"><b>' + "You're all paid up." + "</b><p>Nothing is due and nothing is scheduled.</p></div></div>";
@@ -3660,7 +4014,7 @@ function widgetHtml(k, G = {}){
   const ft = "";
   if (G.bodyOnly) return '<div class="w-body' + (sumOn ? " sum" : cardsOn ? " w-cards" : "") + '">' + body + "</div>" + ft;
   return '<section class="w' + (editing() ? " ed" : "") + '" data-w="' + (G.dataw || k) + '" data-k="' + k + '" data-sw="' + Math.min(MAX_COLS, S.sz[k] || 1) + '" data-h="' + (S.ht[k] || 1) + '">' + (editing() ? widgetHead(k, G.title || w.title, G.icon || w.icon) : '<header class="w-h"><span class="w-ic">' + ic(G.icon || w.icon) + '</span><h2><button data-go="' + k + '"><span class="ttl-t">' + esc(G.title || w.title) + '</span>' + ic("chevron-right", "ttl-ch") + "</button></h2>"
-    + (k === "submissions" && items.length ? '<div class="w-acts">' + newBtn("w") + "</div>" : "") + "</header>") + (G.scope ? '<div class="w-scope">' + G.scope + "</div>" : k === "submissions" && data("submissions").length ? '<div class="w-scope ent-row">' + scopeCtl() + "</div>" : "") + (w.sub ? '<p class="w-sub">' + esc(w.sub) + "</p>" : "")
+    + (k === "submissions" && items.length ? '<div class="w-acts">' + newBtn("w") + "</div>" : "") + "</header>") + (G.scope ? '<div class="w-scope">' + G.scope + "</div>" : k === "submissions" && data("submissions").length ? '<div class="w-scope ent-row">' + scopeCtl() + "</div>" : k === "payments" && data("payments").length ? invRow() : "") + (w.sub ? '<p class="w-sub">' + esc(w.sub) + "</p>" : "")
     + '<div class="w-body' + (sumOn ? " sum" : cardsOn ? " w-cards" : "") + '">' + body + "</div>" + ft + "</section>";
 }
 
@@ -4016,7 +4370,9 @@ function placeDlg(frame){
   d.style.marginTop = Math.min(want, room) + "px";
 }
 function render(keepFocus){
-  const fid = keepFocus && document.activeElement && document.activeElement.id;
+  hideSt();
+  /* the search box keeps focus through any redraw (a toast, say), so typing in it is never interrupted */
+  const fid = (keepFocus || (document.activeElement && document.activeElement.id === "gSearch")) && document.activeElement && document.activeElement.id;
   const pos = fid && document.activeElement.selectionStart;
   const frame = $("#frame");
   frame.className = "frame " + (S.mode === "view" ? S.device : "desktop");
@@ -4096,6 +4452,12 @@ function act(a, ds){
     case "back": if (S.ret){ S.vid = S.ret; S.ret = null; return go("view"); } return go("list", S.w);
     case "up": return S.backTo && W[S.backTo] ? go("list", S.backTo, null, true) : go("home", null, null, true);
     case "scope": S.subF = ds.v; return render();
+    case "srchopen": S.srchWide = true; S.srchOpen = true; render(); return srchFocus();
+    case "srchclose": S.srchWide = false; S.srchOpen = false; S.srchQ = ""; render(); { const b = $("#frame .srch-ic"); return b && b.focus(); }
+    case "srchsug": S.srchQ = ds.q; srchLog(ds.q); { const i = $("#gSearch"); if (i) i.value = ds.q; } srchPaint(); return srchFocus();
+    case "sres": { srchLog(S.srchQ); S.srchOpen = false; S.srchWide = false; if (ds.w === "events" && id[0] === "t") return act("task", { id }); return openItem(ds.w, id); }
+    case "invf": { S.invF = ds.v; render(); const f = $('#frame [data-act="invf"][data-v="' + ds.v + '"]'); return f && f.focus({ preventScroll:true }); }
+    case "invshow": { S.invShow = ds.v; S.invF = "unpaid"; S.menu = null; queueSave(); render(); announce("Invoices now shows " + INV_SHOW.find(o => o[0] === S.invShow)[1].toLowerCase() + "."); const f = $('#frame .w-mn[data-k="payments"]'); return f && f.focus(); }
     case "mode": { setMode(ds.v); const f = $('#frame .wp-mode button[data-v="' + ds.v + '"]'); return f && f.focus(); }
     /* Upcoming: pick a day, page the calendar, or go back to the whole week; focus stays on the control that was used */
     case "evsel": { const k = ds.k; S.evSel = evStyle() === "week" && S.evSel === k ? null : k; render(); const f = $('#frame [data-act="evsel"][data-k="' + k + '"]'); if (f) f.focus({ preventScroll:true }); return; }
@@ -4132,7 +4494,7 @@ function act(a, ds){
     case "rsvp": { const ev = D.events.find(x => x.id === id); ev.status = "Going"; return toast("RSVP sent for " + ev.title + "."); }
     case "confirm": { const ev = D.events.find(x => x.id === id); ev.status = "Confirmed"; return toast(ev.title + " confirmed."); }
     case "cal": return toast("Downloads a calendar file you can open in any calendar app.");
-    case "sign": { const d = D.documents.find(x => x.id === id); toast("Opens the signing ceremony. Simulated: " + d.name + " signed."); d.state = d.signed + 1 >= d.need ? "Signed" : "To Sign"; d.signed++; (d.parties || []).forEach(p => { if (p[1] === "Waiting for you") p[1] = "Signed " + fDate(TODAY); }); if (d.revs) d.revs.unshift(["Revision " + (d.revs.length + 1) + " · signed by you", new Date()]); const s = D.submissions.find(x => x.title === d.entry || x.form === d.entry); if (s && s.status === "Awaiting Signature") s.status = "Submitted"; return render(); }
+    case "sign": { const d = D.documents.find(x => x.id === id); toast("Opens the signing ceremony. Simulated: " + d.name + " signed."); d.state = d.signed + 1 >= d.need ? "Signed" : "To Sign"; d.signed++; (d.parties || []).forEach(p => { if (p[1] === "Waiting for you") p[1] = "Signed " + fDate(TODAY); }); if (d.revs) d.revs.unshift(["Revision " + (d.revs.length + 1) + " · signed by you", new Date()]); const s = D.submissions.find(x => x.title === d.entry || x.form === d.entry); if (s && s.status === "Awaiting Signature" && d.state === "Signed") s.status = "Signed"; return render(); }
     case "payone": { const o = D.payments.find(x => x.id === id); o.band = "paid"; o.paid = new Date(TODAY); o.card = o.card || "Visa 4242"; delete o.status; D.submissions.filter(s => s.status === "Unpaid" && s.title === o.entry).forEach(s => s.status = "Completed"); return toast("Opens checkout for " + money(o.amt) + ". Simulated: paid."); }
     case "pause": { const u = D.subscriptions.find(x => x.id === id); if (u.state === "Active"){ u.state = "Paused"; u.resume = fDate(day(60)); u._next = u.next; u.next = null; } else { u.state = "Active"; u.next = u._next || day(30); } return toast(u.name + (u.state === "Paused" ? " paused." : " resumed.")); }
     case "plan": { const u = D.subscriptions.find(x => x.id === id), p = u.plans[+ds.i]; u.amt = p[2]; u.cadence = p[1]; u.per = p[3]; return toast("Plan changed to " + p[0] + ", " + money(p[2]) + " " + p[1].toLowerCase() + ". Simulated."); }
@@ -4651,10 +5013,13 @@ const TO_MENU_IC = '<svg class="icon" aria-hidden="true" viewBox="0 0 17 17" fil
 const DOTS = '<svg class="icon" aria-hidden="true" viewBox="0 0 17 17"><circle cx="3.5" cy="8.5" r="1.4" fill="currentColor"/><circle cx="8.5" cy="8.5" r="1.4" fill="currentColor"/><circle cx="13.5" cy="8.5" r="1.4" fill="currentColor"/></svg>';
 const TO_HEAD = { notifications:["bell", "Show as Bell Icon in the Top Bar"], subscriptions:["guest-person", "Move to Account Menu"], cards:["guest-person", "Move to Account Menu"] };
 function wMore(k, title){
-  if (!HEADABLE.includes(k) && k !== "submissions") return "";
+  if (!HEADABLE.includes(k) && k !== "submissions" && k !== "payments") return "";
   const open = S.menu === "w:" + k;
   return '<div class="w-more"><button class="w-mn" data-act="wmenu" data-k="' + k + '" aria-label="Settings for ' + esc(title) + '" aria-haspopup="true" aria-expanded="' + open + '" title="Settings">' + ic("settings") + "</button>"
-    + (open ? '<div class="menu wmenu">' + (k === "submissions"
+    + (open ? '<div class="menu wmenu">' + (k === "payments"
+      /* Invoices: what end-users can see. Unpaid and Paid gives them a toggle; the other two show just that list */
+      ? '<div class="mcap">Show End-Users</div>' + INV_SHOW.map(o => '<button role="menuitemradio" aria-checked="' + (S.invShow === o[0]) + '" data-act="invshow" data-v="' + o[0] + '"><span class="wm-ck">' + (S.invShow === o[0] ? ic("check") : "") + "</span>" + o[1] + "</button>").join("")
+      : k === "submissions"
       /* Entries: show recent entries, or group them by form */
       ? [["all", "Show Details"], ["form", "Group by Form"]].map(o => '<button role="menuitemradio" aria-checked="' + (entMode() === o[0]) + '" data-act="entmode" data-v="' + o[0] + '">' + '<span class="wm-ck">' + (entMode() === o[0] ? ic("check") : "") + "</span>" + o[1] + "</button>").join("")
       : '<button data-act="tohead" data-k="' + k + '">' + ic(TO_HEAD[k][0]) + TO_HEAD[k][1] + "</button>") + "</div>" : "") + "</div>";
@@ -5094,6 +5459,8 @@ function setupData(){
     WidthsChanged:WKEYS.filter(k => w(k) !== w0(k)).map(k => name(k) + ": " + w0(k) + " → " + w(k)).join(" | ") || "None",
     FooterLinks:links.map(l => l[1] + ": " + l[2]).join(" | ") || "None",
     FooterShown:links.length ? "Yes" : "No",
+    SearchQueries:S.srchLog.join(" | ") || "None",
+    InvoicesShow:INV_SHOW.find(o => o[0] === (S.invShow || "both"))[1],
     LogoUploaded:t.upload ? "Yes" : "No",
     HeaderImage:!t.headerImg ? "Solid color" : t.headerImg.kind === "upload" ? "Uploaded image" : "Library: " + (HEADER_IMGS.find(x => x[0] === t.headerImg.id) || [, , ""])[1],
     CornerRadius:radiusOf(t),
@@ -5108,7 +5475,7 @@ function surveyUrl(x){
 /* a respondent who changed nothing first confirms the portal is right as it is */
 function openDone(){
   closeAdd(true);
-  const x = setupData(), same = x.OrderChanged === "No" && x.FooterShown === "No" && x.LogoUploaded === "No" && x.HeaderImage === "Solid color"
+  const x = setupData(), same = x.OrderChanged === "No" && x.FooterShown === "No" && x.InvoicesShow === "Unpaid and Paid" && x.LogoUploaded === "No" && x.HeaderImage === "Solid color"
     && x.CornerRadius === radiusOf(DEFAULTS.themes[S.portal].theme)
     && ["SectionsRemoved", "SectionsAdded", "SectionsRenamed", "MovedToTopBar", "WidthsChanged", "ColorChanges", "FontChanges"].every(k => x[k] === "None");
   /* research: someone who never switched the Entries setting is asked whether they noticed it and which view they'd rather show */
@@ -5150,7 +5517,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape" && $("#sdone"
 /* ---------- saving: the layout, names, footer links, and appearance are kept in this browser ---------- */
 const SETTINGS_KEY = "guestPortalBuilder.settings.v2";
 const LAYOUT_V = 3;
-const snapshot = () => (syncTheme(), JSON.parse(JSON.stringify({ lv:LAYOUT_V, themes:S.themes, custom:S.custom, on:S.on, order:S.order, sz:S.sz, ht:S.ht, col:S.col, links:S.links, entMode:S.entMode || "all",
+const snapshot = () => (syncTheme(), JSON.parse(JSON.stringify({ lv:LAYOUT_V, themes:S.themes, custom:S.custom, on:S.on, order:S.order, sz:S.sz, ht:S.ht, col:S.col, links:S.links, entMode:S.entMode || "all", invShow:S.invShow || "both",
   titles:Object.fromEntries(WKEYS.map(k => [k, W[k].title])) })));
 const DEFAULTS = snapshot();
 function applySettings(x){
@@ -5159,6 +5526,7 @@ function applySettings(x){
   if (x.themes) PORTALS.forEach(p => { const d = DEFAULTS.themes[p.id], v = x.themes[p.id]; if (v && v.theme && v.theme.colors) S.themes[p.id] = { preset:v.preset || null, theme:Object.assign(clone(d.theme), v.theme) }; });
   if (x.on) WKEYS.forEach(k => { if (typeof x.on[k] === "boolean") S.on[k] = x.on[k]; });
   if (x.entMode === "form" || x.entMode === "all") S.entMode = x.entMode;
+  if (INV_SHOW.some(o => o[0] === x.invShow)) S.invShow = x.invShow;
   if (Array.isArray(x.order) && x.order.every(k => WKEYS.includes(k)) && new Set(x.order).size === x.order.length){
     /* a layout saved before a widget existed keeps its order; the new widget goes right after the one it follows by default */
     const o = x.order.slice(); WKEYS.filter(k => !o.includes(k)).forEach(k => { const i = WKEYS.indexOf(k), prev = WKEYS[i - 1], at = o.indexOf(prev); o.splice(at < 0 ? o.length : at + 1, 0, k); }); S.order = o;
